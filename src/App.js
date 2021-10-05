@@ -1,35 +1,30 @@
-import  {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
 import React from 'react'
-import Home from './components/pages/home/Home'
-import Grado from './components/pages/biblioteca/Grado'
-import Notfound from './components/pages/notfound/Notfound'
-import Footer from './components/Footer'
+import Home from './pages/Home'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import SearchP from './pages/SearchP'
+import Index1 from './pages/Index1'
+import Login from './pages/Login'
+import Gradoprueba from './pages/Gradoprueba'
+import DetallesPrueba from './pages/DetallesPrueba'
 import Aside from './components/Global/Aside'
 import Header from './components/Global/Header'
-import Gradofin from './components/pages/biblioteca/Gradofin'
-import Detalles from './components/pages/biblioteca/Detalles'
 
-
-
-export default function () {
+export default function App() {
   return (
-<>
-    
-    <Router>
-      <Aside/>
-      <Header/>
+    <div>
+      <BrowserRouter>
       <Switch>
-        <Route path="/" exact component = {Home}/>
-        <Route path="/gradoterminado" exact component = {Gradofin}/>
-        <Route path="/grado" exact component = {Grado}/>
-        <Route path="/grado/detallesgrado" exact component = {Detalles}/>
-        <Route component ={() => (
-          <Notfound/>)
-        } />
-
+            <Route exact path="/Home" component={Home} />
+            <Route exact path="/Home/Search" component={SearchP} />
+            <Route exact path="/Home/Login/Dashboart" component={Index1} />
+            <Route exact path="/Home/Login" component={Login} />
+            <Route path="/Gradoprueba" exact component={Gradoprueba}/>
+            <Route exact path="/DetallesPrueba/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DetallesPrueba id={id} />
+                        }} />
       </Switch>
-    </Router>
-
-    </>
+    </BrowserRouter>
+    </div>
   )
 }
