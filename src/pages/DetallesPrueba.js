@@ -11,7 +11,7 @@ export default class DetallesPelicula extends Component {
 
     mostrarPelicula = () => {
         console.log("holasssss");
-        var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
+        var request = "/biblioteca/listarporid/" + this.props.id;
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({
@@ -32,7 +32,8 @@ export default class DetallesPelicula extends Component {
           <Aside /> 
             </header >
                 <br /><br />
-                <h1><u>Detalles de la película número {this.props.id}</u></h1>
+                <h1 align="center">Home</h1>     
+                <h1 align="center"><u>Detalles de la película número {this.props.id}</u></h1>
                 {this.state.status === true &&
                 
                 (
@@ -41,9 +42,9 @@ export default class DetallesPelicula extends Component {
                         
                         <NavLink to="/" className="btn btn-sm btn-dark">Listado</NavLink>
                         <br /><br />
-                        <h3>Nombre: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.titulo}</span></h3>
-                        <h3>Director: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.estado}</span></h3>
-                        <h3>Clasificación: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.fecha_inicio}</span></h3>
+                        <h3 align="center">Nombre: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.titulo}</span></h3>
+                        <h3 align="center">Director: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.estado}</span></h3>
+                        <h3 align="center">Clasificación: <span style={{color: "green", fontWeight: "bold"}}>{this.state.pelicula.fecha_inicio}</span></h3>
                         <NavLink to={"/update/" + this.state.pelicula.id} className="btn btn-primary">Modificar</NavLink> &nbsp;&nbsp;
                         <NavLink to={"/delete/" + this.state.pelicula.id} className="btn btn-danger">Borrar</NavLink>
                     </React.Fragment>

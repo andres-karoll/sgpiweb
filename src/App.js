@@ -14,7 +14,7 @@ export default function App() {
     <div>
       <BrowserRouter>
       <Switch>
-            <Route exact path="/Home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/Home/Search" component={SearchP} />
             <Route exact path="/Home/Login/Dashboart" component={Index1} />
             <Route exact path="/Home/Login" component={Login} />
