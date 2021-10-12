@@ -27,7 +27,6 @@ export default class FormularioLogin extends Component {
                   <input type="password" className="form-control" placeholder="Contraseña" /> 
                   </div>
                   <a href="/Gradoprueba">Ingregar</a>
-
                 </form>
               </div>
             </div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import Navar from '../components/Navar'
+import Navar from '../../components/Navar'
 // import NotFoundImg from '../images/404.png'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Footer from '../../components/Footer'
 const Home = () => (
   <div>
     
