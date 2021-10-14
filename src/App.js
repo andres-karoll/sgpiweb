@@ -34,6 +34,11 @@ import ActualizarClase from './pages/GestionInstitucional/Clases/ActualizarClase
 import EliminarClase from './pages/GestionInstitucional/Clases/EliminarClase'
 import ConvocatoriasAbiertas from './pages/GestionInstitucional/Convocatorias/ConvocatoriasAbiertas'
 import DetallesConvocatoria from './pages/GestionInstitucional/Convocatorias/DetallesConvocatoria'
+import AsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/AsignarLineaGrupoI'
+import AsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/AsignarProgramaGrupoI'
+import LineasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/LineasGrupoI'
+import ProgramasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/ProgramasGrupoI'
+import PruebaMiguel from './pages/GestionInstitucional/GruposInvestigacion/PruebaMiguel'
 
 export default function App() {
   return (
@@ -45,12 +50,15 @@ export default function App() {
             <Route exact path="/Home/Search" component={SearchP} />
             <Route exact path="/Home/Login/Dashboart" component={Index1} />
             <Route exact path="/Home/Login" component={Login} />
+
+
             <Route path="/ProyectosGrado" exact component={ProyectosGrado}/>
             <Route path="/ProyectosGradoFin" exact component={ProyectosGradoFin}/>
             <Route exact path="/DetallesProyecto/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesProyectoGrado id={id} />
                         }} />
+
 
             <Route path="/GruposInvestigacion" exact component={GruposI}/>
             <Route path="/InsertarGruposInvestigacion" exact component={InsertarGruposI}/>           
@@ -63,6 +71,24 @@ export default function App() {
                             var id = props.match.params.id;
                             return <EliminarGruposInvestigacion id={id}/>
                         }} />
+            <Route exact path="/AsignarLineaGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarLineaGrupoI id={id}/>
+                        }} /> 
+            <Route exact path="/AsignarProgramaGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarProgramaGrupoI id={id}/>
+                        }} />             
+            <Route exact path="/LineasGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <LineasGrupoI id={id} />
+                        }} />
+            <Route exact path="/ProgramasGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProgramasGrupoI id={id} />
+                        }} />
+
+
             <Route path="/Semilleros" exact component={Semilleros}/>
             <Route path="/InsertarSemillero" exact component={InsertarSemilleros}/>
             <Route exact path="/ActulizarSemillero/:id" render={props => {
@@ -117,7 +143,9 @@ export default function App() {
             <Route exact path="/DetallesConvocatoriaAbierta/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesConvocatoria id={id} />
-                        }} />            
+                        }} />   
+
+<Route path="/PruebaMiguel" exact component={PruebaMiguel}/>         
             <Route component ={() => (
           <Error/>)
         } />

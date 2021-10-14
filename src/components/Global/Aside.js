@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 
 export default function Aside() {
     return (
-<aside className="main-sidebar sidebar-dark-primary elevation-4" style={{ position: 'fixed' }}>
+<aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' , width: '23%'}}>
 
-  <div className="sidebar">
+  <div className="sidebar" style={{ position: 'fixed' , width: '23%' , top: '5%'}}>
     {/* Sidebar user panel (optional) */}
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -68,7 +68,7 @@ export default function Aside() {
             <i className="fas fa-user-tie nav-icon" />        
             <p>
               Gestion institucional
-              <i className="right fas fa-angle-left" />
+              <i className="right fas fa-angle-left " />
             </p>
                       
           </a>
@@ -77,9 +77,8 @@ export default function Aside() {
             <li className="nav-item">
               <a  className="nav-link">
               <i className="fas fa-user-friends nav-icon"> </i>
-              
-                <p>Grupos de investigacion</p>
-                 
+                <p>Todos los Grupos de investigación</p>
+                
               </a>
             </li>
             </Link>
@@ -93,7 +92,6 @@ export default function Aside() {
               </a>
             </li>
             </Link>
-
             <Link to="/Facultades">
             <li className="nav-item">
               <a  className="nav-link">
@@ -148,6 +146,7 @@ export default function Aside() {
               </a>
             </li>
             </Link>
+
           </ul>
         </li>
 
@@ -156,6 +155,7 @@ export default function Aside() {
     </nav>
     {/* /.sidebar-menu */}
   </div>
+
   {/* /.sidebar */}
 </aside>
     )

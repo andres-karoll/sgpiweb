@@ -1569,3 +1569,8 @@ h6 {
     margin-bottom: 25px;
   }
 }
+
+.contenedor ::-webkit-scrollbar-thumb{
+  background: #1bb1dc;
+
+}

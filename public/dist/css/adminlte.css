@@ -11810,11 +11810,13 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   height: 100vh;
   overflow-y: hidden;
   z-index: 1038;
+  position: 'fixed';
 }
 
 .main-sidebar a:-moz-focusring {
   border: 0;
   outline: none;
+  position: 'fixed';
 }
 
 .sidebar {
@@ -11824,6 +11826,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0;
+  position: 'fixed';
 }
 
 .user-panel {

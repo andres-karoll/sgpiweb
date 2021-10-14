@@ -13,7 +13,11 @@ export default class InsertarGrupoInvestigacion extends Component {
     cajaFecha_catRef = React.createRef();
     cajaDirector_grupoRef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+    lineas:[],
+li:[],
+roles:[],
+rol:[] }
 
     nuevoGrupoInvestigacion = (e) => {
         e.preventDefault();
@@ -35,12 +39,30 @@ export default class InsertarGrupoInvestigacion extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/creargruposi';
         axios.post(url, grupo).then(res => {
             this.setState({ status: true });
+            window.location.href = "/GruposInvestigacion";
         });
     }
+    CargarRoles = () => {
+        var request = "/gestioninstitucional/listarlineasdelgrupo/2" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            roles: res.data
+            , status: true
+          })
+        });
+      }
+      
+      componentDidMount = () => {
+        this.CargarRoles();
+      }
+
+
+
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/GruposInvestigacion" />
+            //return <Redirect to="/GruposInvestigacion" />
         }
         return (
             <div>
@@ -68,8 +90,8 @@ export default class InsertarGrupoInvestigacion extends Component {
                             <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Nombre</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} />
+                            <label htmlFor="exampleInputPassword1">Nombreeeeeee</label>
+                           {/* /.card  <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} /> */}
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Fecha Fun</label>
@@ -86,6 +108,20 @@ export default class InsertarGrupoInvestigacion extends Component {
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Director de grupo</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Director de grupo" ref={this.cajaDirector_grupoRef} />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputPassword1">Prueba lineas</label>
+                            <select >
+                      {this.state.status === true && 
+                
+                ( this.state.roles.map((rol) => {
+                  return(
+                        <option ref={this.cajaNombreRef} value={rol.nombre}>{rol.nombre}</option> 
+                        );
+                      })
+                      )}
+                      </select>
+   
                         </div>
 
                         </div>
