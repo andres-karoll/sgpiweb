@@ -1,7 +1,7 @@
 import React from 'react'
-import Navar from  '../components/Navar'
-import FormularioLogin from  '../components/FormularioLogin'
-import Footer from '../components/Footer'
+import Navar from  '../../components/Navar'
+import FormularioLogin from  './FormularioLogin'
+import Footer from '../../components/Footer'
 const Login= () => (
 <div>
 <Navar/>
