@@ -2,566 +2,156 @@ import React from 'react'
 
 export default function Content() {
     return (
-        <div className="content-wrapper">
+<div>
+            <React.Fragment>
+              <div className="content-wrapper">
+                {/* Content Header (Page header) */}
+                <section className="content-header">
+                  <div className="container-fluid">
+                    <div className="row mb-2">
+                      <div className="col-sm-6">
+                        <h1>Detalles del Proyecto</h1>
+                      </div>
+                      <div className="col-sm-6">
+                        <ol className="breadcrumb float-sm-right">
+                          <li className="breadcrumb-item"><a href="/ProyectosGrado">Trabajos de grado</a></li>
+                          <li className="breadcrumb-item active">Detalles del proyecto</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>{/* /.container-fluid */}
+                </section>
+                {/* Main content */}
+                <section className="content">
+                  {/* Default box */}
+                  <div className="card">
+                    <div className="card-header">
+                      <h3 className="card-title">id: </h3>
+                      <div className="card-tools">
+                        <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                          <i className="fas fa-minus" />
+                        </button>
+                        <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
+                          <i className="fas fa-times" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                          <div className="row">
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">Fecha inicio</span>
+                                  <span className="info-box-number text-center text-muted mb-0"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">Fecha fin</span>
+                                  <span className="info-box-number text-center text-muted mb-0"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-12 col-sm-4">
+                              <div className="info-box bg-light">
+                                <div className="info-box-content">
+                                  <span className="info-box-text text-center text-muted">Estado</span>
+                                  <span className="info-box-number text-center text-muted mb-0"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-12">
+                              <h4>Datos extras</h4>
+                              <div className="post">
+                                <div className="user-block">
+                                  <img className="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image" />
+                                  <span className="username">
+                                    <a href="#">Jonathan Burke Jr.</a>
+                                  </span>
+                                  <span className="description">Shared publicly - 7:45 PM today</span>
+                                </div>
+                                {/* /.user-block */}
+                                <p>
+                                  Lorem ipsum represents a long-held tradition for designers,
+                                  typographers and the like. Some people hate it and argue for
+                                  its demise, but others ignore.
+                                </p>
+                                <p>
+                                  <a href="#" className="link-black text-sm"><i className="fas fa-link mr-1" /> Demo File 1 v2</a>
+                                </p>
+                              </div>
+                              <div className="post clearfix">
+                                <div className="user-block">
+                                  <img className="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image" />
+                                  <span className="username">
+                                    <a href="#">Sarah Ross</a>
+                                  </span>
+                                  <span className="description">Sent you a message - 3 days ago</span>
+                                </div>
+                                {/* /.user-block */}
+                                <p>
+                                  Lorem ipsum represents a long-held tradition for designers,
+                                  typographers and the like. Some people hate it and argue for
+                                  its demise, but others ignore.
+                                </p>
+                                <p>
+                                  <a href="#" className="link-black text-sm"><i className="fas fa-link mr-1" /> Demo File 2</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                          <h3 className="text-primary"><i className="fas fa-graduation-cap" /> Titulo:</h3>
+                          <p className="text-muted"></p>
+                          <br />
+                          <div className="text-muted">
+                            <p className="text-sm">Justificación
+                              <b className="d-block"></b>
+                            </p>
+                            <p className="text-sm">Retro alimentación
+                              <b className="d-block"></b>
+                            </p>
+                            <p className="text-sm">Conclusiones
+                              <b className="d-block"></b>
+                            </p>
 
-  {/* Main content */}
-  <section className="content">
-    {/* Default box */}
-    <div className="card">
-      <div className="card-header">
-        <h3 className="card-title">Projects</h3>
-        <div className="card-tools">
-          <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i className="fas fa-minus" />
-          </button>
-          <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i className="fas fa-times" />
-          </button>
-        </div>
-      </div>
-      <div className="card-body p-0">
-        <table className="table table-striped projects">
-          <thead>
-            <tr>
-              <th style={{width: '1%'}}>
-                #
-              </th>
-              <th style={{width: '20%'}}>
-                Project Name
-              </th>
-              <th style={{width: '30%'}}>
-                Team Members
-              </th>
-              <th>
-                Project Progress
-              </th>
-              <th style={{width: '8%'}} className="text-center">
-                Status
-              </th>
-              <th style={{width: '20%'}}>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar2.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={57} aria-valuemin={0} aria-valuemax={100} style={{width: '57%'}}>
-                  </div>
-                </div>
-                <small>
-                  57% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar2.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={47} aria-valuemin={0} aria-valuemax={100} style={{width: '47%'}}>
-                  </div>
-                </div>
-                <small>
-                  47% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar2.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={77} aria-valuemin={0} aria-valuemax={100} style={{width: '77%'}}>
-                  </div>
-                </div>
-                <small>
-                  77% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar2.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100} style={{width: '60%'}}>
-                  </div>
-                </div>
-                <small>
-                  60% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar5.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={12} aria-valuemin={0} aria-valuemax={100} style={{width: '12%'}}>
-                  </div>
-                </div>
-                <small>
-                  12% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar2.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={35} aria-valuemin={0} aria-valuemax={100} style={{width: '35%'}}>
-                  </div>
-                </div>
-                <small>
-                  35% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar5.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={87} aria-valuemin={0} aria-valuemax={100} style={{width: '87%'}}>
-                  </div>
-                </div>
-                <small>
-                  87% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={77} aria-valuemin={0} aria-valuemax={100} style={{width: '77%'}}>
-                  </div>
-                </div>
-                <small>
-                  77% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                #
-              </td>
-              <td>
-                <a>
-                  AdminLTE v3
-                </a>
-                <br />
-                <small>
-                  Created 01.01.2019
-                </small>
-              </td>
-              <td>
-                <ul className="list-inline">
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar3.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar4.png" />
-                  </li>
-                  <li className="list-inline-item">
-                    <img alt="Avatar" className="table-avatar" src="../../dist/img/avatar5.png" />
-                  </li>
-                </ul>
-              </td>
-              <td className="project_progress">
-                <div className="progress progress-sm">
-                  <div className="progress-bar bg-green" role="progressbar" aria-valuenow={77} aria-valuemin={0} aria-valuemax={100} style={{width: '77%'}}>
-                  </div>
-                </div>
-                <small>
-                  77% Complete
-                </small>
-              </td>
-              <td className="project-state">
-                <span className="badge badge-success">Success</span>
-              </td>
-              <td className="project-actions text-right">
-                <a className="btn btn-primary btn-sm" href="#">
-                  <i className="fas fa-folder">
-                  </i>
-                  View
-                </a>
-                <a className="btn btn-info btn-sm" href="#">
-                  <i className="fas fa-pencil-alt">
-                  </i>
-                  Edit
-                </a>
-                <a className="btn btn-danger btn-sm" href="#">
-                  <i className="fas fa-trash">
-                  </i>
-                  Delete
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      {/* /.card-body */}
-    </div>
-    {/* /.card */}
-  </section>
-  {/* /.content */}
-</div>
+                          </div>
+                          <h5 className="mt-5 text-muted">Archivos del proyecto</h5>
+                          <ul className="list-unstyled">
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Functional-requirements.docx</a>
+                            </li>
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-pdf" /> UAT.pdf</a>
+                            </li>
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-envelope" /> Email-from-flatbal.mln</a>
+                            </li>
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-image " /> Logo.png</a>
+                            </li>
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Contract-10_12_2014.docx</a>
+                            </li>
+                          </ul>
 
+                        </div>
+                      </div>
+                    </div>
+                    {/* /.card-body */}
+                  </div>
+                  {/* /.card */}
+                </section>
+                {/* /.content */}
+              </div>
+            </React.Fragment>
+      </div>
     )
 }

@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-import {Link} from 'react-router-dom'
-
-export default function Aside() {
+import { Link } from 'react-router-dom'
+export default class Aside extends Component{
+  render() {
+    var rol=localStorage.getItem("tipo");
     return (
-<aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' , width: '23%'}}>
+      <aside className="main-sidebar sidebar-dark-primary elevation-4" style={{ position: 'fixed' }}>
 
-  <div className="sidebar" style={{ position: 'fixed' , width: '23%' , top: '5%'}}>
+  <div className="sidebar">
     {/* Sidebar user panel (optional) */}
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -20,7 +21,7 @@ export default function Aside() {
 
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-    <a href="index3.html" className="brand-link">
+    <a href="/Perfil" className="brand-link">
     <span className="brand-text font-weight-light">USUARIO DE PRUEBA</span>
   </a>
     </div>
@@ -31,6 +32,8 @@ export default function Aside() {
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
+        {localStorage.getItem("tipo")==="profesor" &&
+        
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-newspaper nav-icon" />        
@@ -62,13 +65,13 @@ export default function Aside() {
             </li>
             </Link>
           </ul>
-        </li>
+        </li>}
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-user-tie nav-icon" />        
             <p>
               Gestion institucional
-              <i className="right fas fa-angle-left " />
+              <i className="right fas fa-angle-left" />
             </p>
                       
           </a>
@@ -77,8 +80,9 @@ export default function Aside() {
             <li className="nav-item">
               <a  className="nav-link">
               <i className="fas fa-user-friends nav-icon"> </i>
+
                 <p>Grupos de investigación</p>
-                
+           
               </a>
             </li>
             </Link>
@@ -92,49 +96,27 @@ export default function Aside() {
               </a>
             </li>
             </Link>
-            <Link to="/Facultades">
+
+          </ul>
+        </li>
+        <li className="nav-item menu-open">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-newspaper nav-icon" />        
+            <p>
+              Gestion proyectos aula o integrador
+              <i className="right fas fa-angle-left" />
+            </p>       
+          </a>
+          <ul className="nav nav-treeview">
+          <Link to="/ProyectosAulaIntegrador">
             <li className="nav-item">
               <a  className="nav-link">
-                <i className=" fas fa-building nav-icon" />
-                
-                <p>Facultades</p>
-                 
+              <i className="fas fa-graduation-cap nav-icon"> </i>
+                <p>Tus Proyectos de aula o integrador</p>
               </a>
             </li>
             </Link>
 
-            <Link to="/Programas">
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-feather-alt nav-icon" />
-                
-                <p>Programas</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-            <Link to="/Materias">
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-book-reader nav-icon" />
-                
-                <p>Materias</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-            <Link to="/Clases">
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-chalkboard nav-icon" />
-                
-                <p>Clases</p>
-                 
-              </a>
-            </li>
-            </Link>
             <Link to="/Lineas">
             <li className="nav-item">
               <a  className="nav-link">
@@ -167,18 +149,21 @@ export default function Aside() {
             </Link>
 
             <Link to="/ConvocatoriasAbiertas">
+
+            <Link to="/ProyectosGrado">
+
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-pencil-alt nav-icon" />
+                <i className="fas fa-graduation-cap nav-icon" />
                 
-                <p>Convocatorias abiertas</p>
+                <p>Trabajos de grado</p>
                  
               </a>
             </li>
             </Link>
-
           </ul>
         </li>
+
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-book-open nav-icon" />        
@@ -208,8 +193,8 @@ export default function Aside() {
     </nav>
     {/* /.sidebar-menu */}
   </div>
-
   {/* /.sidebar */}
 </aside>
     )
+}
 }

@@ -45,7 +45,6 @@ export default class Materias extends Component {
       {this.state.status === true &&
         (
           this.state.materias.map((mate, i) => {
-           
             return (
               <section className="content">
                 {/* Default box */}

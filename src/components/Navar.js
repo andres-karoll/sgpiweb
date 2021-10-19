@@ -3,7 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 const Nav = () => (
-<header id="header">
+<header id="header" style={{background: 'rgb(255,255,255)'}}>
   <div>
       <div id="topbar">
         <div className="container">
