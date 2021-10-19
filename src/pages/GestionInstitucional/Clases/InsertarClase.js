@@ -12,7 +12,9 @@ export default class InsertarClase extends Component {
     cajaMateriaRef = React.createRef();
     cajaProfesorRef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+    materias:[],
+mate:[] }
 
     nuevaClase = (e) => {
         e.preventDefault();
@@ -31,12 +33,27 @@ export default class InsertarClase extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearclase';
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
+            window.location.href = "/Clases";
         });
     }
 
+    Cargar = () => {
+        var request = "/gestioninstitucional/listarmaterias" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            materias: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+      }
+
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Clases" />
+            //return <Redirect to="/Clases" />
         }
         return (
             <div>
@@ -72,14 +89,32 @@ export default class InsertarClase extends Component {
                             <input type="text" name="cajatel" className="form-control" placeholder="Semestre" ref={this.cajaSemestreRef}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Materia</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Materia" ref={this.cajaMateriaRef} />
+                            <label style={{  width: '50%'}} htmlFor="exampleInputPassword1">Materia</label>
+
+
+                            <select ref={this.cajaMateriaRef} style={{width: '50%', height: "30px"}}>
+                                {
+                            ( this.state.materias.map((mate) => {
+                            return(
+                                    <option  key={mate.catalogo} value={mate.catalogo}> {mate.catalogo}:{mate.nombre}</option> 
+                                    
+                                    );
+                                    
+                                })
+                                
+                                )}
+                                
+                            </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Profesor</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Profesor" ref={this.cajaProfesorRef} />
                         </div>
-                    
+                        
+
+
+
+
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">

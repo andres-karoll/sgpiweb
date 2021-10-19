@@ -4,26 +4,26 @@ import axios from 'axios';
 import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class Materias extends Component {
+export default class Lineas extends Component {
 
   state = {
-    materias: []
+    lineas: []
     , status: false
   }
 
-  cargarMaterias = () => {
+  cargarLineas = () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarmaterias";
+    var request = "/gestioninstitucional/listarlineas";
     axios.get(url + request).then(res => {
       this.setState({
-        materias: res.data
+        lineas: res.data
         , status: true
       });
     });
   }
 
   componentDidMount = () => {
-    this.cargarMaterias();
+    this.cargarLineas();
   }
 
   render() {
@@ -37,21 +37,22 @@ export default class Materias extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-book-reader nav-icon"></i>Materias</h1>
+                  <h1><i class="fas fa-globe nav-icon"></i>Lineas de investigación</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarMateria"} >Insertar</NavLink>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarLinea"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.materias.map((mate, i) => {
+          this.state.lineas.map((li, i) => {
+           
             return (
               <section className="content">
                 {/* Default box */}
                 <div className="card">
                     
                   <div className="card-header">
-                    <h3 className="card-title">Nombre: {mate.nombre}</h3>
+                    <h3 className="card-title">Nombre: {li.nombre}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -67,35 +68,35 @@ export default class Materias extends Component {
                       <thead>
                         <tr>
                           <th style={{ width: '30%' }}>
-                            Catalogo
-                          </th>
-                          <th style={{ width: '25%' }}>
                             Nombre
                           </th>
                           <th style={{ width: '25%' }}>
-                            Programa
+                            Descripción
+                          </th>
+                          <th style={{ width: '25%' }}>
+                            Fecha
                           </th>                                    
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                             {mate.catalogo}
+                             {li.nombre}
                           </td>
                           <td>
                             <a>
-                            {mate.nombre}
+                            {li.descripcion}
                             </a>
                           </td>
                           <td>
                             <a>
-                            {mate.programa}
+                            {li.fecha}
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActulizarMateria/" + mate.catalogo} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarMateria/" + mate.catalogo} >Eliminar</NavLink>  
+                          <NavLink className="btn btn-info" to={"/ActualizarLinea/" + li.nombre} >Modificar</NavLink>
+                          <NavLink className="btn btn-danger"  to={"/EliminarLinea/" + li.nombre} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
@@ -113,12 +114,12 @@ export default class Materias extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ClasesMateria/" + mate.catalogo}>
+            <Link to={"/SemillerosLinea/" + li.nombre}>
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-eye nav-icon" />
                 
-                <p>Ver las Clases de la materia</p>
+                <p>Ver semilleros de la linea de investigación</p>
                  
               </a>
             </li>

@@ -4,20 +4,19 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProgramasGrupoI extends Component {
+export default class SemillerosGrupoI extends Component {
 
   state = {
 status: false,
-    programas:[]
+    semilleros:[]
   }
 
   cargarGrupos= () => {
-    var rol=localStorage.getItem("tipo");
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarprogramadelgrupo/" +this.props.id;
+    var request = "/gestioninstitucional/listarsemillerosporgrupo/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-        programas: res.data
+        semilleros: res.data
         , status: true
       });
     });
@@ -33,20 +32,20 @@ status: false,
   render() {
     return (
     <div>
-      <Aside />
+      <Aside/>
       <Header/>
       <div className="content-wrapper">
       <div>
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Programas Del grupo con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-user-friends nav-icon"></i>Semilleros Del grupo: </h1>
                   </div>
                   </section>
       </div>
       {this.state.status === true &&
         (
-          this.state.programas.map((pro, i) => {
+          this.state.semilleros.map((semi, i) => {
            
             return (
 
@@ -55,14 +54,8 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-
-                    <h3 className="card-title">programa del Grupo de Investigacion con id: {this.props.id}</h3>
-
-                    {localStorage.getItem("tipo")==="profesor" &&
-                    <h3 className="card-title">Grupo de Investigacion: {pro.grupo_investigacion}</h3>
-                  }
-                   <div className="card-tools">
-
+                    <h3 className="card-title">Grupo de Investigacion: {this.props.id}</h3>
+                    <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
                       </button>
@@ -80,13 +73,13 @@ status: false,
                            ID
                           </th>
                           <th style={{ width: '50%' }}>
-                           Nombre del Programa
+                           Nombre de semillero
                           </th>
                           <th style={{ width: '50%' }}>
-                            Director del programa
+                            Descripcion
                           </th> 
                           <th style={{ width: '50%' }}>
-                            Facultad
+                            Fecha fun
                           </th>               
                           
                         </tr>
@@ -94,19 +87,19 @@ status: false,
                       <tbody>
                         <tr>
                         <td>
-                            {pro.id}
+                            {semi.id}
                           </td>
                           <td>
-                            {pro.nombre}
+                            {semi.nombre}
                           </td>
                           <td>
                            
-                            {pro.director}
+                            {semi.descripcion}
                             
                           </td>
                           <td>
                            
-                            {pro.facultad}
+                            {semi.fecha_fun}
                             
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>

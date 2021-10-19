@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class Facultades extends Component {
@@ -67,17 +67,17 @@ export default class Facultades extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '1%' }}>
+                          <th style={{ width: '15%' }}>
                             # ID
                           </th>
-                          <th style={{ width: '15%' }}>
+                          <th style={{ width: '25%' }}>
                             Nombre
                           </th>
-                          <th style={{ width: '15%' }}>
+                          <th style={{ width: '25%' }}>
                             Decano
                           </th>               
                           
-                          <th style={{width: '15%'}}>
+                          <th style={{width: '25%'}}>
                           Coordinador invitado
                           </th>                       
                         </tr>
@@ -88,20 +88,20 @@ export default class Facultades extends Component {
                             # {facul.id}
                           </td>
                           <td>
-                            <a>
+                           
                             {facul.nombre}
-                            </a>
+                           
                           </td>
                           <td>
-                            <a>
+                           
                             {facul.decano}
-                            </a>
+                           
                           </td>
                           
                           <td className="project_progress">
-                            <small>
+                           
                             {facul.coor_inv}
-                            </small>
+                            
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
@@ -112,7 +112,33 @@ export default class Facultades extends Component {
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+          
+            <Link to={"/ProgramasFacultad/" + facul.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver programas de la facultad</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

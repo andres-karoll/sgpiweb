@@ -4,20 +4,19 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProgramasGrupoI extends Component {
+export default class ClasesMateria extends Component {
 
   state = {
 status: false,
-    programas:[]
+    clases:[]
   }
 
-  cargarGrupos= () => {
-    var rol=localStorage.getItem("tipo");
+  cargarClase= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarprogramadelgrupo/" +this.props.id;
+    var request = "/gestioninstitucional/listarclasespormateria/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-        programas: res.data
+        clases: res.data
         , status: true
       });
     });
@@ -25,7 +24,7 @@ status: false,
   }
 
   componentDidMount = () => {
-    this.cargarGrupos();
+    this.cargarClase();
     //this.cargarLineas();
 
   }
@@ -33,20 +32,20 @@ status: false,
   render() {
     return (
     <div>
-      <Aside />
+      <Aside/>
       <Header/>
       <div className="content-wrapper">
       <div>
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Programas Del grupo con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Clases de la Materia con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
       {this.state.status === true &&
         (
-          this.state.programas.map((pro, i) => {
+          this.state.clases.map((cla, i) => {
            
             return (
 
@@ -55,14 +54,8 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-
-                    <h3 className="card-title">programa del Grupo de Investigacion con id: {this.props.id}</h3>
-
-                    {localStorage.getItem("tipo")==="profesor" &&
-                    <h3 className="card-title">Grupo de Investigacion: {pro.grupo_investigacion}</h3>
-                  }
-                   <div className="card-tools">
-
+                    <h3 className="card-title">Clase de la materia con ID: {this.props.id}</h3>
+                    <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
                       </button>
@@ -76,38 +69,33 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                        <th style={{ width: '5%' }}>
-                           ID
+                          <th style={{ width: '25%' }}>
+                            numero
                           </th>
-                          <th style={{ width: '50%' }}>
-                           Nombre del Programa
-                          </th>
-                          <th style={{ width: '50%' }}>
-                            Director del programa
-                          </th> 
-                          <th style={{ width: '50%' }}>
-                            Facultad
+                          <th style={{ width: '25%' }}>
+                           nombre
                           </th>               
-                          
+                          <th style={{ width: '25%' }}>
+                            profesor
+                          </th>
+                          <th style={{ width: '25%' }}>
+                            materia
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                        <td>
-                            {pro.id}
+                          <td>
+                          {cla.numero}
                           </td>
                           <td>
-                            {pro.nombre}
+                          {cla.nombre}
                           </td>
                           <td>
-                           
-                            {pro.director}
-                            
+                          {cla.profesor}
                           </td>
                           <td>
-                           
-                            {pro.facultad}
-                            
+                          {cla.materia}
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>
                  

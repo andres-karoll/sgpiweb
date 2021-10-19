@@ -38,6 +38,43 @@ import AsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion
 import AsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/AsignarProgramaGrupoI'
 import LineasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/LineasGrupoI'
 import ProgramasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/ProgramasGrupoI'
+
+import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarLineaGrupo'
+import DesAsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarProgramaGrupo'
+import ProyectosSemillero from './pages/GestionInstitucional/Semilleros/ProyectosSemillero'
+import UsuariosSemillero from './pages/GestionInstitucional/Semilleros/UsuariosSemillero'
+import ProgramaSemillero from './pages/GestionInstitucional/Semilleros/ProgramaSemillero'
+import AsignarProgramaSemillero from './pages/GestionInstitucional/Semilleros/AsignarProgramaSemillero'
+import DesAsignarProgramaSemillero from './pages/GestionInstitucional/Semilleros/DesAsignarProgramaSemillero'
+import SemillerosGrupoI from './pages/GestionInstitucional/GruposInvestigacion/SemillerosGrupoI'
+import ProgramasFacultad from './pages/GestionInstitucional/Facultades/ProgramasFacultad'
+import GruposPrograma from './pages/GestionInstitucional/Programas/GruposPrograma'
+import SemillerosPrograma from './pages/GestionInstitucional/Programas/SemillerosPrograma'
+import MateriaPrograma from './pages/GestionInstitucional/Programas/MateriasPrograma'
+import ClasesMateria from './pages/GestionInstitucional/Materias/ClasesMateria'
+import ProyectosClase from './pages/GestionInstitucional/Clases/ProyectosClase'
+import Lineas from './pages/GestionInstitucional/LineasInvestigacion/Lineas'
+import Areas from './pages/GestionInstitucional/Areas/Areas'
+import Eventos from './pages/GestionInstitucional/Eventos/Eventos'
+import InsertarLinea from './pages/GestionInstitucional/LineasInvestigacion/InsertarLinea'
+import ActualizarLinea from './pages/GestionInstitucional/LineasInvestigacion/ActualizarLinea'
+import EliminarLinea from './pages/GestionInstitucional/LineasInvestigacion/EliminarLinea'
+import SemillerosLinea from './pages/GestionInstitucional/LineasInvestigacion/SemillerosLinea'
+import InsertarArea from './pages/GestionInstitucional/Areas/InsertarArea'
+import ActualizarArea from './pages/GestionInstitucional/Areas/ActualizarArea'
+import EliminarArea from './pages/GestionInstitucional/Areas/EliminarArea'
+import ProyectosArea from './pages/GestionInstitucional/Areas/ProyectosArea'
+import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
+import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
+import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
+import Proyectos from './pages/Proyectos/Proyectos'
+import PresupuestoProyecto from './pages/Proyectos/PresupuestoProyecto'
+import AsignarPresupuesto from './pages/Proyectos/AsignarPresupuesto'
+import EliminarPresupuesto from './pages/Proyectos/EliminarPresupuesto'
+import ActualizarPresupuesto from './pages/Proyectos/ActualizarPresupuesto'
+import ComprasPresupuesto from './pages/Proyectos/ComprasPresupuesto'
+
+
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
 import ActualizarProyecto from "./pages/GestionProyectosAI/Proyectos/ActualizarProyecto"
 import CrearProyecto from "./pages/GestionProyectosAI/Proyectos/CrearProyecto"
@@ -46,6 +83,7 @@ import CrearProyectoPrograma from './pages/GestionProyectosAI/Proyectos/CrearPro
 import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProyectoMateria'
 import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
 import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
+
 export default function App() {
   return (
     <div>
@@ -83,10 +121,18 @@ export default function App() {
                             var id = props.match.params.id;
                             return <AsignarLineaGrupoI id={id}/>
                         }} /> 
+            <Route exact path="/DesAsignarLineaGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DesAsignarLineaGrupoI id={id}/>
+                        }} />             
             <Route exact path="/AsignarProgramaGrupoI/:id" render={props => {
                             var id = props.match.params.id;
                             return <AsignarProgramaGrupoI id={id}/>
-                        }} />             
+                        }} />       
+            <Route exact path="/DesAsignarProgramaGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DesAsignarProgramaGrupoI id={id}/>
+                        }} />      
             <Route exact path="/LineasGrupoI/:id" render={props => {
                             var id = props.match.params.id;
                             return <LineasGrupoI id={id} />
@@ -94,6 +140,10 @@ export default function App() {
             <Route exact path="/ProgramasGrupoI/:id" render={props => {
                             var id = props.match.params.id;
                             return <ProgramasGrupoI id={id} />
+                        }} />
+            <Route exact path="/SemilleroGrupoI/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <SemillerosGrupoI id={id} />
                         }} />
 
 
@@ -107,6 +157,33 @@ export default function App() {
                             var id = props.match.params.id;
                             return <EliminarSemillero id={id}/>
                         }} />
+            
+
+
+
+            <Route exact path="/ProyectosSemillero/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProyectosSemillero id={id}/>
+                        }} />
+            <Route exact path="/UsuariosSemillero/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <UsuariosSemillero id={id}/>
+                        }} />            
+            <Route exact path="/ProgramaSemillero/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProgramaSemillero id={id}/>
+                        }} />
+            <Route exact path="/AsignarProgramaSemillero/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarProgramaSemillero id={id}/>
+                        }} /> 
+            <Route exact path="/DesAsignarProgramaSemillero/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DesAsignarProgramaSemillero id={id}/>
+                        }} /> 
+
+
+
             <Route path="/Facultades" exact component={Facultades}/>
             <Route path="/InsertarFacultad" exact component={InsertarFacultad}/>              
             <Route exact path="/ActulizarFacultad/:id" render={props => {
@@ -117,6 +194,13 @@ export default function App() {
                             var id = props.match.params.id;
                             return <EliminarFacultad id={id}/>
                         }} />
+            <Route exact path="/ProgramasFacultad/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProgramasFacultad id={id}/>
+                        }} />
+
+
+
             <Route path="/Programas" exact component={Programas}/>
             <Route path="/InsertarPrograma" exact component={InsertarPrograma}/>               
             
@@ -128,6 +212,21 @@ export default function App() {
                             var id = props.match.params.id;
                             return <EliminarPrograma id={id}/>
                         }} />
+            <Route exact path="/GruposPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <GruposPrograma id={id}/>
+                        }} />  
+            <Route exact path="/SemillerosPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <SemillerosPrograma id={id}/>
+                        }} />              
+            <Route exact path="/MateriasPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <MateriaPrograma id={id}/>
+                        }} />  
+
+
+
             <Route path="/Materias" exact component={Materias}/>
             <Route path="/InsertarMateria" exact component={InsertarMateria}/>                 
             <Route exact path="/ActulizarMateria/:catalogo" render={props => {
@@ -138,21 +237,141 @@ export default function App() {
                             var catalogo = props.match.params.catalogo;
                             return <EliminarMateria catalogo={catalogo}/>
                         }} />
+            <Route exact path="/ClasesMateria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ClasesMateria id={id}/>
+                        }} /> 
+            <Route exact path="/ProyectosClase/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProyectosClase id={id}/>
+                        }} /> 
+
+
+
             <Route path="/Clases" exact component={Clases}/>
             <Route path="/InsertarClase" exact component={InsertarClase}/>                 
             <Route exact path="/ActulizarClase/:numero" render={props => {
                             var numero = props.match.params.numero;
-                            return <ActualizarClase numero={numero}/>
+                            var nombre = props.match.params.nombre;
+                            return <ActualizarClase numero={numero} nombre={nombre}/>
                         }} />                
             <Route exact path="/EliminarClase/:numero" render={props => {
                             var numero = props.match.params.numero;
                             return <EliminarClase numero={numero}/>
                         }} />
+
+
+
             <Route path="/ConvocatoriasAbiertas" exact component={ConvocatoriasAbiertas}/>
             <Route exact path="/DetallesConvocatoriaAbierta/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesConvocatoria id={id} />
                         }} />   
+
+
+
+
+
+
+
+            <Route path="/Lineas" exact component={Lineas}/> 
+            <Route path="/InsertarLinea" exact component={InsertarLinea}/>                    
+            <Route exact path="/ActualizarLinea/:nombre" render={props => {
+                            var nombre = props.match.params.nombre;
+                            return <ActualizarLinea nombre={nombre} />
+                        }} />
+            <Route exact path="/EliminarLinea/:nombre" render={props => {
+                            var nombre = props.match.params.nombre;
+                            return <EliminarLinea nombre={nombre} />
+                        }} />              
+            <Route exact path="/SemillerosLinea/:nombre" render={props => {
+                            var nombre = props.match.params.nombre;
+                            return <SemillerosLinea nombre={nombre} />
+                        }} /> 
+
+
+
+
+
+
+            <Route path="/AreasConocimiento" exact component={Areas}/> 
+            <Route path="/InsertarArea" exact component={InsertarArea}/>                
+            <Route exact path="/ActualizarArea/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarArea id={id} />
+                        }} />                
+            <Route exact path="/EliminarArea/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarArea id={id} />
+                        }} />
+            <Route exact path="/ProyectosArea/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProyectosArea id={id} />
+                        }} />
+
+
+
+
+
+            <Route path="/Eventos" exact component={Eventos}/>   
+            <Route path="/InsertarEvento" exact component={InsertarEvento}/>                 
+            <Route exact path="/ActualizarEvento/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarEvento id={id} />
+                        }} />          
+            <Route exact path="/EliminarEvento/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarEvento id={id} />
+                        }} />
+
+
+
+
+
+
+
+            <Route path="/Proyectos" exact component={Proyectos}/>                 
+            <Route exact path="/PresupuestoProyecto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <PresupuestoProyecto id={id} />
+                        }} />   
+            <Route exact path="/AsignarPersupuesto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarPresupuesto id={id} />
+                        }} />                        
+            <Route exact path="/EliminarPresupuesto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarPresupuesto id={id} />
+                        }} />
+            <Route exact path="/ActualizarPresupuesto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarPresupuesto id={id} />
+                        }} />
+
+
+
+
+
+
+
+
+            <Route exact path="/ComprasPresupuesto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasPresupuesto id={id} />
+                        }} />   
+
+
+
+
+
+
+
+
+
+
+
+
+
             <Route path="/ProyectosAulaIntegrador" exact component={TusProyectos}/>
             <Route path="/CrearProyectoFacultad" exact component={CrearProyectoFacultad}/>
             
@@ -180,6 +399,7 @@ export default function App() {
                             var id = props.match.params.id; 
                             return <AgregarParticipante id={id}/>
                         }} />   
+
             <Route component ={() => (
           <Error/>)
         } />

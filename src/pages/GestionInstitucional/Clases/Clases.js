@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import ActualizarClase from './ActualizarClase';
 export default class Clases extends Component {
 
   state = {
@@ -14,13 +15,18 @@ export default class Clases extends Component {
   cargarClases = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarclases";
+    
     axios.get(url + request).then(res => {
+      
       this.setState({
+        
         clases: res.data
         , status: true
       });
+      
     });
   }
+  
 
   componentDidMount = () => {
     this.cargarClases();
@@ -44,7 +50,7 @@ export default class Clases extends Component {
       <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClase"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.clases.map((cla, i) => {
+          this.state.clases.map((cla) => {
            
             return (
               <section className="content">
@@ -111,14 +117,40 @@ export default class Clases extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
+                          <NavLink className="btn btn-info"  to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
+                          
                           <NavLink className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/ProyectosClase/" + cla.numero}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver proyectos de la clase</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

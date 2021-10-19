@@ -80,9 +80,9 @@ export default class Aside extends Component{
             <li className="nav-item">
               <a  className="nav-link">
               <i className="fas fa-user-friends nav-icon"> </i>
-              
-                <p>Grupos de investigacion</p>
-                 
+
+                <p>Grupos de investigación</p>
+           
               </a>
             </li>
             </Link>
@@ -116,7 +116,42 @@ export default class Aside extends Component{
               </a>
             </li>
             </Link>
+
+            <Link to="/Lineas">
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-globe nav-icon" />
+                
+                <p>Lineas de investigación</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to="/AreasConocimiento">
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-brain nav-icon" />
+                
+                <p>Areas de Conocimiento</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to="/Eventos">
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-calendar-check nav-icon" />
+                
+                <p>Eventos</p>
+                 
+              </a>
+            </li>
+            </Link>
+
+            <Link to="/ConvocatoriasAbiertas">
+
             <Link to="/ProyectosGrado">
+
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-graduation-cap nav-icon" />
@@ -128,6 +163,31 @@ export default class Aside extends Component{
             </Link>
           </ul>
         </li>
+
+        <li className="nav-item menu-open">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-book-open nav-icon" />        
+            <p>
+              Proyectos
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+          <Link to="/Proyectos">
+            <li className="nav-item">
+              <a  className="nav-link">
+              <i className=" fas fa-cubes nav-icon"> </i>
+              
+                <p>Todos los proyectos en SGPI</p>
+                 
+              </a>
+            </li>
+            </Link>
+
+          </ul>
+        </li>
+
        
       </ul>
     </nav>

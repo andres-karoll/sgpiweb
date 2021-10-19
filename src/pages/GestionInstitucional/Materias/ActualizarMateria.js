@@ -10,7 +10,9 @@ export default class ActualizarMateria extends Component {
     cajaNombreRef = React.createRef();
     cajaProgramaRef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+        programas:[],
+        progra:[] }
 
     nuevaMateria = (e) => {
         e.preventDefault();
@@ -25,12 +27,26 @@ export default class ActualizarMateria extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearmateria';
         axios.post(url, materia).then(res => {
             this.setState({ status: true });
+            window.location.href = "/Materias";
         });
     }
-
+    Cargar = () => {
+        var request = "/gestioninstitucional/listarprogramas" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            programas: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+        
+      }
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Materias" />
+            //return <Redirect to="/Materias" />
         }
         return (
             <div>
@@ -62,8 +78,17 @@ export default class ActualizarMateria extends Component {
                             <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Programa</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Programa" ref={this.cajaProgramaRef}/>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
+                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}}>
+                                {this.state.status === true && 
+                            
+                            ( this.state.programas.map((progra) => {
+                            return(
+                                    <option value={progra.id}>{progra.nombre}</option> 
+                                    );
+                                })
+                                )}
+                            </select>
                         </div>
                         </div>
                         {/* /.card-body */}

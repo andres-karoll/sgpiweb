@@ -42,19 +42,19 @@ rol:[] }
             window.location.href = "/GruposInvestigacion";
         });
     }
-    CargarRoles = () => {
-        var request = "/gestioninstitucional/listarlineasdelgrupo/2" ;
+    Cargar = () => {
+        var request = "/gestioninstitucional/listarlineas" ;
         var url = "http://localhost:8080" + request;
          axios.get(url).then(res => {
           this.setState({
-            roles: res.data
+            lineas: res.data
             , status: true
           })
         });
       }
       
       componentDidMount = () => {
-        this.CargarRoles();
+        this.Cargar();
       }
 
 
@@ -90,8 +90,8 @@ rol:[] }
                             <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Nombreeeeeee</label>
-                           {/* /.card  <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} /> */}
+                            <label htmlFor="exampleInputPassword1">Nombre</label>
+                           <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} /> 
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Fecha Fun</label>
@@ -109,20 +109,7 @@ rol:[] }
                             <label htmlFor="exampleInputPassword1">Director de grupo</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Director de grupo" ref={this.cajaDirector_grupoRef} />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Prueba lineas</label>
-                            <select >
-                      {this.state.status === true && 
-                
-                ( this.state.roles.map((rol) => {
-                  return(
-                        <option ref={this.cajaNombreRef} value={rol.nombre}>{rol.nombre}</option> 
-                        );
-                      })
-                      )}
-                      </select>
-   
-                        </div>
+
 
                         </div>
                         {/* /.card-body */}

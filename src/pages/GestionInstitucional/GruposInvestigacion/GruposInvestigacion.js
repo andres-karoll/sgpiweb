@@ -54,11 +54,7 @@ export default class GruposInvestigacion extends Component {
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/InsertarGruposInvestigacion"} >Insertar</NavLink>
-
-      <NavLink   className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AsignarLineaGrupoI/"} >Des-asignar linea a un grupo</NavLink>
-      <NavLink style={{width: '31%', margin: "10px 1% 1em"}} className="btn btn-info"  to={"/AsignarProgramaGrupoI/"} >Des-asignar Programa a un grupo</NavLink>  
-      <NavLink style={{width: '31%', margin: "10px 1% 1em"}} className="btn btn-info"  to={"/PruebaMiguel/"} >Prueba Miguel</NavLink>  
+      <NavLink className="btn btn-info" style={{width: "100%", margin: "10px 1% 1em"}} to={"/InsertarGruposInvestigacion"} >Insertar</NavLink>
       {this.state.status === true &&
         (
           this.state.gruposi.map((grup, i) => {
@@ -113,26 +109,25 @@ export default class GruposInvestigacion extends Component {
                             # {grup.id}
                           </td>
                           <td>
-                            <a>
+
                             {grup.nombre}
-                            </a>
-                            <br />
+
                           </td>
                           
                           <td className="project_progress">
-                            <a>
+                           
                             {grup.categoria}
-                            </a>
+
                           </td>
                           <td className="project_progress">
-                            <a>
+                           
                             {grup.fecha_cat}
-                            </a>
+                            
                           </td>
                           <td className="project_progress">
-                            <a>
+                            
                             {grup.fecha_fun}
-                            </a>
+                            
                           </td>
                           <td className="project-state">
                             {grup.director_grupo}
@@ -161,7 +156,7 @@ export default class GruposInvestigacion extends Component {
           <Link to={"/AsignarLineaGrupoI/" + grup.id}>
             <li className="nav-item">
               <a  className="nav-link">
-              <i className="fas fa-check nav-icon"> </i>
+              <i className="fas fa-book nav-icon"> </i>
               
                 <p>Asignar Linea al grupo de investigación</p>
                  
@@ -171,9 +166,29 @@ export default class GruposInvestigacion extends Component {
             <Link to={"/AsignarProgramaGrupoI/" + grup.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-check nav-icon" />
+                <i className="fas fa-book nav-icon" />
                 
                 <p>Asignar Programa al grupo de investigación</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/DesAsignarLineaGrupoI/" + grup.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-skull-crossbones nav-icon" />
+                
+                <p>Desasignar Linea de investigación</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/DesAsignarProgramaGrupoI/" + grup.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-skull-crossbones nav-icon" />
+                
+                <p>Desasignar Programa</p>
                  
               </a>
             </li>
@@ -181,7 +196,7 @@ export default class GruposInvestigacion extends Component {
             <Link to={"/LineasGrupoI/" + grup.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-check nav-icon" />
+                <i className="fas fa-eye nav-icon" />
                 
                 <p>Ver lineas de este grupo de investigación</p>
                  
@@ -191,13 +206,24 @@ export default class GruposInvestigacion extends Component {
             <Link to={"/ProgramasGrupoI/" + grup.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-check nav-icon" />
+                <i className="fas fa-eye nav-icon" />
                 
                 <p>Ver programa de este grupo de investigación</p>
                  
               </a>
             </li>
             </Link>
+            <Link to={"/SemilleroGrupoI/" + grup.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver semilleros de este grupo de investigación</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
           </ul>
         </li>
 
