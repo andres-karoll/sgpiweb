@@ -1,35 +1,29 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-import { Link,NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import ActualizarClase from './ActualizarClase';
-export default class Clases extends Component {
+export default class Areas extends Component {
 
   state = {
-    clases: []
+    areas: []
     , status: false
   }
 
-  cargarClases = () => {
+  cargarAreas = () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarclases";
-    
+    var request = "/gestioninstitucional/listarareas";
     axios.get(url + request).then(res => {
-      
       this.setState({
-        
-        clases: res.data
+        areas: res.data
         , status: true
       });
-      
     });
   }
-  
 
   componentDidMount = () => {
-    this.cargarClases();
+    this.cargarAreas();
   }
 
   render() {
@@ -43,14 +37,14 @@ export default class Clases extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-chalkboard nav-icon"></i>Clases</h1>
+                  <h1><i class="fas fa-brain nav-icon"></i>Areas</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClase"} >Insertar</NavLink>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarArea"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.clases.map((cla) => {
+          this.state.areas.map((are, i) => {
            
             return (
               <section className="content">
@@ -58,7 +52,7 @@ export default class Clases extends Component {
                 <div className="card">
                     
                   <div className="card-header">
-                    <h3 className="card-title">Nombre: {cla.nombre}</h3>
+                    <h3 className="card-title">Nombre: {are.nombre}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -73,53 +67,44 @@ export default class Clases extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '15%' }}>
-                            Numero
+                          <th style={{ width: '10%' }}>
+                            id
                           </th>
-                          <th style={{ width: '15%' }}>
+                          <th style={{ width: '25%' }}>
                             Nombre
                           </th>
-                          <th style={{ width: '15%' }}>
-                            Semestre
-                          </th>
-                          <th style={{ width: '15%' }}>
-                            Materia
-                          </th>
-                          <th style={{ width: '15%' }}>
-                            Profesor
+                          <th style={{ width: '25%' }}>
+                            Descripción
+                          </th> 
+                          <th style={{ width: '20%' }}>
+                            Gran area
                           </th>                                    
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                             {cla.numero}
+                             {are.id}
                           </td>
                           <td>
                             <a>
-                            {cla.nombre}
+                            {are.nombre}
                             </a>
                           </td>
                           <td>
                             <a>
-                            {cla.semestre}
+                            {are.descripcion}
                             </a>
                           </td>
                           <td>
                             <a>
-                            {cla.materia}
-                            </a>
-                          </td>
-                          <td>
-                            <a>
-                            {cla.profesor}
+                            {are.gran_area}
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info"  to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
-                          
-                          <NavLink className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
+                          <NavLink className="btn btn-info" to={"/ActualizarArea/" + are.id} >Modificar</NavLink>
+                          <NavLink className="btn btn-danger"  to={"/EliminarArea/" + are.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
@@ -137,12 +122,12 @@ export default class Clases extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ProyectosClase/" + cla.numero}>
+            <Link to={"/ProyectosArea/" + are.id}>
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-eye nav-icon" />
                 
-                <p>Ver proyectos de la clase</p>
+                <p>Ver proyectos asociados al Area</p>
                  
               </a>
             </li>

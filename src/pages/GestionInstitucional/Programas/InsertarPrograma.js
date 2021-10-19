@@ -11,7 +11,10 @@ export default class InsertarPrograma extends Component {
     cajaFacultadRef = React.createRef();
     cajaDirectorRef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+    facultades:[],
+    facul:[]
+}
 
     nuevoPrograma = (e) => {
         e.preventDefault();
@@ -28,12 +31,27 @@ export default class InsertarPrograma extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearprograma';
         axios.post(url, programa).then(res => {
             this.setState({ status: true });
+            window.location.href = "/Programas";
         });
     }
+    Cargar = () => {
+        var request = "/gestioninstitucional/listarfacultades" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            facultades: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+        
+      }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Programas" />
+            //return <Redirect to="/Programas" />
         }
         return (
             <div>
@@ -65,8 +83,17 @@ export default class InsertarPrograma extends Component {
                             <input type="text" name="cajadir" className="form-control" placeholder="Nombre de programa" ref={this.cajaNombreRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Facultad</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Facultad" ref={this.cajaFacultadRef}/>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Facultad</label>
+                            <select ref={this.cajaFacultadRef} style={{width: '50%',  height: "30px"}}>
+                                {this.state.status === true && 
+                            
+                            ( this.state.facultades.map((facul) => {
+                            return(
+                                    <option value={facul.id}>{facul.nombre}</option> 
+                                    );
+                                })
+                                )}
+                            </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Director</label>

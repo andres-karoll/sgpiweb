@@ -4,19 +4,19 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProgramasGrupoI extends Component {
+export default class GruposPrograma extends Component {
 
   state = {
 status: false,
-    programas:[]
+    grupos:[]
   }
 
-  cargarGrupos= () => {
+  cargarGrupo= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarprogramadelgrupo/" +this.props.id;
+    var request = "/gestioninstitucional/listargruposdelprograma/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-        programas: res.data
+        grupos: res.data
         , status: true
       });
     });
@@ -24,7 +24,7 @@ status: false,
   }
 
   componentDidMount = () => {
-    this.cargarGrupos();
+    this.cargarGrupo();
     //this.cargarLineas();
 
   }
@@ -39,13 +39,13 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Programas Del grupo con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Grupos del programa con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
       {this.state.status === true &&
         (
-          this.state.programas.map((pro, i) => {
+          this.state.grupos.map((gru, i) => {
            
             return (
 
@@ -54,7 +54,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">programa del Grupo de Investigacion con id: {this.props.id}</h3>
+                    <h3 className="card-title">Grupo del programa con ID: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -69,38 +69,33 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                        <th style={{ width: '5%' }}>
-                           ID
+                          <th style={{ width: '30%' }}>
+                            id
                           </th>
-                          <th style={{ width: '50%' }}>
-                           Nombre del Programa
-                          </th>
-                          <th style={{ width: '50%' }}>
-                            Director del programa
-                          </th> 
-                          <th style={{ width: '50%' }}>
-                            Facultad
+                          <th style={{ width: '30%' }}>
+                            nombre
                           </th>               
-                          
+                          <th style={{ width: '30%' }}>
+                            categoria
+                          </th>
+                          <th style={{ width: '30%' }}>
+                            director del grupo
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                        <td>
-                            {pro.id}
+                          <td>
+                          {gru.id}
                           </td>
                           <td>
-                            {pro.nombre}
+                          {gru.nombre}
                           </td>
                           <td>
-                           
-                            {pro.director}
-                            
+                          {gru.categoria}
                           </td>
                           <td>
-                           
-                            {pro.facultad}
-                            
+                          {gru.director_grupo}
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>
                  

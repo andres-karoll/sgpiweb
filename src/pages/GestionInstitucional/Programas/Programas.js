@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class Programas extends Component {
@@ -88,20 +88,20 @@ export default class Programas extends Component {
                             # {pro.id}
                           </td>
                           <td>
-                            <a>
+                           
                             {pro.nombre}
-                            </a>
+                            
                           </td>
                           <td>
-                            <a>
+                            
                             {pro.facultad}
-                            </a>
+                           
                           </td>
                           
                           <td className="project_progress">
-                            <small>
+                           
                             {pro.director}
-                            </small>
+                           
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
@@ -112,7 +112,54 @@ export default class Programas extends Component {
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+          
+            <Link to={"/GruposPrograma/" + pro.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver grupos de investigación del programa</p>
+                 
+              </a>
+            </li>
+            </Link>
+
+            <Link to={"/SemillerosPrograma/" + pro.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver semilleros del programa</p>
+                 
+              </a>
+            </li>
+            </Link>
+
+            <Link to={"MateriasPrograma/" + pro.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver materias del programa</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

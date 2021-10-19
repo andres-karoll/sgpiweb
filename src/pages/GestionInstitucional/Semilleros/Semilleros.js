@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class Semilleros extends Component {
@@ -77,7 +77,7 @@ export default class Semilleros extends Component {
                             Descripción
                           </th>               
                           
-                          <th style={{width: '15%'}}>
+                          <th style={{width: '10%'}}>
                           fecha_fun
                           </th>
                           <th style={{width: '15%'}}>
@@ -86,7 +86,7 @@ export default class Semilleros extends Component {
                           <th style={{width: '15%'}}>
                          Linea de investigacion
                           </th>
-                          <th style={{width: '15%'}}>
+                          <th style={{width: '10%'}}>
                          Lider
                           </th>                       
                         </tr>
@@ -97,35 +97,35 @@ export default class Semilleros extends Component {
                             # {semi.id}
                           </td>
                           <td>
-                            <a>
+                            
                             {semi.nombre}
-                            </a>
+                            
                           </td>
                           <td>
-                            <a>
+                            
                             {semi.descripcion}
-                            </a>
+                            
                           </td>
                           
                           <td className="project_progress">
-                            <small>
+                            
                             {semi.fecha_fun}
-                            </small>
+                            
                           </td>
                           <td className="project_progress">
-                            <small>
+                            
                             {semi.grupo_investigacion}
-                            </small>
+                           
                           </td>
                           <td className="project_progress">
-                            <small>
+                           
                             {semi.linea_investigacion}
-                            </small>
+                            
                           </td>
                           <td className="project_progress">
-                            <small>
+                            
                             {semi.lider_semillero}
-                            </small>
+                         
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
@@ -136,7 +136,75 @@ export default class Semilleros extends Component {
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+          <Link to={"/AsignarProgramaSemillero/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+              <i className="fas fa-book nav-icon"> </i>
+              
+                <p>Asignar Semillero a un Programa</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/DesAsignarProgramaSemillero/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-skull-crossbones nav-icon" />
+                
+                <p>Desasignar Semillero a un programa</p>
+                 
+              </a>
+            </li>
+            </Link>
+           
+            <Link to={"/ProgramaSemillero/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver programas del semillero</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/UsuariosSemillero/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver usuarios del semillero</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/ProyectosSemillero/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver proyectos del semillero</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+
+                    </ul>
+
+
                   </div>
                   
                   {/* /.card-body */}

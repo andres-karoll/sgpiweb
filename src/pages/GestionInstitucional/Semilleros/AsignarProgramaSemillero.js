@@ -3,24 +3,23 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import {Link} from 'react-router-dom';
 
-export default class DesAsignarLineaGrupoI extends Component {
+export default class AsignarProgramaSemillero extends Component {
 
-    cajaGrupoRef = React.createRef();
-    cajaLineaRef = React.createRef();
+    cajaSemilleroRef = React.createRef();
+    cajaProgramaRef = React.createRef();
 
-    state = { lineas: [],status: false }
+    state = { programa: [],status: false }
 
-    nuevaDesAsignacion = (e) => {
+    nuevaAsignacion = (e) => {
         e.preventDefault();
-        var grupoi = this.cajaGrupoRef.current.value;
-        var lineai = this.cajaLineaRef.current.value;
+        var semi = this.cajaSemilleroRef.current.value;
+        var pro = this.cajaProgramaRef.current.value;
         var asignacion = {
-            linea_investigacion: lineai
-            , grupo_investigacion: grupoi
+            programa: pro
+            , semillero: semi
         };
-        var url = 'http://localhost:8080/gestioninstitucional/desasignarlineaagrupo';
+        var url = 'http://localhost:8080/gestioninstitucional/asignarsemilleroaprograma';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
         });
@@ -30,7 +29,7 @@ export default class DesAsignarLineaGrupoI extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/GruposInvestigacion" />
+            return <Redirect to="/Semilleros"/>
         }
         return (
             <div>
@@ -39,29 +38,29 @@ export default class DesAsignarLineaGrupoI extends Component {
             <div className="content-wrapper">
                 <div className="card card-info">
                 <div className="card-header">
-                    <h3 className="card-title">DES-Asignar linea de investigación al grupo de investigación</h3>
+                    <h3 className="card-title">Asignar programa al Semillero</h3>
                 </div>
                 {/* /.card-header */}
                 {/* form start */}
-                <form onSubmit={this.nuevaDesAsignacion} className="form-horizontal">
+                <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Grupo de investigación</label>
+                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Semillero</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
+                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Linea de investigación</label>
+                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Programa</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputPassword3" placeholder="Linea de investigación" ref={this.cajaLineaRef}/>
+                        <input type="text" className="form-control" id="inputPassword3" placeholder="Programa" ref={this.cajaProgramaRef}/>
                         </div>
                     </div>
                     </div>
                     {/* /.card-body */}
                     <div className="card-footer">
                     <button type="submit" className="btn btn-success">Enviar</button>
-                    <NavLink to="/GruposInvestigacion" className="btn btn-danger">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <NavLink to="/Semilleros" className="btn btn-danger">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                     {/* /.card-footer */}
                 </form>

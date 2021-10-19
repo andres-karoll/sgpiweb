@@ -39,7 +39,7 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-user-friends nav-icon"></i>Lineas de investigación ID: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Lineas de investigación  del grupo con ID: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
@@ -54,7 +54,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">Grupo de Investigacion: {li.grupo_investigacion}</h3>
+                    <h3 className="card-title">linea del Grupo de Investigacion: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -69,23 +69,25 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
+                        
                           <th style={{ width: '50%' }}>
-                            Grupo de investigacion
+                            Nombre de linea
                           </th>
                           <th style={{ width: '50%' }}>
-                            Linea de investigacion
+                            Descripción
                           </th>               
                           
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                       
                           <td>
-                            {li.grupo_investigacion}
+                            {li.nombre}
                           </td>
                           <td>
                             <a>
-                            {li.linea_investigacion}
+                            {li.descripcion}
                             </a>
                             <br />
                           </td>

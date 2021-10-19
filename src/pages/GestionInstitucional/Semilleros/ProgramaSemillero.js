@@ -4,19 +4,19 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProgramasGrupoI extends Component {
+export default class ProgramaSemillero extends Component {
 
   state = {
 status: false,
-    programas:[]
+    programa:[]
   }
 
-  cargarGrupos= () => {
+  cargarPrograma= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarprogramadelgrupo/" +this.props.id;
+    var request = "/gestioninstitucional/listarprogramadelsemillero/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-        programas: res.data
+        programa: res.data
         , status: true
       });
     });
@@ -24,7 +24,7 @@ status: false,
   }
 
   componentDidMount = () => {
-    this.cargarGrupos();
+    this.cargarPrograma();
     //this.cargarLineas();
 
   }
@@ -39,13 +39,13 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Programas Del grupo con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Programas de semillero con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
       {this.state.status === true &&
         (
-          this.state.programas.map((pro, i) => {
+          this.state.programa.map((pro, i) => {
            
             return (
 
@@ -54,7 +54,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">programa del Grupo de Investigacion con id: {this.props.id}</h3>
+                    <h3 className="card-title">Programa del Semillero con ID: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -69,38 +69,29 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                        <th style={{ width: '5%' }}>
-                           ID
+                        
+                          <th style={{ width: '30%' }}>
+                            id
                           </th>
-                          <th style={{ width: '50%' }}>
-                           Nombre del Programa
-                          </th>
-                          <th style={{ width: '50%' }}>
-                            Director del programa
-                          </th> 
-                          <th style={{ width: '50%' }}>
-                            Facultad
+                          <th style={{ width: '30%' }}>
+                            nombre
                           </th>               
-                          
+                          <th style={{ width: '30%' }}>
+                            director
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                        <td>
+                       
+                          <td>
                             {pro.id}
                           </td>
                           <td>
-                            {pro.nombre}
+                          {pro.nombre}
                           </td>
                           <td>
-                           
-                            {pro.director}
-                            
-                          </td>
-                          <td>
-                           
-                            {pro.facultad}
-                            
+                          {pro.director}
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>
                  

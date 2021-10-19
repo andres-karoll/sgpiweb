@@ -14,7 +14,10 @@ export default class InsertarSemillero extends Component {
     cajaLiderSemilleroRef = React.createRef();
     cajaLineaInvestigacionFef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+        gruposi:[],
+        grup:[]
+ }
 
     nuevoSemillero = (e) => {
         e.preventDefault();
@@ -37,12 +40,27 @@ export default class InsertarSemillero extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearsemilleros';
         axios.post(url, semillero).then(res => {
             this.setState({ status: true });
+            window.location.href = "/Semilleros";
         });
     }
+    Cargar = () => {
+        var request = "/gestioninstitucional/listargruposi" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            gruposi: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+        
+      }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Semilleros" />
+            //return <Redirect to="/Semilleros" />
         }
         return (
             <div>
@@ -82,8 +100,17 @@ export default class InsertarSemillero extends Component {
                             <input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Grupo de investigacion</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="grupo de investigacion" ref={this.cajaGrupoInvestigacionRef} />
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Grupo de investigacion</label>
+                            <select ref={this.cajaGrupoInvestigacionRef} style={{width: '50%',  height: "30px"}}>
+                                {this.state.status === true && 
+                            
+                            ( this.state.gruposi.map((grup) => {
+                            return(
+                                    <option value={grup.id}>{grup.nombre}</option> 
+                                    );
+                                })
+                                )}
+                            </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Lider de semillero</label>

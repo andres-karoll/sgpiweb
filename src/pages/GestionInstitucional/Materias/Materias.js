@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class Materias extends Component {
@@ -102,7 +102,32 @@ export default class Materias extends Component {
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/ClasesMateria/" + mate.catalogo}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver las Clases de la materia</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

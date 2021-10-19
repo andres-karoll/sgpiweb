@@ -1,35 +1,29 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-import { Link,NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import ActualizarClase from './ActualizarClase';
-export default class Clases extends Component {
+export default class Lineas extends Component {
 
   state = {
-    clases: []
+    lineas: []
     , status: false
   }
 
-  cargarClases = () => {
+  cargarLineas = () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarclases";
-    
+    var request = "/gestioninstitucional/listarlineas";
     axios.get(url + request).then(res => {
-      
       this.setState({
-        
-        clases: res.data
+        lineas: res.data
         , status: true
       });
-      
     });
   }
-  
 
   componentDidMount = () => {
-    this.cargarClases();
+    this.cargarLineas();
   }
 
   render() {
@@ -43,14 +37,14 @@ export default class Clases extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-chalkboard nav-icon"></i>Clases</h1>
+                  <h1><i class="fas fa-globe nav-icon"></i>Lineas de investigación</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClase"} >Insertar</NavLink>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarLinea"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.clases.map((cla) => {
+          this.state.lineas.map((li, i) => {
            
             return (
               <section className="content">
@@ -58,7 +52,7 @@ export default class Clases extends Component {
                 <div className="card">
                     
                   <div className="card-header">
-                    <h3 className="card-title">Nombre: {cla.nombre}</h3>
+                    <h3 className="card-title">Nombre: {li.nombre}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -73,53 +67,36 @@ export default class Clases extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '15%' }}>
-                            Numero
-                          </th>
-                          <th style={{ width: '15%' }}>
+                          <th style={{ width: '30%' }}>
                             Nombre
                           </th>
-                          <th style={{ width: '15%' }}>
-                            Semestre
+                          <th style={{ width: '25%' }}>
+                            Descripción
                           </th>
-                          <th style={{ width: '15%' }}>
-                            Materia
-                          </th>
-                          <th style={{ width: '15%' }}>
-                            Profesor
+                          <th style={{ width: '25%' }}>
+                            Fecha
                           </th>                                    
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                             {cla.numero}
+                             {li.nombre}
                           </td>
                           <td>
                             <a>
-                            {cla.nombre}
+                            {li.descripcion}
                             </a>
                           </td>
                           <td>
                             <a>
-                            {cla.semestre}
-                            </a>
-                          </td>
-                          <td>
-                            <a>
-                            {cla.materia}
-                            </a>
-                          </td>
-                          <td>
-                            <a>
-                            {cla.profesor}
+                            {li.fecha}
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info"  to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
-                          
-                          <NavLink className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
+                          <NavLink className="btn btn-info" to={"/ActualizarLinea/" + li.nombre} >Modificar</NavLink>
+                          <NavLink className="btn btn-danger"  to={"/EliminarLinea/" + li.nombre} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
@@ -137,12 +114,12 @@ export default class Clases extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ProyectosClase/" + cla.numero}>
+            <Link to={"/SemillerosLinea/" + li.nombre}>
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-eye nav-icon" />
                 
-                <p>Ver proyectos de la clase</p>
+                <p>Ver semilleros de la linea de investigación</p>
                  
               </a>
             </li>
