@@ -38,19 +38,27 @@ import AsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion
 import AsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/AsignarProgramaGrupoI'
 import LineasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/LineasGrupoI'
 import ProgramasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/ProgramasGrupoI'
-import PruebaMiguel from './pages/GestionInstitucional/GruposInvestigacion/PruebaMiguel'
-
+import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
+import ActualizarProyecto from "./pages/GestionProyectosAI/Proyectos/ActualizarProyecto"
+import CrearProyecto from "./pages/GestionProyectosAI/Proyectos/CrearProyecto"
+import CrearProyectoFacultad from './pages/GestionProyectosAI/Proyectos/CrearProyectoFacultad'
+import CrearProyectoPrograma from './pages/GestionProyectosAI/Proyectos/CrearProyectoPrograma'
+import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProyectoMateria'
+import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
+import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
 export default function App() {
   return (
     <div>
       <BrowserRouter>
-      <Switch>
-            
+      <Switch>    
             <Route exact path="/" component={Home} />
             <Route exact path="/Home/Search" component={SearchP} />
-            <Route exact path="/Home/Login/Dashboart" component={Index1} />
             <Route exact path="/Home/Login" component={Login} />
-
+            <Route exact path="/Home/Login/Dashboart/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <Index1 id={id}/>
+                        }} />
+                        
 
             <Route path="/ProyectosGrado" exact component={ProyectosGrado}/>
             <Route path="/ProyectosGradoFin" exact component={ProyectosGradoFin}/>
@@ -111,7 +119,8 @@ export default function App() {
                         }} />
             <Route path="/Programas" exact component={Programas}/>
             <Route path="/InsertarPrograma" exact component={InsertarPrograma}/>               
-            <Route exact path="/ActulizarPrograma/:id" render={props => {
+            
+                        <Route exact path="/ActulizarPrograma/:id" render={props => {
                             var id = props.match.params.id;
                             return <ActualizarPrograma id={id}/>
                         }} />
@@ -144,8 +153,33 @@ export default function App() {
                             var id = props.match.params.id;
                             return <DetallesConvocatoria id={id} />
                         }} />   
-
-<Route path="/PruebaMiguel" exact component={PruebaMiguel}/>         
+            <Route path="/ProyectosAulaIntegrador" exact component={TusProyectos}/>
+            <Route path="/CrearProyectoFacultad" exact component={CrearProyectoFacultad}/>
+            
+            <Route exact path="/ActualizarProyecto/:id" render={props => {
+                            var id = props.match.params.id; 
+                            return <ActualizarProyecto id={id}/>
+                        }} />   
+                        <Route exact path="/CrearProyectoPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearProyectoPrograma id={id}/>
+                        }} /> 
+                         <Route exact path="/CrearProyectoMateria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearProyectoMateria id={id}/>
+                        }} /> 
+                        <Route exact path="/CrearProyecto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearProyecto id={id}/>
+                        }} /> 
+                         <Route exact path="/EliminarProyecto/:id" render={props => {
+                            var id = props.match.params.id; 
+                            return <EliminarProyecto id={id}/>
+                        }} />   
+                        <Route exact path="/AgregarParticipante/:id" render={props => {
+                            var id = props.match.params.id; 
+                            return <AgregarParticipante id={id}/>
+                        }} />   
             <Route component ={() => (
           <Error/>)
         } />

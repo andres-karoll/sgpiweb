@@ -12,6 +12,7 @@ status: false,
   }
 
   cargarGrupos= () => {
+    var rol=localStorage.getItem("tipo");
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarprogramadelgrupo/" +this.props.id;
     axios.get(url + request).then(res => {
@@ -32,7 +33,7 @@ status: false,
   render() {
     return (
     <div>
-      <Aside/>
+      <Aside />
       <Header/>
       <div className="content-wrapper">
       <div>
@@ -54,8 +55,10 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
+                    {localStorage.getItem("tipo")==="profesor" &&
                     <h3 className="card-title">Grupo de Investigacion: {pro.grupo_investigacion}</h3>
-                    <div className="card-tools">
+                  }
+                   <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
                       </button>

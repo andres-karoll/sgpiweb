@@ -40,7 +40,6 @@ export default class GruposInvestigacion extends Component {
     this.cargarLineas();
 
   }
-
   render() {
     return (
     <div>
@@ -71,6 +70,7 @@ export default class GruposInvestigacion extends Component {
                 <div className="card">
                 
                   <div className="card-header">
+
                     <h3 className="card-title">Grupo de Investigacion: {grup.nombre}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
