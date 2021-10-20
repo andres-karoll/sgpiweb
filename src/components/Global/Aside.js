@@ -7,7 +7,7 @@ export default class Aside extends Component{
     return (
       <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' , width: '20%'}}>
 
-  <div className="sidebar" style={{ position: 'fixed' , width: '20%' , top: '5%'}}>
+  <div className="sidebar" >
     {/* Sidebar user panel (optional) */}
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">

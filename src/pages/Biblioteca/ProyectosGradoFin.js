@@ -49,7 +49,7 @@ export default class ProyectosGradoFin extends Component {
                 {/* Default box */}
                 <div className="card">
                   <div className="card-header">
-                    <h3 className="card-title">Proyecto: {proye.titulo}</h3>
+                    <h1 className="card-title" >Proyecto: {proye.titulo}</h1>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -64,56 +64,56 @@ export default class ProyectosGradoFin extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '1%' }}>
+                          <th style={{ width: '1%', fontSize:"large" }}>
                             # ID
                           </th>
-                          <th style={{ width: '20%' }}>
+                          <th style={{ width: '20%', fontSize:"large" }}>
                             Nombre del proyecto
                           </th> 
-                          <th style={{width: '10%'}}>
+                          <th style={{width: '15%', fontSize:"large"}}>
                             Fecha de inicio
                           </th>
-                          <th style={{width: '10%'}}>
+                          <th style={{width: '15%', fontSize:"large"}}>
                             Fecha Final
                           </th>              
-                          <th style={{width: '20%'}}>
+                          <th style={{width: '20%', fontSize:"large"}}>
                             Descripción
                           </th>
-                          <th style={{ width: '5%' }} className="text-center">
+                          <th style={{ width: '5%', fontSize:"large" }} className="text-center">
                             Estado
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
+                          <td style={{ fontSize:"x-large"}}>
                             #{proye.id}
                           </td>
-                          <td>
-                            <a>
+                          <td style={{ fontSize:"x-large"}}>
+ 
                             {proye.titulo}
-                            </a>
+               
                             <br />
                             <small>
                               Metodologia: {proye.metodologia}
                             </small>
                           </td>
-                          <td className="project_progress">
+                          <td className="project_progress" style={{ fontSize:"x-large"}}>
                             <small>
                               {proye.fecha_inicio}
                             </small>
                           </td>
-                          <td className="project_progress">
+                          <td className="project_progress" style={{ fontSize:"x-large"}}>
                             <small>
                               {proye.fecha_fin}
                             </small>
                           </td>
-                          <td className="project_progress">
+                          <td className="project_progress" style={{ fontSize:"x-large"}}>
                             <small>
                               {proye.descripcion}
                             </small>
                           </td>
-                          <td className="project-state">
+                          <td className="project-state" style={{ fontSize:"x-large"}}>
                             <span className="badge badge-success">{proye.estado}</span>
                           </td>
                           <td className="project-actions text-right">
