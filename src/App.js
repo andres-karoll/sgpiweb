@@ -39,7 +39,6 @@ import AsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigac
 import LineasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/LineasGrupoI'
 import ProgramasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/ProgramasGrupoI'
 
-import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarLineaGrupo'
 import DesAsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarProgramaGrupo'
 import ProyectosSemillero from './pages/GestionInstitucional/Semilleros/ProyectosSemillero'
 import UsuariosSemillero from './pages/GestionInstitucional/Semilleros/UsuariosSemillero'
@@ -83,6 +82,8 @@ import CrearProyectoPrograma from './pages/GestionProyectosAI/Proyectos/CrearPro
 import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProyectoMateria'
 import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
 import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
+import DetallesProyecto from './pages/GestionProyectosAI/Proyectos/DetallesProyecto'
+import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarProgramaGrupo'
 
 export default function App() {
   return (
@@ -398,6 +399,10 @@ export default function App() {
                         <Route exact path="/AgregarParticipante/:id" render={props => {
                             var id = props.match.params.id; 
                             return <AgregarParticipante id={id}/>
+                        }} />   
+                        <Route exact path="/DetallesProyectoAI/:id" render={props => {
+                            var id = props.match.params.id; 
+                            return <DetallesProyecto id={id}/>
                         }} />   
 
             <Route component ={() => (
