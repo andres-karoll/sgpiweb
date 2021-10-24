@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import Aside from '../../components/Global/Aside';
-import Header from '../../components/Global/Header';
+import Aside from '../../../components/Global/Aside';
+import Header from '../../../components/Global/Header';
 
 
 

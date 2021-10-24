@@ -66,12 +66,12 @@ import ProyectosArea from './pages/GestionInstitucional/Areas/ProyectosArea'
 import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
 import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
 import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
-import Proyectos from './pages/Proyectos/Proyectos'
-import PresupuestoProyecto from './pages/Proyectos/PresupuestoProyecto'
-import AsignarPresupuesto from './pages/Proyectos/AsignarPresupuesto'
-import EliminarPresupuesto from './pages/Proyectos/EliminarPresupuesto'
-import ActualizarPresupuesto from './pages/Proyectos/ActualizarPresupuesto'
-import ComprasPresupuesto from './pages/Proyectos/ComprasPresupuesto'
+import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
+import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
+import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
+import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
+import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
+import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
 
 
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
@@ -83,7 +83,22 @@ import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProy
 import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
 import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
 import DetallesProyecto from './pages/GestionProyectosAI/Proyectos/DetallesProyecto'
-import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarProgramaGrupo'
+import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarLineaGrupo'
+import EliminarCompra from './pages/Proyectos/Compras/EliminarCompra'
+import CrearCompra from './pages/Proyectos/Compras/CrearCompra'
+import ActualizarCompra from './pages/Proyectos/Compras/ActualizarCompra'
+import ProductosProyecto from './pages/Proyectos/Productos/ProductosProyecto'
+import CrearProducto from './pages/Proyectos/Productos/CrearProductos'
+import EliminarProducto from './pages/Proyectos/Productos/EliminarProducto'
+import ActualizarProducto from './pages/Proyectos/Productos/ActualizarProducto'
+import ComentariosProducto from './pages/Proyectos/Comentarios/ComentariosProducto'
+import ActualizarComentario from './pages/Proyectos/Comentarios/ActualizarComentario'
+import AsignarComentario from './pages/Proyectos/Comentarios/AsignarComentario'
+import EliminarComentario from './pages/Proyectos/Comentarios/EliminarComentario'
+import ConvocatoriasCerradas from './pages/GestionInstitucional/Convocatorias/ConvocatoriasCerradas'
+import AsignarNota from './pages/Proyectos/Comentarios/AsignarNota'
+import DesAsignarNota from './pages/Proyectos/Comentarios/DesAsignarNota'
+import ProyectosConvocatoria from './pages/GestionInstitucional/Convocatorias/ProyectosConvocatoria'
 
 export default function App() {
   return (
@@ -263,11 +278,25 @@ export default function App() {
 
 
 
+
+
+
+
+
+
             <Route path="/ConvocatoriasAbiertas" exact component={ConvocatoriasAbiertas}/>
             <Route exact path="/DetallesConvocatoriaAbierta/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesConvocatoria id={id} />
-                        }} />   
+                        }} />
+            <Route path="/ConvocatoriasCerradas" exact component={ConvocatoriasCerradas}/>   
+            <Route exact path="/ProyectosConvocatoria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProyectosConvocatoria id={id} />
+                        }} />
+
+
+
 
 
 
@@ -359,7 +388,87 @@ export default function App() {
             <Route exact path="/ComprasPresupuesto/:id" render={props => {
                             var id = props.match.params.id;
                             return <ComprasPresupuesto id={id} />
+                        }} /> 
+            <Route exact path="/EliminarCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarCompra id={id} />
                         }} />   
+            <Route exact path="/CrearCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearCompra id={id} />
+                        }} /> 
+            <Route exact path="/ActualizarCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarCompra id={id} />
+                        }} /> 
+
+
+
+
+
+
+
+
+
+
+            <Route exact path="/ProductosProyecto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProductosProyecto id={id} />
+                        }} /> 
+            <Route exact path="/SubirProductos/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearProducto id={id} />
+                        }} />
+            <Route exact path="/EliminarProducto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarProducto id={id} />
+                        }} /> 
+            <Route exact path="/ActualizarProducto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarProducto id={id} />
+                        }} /> 
+
+
+
+
+
+
+
+
+
+            <Route exact path="/ComentariosProducto/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComentariosProducto id={id} />
+                        }} /> 
+            <Route exact path="/CrearComentario/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarComentario id={id} />
+                        }} /> 
+            <Route exact path="/ActualizarComentario/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarComentario id={id} />
+                        }} /> 
+            <Route exact path="/EliminarComentario/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarComentario id={id} />
+                        }} />
+            <Route exact path="/AsignarNota/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarNota id={id} />
+                        }} /> 
+            <Route exact path="/DesAsignarNota/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DesAsignarNota id={id} />
+                        }} /> 
+            
+
+
+
+
+
+
+
+
 
 
 

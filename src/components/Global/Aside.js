@@ -5,9 +5,9 @@ export default class Aside extends Component{
   render() {
     var rol=localStorage.getItem("tipo");
     return (
-      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' , width: '20%'}}>
+      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed'  }}>
 
-  <div className="sidebar" >
+  <div className="sidebar" style={{ position: 'fixed', overflowY:'scroll', scrollbarWidth:'thin', width:'250px'}}>
     {/* Sidebar user panel (optional) */}
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -139,7 +139,7 @@ export default class Aside extends Component{
             <Link to="/Lineas">
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-globe nav-icon" />
+                <i className="  fas fa-globe nav-icon" />
                 
                 <p>Lineas de investigación</p>
                  
@@ -172,7 +172,7 @@ export default class Aside extends Component{
               <a  className="nav-link">
                 <i className="fas fa-pencil-alt nav-icon" />
                 
-                <p>Convocatorias abiertas</p>
+                <p> CRUD de Convocatorias</p>
                  
               </a>
             </li>
@@ -217,6 +217,35 @@ export default class Aside extends Component{
               <a  className="nav-link">
               <i className="fas fa-graduation-cap nav-icon"> </i>
                 <p>Tus Proyectos de aula o integrador</p>
+              </a>
+            </li>
+            </Link>
+          </ul>
+        </li>
+        <li className="nav-item menu-open">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-pencil-alt nav-icon" />        
+            <p>
+              Gestion financiera
+              <i className="right fas fa-angle-left" />
+            </p>       
+          </a>
+          <ul className="nav nav-treeview">
+          <Link to="/ConvocatoriasAbiertas">
+            <li className="nav-item">
+              <a  className="nav-link">
+              <i className="fas fa-door-open nav-icon"> </i>
+                <p>Convocatorias Abiertas</p>
+              </a>
+            </li>
+            </Link>
+          </ul>
+          <ul className="nav nav-treeview">
+          <Link to="/ConvocatoriasCerradas">
+            <li className="nav-item">
+              <a  className="nav-link">
+              <i className="fas fa-door-closed nav-icon"> </i>
+                <p>Convocatorias Cerradas</p>
               </a>
             </li>
             </Link>

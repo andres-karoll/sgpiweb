@@ -4,19 +4,19 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectosArea extends Component {
+export default class ProyectosConvocatoria extends Component {
 
   state = {
 status: false,
     proyectos:[]
   }
 
-  cargarProyectos= () => {
+  cargarProyecto= () => {
     var url = "http://localhost:8080";
-    var request = "/gestionfiltroproyecto/listarproyectosporarea/" +this.props.id;
+    var request = "/gestioninstitucional/listarlosproyectosdeconvocatoria/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-       proyectos: res.data
+        proyectos: res.data
         , status: true
       });
     });
@@ -24,7 +24,7 @@ status: false,
   }
 
   componentDidMount = () => {
-    this.cargarProyectos();
+    this.cargarProyecto();
     //this.cargarLineas();
 
   }
@@ -39,7 +39,7 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1 style={{fontSize:"x-large" }} >< i style={{fontSize:"x-large" }} class="fas fa-eye nav-icon"></i>Proyectos del Area con ID: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
@@ -54,7 +54,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">Id del area: {this.props.id}</h3>
+                    <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -68,46 +68,49 @@ status: false,
                   <div className="card-body p-0">
                     <table className="table table-striped projects">
                       <thead>
-                        <tr style={{fontSize:"large" }}>
-                        
+                        <tr>
                           <th style={{ width: '5%' }}>
-                            ID
+                            id de proyecto
                           </th>
-                          <th style={{ width: '20%' }}>
-                          Titulo de proyecto
-                          </th>
-                          <th style={{ width: '20%' }}>
-                          descripción
-                          </th>
-                          <th style={{ width: '20%' }}>
-                          justificación
-                          </th>  
-                          <th style={{ width: '20%' }}>
-                          visibilidad
+                          <th style={{ width: '15%' }}>
+                           Titulo del proyecto
                           </th>               
-                          
+                          <th style={{ width: '25%' }}>
+                            Descripción
+                          </th>
+                          <th style={{ width: '10%' }}>
+                            Estado
+                          </th>
+                          <th style={{ width: '10%' }}>
+                          Convocatoria
+                          </th>
                         </tr>
                       </thead>
-                      <tbody style={{fontSize:"large" }}>
+                      <tbody>
                         <tr>
-                       
                           <td>
-                            {pro.id}
+                          {pro.id_proyecto}
                           </td>
-                          <td>                          
-                            {pro.titulo}
+                          <td>
+                          {pro.titulo_proyecto}
                           </td>
-                          <td>                          
-                            {pro.descripcion}
+                          <td>
+                          {pro.descripcion_proyecto}
                           </td>
-                          <td>                          
-                            {pro.justificacion}
+                          <td>
+                          {pro.estado_proyecto}
                           </td>
-                          <td>                          
-                            {pro.visibilidad}
+                          <td>
+                          {pro.convocatoria}
                           </td>
-                          <td className="project-actions text-right" style={{width: '40%'}}>
-                 
+                          <td className="project-actions text-right">
+                            
+                          <NavLink to={"/DetallesProyecto/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink> 
+                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id} >Productos</NavLink>
+                          
+                          
+                            
                           </td>
                         </tr>
                       </tbody>

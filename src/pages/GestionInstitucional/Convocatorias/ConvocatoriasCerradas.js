@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import {Link, NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class Areas extends Component {
+export default class ConvocatoriasCerradas extends Component {
 
   state = {
-    areas: []
+    convocatorias: []
     , status: false
   }
 
-  cargarAreas = () => {
+  cargarConvocatorias = () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarareas";
+    var request = "/gestioninstitucional/convocatoriasestado/cerrado";
     axios.get(url + request).then(res => {
       this.setState({
-        areas: res.data
+        convocatorias: res.data
         , status: true
       });
     });
   }
 
   componentDidMount = () => {
-    this.cargarAreas();
+    this.cargarConvocatorias();
   }
 
   render() {
@@ -37,14 +37,13 @@ export default class Areas extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-brain nav-icon"></i>Areas</h1>
+                  <h1><i class="fas fa-door-closed nav-icon"></i>Convocatorias Cerradas</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%",fontSize:"large"}} to={"/InsertarArea"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.areas.map((are, i) => {
+          this.state.convocatorias.map((con, i) => {
            
             return (
               <section className="content">
@@ -52,7 +51,7 @@ export default class Areas extends Component {
                 <div className="card">
                     
                   <div className="card-header">
-                    <h3 className="card-title" style={{fontSize:"large"}}>Nombre: {are.nombre}</h3>
+                    <h3 className="card-title">Convocatoria: {con.nombre_convocatoria}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -67,44 +66,55 @@ export default class Areas extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '10%',fontSize:"small"}}>
-                            id
+                          <th style={{ width: '1%' }}>
+                            # ID
                           </th>
-                          <th style={{ width: '15%',fontSize:"small" }}>
-                            Nombre
+                          <th style={{ width: '20%' }}>
+                            Nombre de convocatoria
                           </th>
-                          <th style={{ width: '30%',fontSize:"small" }}>
-                            Descripción
+                          <th style={{ width: '10%' }}>
+                            Fecha Inicio
+                          </th>               
+                          
+                          <th style={{width: '20%'}}>
+                          Entidad
                           </th> 
-                          <th style={{ width: '20%',fontSize:"small" }}>
-                            Gran area
-                          </th>                                    
+                          <th style={{width: '15%'}}>
+                          Estado
+                          </th>                       
                         </tr>
                       </thead>
                       <tbody>
-                        <tr  style={{fontSize:"small" }}>
+                        <tr>
                           <td>
-                             {are.id}
+                            # {con.id}
                           </td>
                           <td>
                             <a>
-                            {are.nombre}
+                            {con.nombre_convocatoria}
                             </a>
                           </td>
                           <td>
                             <a>
-                            {are.descripcion}
+                            {con.fecha_inicio}
                             </a>
                           </td>
-                          <td>
+                          
+                          <td className="project_progress">
                             <a>
-                            {are.gran_area}
+                            {con.entidad}
+                            </a>
+                          </td>
+                          <td className="project_progress">
+                            <a>
+                            {con.estado}
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
-                          {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActualizarArea/" + are.id}  style={{fontSize:"large" }}>Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarArea/" + are.id}  style={{fontSize:"large" }}>Eliminar</NavLink>  
+                          <NavLink to={"/DetallesConvocatoriaAbierta/" + con.id} className="btn btn-primary">Detalles</NavLink> 
+                          <NavLink to={"/ProyectosConvocatoria/" + con.id} className="btn btn-info">Proyectos de la convocatoria</NavLink> 
+                          {/*<NavLink className="btn btn-info" to={"/ActulizarFacultad/" + facul.id} >Modificar</NavLink>*/}
+                          {/*<NavLink className="btn btn-danger"  to={"/EliminarFacultad/" + facul.id} >Eliminar</NavLink>  */}
                                                   
                           </td>
                         </tr>
@@ -113,8 +123,8 @@ export default class Areas extends Component {
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li className="nav-item">
           <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon"  style={{fontSize:"large" }}/>        
-            <p  style={{ width: '20%',fontSize:"large" }}>
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
               Funciones
               <i className="right fas fa-angle-left" />
             </p>
@@ -122,12 +132,12 @@ export default class Areas extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ProyectosArea/" + are.id}>
-            <li className="nav-item"  style={{fontSize:"large" }}>
+            <Link to={"/ProyectosConvocatoria/" + con.id}>
+            <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-eye nav-icon"  style={{fontSize:"large" }}/>
+                <i className="fas fa-eye nav-icon" />
                 
-                <p>. Ver proyectos asociados al Area</p>
+                <p>Ver proyectos de la Convocatoria</p>
                  
               </a>
             </li>

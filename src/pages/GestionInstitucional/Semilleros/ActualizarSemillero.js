@@ -16,7 +16,8 @@ export default class ActualizarSemillero extends Component {
 
     state = { status: false,
         gruposi:[],
-        grup:[] }
+        grup:[],
+    lineas:[] }
 
     nuevoSemillero = (e) => {
         e.preventDefault();
@@ -52,9 +53,19 @@ export default class ActualizarSemillero extends Component {
           })
         });
       }
+      Cargardos = () => {
+        var request = "/gestioninstitucional/listarlineas" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            lineas: res.data
+            , status: true
+          })
+        });
+      }
       componentDidMount = () => {
         this.Cargar();
-        
+        this.Cargardos();
       }
 
     render() {
@@ -88,19 +99,25 @@ export default class ActualizarSemillero extends Component {
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Nombre</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} />
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="descripcion" ref={this.cajaDescripcionRef} />
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder="descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Fecha_fun</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />
-                        </div>
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha_fun</label>
+{/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
+<input type="date" id="start" name="trip-start" style={{ height: "30px"}}
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFecha_funRef} required></input>
+                               </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Grupo de investigacion</label>
-                            <select ref={this.cajaGrupoInvestigacionRef} style={{width: '50%',  height: "30px"}}>
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Grupo de investigacion</label>
+                            <select ref={this.cajaGrupoInvestigacionRef} style={{width: '50%',  height: "30px"}} required>
                                 {this.state.status === true && 
                             
                             ( this.state.gruposi.map((grup) => {
@@ -112,13 +129,32 @@ export default class ActualizarSemillero extends Component {
                             </select>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Lider de semillero</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="lider de semillero" ref={this.cajaLiderSemilleroRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="lider de semillero" ref={this.cajaLiderSemilleroRef} required/>
                         </div>
+                        {/** 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Linea de investigacion</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Linea de investigacion" ref={this.cajaLineaInvestigacionFef} />
+                        </div>*/}
+                        <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Linea de investigacion</label>
+                            <select ref={this.cajaLineaInvestigacionFef} style={{width: '50%',  height: "30px"}} required>
+                                {this.state.status === true && 
+                            
+                            ( this.state.lineas.map((li) => {
+                            return(
+                                    <option value={li.id}>{li.nombre}</option> 
+                                    );
+                                })
+                                )}
+                            </select>
                         </div>
+
+
+
 
                         </div>
                         {/* /.card-body */}

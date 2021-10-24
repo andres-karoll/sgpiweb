@@ -79,12 +79,14 @@ export default class ActualizarPrograma extends Component {
                             <input type="text" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de Programa</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de programa" ref={this.cajaNombreRef} />
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de programa" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Facultad</label>
-                            <select ref={this.cajaFacultadRef} style={{width: '50%',  height: "30px"}}>
+                            <select ref={this.cajaFacultadRef} style={{width: '50%',  height: "30px"}} required>
                                 {this.state.status === true && 
                             
                             ( this.state.facultades.map((facul) => {
@@ -98,8 +100,9 @@ export default class ActualizarPrograma extends Component {
                         
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Director</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Director" ref={this.cajaDirectorRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Director" ref={this.cajaDirectorRef} required/>
                         </div>
                     
                         </div>

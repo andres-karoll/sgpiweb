@@ -4,12 +4,13 @@ import { Redirect, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class EliminarArea extends Component {
+
+export default class EliminarCompra extends Component {
 
     state = { status: false };
 
-    eliminarArea = () => {
-        var request = "/gestioninstitucional/eliminararea/" + this.props.id;
+    eliminarCompra = () => {
+        var request = "/gestionfinanciera/eliminarcompra/" + this.props.id;
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
@@ -18,7 +19,7 @@ export default class EliminarArea extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/AreasConocimiento" />
+            return <Redirect to="/Proyectos" />
         }
         return (
             <div>
@@ -31,12 +32,12 @@ export default class EliminarArea extends Component {
                 <br />
                 <div class="alert alert-danger alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h1  style={{fontSize:"large" }}><i  style={{fontSize:"large" }} class="icon fas fa-shield-alt"></i> Alert!</h1>
-                  <h2  style={{fontSize:"large" }}><i  style={{fontSize:"large" }} class="icon fas fa-exclamation"></i> ¿Esta seguro que quiere eliminar la Area?</h2>
+                  <h1><i class="icon fas fa-shield-alt"></i> Alert!</h1>
+                  <h2><i class="icon fas fa-exclamation"></i> ¿Esta seguro que quiere eliminar la compra?</h2>
                   
                   <div>
-                <NavLink  style={{fontSize:"large" }} to="/AreasConocimiento" className="btn btn-info">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button  style={{fontSize:"large" }} onClick={this.eliminarArea} className="btn btn-danger">Eliminar</button>
+                <NavLink to="/Proyectos" className="btn btn-info">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button onClick={this.eliminarCompra} className="btn btn-danger">Eliminar</button>
                 </div>
                   </div>
                   </section>

@@ -52,7 +52,7 @@ export default class InsertarArea extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear una Area</h3>
+                    <h3  style={{fontSize:"large" }} className="card-title"  >Crear una Area</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -60,27 +60,29 @@ export default class InsertarArea extends Component {
                     <form onSubmit={this.nuevaArea} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">id</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                            <label  style={{fontSize:"large" }} htmlFor="exampleInputEmail1">id</label>
+                            <input  style={{fontSize:"large" }} type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Nombre</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} />
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Nombre</label>
+                            <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} />
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Descripción</label>
+                            <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Grand area</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} />
+                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Grand area</label>
+                            <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} required/>
                         </div>
                         
 
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <button style={{fontSize:"large" }} className="btn btn-success">Enviar</button>
                         </div>
                     </form>
                     </div>
