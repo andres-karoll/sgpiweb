@@ -106,6 +106,13 @@ status: false,
                           <td className="project-actions text-right" style={{width: '40%'}}>
                  
                           </td>
+                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          <NavLink to={"/DetallesProyecto/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                          {/* <NavLink className="btn btn-info" to={"/DetallesPrueba/" + proye.id} >Modificar</NavLink> */}
+                          {/* <NavLink className="btn btn-danger" to={"/DetallesPrueba/" + proye.id} >Eliminar</NavLink> */}
+                      
+                            
+                          </td>
                         </tr>
                       </tbody>
                     </table>

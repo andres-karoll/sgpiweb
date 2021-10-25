@@ -91,7 +91,7 @@ status: false,
                           {pro.nombre}
                           </td>
                           <td>
-                          {pro.director}
+                          {pro.Director}
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>
                  

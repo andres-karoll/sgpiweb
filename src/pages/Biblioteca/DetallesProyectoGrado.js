@@ -44,8 +44,8 @@ export default class DetallesProyectoGrado extends Component {
         </div>
         <div className="col-sm-6">
           <ol className="breadcrumb float-sm-right">
-            <li className="breadcrumb-item"><a href="/ProyectosGrado">Trabajos de grado</a></li>
-            <li className="breadcrumb-item active">Detalles del proyecto</li>
+            <li className="breadcrumb-item" style={{fontSize:"large"}}><a href="/ProyectosGrado">Trabajos de grado</a></li>
+            <li className="breadcrumb-item active" style={{fontSize:"large"}}>Detalles del proyecto</li>
           </ol>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default class DetallesProyectoGrado extends Component {
     {/* Default box */}
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">id: {this.state.proyecto.id}</h3>
+        <h3 className="card-title" style={{fontSize:"large"}}>id: {this.state.proyecto.id}</h3>
         <div className="card-tools">
           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i className="fas fa-minus" />
@@ -72,7 +72,7 @@ export default class DetallesProyectoGrado extends Component {
             <div className="row">
               <div className="col-12 col-sm-4">
                 <div className="info-box bg-light">
-                  <div className="info-box-content">
+                  <div className="info-box-content" style={{fontSize:"large"}}>
                     <span className="info-box-text text-center text-muted">Fecha inicio</span>
                     <span className="info-box-number text-center text-muted mb-0">{this.state.proyecto.fecha_inicio}</span>
                   </div>
@@ -80,7 +80,7 @@ export default class DetallesProyectoGrado extends Component {
               </div>
               <div className="col-12 col-sm-4">
                 <div className="info-box bg-light">
-                  <div className="info-box-content">
+                  <div className="info-box-content" style={{fontSize:"large"}}>
                     <span className="info-box-text text-center text-muted">Fecha fin</span>
                     <span className="info-box-number text-center text-muted mb-0">{this.state.proyecto.fecha_fin}</span>
                   </div>
@@ -88,7 +88,7 @@ export default class DetallesProyectoGrado extends Component {
               </div>
               <div className="col-12 col-sm-4">
                 <div className="info-box bg-light">
-                  <div className="info-box-content">
+                  <div className="info-box-content" style={{fontSize:"large"}}>
                     <span className="info-box-text text-center text-muted">Estado</span>
                     <span className="info-box-number text-center text-muted mb-0">{this.state.proyecto.estado}</span>
                   </div>
@@ -97,7 +97,7 @@ export default class DetallesProyectoGrado extends Component {
             </div>
             <div className="row">
               <div className="col-12">
-                <h4>Datos extras</h4>
+                <h4 style={{fontSize:"large"}}>Datos extras</h4>
                 <div className="post">
                   <div className="user-block">
                     <img className="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image" />
@@ -139,16 +139,16 @@ export default class DetallesProyectoGrado extends Component {
           </div>
           <div className="col-12 col-md-12 col-lg-4 order-1 order-md-2">
             <h3 className="text-primary"><i className="fas fa-graduation-cap" /> Titulo: {this.state.proyecto.titulo}</h3>
-            <p className="text-muted"> {this.state.proyecto.descripcion}</p>
+            <p className="text-muted">Descripción: {this.state.proyecto.descripcion}</p>
             <br />
-            <div className="text-muted">
-              <p className="text-sm">Justificación
+            <div className="text-muted" >
+              <p className="text-sm" style={{fontSize:"large"}}>Justificación
                 <b className="d-block">{this.state.proyecto.justificacion}</b>
               </p>
-              <p className="text-sm">Retro alimentación 
+              <p className="text-sm" style={{fontSize:"large"}}>Retro alimentación 
                 <b className="d-block">{this.state.proyecto.retroalimentacion_final}</b>
               </p>
-              <p className="text-sm">Conclusiones
+              <p className="text-sm" style={{fontSize:"large"}}>Conclusiones
                 <b className="d-block">{this.state.proyecto.conclusiones}</b>
               </p>
              

@@ -72,13 +72,13 @@ status: false,
                         <th style={{ width: '5%' }}>
                            ID
                           </th>
-                          <th style={{ width: '50%' }}>
+                          <th style={{ width: '30%' }}>
                            Nombre de semillero
                           </th>
-                          <th style={{ width: '50%' }}>
+                          <th style={{ width: '30%' }}>
                             Descripcion
                           </th> 
-                          <th style={{ width: '50%' }}>
+                          <th style={{ width: '30%' }}>
                             Fecha fun
                           </th>               
                           

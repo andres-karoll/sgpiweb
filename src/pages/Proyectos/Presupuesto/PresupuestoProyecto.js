@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
-import Aside from '../../components/Global/Aside';
-import Header from '../../components/Global/Header';
+import { NavLink, Link } from 'react-router-dom';
+import Aside from '../../../components/Global/Aside';
+import Header from '../../../components/Global/Header';
 
 export default class PresupuestoProyecto extends Component {
 
@@ -77,16 +77,52 @@ status: false,
       <li className="list-group-item">
         <b>Fecha</b> <a className="float-right">{pre.fecha}</a>
       </li>
-      <div className="card-body">
-      <NavLink className="btn btn-info" style={{width: "50%"}} to={"/ComprasPresupuesto/"+ pre.id} >Compras del presupuesto</NavLink>
-      <NavLink className="btn btn-success" style={{width: "50%"}} to={"/CrearCompras/"+ pre.id} >Crear una Compra</NavLink>
-      </div>
+
     </ul>
 
-    <NavLink to={"/ActualizarPresupuesto/" + pre.id} className="btn btn-primary">Actualizar</NavLink>
-    <NavLink className="btn btn-danger" to={"/EliminarPresupuesto/" + pre.id} >Eliminar</NavLink>
+    <NavLink to={"/ActualizarPresupuesto/" + pre.id} className="btn btn-primary" style={{width: "50%"}}>Actualizar</NavLink>
+    <NavLink className="btn btn-danger" to={"/EliminarPresupuesto/" + pre.id} style={{width: "50%"}}>Eliminar</NavLink>
   </div>
-  {/* /.card-body */}
+  <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Compras
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/ComprasPresupuesto/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver Compras del presupuesto</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/CrearCompra/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-cart-plus nav-icon" />
+                
+                <p>Crear Compras</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
 </div>
 
             );

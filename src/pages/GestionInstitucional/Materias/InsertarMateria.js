@@ -72,16 +72,19 @@ progra:[] }
                     <form onSubmit={this.nuevaMateria} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Catalogo</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCatalogoRef} />
+                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCatalogoRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de la Materia</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} />
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
-                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}}>
+                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
                                 {this.state.status === true && 
                             
                             ( this.state.programas.map((progra) => {

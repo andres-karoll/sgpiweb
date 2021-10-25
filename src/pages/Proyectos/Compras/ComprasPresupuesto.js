@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { NavLink } from 'react-router-dom';
-import Aside from '../../components/Global/Aside';
-import Header from '../../components/Global/Header';
+import Aside from '../../../components/Global/Aside';
+import Header from '../../../components/Global/Header';
 import { PureComponent } from 'react';
 
 export default class ComprasPresupuesto extends Component {
@@ -94,8 +94,8 @@ status: false,
       </li>
     </ul>
 
-    <NavLink to={"/ActualizarCompra/" + com.id} className="btn btn-primary">Actualizar</NavLink>
-    <NavLink className="btn btn-danger" to={"/EliminarCompra/" + com.id} >Eliminar</NavLink>
+    <NavLink to={"/ActualizarCompra/" + com.id} className="btn btn-primary" style={{ width: '50%'}}>Actualizar</NavLink>
+    <NavLink className="btn btn-danger" to={"/EliminarCompra/" + com.id} style={{ width: '50%'}}>Eliminar</NavLink>
   </div>
   {/* /.card-body */}
 </div>

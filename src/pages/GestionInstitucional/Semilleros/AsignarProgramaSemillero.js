@@ -9,7 +9,7 @@ export default class AsignarProgramaSemillero extends Component {
     cajaSemilleroRef = React.createRef();
     cajaProgramaRef = React.createRef();
 
-    state = { programa: [],status: false }
+    state = { programas: [],status: false }
 
     nuevaAsignacion = (e) => {
         e.preventDefault();
@@ -22,14 +22,27 @@ export default class AsignarProgramaSemillero extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/asignarsemilleroaprograma';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
+            window.location.href = "/Semilleros";
         });
     }
-
+    Cargar = () => {
+        var request = "/gestioninstitucional/listarprogramas" ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            programas: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+      }
       
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Semilleros"/>
+            //return <Redirect to="/Semilleros"/>
         }
         return (
             <div>
@@ -45,17 +58,37 @@ export default class AsignarProgramaSemillero extends Component {
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
+                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Semillero</label>
                         <div className="col-sm-10">
                         <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
+                    {/** 
                     <div className="form-group row">
                         <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Programa</label>
                         <div className="col-sm-10">
                         <input type="text" className="form-control" id="inputPassword3" placeholder="Programa" ref={this.cajaProgramaRef}/>
                         </div>
                     </div>
+                    */}
+                    <div className="form-group row">
+                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Programa</label>
+                        <div className="col-sm-10">
+                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
+                                {this.state.status === true && 
+                            
+                            ( this.state.programas.map((pro) => {
+                            return(
+                                    <option value={pro.id}>{pro.nombre}</option> 
+                                    );
+                                })
+                                )}
+                            </select>
+                        </div>
+                    </div>
+
                     </div>
                     {/* /.card-body */}
                     <div className="card-footer">

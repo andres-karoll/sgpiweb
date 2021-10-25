@@ -13,7 +13,7 @@ status: false,
 
   cargarProyectos= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarproyectosporarea/" +this.props.nombre;
+    var request = "/gestionfiltroproyecto/listarproyectosporarea/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
        proyectos: res.data
@@ -39,7 +39,7 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos del Area con ID: {this.props.id}</h1>
+                  <h1 style={{fontSize:"x-large" }} >< i style={{fontSize:"x-large" }} class="fas fa-eye nav-icon"></i>Proyectos del Area con ID: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
@@ -68,10 +68,10 @@ status: false,
                   <div className="card-body p-0">
                     <table className="table table-striped projects">
                       <thead>
-                        <tr>
+                        <tr style={{fontSize:"large" }}>
                         
-                          <th style={{ width: '15%' }}>
-                            ID de proyecto
+                          <th style={{ width: '5%' }}>
+                            ID
                           </th>
                           <th style={{ width: '20%' }}>
                           Titulo de proyecto
@@ -88,7 +88,7 @@ status: false,
                           
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody style={{fontSize:"large" }}>
                         <tr>
                        
                           <td>
