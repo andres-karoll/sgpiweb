@@ -74,17 +74,19 @@ export default class InsertarEvento extends Component {
                             <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Fecha inicio</label>
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}} >Fecha inicio</label>
                             {/* form start 
                             <input type="text" name="cajatel" className="form-control" placeholder="Fecha inicio" ref={this.cajaFechaRef} />
 */}
 
                             <input type="date" id="start" name="trip-start"
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef}></input>
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         
                         
                         </div>
@@ -92,8 +94,13 @@ export default class InsertarEvento extends Component {
 
 
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Estado</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Estado" ref={this.cajaEstadoRef} />
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                        <label htmlFor="exampleInputPassword1">Estado</label>
+                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
+                        <option selected="selected">Abierto</option>
+                        <option>Abierto</option>
+                        <option>Cerrado</option>
+                        </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Entidad</label>

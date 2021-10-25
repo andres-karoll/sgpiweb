@@ -1,56 +1,49 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect} from 'react';
 import axios from 'axios';
+import { NavLink, Link} from 'react-router-dom';
 
-import { NavLink } from 'react-router-dom';
+import { prettyDOM } from '@testing-library/dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-export default class ProyectosGrado extends Component {
-  state = {
-    proyectos: []
-    , status: false,
-    busqueda:'',
-    proyec:[]
-  }
 
-  cargarProyectosGrado = () => {
-    var url = "http://localhost:8080";
-    var request = "/biblioteca/listarGrado";
-    axios.get(url + request).then(res => {
-      this.setState({
-        proyectos: res.data
-        , status: true
-      });
-    });
-  }
+function Proyectos(){
+    const [proyectos, setproyectos] = useState([]);
+    const [tablaproyectos, settablaproyectos] = useState([]);
+    const [busqueda, setbusqueda] = useState("");
 
-  filtrarElementos=()=>{
-    var search=this.state.proyectos.filter(item=>{
-      if(item.titulo.toString().includes(this.state.busqueda))
-      {
-        return item;
-      }
-      
-    });
-    this.setState({proyectos: search});
-  }
+    const peticionGet = async()=>{
+        await axios.get("http://localhost:8080/biblioteca/listarGrado")
+        .then(response=>{
+            setproyectos(response.data);
+            settablaproyectos(response.data);
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
+    const handleChange=e =>{
+        setbusqueda(e.target.value);
+        filtrar(e.target.value);
+    }
 
 
-  componentDidMount = () => {
-    this.cargarProyectosGrado();
-    this.setState({proyec:this.state.proyectos})
-  }
+    const filtrar = (terminoBusqueda)=>{
+        var ResultadosBusqueda = tablaproyectos.filter((elemento)=>{
+            if(elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+            ||elemento.estado.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+            ||elemento.fecha_inicio.toString().includes(terminoBusqueda.toLowerCase())
+            ||elemento.fecha_fin.toString().includes(terminoBusqueda.toLowerCase())){
+                return elemento;
+            }
+        });
+        setproyectos(ResultadosBusqueda);
+    }
 
-  onChange = async e=>{
-    e.persist();
-    await this.setState({busqueda: e.target.value})
-    console.log(this.state.busqueda)
-    this.filtrarElementos();
-  }
-  
-  render() {
+
+    useEffect(() => {
+        peticionGet();
+    }, [])
     return (
-
-    <div>
+        <div>
       <Aside/>
       <Header/>
       <div className="content-wrapper">
@@ -58,34 +51,27 @@ export default class ProyectosGrado extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-graduation-cap nav-icon"></i> Proyectos de grado</h1>
+                  <h1><i class="fas fa-graduation-cap nav-icon"></i>Trabajos de grado</h1>
                   </div>
                   </section>
             </div>
-     <section className="content">
-  <div className="container-fluid">
-    <div className="row">
-      <div className="col-md-8 offset-md-2">
-        <form action={this.filtrar}>
+      <div className="container-fluid">
+    <div className="row"style={{width: '100%', height: "50px", padding:"5px"}}>
+      <div className="col-md-8 offset-md-2 ">
           <div className="input-group">
-            <input type="search" onChange = {this.onChange} className="form-control form-control-lg" placeholder="Type your keywords here" />
+            <input type="search" onChange = {handleChange} className="form-control form-control-lg" placeholder="Busqueda por titulo, estado, fecha(año-mes-dia)" />
             <div className="input-group-append">
-              <button type="submit"  className="btn btn-lg btn-default">
-                <i className="fa fa-search" />
-              </button>
             </div>
           </div>
-        </form>
-      </div>
+          </div>     
     </div>
   </div>
-</section>
+  
+            {proyectos &&
+            proyectos.map((proye)=>(
 
-      {this.state.status === true &&
-        (
-          this.state.proyectos.map((proye, i) => {
-            return (
-              <section className="content">
+            
+            <section className="content">
                 {/* Default box */}
                 <div className="card">
                   <div className="card-header">
@@ -94,10 +80,10 @@ export default class ProyectosGrado extends Component {
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
                       </button>
-                      {/*  
+                      {/* 
                       <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i className="fas fa-times" />
-                      </button> */}
+                      </button>*/}
                     </div>
                   </div>
                   <div className="card-body p-0">
@@ -109,20 +95,19 @@ export default class ProyectosGrado extends Component {
                           </th>
                           <th style={{ width: '20%' }}>
                             Nombre del proyecto
-                          </th>               
+                          </th> 
                           <th style={{width: '10%'}}>
                             Fecha de inicio
                           </th>
                           <th style={{width: '10%'}}>
                             Fecha Final
-                          </th>
-                          <th style={{width: '20%'}}>
-                          Descripción
+                          </th>              
+                          <th style={{width: '30%'}}>
+                            Descripción
                           </th>
                           <th style={{ width: '5%' }} className="text-center">
                             Estado
                           </th>
-                          
                         </tr>
                       </thead>
                       <tbody>
@@ -139,7 +124,6 @@ export default class ProyectosGrado extends Component {
                               Metodologia: {proye.metodologia}
                             </small>
                           </td>
-                          
                           <td className="project_progress">
                             <small>
                               {proye.fecha_inicio}
@@ -152,38 +136,63 @@ export default class ProyectosGrado extends Component {
                           </td>
                           <td className="project_progress">
                             <small>
-                            {proye.descripcion}
+                              {proye.descripcion}
                             </small>
                           </td>
                           <td className="project-state">
                             <span className="badge badge-success">{proye.estado}</span>
                           </td>
-                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          <td className="project-actions text-right">                  
                           <NavLink to={"/DetallesProyecto/" + proye.id} className="btn btn-primary">Detalles</NavLink>
-                          {/* <NavLink className="btn btn-info" to={"/DetallesPrueba/" + proye.id} >Modificar</NavLink> */}
-                          {/* <NavLink className="btn btn-danger" to={"/DetallesPrueba/" + proye.id} >Eliminar</NavLink> */}
-                      
-                            
                           </td>
                         </tr>
                       </tbody>
                     </table>
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/AsignarPersupuesto/" + proye.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-hand-holding-usd nav-icon" />
+                
+                <p>Asignar Presupuesto</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/SubirProductos/" + proye.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-file-upload nav-icon" />
+                
+                <p>Subir Productos</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   {/* /.card-body */}
                 </div>
                 {/* /.card */}
               </section>
-              
-             
-           
-
-            );
-        })
-      )}
-
-
-</div>
-</div>
-)
+              ))}
+              </div>
+        </div>
+    );
 }
-}
+
+export default Proyectos

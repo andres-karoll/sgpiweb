@@ -74,12 +74,15 @@ export default class ActualizarMateria extends Component {
                             <input type="text" name="cajanom" className="form-control" value = {this.props.catalogo} placeholder="Catalogo" ref={this.cajaCatalogoRef} readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de la Materia</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} />
+                            
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
-                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}}>
+                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
                                 {this.state.status === true && 
                             
                             ( this.state.programas.map((progra) => {

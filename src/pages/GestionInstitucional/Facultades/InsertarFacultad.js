@@ -61,16 +61,19 @@ export default class InsertarFacultad extends Component {
                             <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de Facultad</label>
                             <input type="text" name="cajadir" className="form-control" placeholder="Nombre de facultad" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Decano</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Decano Obligatorio" ref={this.cajaDecanoRef}/>
+                            <input type="text" name="cajatel" className="form-control" placeholder="Decano Obligatorio" ref={this.cajaDecanoRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Coordinador invitado</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Coordinador invitado" ref={this.cajaCoorRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Coordinador invitado" ref={this.cajaCoorRef} required/>
                         </div>
                     
                         </div>

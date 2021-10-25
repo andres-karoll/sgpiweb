@@ -101,12 +101,12 @@ status: false,
                           </td>
                           <td>
                            
-                            {pro.director}
+                            {pro.Director}
                             
                           </td>
                           <td>
                            
-                            {pro.facultad}
+                            {pro.Facultad}
                             
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>

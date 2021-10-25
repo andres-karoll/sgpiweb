@@ -57,17 +57,20 @@ export default class ActualizarLinea extends Component {
                     <form onSubmit={this.nuevaLinea} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">nombre</label>
                             <input type="text" name="cajanom" className="form-control" value = {this.props.nombre} placeholder="Nombre" ref={this.cajaNombreRef} readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />
-                        </div>
+{/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
+<input type="date" id="start" name="trip-start" style={{ height: "30px"}}
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>                        </div>
                         
 
                         </div>

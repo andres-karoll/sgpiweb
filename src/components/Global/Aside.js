@@ -5,9 +5,11 @@ export default class Aside extends Component{
   render() {
     var rol=localStorage.getItem("tipo");
     return (
-      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' }}>
 
-  <div className="sidebar" >
+      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed'  }}>
+
+
+  <div className="sidebar" style={{ position: 'fixed', overflowY:'scroll', scrollbarWidth:'thin', width:'250px'}}>
     {/* Sidebar user panel (optional) */}
 
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -142,7 +144,7 @@ export default class Aside extends Component{
             <Link to="/Lineas">
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-globe nav-icon" />
+                <i className="  fas fa-globe nav-icon" />
                 
                 <p>Lineas de investigación</p>
                  
@@ -170,12 +172,12 @@ export default class Aside extends Component{
             </li>
             </Link>
 
-            <Link to="/ConvocatoriasAbiertas">
+            <Link to="/Convocatorias">
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-pencil-alt nav-icon" />
                 
-                <p>Convocatorias abiertas</p>
+                <p> CRUD de Convocatorias</p>
                  
               </a>
             </li>
@@ -208,6 +210,7 @@ export default class Aside extends Component{
 
           </ul>
         </li>
+
         }
         {rol==="Estudiante","Profesor" &&
            <li className="nav-item menu-open">

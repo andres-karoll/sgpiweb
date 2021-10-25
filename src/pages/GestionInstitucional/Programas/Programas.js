@@ -94,13 +94,13 @@ export default class Programas extends Component {
                           </td>
                           <td>
                             
-                            {pro.facultad}
+                            {pro.Facultad}
                            
                           </td>
                           
                           <td className="project_progress">
                            
-                            {pro.director}
+                            {pro.Director}
                            
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>

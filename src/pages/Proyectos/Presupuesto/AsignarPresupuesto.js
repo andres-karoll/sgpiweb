@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import Aside from '../../components/Global/Aside';
-import Header from '../../components/Global/Header';
+import Aside from '../../../components/Global/Aside';
+import Header from '../../../components/Global/Header';
 
 
 export default class AsignarPresupuesto extends Component {
@@ -68,18 +68,22 @@ export default class AsignarPresupuesto extends Component {
                             <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Monto de dinero</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Monto de dinero" ref={this.cajaMontoRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Monto de dinero" ref={this.cajaMontoRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} />
+                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Proyecto</label>
                             <input type="text" name="cajatel" className="form-control" value={this.props.id} placeholder="Proyecto" ref={this.cajaProyectoRef} readOnly/>
                         </div>
