@@ -86,43 +86,49 @@ export default class ActualizarCompra extends Component {
                             <input type="text" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" value={this.props.id} ref={this.cajaNombreRef} required/>
+                            <input type="text" name="cajatel" className="form-control" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de solicitud de la compra</label>
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaSolicitudRef} required></input>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Tipo de compra</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Codigo de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} required/>
+                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Valor de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} required/>
+                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de compra</label>
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} required></input>                        </div>
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} ></input>                        </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado de la compra</label>
                             <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaEstadoRef} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Link de referencia</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} required/>
+                            <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} />
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripción de la compra</label>
                             <input type="text" name="cajatel" className="form-control"  placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">ID del presupuesto</label>
                             <input type="text" name="cajatel" className="form-control"   ref={this.cajaPresupuestoRef} required/>
                         </div>

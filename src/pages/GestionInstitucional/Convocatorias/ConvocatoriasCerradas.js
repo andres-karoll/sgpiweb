@@ -74,6 +74,12 @@ export default class ConvocatoriasCerradas extends Component {
                           </th>
                           <th style={{ width: '10%' }}>
                             Fecha Inicio
+                          </th>
+                          <th style={{ width: '10%' }}>
+                            Fecha Final
+                          </th>
+                          <th style={{ width: '20%' }}>
+                            Contexto
                           </th>               
                           
                           <th style={{width: '20%'}}>
@@ -99,6 +105,16 @@ export default class ConvocatoriasCerradas extends Component {
                             {con.fecha_inicio}
                             </a>
                           </td>
+                          <td>
+                            <a>
+                            {con.fecha_final}
+                            </a>
+                          </td>
+                          <td>
+                            <a>
+                            {con.contexto}
+                            </a>
+                          </td>
                           
                           <td className="project_progress">
                             <a>
@@ -110,9 +126,10 @@ export default class ConvocatoriasCerradas extends Component {
                             {con.estado}
                             </a>
                           </td>
-                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          <td className="project-actions text-right" style={{width: '5%'}}>
+                            {/** 
                           <NavLink to={"/DetallesConvocatoriaAbierta/" + con.id} className="btn btn-primary">Detalles</NavLink> 
-                          <NavLink to={"/ProyectosConvocatoria/" + con.id} className="btn btn-info">Proyectos de la convocatoria</NavLink> 
+                          <NavLink to={"/ProyectosConvocatoria/" + con.id} className="btn btn-info">Proyectos de la convocatoria</NavLink>*/} 
                           {/*<NavLink className="btn btn-info" to={"/ActulizarFacultad/" + facul.id} >Modificar</NavLink>*/}
                           {/*<NavLink className="btn btn-danger"  to={"/EliminarFacultad/" + facul.id} >Eliminar</NavLink>  */}
                                                   

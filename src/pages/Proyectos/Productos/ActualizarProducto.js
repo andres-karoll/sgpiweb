@@ -72,24 +72,29 @@ export default class ActualizarProducto extends Component {
                             <input type="text" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Titulo del producto</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Titulo" ref={this.cajaTituloRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Titulo" ref={this.cajaTituloRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Tipo</label>
-                            <input type="text" name="cajatel" className="form-control" ref={this.cajaTipoRef} />
+                            <input type="text" name="cajatel" className="form-control" ref={this.cajaTipoRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">URL del producto</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaURLRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaURLRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} />
+                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Proyecto </label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProyectoRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProyectoRef} required/>
                         </div>
 
                         </div>

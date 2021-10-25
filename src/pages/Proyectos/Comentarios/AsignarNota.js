@@ -56,6 +56,7 @@ export default class AsignarNota extends Component {
                     <form onSubmit={this.nuevaCalificacion} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Calificación</label>
                            {/* <input type="text" name="cajanom" className="form-control"  placeholder="Calificación" ref={this.cajaCalificacionRef} required/>*/}
                             <input type="number" placeholder="1.0" className="form-control" step="0.5" min="0" max="5" ref={this.cajaCalificacionRef} required/>

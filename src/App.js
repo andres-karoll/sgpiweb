@@ -99,6 +99,11 @@ import ConvocatoriasCerradas from './pages/GestionInstitucional/Convocatorias/Co
 import AsignarNota from './pages/Proyectos/Comentarios/AsignarNota'
 import DesAsignarNota from './pages/Proyectos/Comentarios/DesAsignarNota'
 import ProyectosConvocatoria from './pages/GestionInstitucional/Convocatorias/ProyectosConvocatoria'
+import Convocatorias from './pages/GestionInstitucional/Convocatorias/Convocatorias'
+import CrearConvocatorias from './pages/GestionInstitucional/Convocatorias/CrearConvocatorias'
+import ActualizarConvocatorias from './pages/GestionInstitucional/Convocatorias/ActualizarConvocatoria'
+import EliminarConvocatoria from './pages/GestionInstitucional/Convocatorias/EliminarConvocatoria'
+import HomeInstitucional from './pages/homes/HomeInstitucional'
 
 export default function App() {
   return (
@@ -112,7 +117,12 @@ export default function App() {
                             var id = props.match.params.id;
                             return <Index1 id={id}/>
                         }} />
-                        
+            <Route exact path="/HomeInstitucional" component={HomeInstitucional} />           
+
+
+
+
+
 
             <Route path="/ProyectosGrado" exact component={ProyectosGrado}/>
             <Route path="/ProyectosGradoFin" exact component={ProyectosGradoFin}/>
@@ -285,7 +295,7 @@ export default function App() {
 
 
             <Route path="/ConvocatoriasAbiertas" exact component={ConvocatoriasAbiertas}/>
-            <Route exact path="/DetallesConvocatoriaAbierta/:id" render={props => {
+            <Route exact path="/DetallesConvocatoria/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesConvocatoria id={id} />
                         }} />
@@ -294,7 +304,16 @@ export default function App() {
                             var id = props.match.params.id;
                             return <ProyectosConvocatoria id={id} />
                         }} />
-
+            <Route path="/Convocatorias" exact component={Convocatorias}/> 
+            <Route path="/CrearConvocatorias" exact component={CrearConvocatorias}/> 
+            <Route exact path="/ActulizarConvocatoria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ActualizarConvocatorias id={id} />
+                        }} /> 
+            <Route exact path="/EliminarConvocatoria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <EliminarConvocatoria id={id} />
+                        }} />                
 
 
 

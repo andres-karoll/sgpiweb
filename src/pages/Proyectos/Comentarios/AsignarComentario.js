@@ -72,18 +72,22 @@ export default class AsignarComentario extends Component {
                             <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Comentario</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Comentario" ref={this.cajaComentarioRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fase</label>
                             <input type="text" name="cajatel" className="form-control" ref={this.cajaFaseRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nivel</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
                             <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
                         </div>

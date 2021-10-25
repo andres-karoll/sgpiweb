@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 
-import { NavLink, Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ConvocatoriasAbiertas extends Component {
+export default class Convocatorias extends Component {
 
   state = {
     convocatorias: []
@@ -13,14 +13,19 @@ export default class ConvocatoriasAbiertas extends Component {
 
   cargarConvocatorias = () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/convocatoriasestado/abierto";
+    var request = "/gestioninstitucional/listarconvocatorias";
+    
     axios.get(url + request).then(res => {
+      
       this.setState({
+        
         convocatorias: res.data
         , status: true
       });
+      
     });
   }
+  
 
   componentDidMount = () => {
     this.cargarConvocatorias();
@@ -37,14 +42,14 @@ export default class ConvocatoriasAbiertas extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-door-open nav-icon"></i>Convocatorias Abiertas</h1>
+                  <h1><i class="fas fa-pencil-alt nav-icon"></i>Convocatorias</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatoria"} >Crear Convocatoria</NavLink>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatorias"} >Insertar</NavLink>
       {this.state.status === true &&
         (
-          this.state.convocatorias.map((con, i) => {
+          this.state.convocatorias.map((con) => {
            
             return (
               <section className="content">
@@ -52,7 +57,7 @@ export default class ConvocatoriasAbiertas extends Component {
                 <div className="card">
                     
                   <div className="card-header">
-                    <h3 className="card-title">Convocatoria: {con.nombre_convocatoria}</h3>
+                    <h3 className="card-title">Nombre: {con.nombre}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -67,34 +72,30 @@ export default class ConvocatoriasAbiertas extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '1%' }}>
-                            # ID
+                          <th style={{ width: '5%' }}>
+                            ID
                           </th>
-                          <th style={{ width: '20%' }}>
-                            Nombre de convocatoria
+                          <th style={{ width: '15%' }}>
+                          Nombre de convocatoria
                           </th>
                           <th style={{ width: '10%' }}>
-                            Fecha Inicio
-                          </th> 
+                          Fecha Inicio
+                          </th>
                           <th style={{ width: '10%' }}>
-                            Fecha Final
-                          </th> 
-                          <th style={{ width: '20%' }}>
-                            Contexto
-                          </th>               
-                          
-                          <th style={{width: '20%'}}>
+                          Fecha Fin
+                          </th>
+                          <th style={{ width: '15%' }}>
                           Entidad
-                          </th> 
-                          <th style={{width: '15%'}}>
+                          </th>
+                          <th style={{ width: '15%' }}>
                           Estado
-                          </th>                       
+                          </th>                                    
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                            # {con.id}
+                             {con.id}
                           </td>
                           <td>
                             <a>
@@ -113,58 +114,25 @@ export default class ConvocatoriasAbiertas extends Component {
                           </td>
                           <td>
                             <a>
-                            {con.contexto}
-                            </a>
-                          </td>
-                          
-                          <td className="project_progress">
-                            <a>
                             {con.entidad}
                             </a>
                           </td>
-                          <td className="project_progress">
+                          <td>
                             <a>
                             {con.estado}
                             </a>
                           </td>
-                          <td className="project-actions text-right" style={{width: '5%'}}>
-                            {/** 
-                          <NavLink to={"/DetallesConvocatoriaAbierta/" + con.id} className="btn btn-primary">Detalles</NavLink> 
-                          <NavLink className="btn btn-info" to={"/ActualizarConvocatoria/" + con.id} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  */}
-                          {/*<NavLink className="btn btn-info" to={"/ActulizarFacultad/" + facul.id} >Modificar</NavLink>*/}
-                          {/*<NavLink className="btn btn-danger"  to={"/EliminarFacultad/" + facul.id} >Eliminar</NavLink>  */}
+                          <td className="project-actions text-right" style={{width: '30%'}}>
+                           <NavLink to={"/DetallesConvocatoria/" + con.id} className="btn btn-primary">Detalles</NavLink> 
+                          <NavLink className="btn btn-info"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
+                          
+                          <NavLink className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/ProyectosConvocatoria/" + con.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver proyectos de la Convocatoria</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                    </ul>
+                    
                   </div>
                   
                   {/* /.card-body */}

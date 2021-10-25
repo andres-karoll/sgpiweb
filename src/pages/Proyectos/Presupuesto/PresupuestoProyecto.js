@@ -98,7 +98,7 @@ status: false,
             <Link to={"/ComprasPresupuesto/" + pre.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-comments nav-icon" />
+                <i className="fas fa-eye nav-icon" />
                 
                 <p>Ver Compras del presupuesto</p>
                  
@@ -112,7 +112,7 @@ status: false,
             <Link to={"/CrearCompra/" + pre.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
+                <i className="fas fa-cart-plus nav-icon" />
                 
                 <p>Crear Compras</p>
                  

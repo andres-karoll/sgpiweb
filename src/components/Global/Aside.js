@@ -167,7 +167,7 @@ export default class Aside extends Component{
             </li>
             </Link>
 
-            <Link to="/ConvocatoriasAbiertas">
+            <Link to="/Convocatorias">
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-pencil-alt nav-icon" />
