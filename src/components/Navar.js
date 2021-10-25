@@ -46,6 +46,10 @@ const Nav = () => (
             
             </li>
             <li>
+            <Link to="/Home/Registro/">Registro</Link>
+            
+            </li>
+            <li>
             <NavLink to={"/Home/Login/"}>Inicio Sesion</NavLink>
            
             </li>

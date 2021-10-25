@@ -5,7 +5,7 @@ export default class Aside extends Component{
   render() {
     var rol=localStorage.getItem("tipo");
     return (
-      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' , width: '20%'}}>
+      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' }}>
 
   <div className="sidebar" >
     {/* Sidebar user panel (optional) */}
@@ -32,6 +32,7 @@ export default class Aside extends Component{
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
+          {rol==="Biblioteca" || rol === "Admin" &&
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-newspaper nav-icon" />        
@@ -64,6 +65,8 @@ export default class Aside extends Component{
             </Link>
           </ul>
         </li>
+        }
+        {rol==="Administrativo", rol === "Admin" &&
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-user-tie nav-icon" />        
@@ -180,11 +183,13 @@ export default class Aside extends Component{
 
           </ul>
         </li>
+        }
+        {rol==="Profesional de investigacion" , "Admin" &&
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-book-open nav-icon" />        
             <p>
-              Proyectos
+              Gestion Financiera 
               <i className="right fas fa-angle-left" />
             </p>
                       
@@ -203,26 +208,60 @@ export default class Aside extends Component{
 
           </ul>
         </li>
-        <li className="nav-item menu-open">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-newspaper nav-icon" />        
-            <p>
-              Gestion proyectos aula o integrador
-              <i className="right fas fa-angle-left" />
-            </p>       
-          </a>
-          <ul className="nav nav-treeview">
-          <Link to="/ProyectosAulaIntegrador">
-            <li className="nav-item">
-              <a  className="nav-link">
-              <i className="fas fa-graduation-cap nav-icon"> </i>
-                <p>Tus Proyectos de aula o integrador</p>
-              </a>
-            </li>
-            </Link>
-          </ul>
-        </li>
-       
+        }
+        {rol==="Estudiante","Profesor" &&
+           <li className="nav-item menu-open">
+           <a href="#" className="nav-link ">
+             <i className="fas fa-newspaper nav-icon" />        
+             <p>
+               Tus Proyectos
+               <i className="right fas fa-angle-left" />
+             </p>       
+           </a>
+           <ul className="nav nav-treeview">
+           <Link to="/ProyectosAulaIntegrador">
+             <li className="nav-item">
+               <a  className="nav-link">
+               <i className="fas fa-graduation-cap nav-icon"> </i>
+                 <p>Proyectos de clase</p>
+               </a>
+             </li>
+             </Link>
+             
+           </ul>
+           <ul className="nav nav-treeview">
+           <Link to="/ProyectoSemillero">
+             <li className="nav-item">
+               <a  className="nav-link">
+               <i className="fas fa-graduation-cap nav-icon"> </i>
+                 <p>Proyectos de semillero</p>
+               </a>
+             </li>
+             </Link>
+             
+           </ul>
+           <ul className="nav nav-treeview">
+           <Link to="/ProyectosGrado/">
+             <li className="nav-item">
+               <a  className="nav-link">
+               <i className="fas fa-graduation-cap nav-icon"> </i>
+                 <p>Proyecto de grado</p>
+               </a>
+             </li>
+             </Link>
+           </ul>
+           <ul className="nav nav-treeview">
+           <Link to="/ProyectosAulaIntegrador">
+             <li className="nav-item">
+               <a  className="nav-link">
+               <i className="fas fa-graduation-cap nav-icon"> </i>
+                 <p>Proyectos libres</p>
+               </a>
+             </li>
+             </Link>
+           </ul>
+         </li>
+        }
       </ul>
     </nav>
     {/* /.sidebar-menu */}

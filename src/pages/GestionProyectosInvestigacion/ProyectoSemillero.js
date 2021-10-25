@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { NavLink,Link } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
 export default class TusProyectos extends Component {
 
    
     state = {
-        proyctos: []
-        , status: false,
+        status: false,
+        proyectos:[],
         pro:[]
       }
-    
       cargarGruposI = () => {
         var url = "http://localhost:8080";
-        var request = "/gestionproyectosaulaintegrador/proyectosAI/"+ localStorage.getItem("cedula");
+        var request = "/gestionproyectosinvestigacion/todosLosproyectosusuariosemillero/"+ localStorage.getItem("cedula");
         axios.get(url + request).then(res => {
           this.setState({
             proyectos: res.data
@@ -41,7 +40,8 @@ export default class TusProyectos extends Component {
                     </div>
                 </section>
           </div>
-          <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoFacultad"} >crear un poryecto</NavLink>
+          <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un poryecto</NavLink>
+          <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/UnirseSemillero"} >Unirse a un semillero</NavLink>
          {this.state.status === true &&
             (
               this.state.proyectos.map((pro) => {
@@ -77,7 +77,7 @@ export default class TusProyectos extends Component {
                               <th style={{width: '15%'}}>
                               fecha de inicio
                               </th>
-                             
+                              
                             </tr>
                           </thead>
                           <tbody>
@@ -102,7 +102,7 @@ export default class TusProyectos extends Component {
                                 {pro.estado}
                                 </a>
                               </td>
-                              
+                           
                               
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
