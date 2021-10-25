@@ -77,7 +77,9 @@ export default class TusProyectos extends Component {
                               <th style={{width: '15%'}}>
                               fecha de inicio
                               </th>
-                             
+                              <th style={{width: '15%'}}>
+                               Tu rol
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -102,7 +104,11 @@ export default class TusProyectos extends Component {
                                 {pro.estado}
                                 </a>
                               </td>
-                              
+                              <td className="project_progress">
+                                <a>
+                                {pro.rol}
+                                </a>
+                              </td>
                               
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">

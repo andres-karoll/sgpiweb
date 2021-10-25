@@ -1,36 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
 import { NavLink} from 'react-router-dom';
-export default class CrearProyecto extends Component {
+export default class CrearProyectoSemillero extends Component {
     state = { 
             status: false,
-            tipo:[],
-            tip:[],
-            clase:[],
-            cla:[]}
-CargarTipos = () => {
-    var request = "/gestionfiltroproyecto/todoslostiposproyecto" ;
+            usuario:[],   
+        }
+CargarUsuario = () => {
+    var request = "/gestionusuario/buscarusuario/"+localStorage.getItem("cedula") ;
     var url = "http://localhost:8080" + request;
    axios.get(url).then(res => {
-     
       this.setState({
-        tipo: res.data
+        usuario: res.data
         , status: true
       })
     });
   }
-CargarClase = () => {
-    var request = "/gestioninstitucional/listarclasespormateria/"+this.props.id ;
-    var url = "http://localhost:8080" + request;
-    axios.get(url).then(res => {
-      this.setState({
-        clase: res.data
-        , status: true
-      })
-    });
-  }
+
     cajaId = React.createRef();
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
@@ -41,14 +29,11 @@ CargarClase = () => {
     cajaVis = React.createRef();
     cajaCiu = React.createRef();
     cajaTipo = React.createRef();
-    cajaClase=React.createRef();
     cajaRol=React.createRef();
     cajaParticipante=React.createRef();
+    cajaSemillero=React.createRef();
 componentDidMount = () => {
-        this.CargarTipos();
-        this.setState({tip:this.state.tipo,
-        cla:this.state.clase});
-        this.CargarClase();
+        this.CargarUsuario();
     }
 CrearProyecto =  (e) => {
         e.preventDefault();
@@ -64,7 +49,7 @@ CrearProyecto =  (e) => {
         var tip=this.cajaTipo.current.value;
         var part=localStorage.getItem("cedula");
         var ro=this.cajaRol.current.value;
-        var clas=this.cajaClase.current.value;
+        var semi=this.cajaSemillero.current.value;
         var proyecto = {
                 id:ids,
                 titulo:tit,
@@ -78,10 +63,11 @@ CrearProyecto =  (e) => {
                 tipo:tip,
                 usuario:part,
                 rol:ro,
-                clase:clas
+                semillero:semi
         };
-        var url = 'http://localhost:8080/gestionproyectosaulaintegrador/crearproyecto';
+        var url = 'http://localhost:8080/gestionproyectosinvestigacion/crearproyecto';
             axios.post(url, proyecto).then(res => {
+                console.log(proyecto)
             this.setState({ status: true });
         });
     }   
@@ -102,7 +88,7 @@ CrearProyecto =  (e) => {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Actualizar una Materia</h3>
+                    <h3 className="card-title"  >Crear proyecto semillero</h3>
                   </div>
                     {/* /.card-header */}
                     {/* form start */}
@@ -159,38 +145,33 @@ CrearProyecto =  (e) => {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
-                        <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Aula" readOnly/>
+                        <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Semillero" readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                         <div></div>
                         <select ref={this.cajaRol}>
-                                    <option style={{color: "black"}}>Lider</option>
+                                    <option style={{color: "black"}}>Participante</option>
                                     <option style={{color: "black"}}>coLider</option>
                         </select>
                         </div>
-                        
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Clase</label>
-                        <div></div>   
-                        <select ref={this.cajaClase}>
                         {this.state.status === true &&
-                            ( this.state.clase.map((cla) => 
-                            { 
-                                return(
-                                    <option style={{color: "black"}} value={cla.numero}>{cla.nombre}</option> 
-                                    );
-                                }
-                                )
-                                )
-                                }    
-                        </select>
+                        
+                        (
+                        <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Semillero asociado</label>
+                        
+                        <input type="text" name="cajatel" className="form-control" ref={this.cajaSemillero} value={this.state.usuario.semillero_id} readOnly/>
+                       
+                    
+                        </div>
+                         )
+                        }
+                    
                         </div>
                         
-                      
-                        </div>
                         <div className="card-footer">               
-                        <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.CrearProyecto} to={"/ProyectosAulaIntegrador/"} >Crear Proyecto</NavLink>
+                        <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.CrearProyecto} to={"/ ProyectoSemillero"} >Crear Proyecto</NavLink>
                         </div>
                     </form>
                     </div>

@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+
+import Header from '../../components/Global/Header';
 import { NavLink} from 'react-router-dom';
+import Aside from '../../components/Global/Aside';
 export default class AgregarParticipante extends Component {
     state = { 
-            status: false
+            status: false,
+            semilleros:[],
+            semi:[]
         }
     cajaId = React.createRef();
     cajaCedula = React.createRef();
-    cajaFecha = React.createRef();
-    cajaRol = React.createRef();
-    
+    mostrarSemilleros= () => {
+        var request = "/gestioninstitucional/listarsemilleros";
+        var url = "http://localhost:8080" + request;
+        axios.get(url).then(res => {
+            this.setState({
+                semilleros: res.data
+                ,status: true
+            });
+        });
+    }
 
+    componentDidMount = () => {
+        this.mostrarSemilleros();
+        this.setState({semi:this.state.semilleros})
+    }
 AgregarParticipante =  (e) => {
         e.preventDefault();
-        var ids = this.cajaId.current.value;
-        var cedula= this.cajaCedula.current.value;  
-        var ro=this.cajaRol.current.value;
-        var fecha=this.cajaFecha.current.value;
+        var id = this.cajaId.current.value;
+        var ced= this.cajaCedula.current.value;  
         var participante = {
-                id:ids,
-                usuario:cedula,
-                fechainicio:fecha,
-                rol:ro
+                cedula:ced,
+                semillero:id,
         };
-        var url = 'http://localhost:8080/gestionproyectosaulaintegrador/agregarParticipante';
+        var url = 'http://localhost:8080/gestionusuario/asignarsemillero';
             axios.post(url, participante).then(res => {
             this.setState({ status: true });
             window.location.href = "/ProyectosAulaIntegrador" ;       
@@ -46,32 +56,31 @@ AgregarParticipante =  (e) => {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Actualizar una Materia</h3>
+                    <h3 className="card-title"  >Unirse a un semillero</h3>
                   </div>
                     {/* /.card-header */}
                     {/* form start */}
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarParticipante}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Id</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly/>
+                            <label htmlFor="exampleInputEmail1">Cedula</label>
+                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCedula} value={ localStorage.getItem("cedula")} readOnly/>
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Cedula</label>
-                            <input type="text" name="cajadir" className="form-control"   ref={this.cajaCedula} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control"ref={this.cajaFecha}/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
-                        <div></div>
-                        <select ref={this.cajaRol}>
-                                    <option style={{color: "black"}}>Lider</option>
-                                    <option style={{color: "black"}}>coLider</option>
-                        </select>
+                            <label htmlFor="exampleInputPassword1">Semillero</label>
+                            <select ref={this.cajaId}>
+                            {this.state.status === true &&
+                              (this.state.semilleros.map((semi) => {
+                                return (
+                                  <option style={{ color: "black" }} value={semi.id}>{semi.nombre}</option>
+                                );
+                              }
+                              )
+                              )
+                              }
+                          </select>
+                           
                         </div>
                         </div>
                         <div className="card-footer">

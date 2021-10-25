@@ -9,7 +9,7 @@ export default class CrearProyectoMateria extends Component {
             materia:[],
             mat:[]}
 CargarMateria = () => {
-    var request = "/gestioninstitucional/listarprogramadelamateria/"+this.props.id ;
+    var request = "/gestioninstitucional/listarmateriasdeprograma/"+this.props.id ;
     var url = "http://localhost:8080" + request;
    axios.get(url).then(res => {
       this.setState({

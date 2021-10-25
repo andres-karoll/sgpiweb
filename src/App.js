@@ -5,6 +5,7 @@ import Error from './pages/notfound/error'
 import SearchP from './pages/Inicio/SearchP'
 import Index1 from './pages/Inicio/Index1'
 import Login from './pages/Inicio/Login'
+import Registro from './pages/Inicio/Registro'
 import ProyectosGrado from './pages/Biblioteca/ProyectosGrado'
 import DetallesProyectoGrado from './pages/Biblioteca/DetallesProyectoGrado'
 import ProyectosGradoFin from './pages/Biblioteca/ProyectosGradoFin'
@@ -38,7 +39,6 @@ import AsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion
 import AsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/AsignarProgramaGrupoI'
 import LineasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/LineasGrupoI'
 import ProgramasGrupoI from './pages/GestionInstitucional/GruposInvestigacion/ProgramasGrupoI'
-
 import DesAsignarProgramaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarProgramaGrupo'
 import ProyectosSemillero from './pages/GestionInstitucional/Semilleros/ProyectosSemillero'
 import UsuariosSemillero from './pages/GestionInstitucional/Semilleros/UsuariosSemillero'
@@ -66,12 +66,13 @@ import ProyectosArea from './pages/GestionInstitucional/Areas/ProyectosArea'
 import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
 import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
 import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
-import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
-import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
-import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
-import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
-import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
-import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
+
+import Proyectos from './pages/Proyectos/Proyectos'
+import PresupuestoProyecto from './pages/Proyectos/PresupuestoProyecto'
+import AsignarPresupuesto from './pages/Proyectos/AsignarPresupuesto'
+import EliminarPresupuesto from './pages/Proyectos/EliminarPresupuesto'
+import ActualizarPresupuesto from './pages/Proyectos/ActualizarPresupuesto'
+import ComprasPresupuesto from './pages/Proyectos/ComprasPresupuesto'
 
 
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
@@ -83,6 +84,8 @@ import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProy
 import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
 import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
 import DetallesProyecto from './pages/GestionProyectosAI/Proyectos/DetallesProyecto'
+
+
 import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarLineaGrupo'
 import EliminarCompra from './pages/Proyectos/Compras/EliminarCompra'
 import CrearCompra from './pages/Proyectos/Compras/CrearCompra'
@@ -532,7 +535,22 @@ export default function App() {
                             var id = props.match.params.id; 
                             return <DetallesProyecto id={id}/>
                         }} />   
-
+                        <Route exact path="/ParticipantesProyecto/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ParticipantesProyecto id={id} />
+                    }} />
+                    <Route exact path="/Perfil/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <Perfil id={id} />
+                    }} />
+                    <Route exact path="/EliminarParticipante/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <EliminarParticipante id={id} />
+                    }} />
+                    <Route path="/UnirseSemillero" exact component={UnirseSemillero} />
+                    <Route path="/ProyectoSemillero" exact component={ProyectoSemillero} />
+                    <Route path="/CrearProyectoSemillero" exact component={CrearProyectoSemillero} />
+                    
             <Route component ={() => (
           <Error/>)
         } />
@@ -540,4 +558,5 @@ export default function App() {
     </BrowserRouter>
     </div>
   )
+
 }
