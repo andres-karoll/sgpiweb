@@ -67,12 +67,12 @@ import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
 import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
 import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
 
-import Proyectos from './pages/Proyectos/Proyectos'
-import PresupuestoProyecto from './pages/Proyectos/PresupuestoProyecto'
-import AsignarPresupuesto from './pages/Proyectos/AsignarPresupuesto'
-import EliminarPresupuesto from './pages/Proyectos/EliminarPresupuesto'
-import ActualizarPresupuesto from './pages/Proyectos/ActualizarPresupuesto'
-import ComprasPresupuesto from './pages/Proyectos/ComprasPresupuesto'
+import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
+import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
+import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
+import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
+import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
+import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
 
 
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
@@ -107,7 +107,12 @@ import CrearConvocatorias from './pages/GestionInstitucional/Convocatorias/Crear
 import ActualizarConvocatorias from './pages/GestionInstitucional/Convocatorias/ActualizarConvocatoria'
 import EliminarConvocatoria from './pages/GestionInstitucional/Convocatorias/EliminarConvocatoria'
 import HomeInstitucional from './pages/homes/HomeInstitucional'
-
+import Perfil from './pages/GestionProyectosAI/Proyectos/Perfil'
+import ParticipantesProyecto from './pages/GestionProyectosAI/Proyectos/ParticipantesProyecto'
+import EliminarParticipante from './pages/GestionProyectosAI/Proyectos/EliminarParticipante'
+import ProyectoSemillero from './pages/GestionProyectosInvestigacion/ProyectoSemillero'
+import CrearProyectoSemillero from './pages/GestionProyectosInvestigacion/CrearProyectoSemillero'
+import UnirseSemillero from './pages/GestionProyectosInvestigacion/UnirseSemillero'
 export default function App() {
   return (
     <div>

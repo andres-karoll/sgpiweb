@@ -34,7 +34,7 @@ export default class Aside extends Component{
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
-          {rol==="Biblioteca" || rol === "Admin" &&
+          {rol==="Biblioteca" , rol === "Admin" &&
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-newspaper nav-icon" />        
@@ -186,7 +186,7 @@ export default class Aside extends Component{
           </ul>
         </li>
         }
-        {rol==="Profesional de investigacion" , "Admin" &&
+        {rol==="Profesional de investigacion" , rol==="Admin" &&
         <li className="nav-item menu-open">
           <a href="#" className="nav-link ">
             <i className="fas fa-book-open nav-icon" />        
@@ -212,7 +212,7 @@ export default class Aside extends Component{
         </li>
 
         }
-        {rol==="Estudiante","Profesor" &&
+        {rol==="Estudiante",rol==="Profesor",rol==="Admin" &&
            <li className="nav-item menu-open">
            <a href="#" className="nav-link ">
              <i className="fas fa-newspaper nav-icon" />        
