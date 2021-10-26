@@ -82,7 +82,7 @@ export default class InsertarEvento extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha inicio</label>                   
+                            <label htmlFor="exampleInputPassword1">Fecha del evento</label>                   
                             <input type="date" id="start" name="trip-start"
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         

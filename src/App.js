@@ -113,6 +113,7 @@ import EliminarParticipante from './pages/GestionProyectosAI/Proyectos/EliminarP
 import ProyectoSemillero from './pages/GestionProyectosInvestigacion/ProyectoSemillero'
 import CrearProyectoSemillero from './pages/GestionProyectosInvestigacion/CrearProyectoSemillero'
 import UnirseSemillero from './pages/GestionProyectosInvestigacion/UnirseSemillero'
+import RealizarCompra from './pages/Proyectos/Compras/RealizarCompra'
 export default function App() {
   return (
     <div>
@@ -427,6 +428,10 @@ export default function App() {
             <Route exact path="/ActualizarCompra/:id" render={props => {
                             var id = props.match.params.id;
                             return <ActualizarCompra id={id} />
+                        }} /> 
+            <Route exact path="/RealizarCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <RealizarCompra id={id} />
                         }} /> 
 
 

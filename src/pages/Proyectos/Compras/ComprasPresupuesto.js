@@ -97,6 +97,7 @@ status: false,
     <NavLink to={"/ActualizarCompra/" + com.id} className="btn btn-primary" style={{ width: '50%'}}>Actualizar</NavLink>
     <NavLink className="btn btn-danger" to={"/EliminarCompra/" + com.id} style={{ width: '50%'}}>Eliminar</NavLink>
   </div>
+  <NavLink className="btn btn-info" to={"/RealizarCompra/" + com.id} style={{ width: '100%'}}>Realizar Compra</NavLink>
   {/* /.card-body */}
 </div>
 

@@ -6,7 +6,7 @@ import Header from '../../../components/Global/Header';
 
 
 
-export default class CrearCompra extends Component {
+export default class RealizarCompra extends Component {
 
     cajaIDRef = React.createRef();
     cajaFechaSolicitudRef = React.createRef();
@@ -25,28 +25,26 @@ export default class CrearCompra extends Component {
     nuevaCompra = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;
-        var fecso = this.cajaFechaSolicitudRef.current.value;
-        var nom = this.cajaNombreRef.current.value;
-        var tip = this.cajaTipoRef.current.value;
-        //var cod = this.cajaCodigoCompraRef.current.value;
-        //var val = this.cajaValorRef.current.value;
-        //var fecco = this.cajaFechaCompraRef.current.value;
+        //var fecso = this.cajaFechaSolicitudRef.current.value;
+        //var nom = this.cajaNombreRef.current.value;
+       // var tip = this.cajaTipoRef.current.value;
+
+        var cod = this.cajaCodigoCompraRef.current.value;
+        var val = this.cajaValorRef.current.value;
+        var fecco = this.cajaFechaCompraRef.current.value;
+
         var est = this.cajaEstadoRef.current.value;
-        var lin = this.cajaLinkRef.current.value;
-        var desc = this.cajaDescripcionRef.current.value;
-        var pre = this.cajaPresupuestoRef.current.value;
+        //var lin = this.cajaLinkRef.current.value;
+        //var desc = this.cajaDescripcionRef.current.value;
+        //var pre = this.cajaPresupuestoRef.current.value;
         var compra = {
               id: idco
-            , fecha_solicitud: fecso
-            , nombre: nom
-            , tipo: tip
-
+            , codigo_compra: cod
+            , fecha_compra: fecco
+            , valor: val
             , estado: est
-            , link: lin
-            , descripcion: desc
-            , presupuesto: pre
         };
-        var url = 'http://localhost:8080/gestionfinanciera/crearcompra';
+        var url = 'http://localhost:8080/gestionfinanciera/realizarcompra';
         axios.post(url, compra).then(res => {
             this.setState({ status: true });
         });
@@ -82,8 +80,9 @@ export default class CrearCompra extends Component {
                         <div className="card-body">
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
+                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
+                        {/** 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de la compra</label>
@@ -100,29 +99,36 @@ export default class CrearCompra extends Component {
                             <label htmlFor="exampleInputPassword1">Tipo de compra</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
                         </div>
-                        {/** 
+*/}
+
+
+                        
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Codigo de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} />
-                        </div>*/}
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Valor de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} required/>
                         </div>
-                        */}
-                        {/** 
+                        
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label htmlFor="exampleInputPassword1">Valor de la compra</label>
+                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} required/>
+                        </div>
+                        
+                        
+                        <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de compra</label>
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} ></input>                        </div>
-       */}
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} required></input>                        </div>
+       
                         <div className="form-group">
 
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado de la compra</label>
                             <input type="text" name="cajatel" className="form-control"  value={1}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
+                        {/** 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Link de referencia</label>
@@ -137,6 +143,7 @@ export default class CrearCompra extends Component {
                             <label htmlFor="exampleInputPassword1">ID del presupuesto</label>
                             <input type="text" name="cajatel" className="form-control"  value={this.props.id} ref={this.cajaPresupuestoRef} readOnly/>
                         </div>
+                        */}
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">

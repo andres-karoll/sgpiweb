@@ -27,9 +27,9 @@ export default class ActualizarCompra extends Component {
         var fecso = this.cajaFechaSolicitudRef.current.value;
         var nom = this.cajaNombreRef.current.value;
         var tip = this.cajaTipoRef.current.value;
-        var cod = this.cajaCodigoCompraRef.current.value;
-        var val = this.cajaValorRef.current.value;
-        var fecco = this.cajaFechaCompraRef.current.value;
+       // var cod = this.cajaCodigoCompraRef.current.value;
+        //var val = this.cajaValorRef.current.value;
+       // var fecco = this.cajaFechaCompraRef.current.value;
         var est = this.cajaEstadoRef.current.value;
         var lin = this.cajaLinkRef.current.value;
         var desc = this.cajaDescripcionRef.current.value;
@@ -39,9 +39,7 @@ export default class ActualizarCompra extends Component {
             , fecha_solicitud: fecso
             , nombre: nom
             , tipo: tip
-            , codigo_compra: cod
-            , valor: val
-            , fecha_compra: fecco
+
             , estado: est
             , link: lin
             , descripcion: desc
@@ -101,6 +99,7 @@ export default class ActualizarCompra extends Component {
                             <label htmlFor="exampleInputPassword1">Tipo de compra</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
                         </div>
+                        {/** 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Codigo de la compra</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} />
@@ -113,12 +112,14 @@ export default class ActualizarCompra extends Component {
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de compra</label>
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} ></input>                        </div>
-                        <div className="form-group">
+       */}                
+                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado de la compra</label>
                             <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaEstadoRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Link de referencia</label>
                             <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} />
                         </div>
