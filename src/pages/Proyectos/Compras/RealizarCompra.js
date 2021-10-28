@@ -112,7 +112,7 @@ export default class RealizarCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Valor de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} required/>
+                            <input type="number" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} required/>
                         </div>
                         
                         
@@ -126,7 +126,7 @@ export default class RealizarCompra extends Component {
 
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  value={1}  ref={this.cajaEstadoRef} readOnly/>
+                            <input type="text" name="cajatel" className="form-control"  value={3}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
                         {/** 
                         <div className="form-group">

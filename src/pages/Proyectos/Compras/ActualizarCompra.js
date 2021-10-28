@@ -99,20 +99,7 @@ export default class ActualizarCompra extends Component {
                             <label htmlFor="exampleInputPassword1">Tipo de compra</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
                         </div>
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Codigo de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Valor de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de compra</label>
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} ></input>                        </div>
-       */}                
+             
                          <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado de la compra</label>
@@ -121,7 +108,7 @@ export default class ActualizarCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Link de referencia</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} />
+                            <input type="url" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

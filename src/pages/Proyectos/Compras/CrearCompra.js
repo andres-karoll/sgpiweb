@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
 
 
 export default class CrearCompra extends Component {
@@ -92,8 +92,7 @@ export default class CrearCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de solicitud de la compra</label>
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaSolicitudRef} required></input>
+       <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaSolicitudRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -126,7 +125,7 @@ export default class CrearCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Link de referencia</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} required/>
+                            <input type="url" name="cajatel" className="form-control"  placeholder="Link" ref={this.cajaLinkRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

@@ -114,6 +114,11 @@ import ProyectoSemillero from './pages/GestionProyectosInvestigacion/ProyectoSem
 import CrearProyectoSemillero from './pages/GestionProyectosInvestigacion/CrearProyectoSemillero'
 import UnirseSemillero from './pages/GestionProyectosInvestigacion/UnirseSemillero'
 import RealizarCompra from './pages/Proyectos/Compras/RealizarCompra'
+import ComprasSolicitadas from './pages/Proyectos/Compras/ComprasSolicitadas'
+import ComprasRealizadas from './pages/Proyectos/Compras/ComprasRealizadas'
+import ComprasRechasadas from './pages/Proyectos/Compras/ComprasRechasadas'
+import ComprasAceptadas from './pages/Proyectos/Compras/ComprasAceptadas'
+import CambiarEstadoCompra from './pages/Proyectos/Compras/CambiarEstadoCompra'
 export default function App() {
   return (
     <div>
@@ -432,6 +437,26 @@ export default function App() {
             <Route exact path="/RealizarCompra/:id" render={props => {
                             var id = props.match.params.id;
                             return <RealizarCompra id={id} />
+                        }} /> 
+            <Route exact path="/ComprasSolicitadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasSolicitadas id={id} />
+                        }} />
+            <Route exact path="/ComprasRealizadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasRealizadas id={id} />
+                        }} /> 
+            <Route exact path="/ComprasRechasadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasRechasadas id={id} />
+                        }} />
+            <Route exact path="/ComprasAceptadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasAceptadas id={id} />
+                        }} />         
+            <Route exact path="/CambiarEstadoCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CambiarEstadoCompra id={id} />
                         }} /> 
 
 
