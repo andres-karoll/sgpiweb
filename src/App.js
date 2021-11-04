@@ -67,12 +67,11 @@ import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
 import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
 import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
 
-import Proyectos from './pages/Proyectos/Proyectos'
-import PresupuestoProyecto from './pages/Proyectos/PresupuestoProyecto'
-import AsignarPresupuesto from './pages/Proyectos/AsignarPresupuesto'
-import EliminarPresupuesto from './pages/Proyectos/EliminarPresupuesto'
-import ActualizarPresupuesto from './pages/Proyectos/ActualizarPresupuesto'
-import ComprasPresupuesto from './pages/Proyectos/ComprasPresupuesto'
+import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
+import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
+import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
+import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
+import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
 
 
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
@@ -107,7 +106,20 @@ import CrearConvocatorias from './pages/GestionInstitucional/Convocatorias/Crear
 import ActualizarConvocatorias from './pages/GestionInstitucional/Convocatorias/ActualizarConvocatoria'
 import EliminarConvocatoria from './pages/GestionInstitucional/Convocatorias/EliminarConvocatoria'
 import HomeInstitucional from './pages/homes/HomeInstitucional'
+import CrearProyectoSemillero from './pages/GestionProyectosInvestigacion/CrearProyectoSemillero'
+import UnirseSemillero from './pages/GestionProyectosInvestigacion/UnirseSemillero'
 
+import Perfil from './pages/GestionProyectosAI/Proyectos/Perfil'
+import EliminarParticipante from './pages/GestionProyectosAI/Proyectos/EliminarParticipante'
+import ParticipantesProyecto from './pages/GestionProyectosAI/Proyectos/ParticipantesProyecto'
+import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
+import ProyectoSemillero from './pages/GestionProyectosInvestigacion/ProyectoSemillero'
+import DetallesProyectoSemillero from './pages/GestionProyectosInvestigacion/DetallesProyectoSemillero'
+import ParticiparConvocatoria from './pages/GestionProyectosInvestigacion/ParticiparConvocatoria'
+import ParticiparEvento from './pages/GestionProyectosAI/Proyectos/ParticiparEvento'
+import AgregarAreasConocimiento from './pages/GestionProyectosAI/Proyectos/AgregarAreasConocimiento'
+import Participaciones from './pages/GestionProyectosAI/Proyectos/Participaciones'
+import TrabajoGrado from './pages/GestionTrabajoGrado/TrabajoGrado'
 export default function App() {
   return (
     <div>
@@ -116,14 +128,14 @@ export default function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/Home/Search" component={SearchP} />
             <Route exact path="/Home/Login" component={Login} />
-            <Route exact path="/Home/Login/Dashboart/:id" render={props => {
-                            var id = props.match.params.id;
-                            return <Index1 id={id}/>
-                        }} />
+            <Route exact path="/Home/Login/Dashboart/" component={Index1} />
             <Route exact path="/HomeInstitucional" component={HomeInstitucional} />           
 
 
 
+
+            <Route path="/Registro" exact component={Registro}/>
+            
 
 
 
@@ -547,10 +559,32 @@ export default function App() {
                         var id = props.match.params.id;
                         return <EliminarParticipante id={id} />
                     }} />
+
                     <Route path="/UnirseSemillero" exact component={UnirseSemillero} />
                     <Route path="/ProyectoSemillero" exact component={ProyectoSemillero} />
                     <Route path="/CrearProyectoSemillero" exact component={CrearProyectoSemillero} />
-                    
+                    <Route exact path="/DetallesProyectoSemillero/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <DetallesProyectoSemillero id={id} />
+                    }} />
+                    <Route path="/ParticiparEvento" exact component={ParticiparEvento} />
+                    <Route path="/AgregarAreasConocimiento" exact component={AgregarAreasConocimiento} />
+                    <Route path="/CrearProyectoSemillero" exact component={CrearProyectoSemillero} />
+                    <Route path="/ParticiparConvocatoria" exact component={ParticiparConvocatoria} />
+                    <Route exact path="/AgregarAreasConocimiento/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <AgregarAreasConocimiento id={id} />
+                    }} />
+                     <Route exact path="/ParticiparEvento/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ParticiparEvento id={id} />
+                    }} />
+                     <Route exact path="/Participaciones/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <Participaciones id={id} />
+                    }} />
+                    <Route path="/TrabajoGrado" exact component={TrabajoGrado} />
+                   
             <Route component ={() => (
           <Error/>)
         } />

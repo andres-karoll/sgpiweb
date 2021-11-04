@@ -74,7 +74,6 @@ CrearProyecto =  (e) => {
     render() {    
          
         return (
-
             <div>
                 <Aside/>
                 <Header/>
@@ -156,20 +155,14 @@ CrearProyecto =  (e) => {
                         </select>
                         </div>
                         {this.state.status === true &&
-                        
                         (
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Semillero asociado</label>
-                        
                         <input type="text" name="cajatel" className="form-control" ref={this.cajaSemillero} value={this.state.usuario.semillero_id} readOnly/>
-                       
-                    
                         </div>
                          )
                         }
-                    
                         </div>
-                        
                         <div className="card-footer">               
                         <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.CrearProyecto} to={"/ ProyectoSemillero"} >Crear Proyecto</NavLink>
                         </div>

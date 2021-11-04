@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-export default class ProyectoSemillero extends Component {
+export default class TrabajoGrado extends Component {
 
    
     state = {
@@ -14,7 +14,7 @@ export default class ProyectoSemillero extends Component {
       }
       cargarGruposI = () => {
         var url = "http://localhost:8080";
-        var request = "/gestionproyectosinvestigacion/todosLosproyectosusuariosemillero/"+ localStorage.getItem("cedula");
+        var request = "/gestiontrabajogrado/proyectosgrado/"+ localStorage.getItem("cedula");
         axios.get(url + request).then(res => {
           this.setState({
             proyectos: res.data

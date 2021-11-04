@@ -1,44 +1,46 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Header from '../../components/Global/Header';
+import Header from '../../../components/Global/Header';
 import { NavLink} from 'react-router-dom';
-import Aside from '../../components/Global/Aside';
-export default class UnirseSemillero extends Component {
+import Aside from '../../../components/Global/Aside';
+export default class AgregarAreasConocimiento extends Component {
     state = { 
             status: false,
-            semilleros:[],
-            semi:[]
+            Areas:[],
+            are:[]
         }
-    cajaId = React.createRef();
-    cajaCedula = React.createRef();
-    mostrarSemilleros= () => {
-        var request = "/gestioninstitucional/listarsemilleros";
+    cajaProyecto = React.createRef();
+    cajaArea = React.createRef();
+    mostrarAreas= () => {
+        var request = "/gestionproyectosaulaintegrador/listarareas"
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({
-                semilleros: res.data
+                Areas : res.data
                 ,status: true
             });
         });
     }
 
     componentDidMount = () => {
-        this.mostrarSemilleros();
-        this.setState({semi:this.state.semilleros})
+        this.mostrarAreas();
+        this.setState({
+            are:this.state.Areas
+        })
     }
-AgregarParticipante =  (e) => {
+AgregarAreasConocimiento =  (e) => {
         e.preventDefault();
-        var id = this.cajaId.current.value;
-        var ced= this.cajaCedula.current.value;  
-        var participante = {
-                cedula:ced,
-                semillero:id,
+        var proye = this.cajaProyecto.current.value;
+        var areaC= this.cajaArea.current.value;  
+        var AreasConocimiento = {
+                proyecto:proye,
+                area:areaC
         };
-        var url = 'http://localhost:8080/gestionusuario/asignarsemillero';
-            axios.post(url, participante).then(res => {
+        var url = 'http://localhost:8080/gestionproyectosaulaintegrador/agregarareaconocimiento/';
+            axios.post(url, AreasConocimiento).then(res => {
             this.setState({ status: true });
-            window.location.href = "/ProyectosAulaIntegrador" ;       
+            window.location.href = "/Home/Login/Dashboart/" ;       
         });
     }   
     render() {            
@@ -60,31 +62,30 @@ AgregarParticipante =  (e) => {
                   </div>
                     {/* /.card-header */}
                     {/* form start */}
-                    <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarParticipante}>
+                    <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarAreasConocimiento}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Cedula</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCedula} value={ localStorage.getItem("cedula")} readOnly/>
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Semillero</label>
-                            <select ref={this.cajaId}>
+                            <label htmlFor="exampleInputPassword1">Areas de conocimiento</label>
+                            <div></div>
+                            <select ref={this.cajaArea}>
                             {this.state.status === true &&
-                              (this.state.semilleros.map((semi) => {
+                              (this.state.Areas.map((are) => {
                                 return (
-                                  <option style={{ color: "black" }} value={semi.id}>{semi.nombre}</option>
+                                  <option style={{ color: "black" }} value={are.id}>{are.nombre}</option>
                                 );
                               }
                               )
                               )
                               }
-                          </select>
-                           
+                          </select>   
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Tu proyecto</label>
+                            <input type="text" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly/>
                         </div>
                         </div>
                         <div className="card-footer">
-                       <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.AgregarParticipante} to={"/ProyectosAulaIntegrador"} >Agregar Participante</NavLink>
+                       <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.AgregarAreasConocimiento} to={"/ProyectoSemillero"} >Participar</NavLink>
                         </div>
                     </form>
                     </div>

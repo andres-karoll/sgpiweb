@@ -83,6 +83,13 @@ CrearProyecto =  (e) => {
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/crearproyecto';
             axios.post(url, proyecto).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="el proyecto fue creado") {
+                alert("El proyecto fue creado correctamente")
+                window.location.href ="/ProyectosAulaIntegrador"
+            }else{
+              alert("El proyecto no se pudo crear por favor verifica los datos")
+              window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }   
     render() {    
