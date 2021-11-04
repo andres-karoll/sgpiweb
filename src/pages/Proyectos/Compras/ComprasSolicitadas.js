@@ -6,7 +6,7 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { PureComponent } from 'react';
 
-export default class ComprasPresupuesto extends Component {
+export default class ComprasSolicitadas extends Component {
 
   state = {
 status: false,
@@ -16,7 +16,7 @@ status: false,
 
   cargarCompra= () => {
     var url = "http://localhost:8080";
-    var request = "/gestionfinanciera/listarcomprasdelpresupuesto/" +this.props.id;
+    var request = "/gestionfinanciera/comprassolicitadas/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
        compra: res.data
@@ -81,6 +81,9 @@ status: false,
       <b>Descripción</b> <a className="float-right">{com.descripcion}</a>
       </li>
       <li className="list-group-item">
+        <b>Fecha de solicitud</b> <a className="float-right ">{com.fecha_solicitud}</a>
+      </li>
+      <li className="list-group-item">
         <b>Tipo</b> <a className="float-right">{com.tipo}</a>
       </li>
       <li className="list-group-item">
@@ -96,9 +99,7 @@ status: false,
       <li className="list-group-item">
         <b>Link</b> <a className="float-right ">{com.link}</a>
       </li>
-      <li className="list-group-item">
-        <b>Fecha de solicitud</b> <a className="float-right ">{com.fecha_solicitud}</a>
-      </li>
+      
       <li className="list-group-item">
         <b>Nombre</b> <a className="float-right " >{com.nombre}</a>
       </li>
@@ -110,8 +111,7 @@ status: false,
     <NavLink to={"/ActualizarCompra/" + com.id} className="btn btn-primary" style={{ width: '50%'}}>Actualizar</NavLink>
     <NavLink className="btn btn-danger" to={"/EliminarCompra/" + com.id} style={{ width: '50%'}}>Eliminar</NavLink>
   </div>
-  <NavLink className="btn btn-info" to={"/RealizarCompra/" + com.id} style={{ width: '100%'}}>Realizar Compra</NavLink>
-  {/* /.card-body */}
+  <NavLink className="btn btn-info" to={"/CambiarEstadoCompra/" + com.id} style={{ width: '100%'}}>Aceptar o denegar compra</NavLink>
 </div>
 
             );

@@ -6,7 +6,7 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { PureComponent } from 'react';
 
-export default class ComprasPresupuesto extends Component {
+export default class ComprasRechasadas extends Component {
 
   state = {
 status: false,
@@ -16,7 +16,7 @@ status: false,
 
   cargarCompra= () => {
     var url = "http://localhost:8080";
-    var request = "/gestionfinanciera/listarcomprasdelpresupuesto/" +this.props.id;
+    var request = "/gestionfinanciera/comprasrechazadas/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
        compra: res.data
@@ -52,7 +52,7 @@ status: false,
       <div>
             <section className="content">
                 <br />
-                <div class="alert alert-info alert-dismissible">
+                <div class="alert alert-danger alert-dismissible">
                   <h1><i class="fas fa-search-dollar nav-icon"></i>Compras del presupuesto</h1>
                   </div>
                   </section>
@@ -72,10 +72,15 @@ status: false,
     <div className="text-center">
       <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/5kVRz2L/compra.png" alt="User profile picture" />
     </div>
-    <h3 className="profile-username text-center">Compra</h3>
+
+    <h3 className="profile-username text-center" style={{ color: "red"}}>Compra RECHASADA</h3>
+    
     <ul className="list-group list-group-unbordered mb-3">
     <li className="list-group-item">
         <b>ID</b> <a className="float-right">{com.id}</a>
+      </li>
+      <li className="list-group-item">
+        <b>Nombre</b> <a className="float-right " >{com.nombre}</a>
       </li>
       <li className="list-group-item">
       <b>Descripción</b> <a className="float-right">{com.descripcion}</a>
@@ -99,19 +104,19 @@ status: false,
       <li className="list-group-item">
         <b>Fecha de solicitud</b> <a className="float-right ">{com.fecha_solicitud}</a>
       </li>
-      <li className="list-group-item">
-        <b>Nombre</b> <a className="float-right " >{com.nombre}</a>
-      </li>
+      
       <li className="list-group-item">
         <b style={{ fontSize:"x-large"}}>Valor</b> <a className="float-right text-success" style={{ fontSize:"x-large"}}>${com.valor}</a>
       </li>
     </ul>
-
+{/** 
     <NavLink to={"/ActualizarCompra/" + com.id} className="btn btn-primary" style={{ width: '50%'}}>Actualizar</NavLink>
     <NavLink className="btn btn-danger" to={"/EliminarCompra/" + com.id} style={{ width: '50%'}}>Eliminar</NavLink>
+    */}
   </div>
+{/*
   <NavLink className="btn btn-info" to={"/RealizarCompra/" + com.id} style={{ width: '100%'}}>Realizar Compra</NavLink>
-  {/* /.card-body */}
+   /.card-body */}
 </div>
 
             );

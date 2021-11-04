@@ -23,6 +23,7 @@ status: false,
     });
     
   }
+  
 
   componentDidMount = () => {
     this.cargarPresupuesto();
@@ -68,14 +69,17 @@ status: false,
     <li className="list-group-item">
         <b>ID</b> <a className="float-right">{pre.id}</a>
       </li>
-      <li className="list-group-item">
-        <h3 className="text-success">${pre.monto}</h3>
-      </li>
+      
       <li className="list-group-item">
         <b>Descripción</b> <a className="float-right">{pre.descripcion}</a>
       </li>
       <li className="list-group-item">
         <b>Fecha</b> <a className="float-right">{pre.fecha}</a>
+      </li>
+      
+      <li className="list-group-item">
+      <b className="text-success">Monto de presupuesto</b>
+        <h3 className="text-success float-right">${pre.monto}</h3>
       </li>
 
     </ul>
@@ -94,7 +98,6 @@ status: false,
                       
           </a>
           <ul className="nav nav-treeview">
-
             <Link to={"/ComprasPresupuesto/" + pre.id}>
             <li className="nav-item">
               <a  className="nav-link">
@@ -105,7 +108,54 @@ status: false,
               </a>
             </li>
             </Link>
-            
+          </ul>
+          <ul className="nav nav-treeview">
+            <Link to={"/ComprasSolicitadas/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver Compras solicitadas</p>
+                 
+              </a>
+            </li>
+            </Link>
+          </ul>
+          <ul className="nav nav-treeview">
+            <Link to={"/ComprasRealizadas/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver Compras realizadas</p>
+                 
+              </a>
+            </li>
+            </Link>
+          </ul>
+          <ul className="nav nav-treeview">
+            <Link to={"/ComprasRechasadas/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-exclamation-circle nav-icon" />
+                
+                <p>Ver Compras rechasadas</p>
+                 
+              </a>
+            </li>
+            </Link>
+          </ul>
+          <ul className="nav nav-treeview">
+            <Link to={"/ComprasAceptadas/" + pre.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-check nav-icon" />
+                
+                <p>Ver Compras aceptadas</p>
+                 
+              </a>
+            </li>
+            </Link>
           </ul>
           <ul className="nav nav-treeview">
 
@@ -114,7 +164,7 @@ status: false,
               <a  className="nav-link">
                 <i className="fas fa-cart-plus nav-icon" />
                 
-                <p>Crear Compras</p>
+                <p>Solicitar Compra</p>
                  
               </a>
             </li>
@@ -124,10 +174,10 @@ status: false,
         </li>
                     </ul>
 </div>
-
             );
         })
       )}
+
 </div>
 
 </div>

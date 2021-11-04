@@ -107,6 +107,9 @@ function Proyectos(){
                           <th style={{ width: '5%' }} className="text-center">
                             Estado
                           </th>
+                          <th style={{ width: '5%' }} className="text-center">
+                            Visibilidad
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -140,6 +143,9 @@ function Proyectos(){
                           </td>
                           <td className="project-state">
                             <span className="badge badge-success">{proye.estado}</span>
+                          </td>
+                          <td className="project-state">
+                            <span className="badge badge-success">{proye.visibilidad}</span>
                           </td>
                           <td className="project-actions text-right">
                             

@@ -77,7 +77,7 @@ export default class Eventos extends Component {
                             Entidad
                           </th> 
                           <th style={{ width: '10%' }}>
-                            Fecha de inicio
+                            Fecha del evento
                           </th> 
                           <th style={{ width: '20%' }}>
                             Sitio web
