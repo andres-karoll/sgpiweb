@@ -38,7 +38,7 @@ export default class FormularioLogin extends Component {
           localStorage.setItem("cedula", response.cedula)
           localStorage.setItem("tipo", reTipo)
           alert('bienvenido');
-          window.location.href = "/Home/Login/Dashboart/" + grupo.tipoUsuario;
+          window.location.href = "/HomeInstitucional/" + grupo.tipoUsuario;
         } else {
           alert('el usuario o contraseña son incorrectos');
         }
