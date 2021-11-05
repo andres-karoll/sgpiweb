@@ -1,6 +1,19 @@
 import React from 'react'
 
-export default function Header() {
+import  { Component } from 'react';
+export default class Header extends Component {
+ cerrarSesion=()=>{
+    localStorage.removeItem('cedula');
+    localStorage.removeItem('tipo');
+    window.location.href="/";
+ 
+  }
+  componentDidMount = () => {
+   if(!localStorage.getItem("cedula")){
+      window.location.href="/";
+   }
+  }
+  render(){
     return (
   <nav className="main-header navbar navbar-expand navbar-white navbar-light">
   {/* Left navbar links */}
@@ -17,10 +30,13 @@ export default function Header() {
   </ul>
   {/* Right navbar links */}
   <ul className="navbar-nav ml-auto">
+  
+
 
     {/* Messages Dropdown Menu */}
     <li className="nav-item d-none d-sm-inline-block">
-      <a href="/" style={{fontSize:"small" }} className="nav-link">Cerrar Sesión</a>
+      <a href="/" style={{fontSize:"small" }} type="submit" className="nav-link" onClick={this.cerrarSesion}>Cerrar Sesión</a>
+
     </li>
 
 
@@ -28,4 +44,5 @@ export default function Header() {
   </nav>
 
     )
+}
 }

@@ -40,6 +40,13 @@ export default class EliminarParticipante extends Component {
         var url = "http://localhost:8080" + request
         axios.post(url,participante).then(res => {
             this.setState({ status: true });
+                if (res.data.respuesta==="el participante termino su proceso en el proyecto") {
+                alert("El participante termino su proceso")
+                window.location.href ="/ParticipantesProyecto/"+this.props.id;
+            }else{
+              alert("Ocurrio un error")
+              window.location.href ="/ParticipantesProyecto/"+this.props.id;
+            }
         });
     }
 

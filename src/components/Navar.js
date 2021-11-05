@@ -28,7 +28,7 @@ const Nav = () => (
             
             </li>
             <li>
-            <Link to="/Home/Registro/">Registro</Link>
+            <Link to="/Registro/">Registro</Link>
             
             </li>
             <li>
