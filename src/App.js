@@ -1,5 +1,4 @@
 import React, { Component }  from 'react'
-import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages/Inicio/Home'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Error from './pages/notfound/error'
@@ -68,18 +67,11 @@ import ProyectosArea from './pages/GestionInstitucional/Areas/ProyectosArea'
 import InsertarEvento from './pages/GestionInstitucional/Eventos/InsertarEvento'
 import ActualizarEvento from './pages/GestionInstitucional/Eventos/ActualizarEvento'
 import EliminarEvento from './pages/GestionInstitucional/Eventos/EliminarEvento'
-
 import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
 import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
 import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
 import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
-
-
-import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
-
 import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
-
-
 import TusProyectos from './pages/GestionProyectosAI/Proyectos/TusProyectos'
 import ActualizarProyecto from "./pages/GestionProyectosAI/Proyectos/ActualizarProyecto"
 import CrearProyecto from "./pages/GestionProyectosAI/Proyectos/CrearProyecto"
@@ -89,8 +81,6 @@ import CrearProyectoMateria from './pages/GestionProyectosAI/Proyectos/CrearProy
 import EliminarProyecto from './pages/GestionProyectosAI/Proyectos/EliminarProyecto'
 import AgregarParticipante from './pages/GestionProyectosAI/Proyectos/AgregarParticipante'
 import DetallesProyecto from './pages/GestionProyectosAI/Proyectos/DetallesProyecto'
-
-
 import DesAsignarLineaGrupoI from './pages/GestionInstitucional/GruposInvestigacion/DesAsignarLineaGrupo'
 import EliminarCompra from './pages/Proyectos/Compras/EliminarCompra'
 import CrearCompra from './pages/Proyectos/Compras/CrearCompra'
@@ -137,9 +127,9 @@ import ComprasAceptadas from './pages/Proyectos/Compras/ComprasAceptadas'
 import CambiarEstadoCompra from './pages/Proyectos/Compras/CambiarEstadoCompra'
 import AsignarUsuario from './pages/GestionInstitucional/Semilleros/AsignarUsuario'
 import DesAsignarUsuario from './pages/GestionInstitucional/Semilleros/DesAsignarUsuario'
-import UploadFiles from './components/Upload-files.component';
+//import UploadFiles from './components/Upload-files.component';
 import FilesPrueba from './FilesPrueba';
-import ListadeProductosPrueba from './pages/Proyectos/Productos/ListadeProductosPrueba';
+//import ListadeProductosPrueba from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import ListarProductos from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import MeterArchivo from './pages/Proyectos/Productos/MeterArchivo';
 
@@ -174,7 +164,7 @@ export default function App() {
 
 
 
-            <Route exact path="/MeterArchivo" component={FilesPrueba} />
+            {/**<Route exact path="/MeterArchivo" component={FilesPrueba} /> */}
             <Route exact path="/Archivos" component={ListarProductos} />
             <Route exact path="/Meter" component={MeterArchivo} />
 

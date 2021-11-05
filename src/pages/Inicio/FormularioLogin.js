@@ -34,20 +34,16 @@ export default class FormularioLogin extends Component {
       .then(response => {
         return response.data;
       }).then(response => {
-        console.log(response)
+       
         if (response.cedula!= null) {
           localStorage.setItem("cedula", response.cedula)
           localStorage.setItem("tipo", reTipo)
           alert('bienvenido');
           window.location.href = "/Home/Login/Dashboart/";
-        } else if(response.respuesta===null) {
-          alert('el usuario o contraseña o el tipo de usuario son incorrectos');
-
-          window.location.href = "/HomeInstitucional/" + grupo.tipoUsuario;
         } else {
-          alert('el usuario o contraseña son incorrectos');
-
-        }
+          alert('el usuario o contraseña o el tipo de usuario son incorrectos');
+          window.location.href = "/" ;
+        } 
       })
   }
   CargarRoles = () => {
