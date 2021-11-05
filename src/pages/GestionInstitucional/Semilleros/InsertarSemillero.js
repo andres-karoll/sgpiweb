@@ -112,7 +112,7 @@ export default class InsertarSemillero extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha_fun</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de fundación</label>
                             {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
                              min="2000-01-01" max="2100-12-31" ref={this.cajaFecha_funRef} required></input>

@@ -42,6 +42,11 @@ export default class FormularioLogin extends Component {
           window.location.href = "/Home/Login/Dashboart/";
         } else if(response.respuesta===null) {
           alert('el usuario o contraseña o el tipo de usuario son incorrectos');
+
+          window.location.href = "/HomeInstitucional/" + grupo.tipoUsuario;
+        } else {
+          alert('el usuario o contraseña son incorrectos');
+
         }
       })
   }

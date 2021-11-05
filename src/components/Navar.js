@@ -5,24 +5,6 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => (
 <header id="header" style={{background: 'rgb(255,255,255)'}}>
   <div>
-      <div id="topbar">
-        <div className="container">
-          <div className="social-links">
-            <a href="#" className="twitter">
-              <i className="fa fa-twitter" />
-            </a>
-            <a href="#" className="facebook">
-              <i className="fa fa-facebook" />
-            </a>
-            <a href="#" className="linkedin">
-              <i className="fa fa-linkedin" />
-            </a>
-            <a href="#" className="instagram">
-              <i className="fa fa-instagram" />
-            </a>
-          </div>
-        </div>
-      </div>
       <div className="container">
         <div className="logo float-left">
           {/* Uncomment below if you prefer to use an image logo */}
@@ -36,10 +18,10 @@ const Nav = () => (
         <nav className="main-nav float-right d-none d-lg-block">
           <ul>
             <li className="active">
-              <a href="/Home">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="/Home#about">Info</a>
+              <a href="/Home/Info">Info</a>
             </li>
             <li>
             <Link to="/Home/Search">Buscador</Link>

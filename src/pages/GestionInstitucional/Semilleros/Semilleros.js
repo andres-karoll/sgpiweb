@@ -167,7 +167,26 @@ export default class Semilleros extends Component {
               </a>
             </li>
             </Link>
-           
+            <Link to={"/AsignarUsuario/" + semi.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+              <i className="fas fa-user-plus nav-icon"> </i>
+              
+                <p>Asignar usuario al semillero</p>
+                 
+              </a>
+            </li>
+            </Link>
+            <Link to={"/DesAsignarUsuario/"}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-skull-crossbones nav-icon" />
+                
+                <p>Desasignar usuario del semillero</p>
+                 
+              </a>
+            </li>
+            </Link>          
             <Link to={"/ProgramaSemillero/" + semi.id}>
             <li className="nav-item">
               <a  className="nav-link">
@@ -198,6 +217,7 @@ export default class Semilleros extends Component {
               </a>
             </li>
             </Link>
+            
             
           </ul>
         </li>

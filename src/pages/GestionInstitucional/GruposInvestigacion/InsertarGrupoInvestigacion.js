@@ -96,7 +96,7 @@ rol:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '20%'}}>Fecha Fun</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de fundación</label>
                             {/* <input type="text" name="cajatel" className="form-control" placeholder="Fecha fun" ref={this.cajaFecha_funRef} />*/}
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha_funRef} required></input>
@@ -108,7 +108,7 @@ rol:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '20%'}}>Fecha cat</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de la categoria del grupo</label>
                             {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha cat" ref={this.cajaFecha_catRef} />*/}
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha_catRef} required></input>                        

@@ -80,7 +80,7 @@ export default class InsertarEvento extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}} >Fecha inicio</label>
+                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}} >Fecha del evento</label>
                             {/* form start 
                             <input type="text" name="cajatel" className="form-control" placeholder="Fecha inicio" ref={this.cajaFechaRef} />
 */}

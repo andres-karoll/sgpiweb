@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Component }  from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages/Inicio/Home'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Error from './pages/notfound/error'
 import SearchP from './pages/Inicio/SearchP'
 import Index1 from './pages/Inicio/Index1'
 import Login from './pages/Inicio/Login'
+import Info from './pages/Inicio/Info'
 import Registro from './pages/Inicio/Registro'
 import ProyectosGrado from './pages/Biblioteca/ProyectosGrado'
 import DetallesProyectoGrado from './pages/Biblioteca/DetallesProyectoGrado'
@@ -71,6 +73,10 @@ import Proyectos from './pages/Proyectos/Proyectos/Proyectos'
 import PresupuestoProyecto from './pages/Proyectos/Presupuesto/PresupuestoProyecto'
 import AsignarPresupuesto from './pages/Proyectos/Presupuesto/AsignarPresupuesto'
 import EliminarPresupuesto from './pages/Proyectos/Presupuesto/EliminarPresupuesto'
+
+
+import ActualizarPresupuesto from './pages/Proyectos/Presupuesto/ActualizarPresupuesto'
+
 import ComprasPresupuesto from './pages/Proyectos/Compras/ComprasPresupuesto'
 
 
@@ -106,6 +112,7 @@ import CrearConvocatorias from './pages/GestionInstitucional/Convocatorias/Crear
 import ActualizarConvocatorias from './pages/GestionInstitucional/Convocatorias/ActualizarConvocatoria'
 import EliminarConvocatoria from './pages/GestionInstitucional/Convocatorias/EliminarConvocatoria'
 import HomeInstitucional from './pages/homes/HomeInstitucional'
+
 import CrearProyectoSemillero from './pages/GestionProyectosInvestigacion/CrearProyectoSemillero'
 import UnirseSemillero from './pages/GestionProyectosInvestigacion/UnirseSemillero'
 
@@ -120,6 +127,22 @@ import ParticiparEvento from './pages/GestionProyectosAI/Proyectos/ParticiparEve
 import AgregarAreasConocimiento from './pages/GestionProyectosAI/Proyectos/AgregarAreasConocimiento'
 import Participaciones from './pages/GestionProyectosAI/Proyectos/Participaciones'
 import TrabajoGrado from './pages/GestionTrabajoGrado/TrabajoGrado'
+
+
+import RealizarCompra from './pages/Proyectos/Compras/RealizarCompra'
+import ComprasSolicitadas from './pages/Proyectos/Compras/ComprasSolicitadas'
+import ComprasRealizadas from './pages/Proyectos/Compras/ComprasRealizadas'
+import ComprasRechasadas from './pages/Proyectos/Compras/ComprasRechasadas'
+import ComprasAceptadas from './pages/Proyectos/Compras/ComprasAceptadas'
+import CambiarEstadoCompra from './pages/Proyectos/Compras/CambiarEstadoCompra'
+import AsignarUsuario from './pages/GestionInstitucional/Semilleros/AsignarUsuario'
+import DesAsignarUsuario from './pages/GestionInstitucional/Semilleros/DesAsignarUsuario'
+import UploadFiles from './components/Upload-files.component';
+import FilesPrueba from './FilesPrueba';
+import ListadeProductosPrueba from './pages/Proyectos/Productos/ListadeProductosPrueba';
+import ListarProductos from './pages/Proyectos/Productos/ListadeProductosPrueba';
+import MeterArchivo from './pages/Proyectos/Productos/MeterArchivo';
+
 export default function App() {
   return (
     <div>
@@ -127,9 +150,36 @@ export default function App() {
       <Switch>    
             <Route exact path="/" component={Home} />
             <Route exact path="/Home/Search" component={SearchP} />
+            <Route exact path="/Home/Info" component={Info} />
             <Route exact path="/Home/Login" component={Login} />
+
             <Route exact path="/Home/Login/Dashboart/" component={Index1} />
             <Route exact path="/HomeInstitucional" component={HomeInstitucional} />           
+
+            <Route exact path="/Home/Registro" component={Registro} />
+            <Route exact path="/Home/Login/Dashboart/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <Index1 id={id}/>
+                        }} />
+                        <Route exact path="/HomeInstitucional" component={HomeInstitucional} />
+            <Route exact path="/HomeInstitucional/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <HomeInstitucional id={id}/>
+                        }} />
+      
+
+
+
+
+
+
+
+            <Route exact path="/MeterArchivo" component={FilesPrueba} />
+            <Route exact path="/Archivos" component={ListarProductos} />
+            <Route exact path="/Meter" component={MeterArchivo} />
+
+
+
 
 
 
@@ -221,7 +271,19 @@ export default function App() {
             <Route exact path="/DesAsignarProgramaSemillero/:id" render={props => {
                             var id = props.match.params.id;
                             return <DesAsignarProgramaSemillero id={id}/>
+                        }} />
+            <Route exact path="/AsignarUsuario/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AsignarUsuario id={id}/>
                         }} /> 
+            <Route path="/DesAsignarUsuario" exact component={DesAsignarUsuario}/>
+
+
+
+
+
+
+
 
 
 
@@ -435,6 +497,30 @@ export default function App() {
                             var id = props.match.params.id;
                             return <ActualizarCompra id={id} />
                         }} /> 
+            <Route exact path="/RealizarCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <RealizarCompra id={id} />
+                        }} /> 
+            <Route exact path="/ComprasSolicitadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasSolicitadas id={id} />
+                        }} />
+            <Route exact path="/ComprasRealizadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasRealizadas id={id} />
+                        }} /> 
+            <Route exact path="/ComprasRechasadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasRechasadas id={id} />
+                        }} />
+            <Route exact path="/ComprasAceptadas/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ComprasAceptadas id={id} />
+                        }} />         
+            <Route exact path="/CambiarEstadoCompra/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CambiarEstadoCompra id={id} />
+                        }} /> 
 
 
 
@@ -590,7 +676,9 @@ export default function App() {
         } />
       </Switch>
     </BrowserRouter>
+    
     </div>
+    
   )
 
 }

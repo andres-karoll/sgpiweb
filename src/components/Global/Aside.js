@@ -269,6 +269,7 @@ export default class Aside extends Component {
 
         {/* /.sidebar */}
       </aside>
+
     )
   }
 }

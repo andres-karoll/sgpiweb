@@ -5,7 +5,7 @@ import Search from './Search';
 // import NotFoundImg from '../images/404.png'
 
 const SearchP = () => (
-    <div>
+  <div>
     <Navar/>
     <div class="py-5">
     <div class="container">
@@ -20,7 +20,8 @@ const SearchP = () => (
         <div class="col-md-12" ></div>
       </div>
     </div>
-  </div> 
+  </div>
+
     <Search/>
     <Footer/>
     </div>

@@ -24,18 +24,22 @@ export default class Header extends Component {
     </li>
 */}
     <li className="nav-item d-none d-sm-inline-block">
-      <a href="index.html" className="nav-link">Home</a>
+      <a href="/HomeInstitucional" className="nav-link">Home</a>
     </li>
-    <li className="nav-item d-none d-sm-inline-block">
-      <a href="#" className="nav-link">Contact</a>
-    </li>
+
   </ul>
   {/* Right navbar links */}
   <ul className="navbar-nav ml-auto">
-  <li className="nav-item d-none d-sm-inline-block">
-  <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.cerrarSesion}>Cerrar Sesion</button>
+  
+
+
+    {/* Messages Dropdown Menu */}
+    <li className="nav-item d-none d-sm-inline-block">
+      <a href="/" style={{fontSize:"small" }} type="submit" className="nav-link" onClick={this.cerrarSesion}>Cerrar Sesión</a>
 
     </li>
+
+
   </ul>
   </nav>
 

@@ -4,26 +4,26 @@ import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class InsertarLinea extends Component {
 
-    cajaNombreRef = React.createRef();
-    cajaDescripcionRef = React.createRef();
-    cajaFechaRef = React.createRef();
+export default class CambiarEstadoCompra extends Component {
+
+    cajaIDRef = React.createRef();
+    cajaEstadoRef = React.createRef();
 
     state = { status: false}
 
-    nuevaLinea = (e) => {
+    actualizar = (e) => {
         e.preventDefault();
-        var nom = this.cajaNombreRef.current.value;
-        var des = this.cajaDescripcionRef.current.value;
-        var fe = this.cajaFechaRef.current.value;
-        var linea = {
-            nombre: nom
-            , descripcion: des
-            , fecha: fe
+        var idco = this.cajaIDRef.current.value;
+        var est = this.cajaEstadoRef.current.value;
+
+        var estado = {
+              id_compra: idco
+            , estado: est
+
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearlinea';
-        axios.post(url, linea).then(res => {
+        var url = 'http://localhost:8080/gestionfinanciera/actualizarestadocompra';
+        axios.post(url, estado).then(res => {
             this.setState({ status: true });
         });
     }
@@ -33,7 +33,7 @@ export default class InsertarLinea extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Lineas" />
+            return <Redirect to="/Proyectos" />
         }
         return (
             <div>
@@ -49,31 +49,28 @@ export default class InsertarLinea extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear una linea de investigacion</h3>
+                    <h3 className="card-title"  >Cambiar el estado de la compra</h3>
                   </div>
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevaLinea} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizar} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputEmail1">nombre</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
+                            <label htmlFor="exampleInputEmail1">ID de compra</label>
+                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
+                        <label htmlFor="exampleInputPassword1">Estado de la compra</label>
+                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
+                        <option selected="selected"></option>
+                        <option value = "1">Solicitada</option>
+                        <option value = "2">Aceptada</option>
+                        <option value = "3">Realizada</option>
+                        <option value = "4">Denegada</option>
+                        </select>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de creación</label>
-                            {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef}></input>
-                        </div>
-                        
-
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">
