@@ -25,6 +25,13 @@ export default class ActualizarLinea extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearlinea';
         axios.post(url, linea).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo la linea") {
+                alert("se actualizo la linea")
+               
+            }else{
+              alert("no se pudo actualizar la linea")
+             
+            }
         });
     }
 
@@ -64,7 +71,7 @@ export default class ActualizarLinea extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
+                            <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Fecha de creación</label>

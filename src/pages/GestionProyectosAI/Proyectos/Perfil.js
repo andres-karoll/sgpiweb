@@ -29,9 +29,11 @@ class Perfil extends Component  {
     render(){
         
         return (
-            <div >
-                <Header/>
+            <div>
+            <Header/>
                 <Aside /> 
+            <div className="content-wrapper">
+                
         
                 <br /><br />  
                 <h1 align="center"><u>Detalles Perfil </u></h1>
@@ -40,8 +42,7 @@ class Perfil extends Component  {
                 (
                     <React.Fragment>
                         <br />
-                        
-                        <NavLink to="/" className="btn btn-sm btn-dark">Listado</NavLink>
+
                         <br /><br />
                         <h3 align="center">Nombre completo: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.nombres} {this.state.Perfil.apellidos}</span></h3>
                         <h3 align="center">Codigo Universitario: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.cod_Universitario}</span></h3>
@@ -54,7 +55,10 @@ class Perfil extends Component  {
                         <NavLink to={"/delete/" + this.state.Perfil.nombres} className="btn btn-danger">Borrar</NavLink>
                         </div>
                     </React.Fragment>
+
+
                 )}
+            </div>
             </div>
         )
     }

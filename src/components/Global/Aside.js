@@ -20,8 +20,8 @@ export default class Aside extends Component {
 
 
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-            <a href="index3.html" className="brand-link">
-              <span className="brand-text font-weight-light">USUARIO DE PRUEBA</span>
+            <a href={"UsuarioPerfil/"+localStorage.getItem("cedula")} className="brand-link">
+              <span className="brand-text font-weight-light"  >USUARIO DE PRUEBA</span>
             </a>
           </div>
 

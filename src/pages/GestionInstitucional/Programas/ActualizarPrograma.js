@@ -30,7 +30,13 @@ export default class ActualizarPrograma extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearprograma';
         axios.post(url, programa).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Programas";
+            if (res.data.respuesta==="se creo el programa") {
+                alert("se actualizó el programa")
+                window.location.href = "/Programas";
+            }else{
+              alert("no se pudo actualizar el programa")
+              window.location.href = "/Programas";
+            }
         });
     }
 
@@ -75,8 +81,7 @@ export default class ActualizarPrograma extends Component {
                     <form onSubmit={this.nuevoPrograma} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

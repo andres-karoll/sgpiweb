@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { NavLink, Link } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+import Navar from  '../../../components/Navar'
+import Footer from '../../../components/Footer';
 
-export default class ProductosProyecto extends Component {
+export default class ProductosProyectoVisible extends Component {
 
   state = {
 status: false,
@@ -43,10 +43,8 @@ status: false,
 
   render() {
     return (
-    <div>
-      <Aside/>
-      <Header/>
-      <div className="content-wrapper">
+    <div style={{backgroundColor: "#080424"}}>
+ <Navar/>
       
       <div>
             <section className="content">
@@ -57,12 +55,6 @@ status: false,
                   </section>
       </div>
 
-      <div className="wrapper">
-<aside className="control-sidebar control-sidebar-dark">
-{/* Control sidebar content goes here */}
-</aside>
-{/* /.control-sidebar */}
-</div>
 
       {this.state.status === true &&
         (
@@ -98,58 +90,18 @@ status: false,
       </div>
     </ul>
 
-    <NavLink to={"/ActualizarProducto/" + pro.id} style={{width: "50%"}} className="btn btn-primary">Actualizar producto</NavLink>
-    <NavLink className="btn btn-danger" to={"/EliminarProducto/" + pro.id}  style={{width: "50%"}}>Eliminar producto</NavLink>
   </div>
-  {/* /.card-body */}
-  <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Comentarios
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
 
-            <Link to={"/ComentariosProducto/" + pro.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver comentarios de este producto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/CrearComentario/" + pro.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-comment nav-icon" />
-                
-                <p>Crear comentario</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                    </ul>
 </div>
 
             );
         })
       )}
+     
+    <Footer/>
 </div>
 
-</div>
+
 )
 }
 }

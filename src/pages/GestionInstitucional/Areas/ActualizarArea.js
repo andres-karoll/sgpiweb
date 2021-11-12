@@ -28,6 +28,13 @@ export default class ActualizarArea extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/creararea';
         axios.post(url, area).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo la area") {
+                alert("se actualizó la area")
+                //window.location.href ="/ProyectosAulaIntegrador"
+            }else{
+              alert("no se pudo actualizar el area")
+              //window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }
 
@@ -60,8 +67,7 @@ export default class ActualizarArea extends Component {
                     <form onSubmit={this.nuevaArea} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1"  style={{fontSize:"large" }}>id</label>
-                            <input  style={{fontSize:"large" }} type="text" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
+                            <input  style={{fontSize:"large" }} type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -71,7 +77,7 @@ export default class ActualizarArea extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label  style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Descripción</label>
-                            <input  style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
+                            <textarea type="text" rows="15"  style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
                             <label  style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Grand area</label>

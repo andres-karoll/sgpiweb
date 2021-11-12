@@ -40,7 +40,7 @@ function Proyectos(){
         peticionGet();
     }, [])
     return (
-      <div className="card card-primary card-outline " style={{ width: '90%', marginLeft:"auto", marginRight:"auto"}}>
+      <div className="card card-primary card-outline " style={{ width: '90%', marginLeft:"auto", marginRight:"auto", }}>
       <div className="card-body box-profile">
             <section className="content">
                 <br />
@@ -143,7 +143,7 @@ function Proyectos(){
                           </td>
 
                           <td className="project-actions text-right">                       
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + proye.id} >Productos</NavLink>
+                          <NavLink className="btn btn-warning" to={"/ProductosProyectoVisible/" + proye.id} >Productos</NavLink>
                           </td>
                         </tr>
                       </tbody>

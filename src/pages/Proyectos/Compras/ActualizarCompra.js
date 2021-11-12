@@ -80,8 +80,7 @@ export default class ActualizarCompra extends Component {
                     <form onSubmit={this.nuevaCompra} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -117,8 +116,7 @@ export default class ActualizarCompra extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">ID del presupuesto</label>
-                            <input type="text" name="cajatel" className="form-control"   ref={this.cajaPresupuestoRef} required/>
+                            <input type="hidden" name="cajatel" className="form-control"   ref={this.cajaPresupuestoRef} required/>
                         </div>
                         </div>
                         {/* /.card-body */}

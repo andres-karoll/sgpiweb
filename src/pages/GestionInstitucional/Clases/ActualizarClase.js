@@ -34,7 +34,14 @@ export default class ActualizarClase extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearclase';
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Clases";
+            
+            if (res.data.respuesta==="se creo la clase") {
+                alert("se actualizó la clase")
+                window.location.href = "/Clases";
+            }else{
+              alert("no se pudo actualizar la clase")
+              window.location.href = "/Clases";
+            }
         });
     }
     

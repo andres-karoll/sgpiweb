@@ -19,7 +19,13 @@ export default class DesAsignarUsuario extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/desasignarsemillero';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            
+            if (res.data.respuesta==="el usuario fue asignado exitosamente") {
+                alert("el usuario fue asignado exitosamente")
+               // window.location.href = "/Semilleros";
+            }else{
+              alert("el usuario NO fue asignado exitosamente")
+             // window.location.href = "/Semilleros";
+            }
         });
     }
     render() {

@@ -33,6 +33,13 @@ export default class ActualizarPresupuesto extends Component {
         var url = 'http://localhost:8080/gestionfinanciera/crearpresupuesto';
         axios.post(url, presupuesto).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo") {
+                alert("el presupuesto se actualizó")
+                //window.location.href ="/ProyectosAulaIntegrador"
+            }else{
+              alert("no se pudo actualizar el presupuesto")
+              //window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }
 
@@ -65,8 +72,7 @@ export default class ActualizarPresupuesto extends Component {
                     <form onSubmit={this.nuevoPresupuesto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -81,7 +87,7 @@ export default class ActualizarPresupuesto extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
+                            <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

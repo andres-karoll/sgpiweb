@@ -29,12 +29,19 @@ export default class InsertarGrupoInvestigacion extends Component {
             , fechaFun: fe_fun
             , categoria: cat
             , fechaCat: fe_cat
-            , director_grupo: dir
+            , director: dir
         };
         console.log(grupo);
         var url = 'http://localhost:8080/gestioninstitucional/creargruposi';
         axios.post(url, grupo).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="el grupo se creo") {
+                alert("se actualizó el grupo de investigación")
+                //window.location.href = "/Clases";
+            }else{
+              alert("no se pudo actualizar el grupo de investigación")
+              //window.location.href = "/Clases";
+            }
         });
     }
 
@@ -65,8 +72,7 @@ export default class InsertarGrupoInvestigacion extends Component {
                     <form onSubmit={this.nuevoGrupoInvestigacion} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

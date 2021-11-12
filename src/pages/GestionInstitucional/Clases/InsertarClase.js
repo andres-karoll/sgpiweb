@@ -33,7 +33,14 @@ mate:[] }
         var url = 'http://localhost:8080/gestioninstitucional/crearclase';
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Clases";
+            if (res.data.respuesta==="se creo la clase") {
+                alert("se creo la clase")
+                window.location.href = "/Clases";
+            }else{
+              alert("no se pudo crear la clase")
+              window.location.href = "/Clases";
+            }
+            
         });
     }
 

@@ -33,13 +33,20 @@ rol:[] }
             , fechaFun: fe_fun
             , categoria: cat
             , fechaCat: fe_cat
-            , director_grupo: dir
+            , director: dir
         };
         console.log(grupo);
         var url = 'http://localhost:8080/gestioninstitucional/creargruposi';
         axios.post(url, grupo).then(res => {
             this.setState({ status: true });
-            window.location.href = "/GruposInvestigacion";
+            
+            if (res.data.respuesta==="el grupo se creo") {
+                alert("se creo el grupo de investigación")
+                window.location.href = "/GruposInvestigacion";
+            }else{
+              alert("no se pudo crear el grupo de investigación")
+              window.location.href = "/GruposInvestigacion";
+            }
         });
     }
     Cargar = () => {
@@ -86,8 +93,7 @@ rol:[] }
                     <form onSubmit={this.nuevoGrupoInvestigacion} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

@@ -23,11 +23,18 @@ export default class InsertarFacultad extends Component {
             id: idfacultad
             , nombre: nom
             , decano: deca
-            , coor_inv: coo
+            , coordinador: coo
         };
         var url = 'http://localhost:8080/gestioninstitucional/crearfacultad';
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo la facultad") {
+                alert("se creo la facultad")
+                //window.location.href = "/Clases";
+            }else{
+              alert("no se pudo crear la facultad")
+              //window.location.href = "/Clases";
+            }
         });
     }
 
@@ -57,8 +64,7 @@ export default class InsertarFacultad extends Component {
                     <form onSubmit={this.nuevaFacultad} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

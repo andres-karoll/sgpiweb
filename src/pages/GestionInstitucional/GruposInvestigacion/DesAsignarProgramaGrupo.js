@@ -23,7 +23,13 @@ export default class DesAsignarLineaGrupoI extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/desasignarprogramaagrupo';
         axios.post(url, desasignacion).then(res => {
             this.setState({ status: true });
-            window.location.href = "/GruposInvestigacion";
+            if (res.data.respuesta==="se desasigno el programa correctamente") {
+                alert("se desasigno el programa correctamente")
+                window.location.href = "/GruposInvestigacion";
+            }else{
+              alert("no se pudo desasignar el programa correctamente")
+              window.location.href = "/GruposInvestigacion";
+            }
         });
     }
     Cargar = () => {
@@ -59,10 +65,8 @@ export default class DesAsignarLineaGrupoI extends Component {
                 <form onSubmit={this.nuevaDesAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Grupo de investigación</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
+                        <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
                         </div>
                     </div>
                     {/** 

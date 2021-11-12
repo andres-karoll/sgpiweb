@@ -22,7 +22,13 @@ export default class DesAsignarProgramaSemillero extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/desasignarsemilleroaprograma';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Semilleros";
+            if (res.data.respuesta==="se desasigno correctamente") {
+                alert("se desasigno correctamente")
+                window.location.href = "/Semilleros";
+            }else{
+              alert("NO se desasigno correctamente")
+              window.location.href = "/Semilleros";
+            }
         });
     }
     Cargar = () => {
@@ -59,10 +65,8 @@ export default class DesAsignarProgramaSemillero extends Component {
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Semillero</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
+                        <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
                     {/** 

@@ -41,7 +41,14 @@ export default class InsertarSemillero extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearsemilleros';
         axios.post(url, semillero).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Semilleros";
+            
+            if (res.data.respuesta==="se creo el semillero correctamente") {
+                alert("se creo el semillero correctamente")
+                window.location.href = "/Semilleros";
+            }else{
+              alert("se pudo crear el semillero correctamente")
+              window.location.href = "/Semilleros";
+            }
         });
     }
     Cargar = () => {
@@ -97,8 +104,7 @@ export default class InsertarSemillero extends Component {
                     <form onSubmit={this.nuevoSemillero} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -108,7 +114,7 @@ export default class InsertarSemillero extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="descripcion" ref={this.cajaDescripcionRef} required/>
+                            <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder="descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -125,7 +131,7 @@ export default class InsertarSemillero extends Component {
                             
                             ( this.state.gruposi.map((grup) => {
                             return(
-                                    <option value={grup.id}>{grup.nombre}</option> 
+                                    <option value={grup.id}> {grup.id}{grup.nombre}</option> 
                                     );
                                 })
                                 )}

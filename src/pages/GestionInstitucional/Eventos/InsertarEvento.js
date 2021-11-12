@@ -38,6 +38,13 @@ export default class InsertarEvento extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearevento';
         axios.post(url, evento).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo el evento") {
+                alert("se creo el evento")
+                //window.location.href = "/Clases";
+            }else{
+              alert("no se pudo crear el evento")
+              //window.location.href = "/Clases";
+            }
         });
     }
 
@@ -70,8 +77,7 @@ export default class InsertarEvento extends Component {
                     <form onSubmit={this.nuevaEvento} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">id</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

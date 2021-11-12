@@ -36,6 +36,13 @@ export default class ActualizarComentario extends Component {
         var url = 'http://localhost:8080/productos/crearcomentario';
         axios.post(url, comentario).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="el comentario se creo") {
+                alert("el comentario se creo")
+                //window.location.href ="/ProyectosAulaIntegrador"
+            }else{
+              alert("no se pudo crear el comentario")
+              //window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }
 
@@ -68,8 +75,7 @@ export default class ActualizarComentario extends Component {
                     <form onSubmit={this.nuevoComentario} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} value={this.props.id} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} value={this.props.id} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -92,9 +98,7 @@ export default class ActualizarComentario extends Component {
                             <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Producto ID </label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProductoIDRef} required/>
+                            <input type="hidden" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProductoIDRef} required/>
                         </div>
 
                         </div>
