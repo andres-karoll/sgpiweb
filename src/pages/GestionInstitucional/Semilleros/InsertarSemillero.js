@@ -45,10 +45,27 @@ export default class InsertarSemillero extends Component {
             if (res.data.respuesta==="se creo el semillero correctamente") {
                 alert("se creo el semillero correctamente")
                 window.location.href = "/Semilleros";
-            }else{
-              alert("se pudo crear el semillero correctamente")
+            }else if(res.data.respuesta==="el semillero no se creo porque el usuario no existe"){
+              alert("el semillero no se creo porque el usuario no existe")
               window.location.href = "/Semilleros";
+            }else if(res.data.respuesta==="el semillero no se creo porque el grupo no existe"){
+                alert("el semillero no se creo porque el grupo no existe")
+                window.location.href = "/Semilleros";
+            }else if(res.data.respuesta==="el semillero no se creo porque la linea no existe"){
+                alert("el semillero no se creo porque la linea no existe")
+                window.location.href = "/Semilleros";
+            }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante inactivo"){
+                alert("el semillero no se creo porque el usuario es un estudiante inactivo")
+                window.location.href = "/Semilleros";
+            }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo"){
+                alert("el semillero no se creo porque el usuario es un estudiante activo")
+                window.location.href = "/Semilleros";
             }
+            else if(res.data.respuesta==="el semillero no se creo porque el usuario escogido ya es lider de semillero"){
+                alert("el semillero no se creo porque el usuario escogido ya es lider de semillero")
+                window.location.href = "/Semilleros";
+            }
+        
         });
     }
     Cargar = () => {
@@ -108,7 +125,7 @@ export default class InsertarSemillero extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre</label>
+                            <label htmlFor="exampleInputPassword1">Nombre del semillero</label>
                             <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
@@ -125,6 +142,11 @@ export default class InsertarSemillero extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                            <label htmlFor="exampleInputPassword1">Cedula del Lider de semillero</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder="lider de semillero" ref={this.cajaLiderSemilleroRef} required/>
+                        </div>
+                        <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Grupo de investigacion</label>
                             <select ref={this.cajaGrupoInvestigacionRef} style={{width: '50%',  height: "30px"}} required>
                                 {this.state.status === true && 
@@ -137,11 +159,7 @@ export default class InsertarSemillero extends Component {
                                 )}
                             </select>
                         </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Lider de semillero</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="lider de semillero" ref={this.cajaLiderSemilleroRef} required/>
-                        </div>
+                        
                         {/* 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Linea de investigacion</label>

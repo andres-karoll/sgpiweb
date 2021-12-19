@@ -41,12 +41,37 @@ rol:[] }
             this.setState({ status: true });
             
             if (res.data.respuesta==="el grupo se creo") {
-                alert("se creo el grupo de investigación")
+                alert("Se creo el grupo de investigación")
                 window.location.href = "/GruposInvestigacion";
-            }else{
-              alert("no se pudo crear el grupo de investigación")
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario no existe"){
+              alert("El grupo no se creo porque el usuario no existe")
               window.location.href = "/GruposInvestigacion";
+
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un estudiante inactivo"){
+                alert("El grupo no se creó porque el usuario que escogió es un estudiante inactivo")
+                window.location.href = "/GruposInvestigacion";            
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un estudiante activo"){
+                alert("El grupo no se creó porque el usuario que escogió es un estudiante activo")
+                window.location.href = "/GruposInvestigacion";
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un egresado"){
+                alert("El grupo no se creo porque el usuario que escogio es un egresado")
+                window.location.href = "/GruposInvestigacion";
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un investigador en formación"){
+                alert("El grupo no se creo porque el usuario que escogio es un investigador en formación")
+                window.location.href = "/GruposInvestigacion";
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio hace parte del personal de biblioteca"){
+                alert("El grupo no se creo porque el usuario que escogio hace parte del personal de biblioteca")
+                window.location.href = "/GruposInvestigacion";
+            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio hace parte del personal de publicaciones"){
+                alert("El grupo no se creo porque el usuario que escogio hace parte del personal de publicaciones")
+                window.location.href = "/GruposInvestigacion";
             }
+            else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un Semillerista"){
+                alert("El grupo no se creo porque el usuario que escogio es un Semillerista")
+                window.location.href = "/GruposInvestigacion";
+            }
+            
+            
         });
     }
     Cargar = () => {
@@ -97,7 +122,7 @@ rol:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre</label>
+                            <label htmlFor="exampleInputPassword1">Nombre del grupo de investigación</label>
                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/> 
                         </div>
                         <div className="form-group">
@@ -121,8 +146,8 @@ rol:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Director de grupo</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Director de grupo" ref={this.cajaDirector_grupoRef} required/>
+                            <label htmlFor="exampleInputPassword1">Cedula Director de grupo</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder="Director de grupo" ref={this.cajaDirector_grupoRef} required/>
                         </div>
 
 

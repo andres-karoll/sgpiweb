@@ -28,12 +28,25 @@ export default class InsertarFacultad extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearfacultad';
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la facultad") {
-                alert("se creo la facultad")
+            if (res.data.respuesta==="se creo la facultad de manera exitosa") {
+                alert("se creo la facultad de manera exitosa")
                 //window.location.href = "/Clases";
-            }else{
-              alert("no se pudo crear la facultad")
-              //window.location.href = "/Clases";
+            }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un estudiante inactivo"){
+              alert("la falcultad no fue creada el primer usuario es un estudiante inactivo")
+            }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un estudiante activo"){
+                alert("la falcultad no fue creada el primer usuario es un estudiante activo")
+            }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un semillerista"){
+                alert("la falcultad no fue creada el primer usuario es un semillerista")
+            }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario ya es Lider investigacion facultad"){
+                alert("la falcultad no fue creada el primer usuario ya es Lider investigacion facultad")
+            }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un estudiante inactivo"){
+                alert("la falcultad no fue creada el segundo usuario es un estudiante inactivo")
+            }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un estudiante activo"){
+                alert("la falcultad no fue creada el segundo usuario es un estudiante activo")
+            }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un semillerista"){
+                alert("la falcultad no fue creada el segundo usuario es un semillerista")
+            }else if (res.data.respuesta==="la falcultad no fue creada el segundo ya es Coordinador investigacion facultad"){
+                alert("la falcultad no fue creada el segundo ya es Coordinador investigacion facultad")
             }
         });
     }
@@ -73,13 +86,13 @@ export default class InsertarFacultad extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Decano</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Decano Obligatorio" ref={this.cajaDecanoRef} required/>
+                            <label htmlFor="exampleInputPassword1">Cedula del Decano</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder="Decano Obligatorio" ref={this.cajaDecanoRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Coordinador invitado</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Coordinador invitado" ref={this.cajaCoorRef} required/>
+                            <label htmlFor="exampleInputPassword1">Cedula del Coordinador invitado</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder="Coordinador invitado" ref={this.cajaCoorRef} required/>
                         </div>
                     
                         </div>

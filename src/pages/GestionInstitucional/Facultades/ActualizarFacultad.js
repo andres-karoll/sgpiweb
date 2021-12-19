@@ -11,7 +11,8 @@ export default class ActualizarFacultad extends Component {
     cajaDecanoRef = React.createRef();
     cajaCoorRef = React.createRef();
 
-    state = { status: false }
+    state = { status: false,
+    facultad :{} }
 
     nuevaFacultad = (e) => {
         e.preventDefault();
@@ -25,22 +26,52 @@ export default class ActualizarFacultad extends Component {
             , decano: deca
             , coordinador: coo
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearfacultad';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarfacultad';
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la facultad") {
+            if (res.data.respuesta==="la facultad fue actualizada") {
                 alert("se actualizó la facultad")
-                //window.location.href = "/Clases";
-            }else{
-              alert("no se pudo actualizar la facultad")
-              //window.location.href = "/Clases";
-            }
+                window.location.href = "/Facultades";
+            }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un estudiante inactivo"){
+                alert("la falcultad no fue creada el primer usuario es un estudiante inactivo")
+              }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un estudiante activo"){
+                  alert("la falcultad no fue creada el primer usuario es un estudiante activo")
+              }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario es un semillerista"){
+                  alert("la falcultad no fue creada el primer usuario es un semillerista")
+              }else if (res.data.respuesta==="la falcultad no fue creada el primer usuario ya es Lider investigacion facultad"){
+                  alert("la falcultad no fue creada el primer usuario ya es Lider investigacion facultad")
+              }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un estudiante inactivo"){
+                  alert("la falcultad no fue creada el segundo usuario es un estudiante inactivo")
+              }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un estudiante activo"){
+                  alert("la falcultad no fue creada el segundo usuario es un estudiante activo")
+              }else if (res.data.respuesta==="la falcultad no fue creada el segundo usuario es un semillerista"){
+                  alert("la falcultad no fue creada el segundo usuario es un semillerista")
+              }else if (res.data.respuesta==="la falcultad no fue creada el segundo ya es Coordinador investigacion facultad"){
+                  alert("la falcultad no fue creada el segundo ya es Coordinador investigacion facultad")
+              }
+              else{
+                alert("NO se pudo actualizar la facultad correctamente")
+                window.location.href = "/Facultades";
+              }
         });
+    }
+    cargar = () => {
+        var request = "/gestioninstitucional/facultadid/" + this.props.id;
+        var url = "http://localhost:8080" + request;
+        axios.get(url).then(res => {
+            this.setState({
+                facultad: res.data
+                ,status: true
+            });
+        });
+    }
+    componentDidMount = () => {
+        this.cargar();
     }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Facultades" />
+            //return <Redirect to="/Facultades" />
         }
         return (
             <div>
@@ -67,20 +98,27 @@ export default class ActualizarFacultad extends Component {
                             <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de Facultad</label>
-                            <input type="text" name="cajadir" className="form-control"  placeholder="Nombre de facultad" ref={this.cajaNombreRef} required/>
+                        
+                            <label htmlFor="exampleInputPassword1">Nombre de Facultad: {this.state.facultad.nombre}</label>
+                            <input type="text" name="cajadir" className="form-control"  placeholder={this.state.facultad.nombre} ref={this.cajaNombreRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Decano</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Decano" ref={this.cajaDecanoRef} required required/>
+                        
+                            <label htmlFor="exampleInputPassword1">Cedula del Coordinador invitado: {this.state.facultad.coor_inv}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar del lider ingrese la cedula</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.facultad.coor_inv} ref={this.cajaCoorRef} />
+                            </div>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Coordinador invitado</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Coordinador invitado" ref={this.cajaCoorRef} required/>
+                        
+                            <label htmlFor="exampleInputPassword1">Cedula del Decano: {this.state.facultad.decano}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar del lider ingrese la cedula</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder={this.state.facultad.decano} ref={this.cajaDecanoRef} />
+                            </div>
                         </div>
+                        
                     
                         </div>
                         {/* /.card-body */}
