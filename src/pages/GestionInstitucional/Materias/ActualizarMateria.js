@@ -12,7 +12,8 @@ export default class ActualizarMateria extends Component {
 
     state = { status: false,
         programas:[],
-        progra:[] }
+        progra:[],
+    materia:{} }
 
     nuevaMateria = (e) => {
         e.preventDefault();
@@ -24,14 +25,14 @@ export default class ActualizarMateria extends Component {
             , nombre: nom
             , programa: pro
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearmateria';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarmateria';
         axios.post(url, materia).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la materia") {
-                alert("se actualizo la materia")
+            if (res.data.respuesta==="la materia fue actualizada") {
+                alert("la materia fue actualizada")
                 window.location.href = "/Materias";
             }else{
-              alert("no se actualizo la materia")
+              alert("la materia no fue actualizada")
               window.location.href = "/Materias";
             }
         });
@@ -46,9 +47,19 @@ export default class ActualizarMateria extends Component {
           })
         });
       }
+      Cargardos = () => {
+        var request = "/gestioninstitucional/materiaid/" + this.props.catalogo ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            materia: res.data
+            , status: true
+          })
+        });
+      }
       componentDidMount = () => {
         this.Cargar();
-        
+        this.Cargardos();
       }
     render() {
         if(this.state.status === true){
@@ -76,19 +87,23 @@ export default class ActualizarMateria extends Component {
                     <form onSubmit={this.nuevaMateria} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Catalogo</label>
-                            <input type="text" name="cajanom" className="form-control" value = {this.props.catalogo} placeholder="Catalogo" ref={this.cajaCatalogoRef} readOnly/>
+                            <label htmlFor="exampleInputEmail1">Catalogo actual: {this.state.materia.catalogo}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>El catalogo no puede ser modificado</label>
+                            <input type="text" name="cajanom" className="form-control" value = {this.props.catalogo} placeholder="Catalogo" ref={this.cajaCatalogoRef}/>
+                            </div>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la Materia</label>
+            
+                            <label htmlFor="exampleInputPassword1">Nombre de la Materia actual: {this.state.materia.nombre}</label>
                             
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} required/>
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef}/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
                             <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
+                            <option disabled selected value={this.state.materia.programa_id}>{this.state.materia.programa}</option>
                                 {this.state.status === true && 
                             
                             ( this.state.programas.map((progra) => {

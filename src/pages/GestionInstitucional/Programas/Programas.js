@@ -105,8 +105,8 @@ export default class Programas extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActulizarPrograma/" + pro.id} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarPrograma/" + pro.id} >Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarPrograma/" + pro.id} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarPrograma/" + pro.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

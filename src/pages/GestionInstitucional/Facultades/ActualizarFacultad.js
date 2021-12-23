@@ -112,7 +112,7 @@ export default class ActualizarFacultad extends Component {
                         </div>
                         <div className="form-group">
                         
-                            <label htmlFor="exampleInputPassword1">Cedula del Decano: {this.state.facultad.decano}</label>
+                            <label htmlFor="exampleInputPassword1">Decano actual: {this.state.facultad.decano}</label>
                             <div className="form-group">
                             <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar del lider ingrese la cedula</label>
                             <input type="number" name="cajatel" className="form-control" placeholder={this.state.facultad.decano} ref={this.cajaDecanoRef} />

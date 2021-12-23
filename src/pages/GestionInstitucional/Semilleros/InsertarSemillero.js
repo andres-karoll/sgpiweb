@@ -60,6 +60,9 @@ export default class InsertarSemillero extends Component {
             }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo"){
                 alert("el semillero no se creo porque el usuario es un estudiante activo")
                 window.location.href = "/Semilleros";
+            }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un semillerista"){
+                alert("el semillero no se creo porque el usuario es un semillerista")
+                window.location.href = "/Semilleros";
             }
             else if(res.data.respuesta==="el semillero no se creo porque el usuario escogido ya es lider de semillero"){
                 alert("el semillero no se creo porque el usuario escogido ya es lider de semillero")

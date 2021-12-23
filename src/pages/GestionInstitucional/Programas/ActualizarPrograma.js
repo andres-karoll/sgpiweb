@@ -13,7 +13,8 @@ export default class ActualizarPrograma extends Component {
 
     state = { status: false,
         facultades:[],
-        facul:[] }
+        facul:[],
+    programa:{} }
 
     nuevoPrograma = (e) => {
         e.preventDefault();
@@ -27,11 +28,20 @@ export default class ActualizarPrograma extends Component {
             , facultad_id: facul
             , director: direc
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearprograma';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarprograma';
         axios.post(url, programa).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo el programa") {
+            if (res.data.respuesta==="se actualizo el programa") {
                 alert("se actualizó el programa")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante inactivo") {
+                alert("el semillero no se creo porque el usuario es un estudiante inactivo")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo") {
+                alert("el semillero no se creo porque el usuario es un estudiante activo")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un semillerista") {
+                alert("el semillero no se creo porque el usuario es un semillerista")
                 window.location.href = "/Programas";
             }else{
               alert("no se pudo actualizar el programa")
@@ -51,8 +61,20 @@ export default class ActualizarPrograma extends Component {
           })
         });
       }
+
+      Cargardos = () => {
+        var request = "/gestioninstitucional/programaid/" + this.props.id ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            programa: res.data
+            , status: true
+          })
+        });
+      }
       componentDidMount = () => {
         this.Cargar();
+        this.Cargardos();
         
       }
     render() {
@@ -84,14 +106,14 @@ export default class ActualizarPrograma extends Component {
                             <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de Programa</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de programa" ref={this.cajaNombreRef} required/>
+
+                            <label htmlFor="exampleInputPassword1">Nombre de Programa actual: {this.state.programa.nombre}</label>
+                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.programa.nombre} ref={this.cajaNombreRef}/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Facultad</label>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Facultad actual: {this.state.programa.Facultad}</label>
                             <select ref={this.cajaFacultadRef} style={{width: '50%',  height: "30px"}} required>
+                            <option disabled selected value={this.state.programa.Facultad_id}>{this.state.programa.Facultad}</option>
                                 {this.state.status === true && 
                             
                             ( this.state.facultades.map((facul) => {
@@ -105,9 +127,12 @@ export default class ActualizarPrograma extends Component {
                         
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Director</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Director" ref={this.cajaDirectorRef} required/>
+
+                            <label htmlFor="exampleInputPassword1">Director actual: {this.state.programa.Director}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar del lider ingrese la cedula</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.programa.Director} ref={this.cajaDirectorRef}/>
+                            </div>
                         </div>
                     
                         </div>
