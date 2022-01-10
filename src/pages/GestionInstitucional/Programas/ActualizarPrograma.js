@@ -130,7 +130,7 @@ export default class ActualizarPrograma extends Component {
 
                             <label htmlFor="exampleInputPassword1">Director actual: {this.state.programa.Director}</label>
                             <div className="form-group">
-                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar del lider ingrese la cedula</label>
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar el lider ingrese la cedula</label>
                             <input type="text" name="cajatel" className="form-control" placeholder={this.state.programa.Director} ref={this.cajaDirectorRef}/>
                             </div>
                         </div>

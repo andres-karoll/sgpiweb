@@ -123,10 +123,10 @@ export default class Convocatorias extends Component {
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
-                           <NavLink to={"/DetallesConvocatoria/" + con.id} className="btn btn-primary">Detalles</NavLink> 
-                          <NavLink className="btn btn-info"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
+                           <NavLink to={"/DetallesConvocatoria/" + con.id} style={{width: '30%'}} className="btn btn-primary">Detalles</NavLink> 
+                          <NavLink style={{width: '30%'}} className="btn btn-success"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
                           
-                          <NavLink className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
+                          <NavLink style={{width: '30%'}} className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

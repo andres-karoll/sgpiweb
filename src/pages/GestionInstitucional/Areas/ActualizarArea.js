@@ -11,7 +11,8 @@ export default class ActualizarArea extends Component {
     cajaDescripcionRef = React.createRef();
     cajaGranAreaRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false,
+    area:{}}
 
     nuevaArea = (e) => {
         e.preventDefault();
@@ -25,25 +26,36 @@ export default class ActualizarArea extends Component {
             , descripcion: des
             , gran_area: gran
         };
-        var url = 'http://localhost:8080/gestioninstitucional/creararea';
+        var url = 'http://localhost:8080/gestioninstitucional/modificararea';
         axios.post(url, area).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la area") {
+            if (res.data.respuesta==="se actualizo la area") {
                 alert("se actualizó la area")
-                //window.location.href ="/ProyectosAulaIntegrador"
+                window.location.href ="/AreasConocimiento"
             }else{
-              alert("no se pudo actualizar el area")
-              //window.location.href ="/ProyectosAulaIntegrador"
+              alert("no se pudo actualizar la area")
+              window.location.href ="/AreasConocimiento"
             }
         });
     }
+    Cargar = () => {
+        var request = "/gestioninstitucional/areaid/" +this.props.id;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            area: res.data
+            , status: true
+          })
+        });
+      }
 
 
-
-
+    componentDidMount = () => {
+        this.Cargar();
+    }
     render() {
         if(this.state.status === true){
-            return <Redirect to="/AreasConocimiento" />
+            //return <Redirect to="/AreasConocimiento" />
         }
         return (
             <div>
@@ -59,7 +71,7 @@ export default class ActualizarArea extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"   style={{fontSize:"large" }}>Actualizar la Area</h3>
+                    <h3 className="card-title"  >Actualizar la Area</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -67,28 +79,28 @@ export default class ActualizarArea extends Component {
                     <form onSubmit={this.nuevaArea} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <input  style={{fontSize:"large" }} type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
+                            <input   type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label  style={{fontSize:"large" }} htmlFor="exampleInputPassword1"  style={{fontSize:"large" }}>Nombre</label>
-                            <input  style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
+                      
+                            <label  htmlFor="exampleInputPassword1"  >Nombre actual:{this.state.area.nombre} </label>
+                            <input  type="text" name="cajatel" className="form-control" placeholder={this.state.area.nombre} ref={this.cajaNombreRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label  style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Descripción</label>
-                            <textarea type="text" rows="15"  style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
+
+                            <label htmlFor="exampleInputPassword1">Descripción actual: {this.state.area.descripcion}</label>
+                            <textarea type="text" rows="15"  type="text" name="cajatel" className="form-control" placeholder={this.state.area.descripcion} ref={this.cajaDescripcionRef} />
                         </div>
                         <div className="form-group">
-                            <label  style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Grand area</label>
-                            <input  style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} />
+                            <label   htmlFor="exampleInputPassword1">Grand area actual: {this.state.area.gran_area}</label>
+                            <input   type="text" name="cajatel" className="form-control" placeholder={this.state.area.gran_area} ref={this.cajaGranAreaRef} />
                         </div>
                         
 
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">
-                        <button  style={{fontSize:"large" }} className="btn btn-success">Enviar</button>
+                        <button className="btn btn-success">Enviar</button>
                         </div>
                     </form>
                     </div>

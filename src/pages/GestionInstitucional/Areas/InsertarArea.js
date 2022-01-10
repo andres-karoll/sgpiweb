@@ -80,6 +80,7 @@ export default class InsertarArea extends Component {
                             <textarea type="text" rows="15" style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Grand area</label>
                             <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} required/>
                         </div>

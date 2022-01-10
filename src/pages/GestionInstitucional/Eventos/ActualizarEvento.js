@@ -14,7 +14,8 @@ export default class InsertarEvento extends Component {
     cajaSitioWebRef = React.createRef();
     cajaMemoriabRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false,
+    evento:{}}
 
     nuevaEvento = (e) => {
         e.preventDefault();
@@ -35,25 +36,36 @@ export default class InsertarEvento extends Component {
             url_memoria: mem
             
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearevento';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarevento';
         axios.post(url, evento).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo el evento") {
+            if (res.data.respuesta==="se actualizo el evento") {
                 alert("se actualizó el evento")
-                //window.location.href = "/Clases";
+                window.location.href = "/Eventos";
             }else{
               alert("no se pudo actualizar el evento")
-              //window.location.href = "/Clases";
+              window.location.href = "/Eventos";
             }
         });
     }
+    Cargar = () => {
+        var request = "/gestioninstitucional/eventoid/" +this.props.id;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            evento: res.data
+            , status: true
+          })
+        });
+      }
 
-
-
+      componentDidMount = () => {
+        this.Cargar();
+      }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Eventos" />
+            //return <Redirect to="/Eventos" />
         }
         return (
             <div>
@@ -71,7 +83,7 @@ export default class InsertarEvento extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear un Evento</h3>
+                    <h3 className="card-title"  >Actualizar un Evento</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -82,15 +94,14 @@ export default class InsertarEvento extends Component {
                             <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre</label>
-                            <input type="text" name="cajatel" className="form-control " placeholder="Nombre" ref={this.cajaNombreRef} required/>
+                            <label htmlFor="exampleInputPassword1">Nombre actual: {this.state.evento.nombre}</label>
+                            <input type="text" name="cajatel" className="form-control " placeholder={this.state.evento.nombre} ref={this.cajaNombreRef}/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha del evento</label>                   
+
+                            <label htmlFor="exampleInputPassword1">Fecha del evento actual: {this.state.evento.fecha}</label>                   
                             <input type="date" id="start" name="trip-start"
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>
                         
                         
                         </div>
@@ -100,26 +111,25 @@ export default class InsertarEvento extends Component {
                         
 
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="exampleInputPassword1">Estado</label>
-                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
-                        <option selected="selected">Abierto</option>
+                        <label htmlFor="exampleInputPassword1">Estado actual: {this.state.evento.estado}</label>
+                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} >
+                        <option selected="selected">{this.state.evento.estado}</option>
                         <option>Abierto</option>
                         <option>Cerrado</option>
                         </select>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Entidad</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Entidad" ref={this.cajaEntidadRef} />
+                            <label htmlFor="exampleInputPassword1">Entidad actual: {this.state.evento.entidad}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.evento.entidad} ref={this.cajaEntidadRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Sitio Web</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Sitio Web" ref={this.cajaSitioWebRef} />
+                            <label htmlFor="exampleInputPassword1">Sitio Web actual: {this.state.evento.sitio_web}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.evento.sitio_web} ref={this.cajaSitioWebRef} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">URL de Memoria</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="URL Memoria" ref={this.cajaMemoriabRef} />
+                            <label htmlFor="exampleInputPassword1">URL de Memoria actual: {this.state.evento.url_memoria}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.evento.url_memoria} ref={this.cajaMemoriabRef} />
                         </div>
 
                         </div>
