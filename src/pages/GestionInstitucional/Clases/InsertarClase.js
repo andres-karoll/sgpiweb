@@ -42,13 +42,18 @@ mate:[] }
             }else if (res.data.respuesta==="la materia no existe") {
                 alert("la materia no existe")
                 window.location.href = "/Clases";
-            }else if (res.data.respuesta==="el usuario es un estudiante inactivo") {
+            
+            }else if (res.data.respuesta==="la clase ya existe") {
+                alert("la clase ya existe")
+                window.location.href = "/Clases";
+            
+            }else if (res.data.respuesta==="esta persona es usuario inactivo") {
                 alert("el usuario es un estudiante inactivo")
                 window.location.href = "/Clases";
-            }else if (res.data.respuesta==="el usuario es un estudiante activo") {
+            }else if (res.data.respuesta==="esta persona es usuario activo") {
                 alert("el usuario es un estudiante activo")
                 window.location.href = "/Clases";
-            }else if (res.data.respuesta==="el usuario es un semillerista") {
+            }else if (res.data.respuesta==="esta persona es usuario semillerista") {
                 alert("el usuario es un semillerista")
                 window.location.href = "/Clases";
             }else{

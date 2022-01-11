@@ -14,13 +14,14 @@ export default class InsertarLinea extends Component {
 
     nuevaLinea = (e) => {
         e.preventDefault();
-        var nom = this.cajaNombreRef.current.value;
+        var nombr = this.cajaNombreRef.current.value;
         var des = this.cajaDescripcionRef.current.value;
         var fe = this.cajaFechaRef.current.value;
         var linea = {
-            nombre: nom
-            , descripcion: des
+            descripcion: des
             , fecha: fe
+            , nombre: nombr
+            
         };
         var url = 'http://localhost:8080/gestioninstitucional/crearlinea';
         axios.post(url, linea).then(res => {

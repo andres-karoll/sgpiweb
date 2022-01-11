@@ -53,6 +53,9 @@ export default class InsertarPrograma extends Component {
             }else if (res.data.respuesta==="el programa no se creo porque el usuario es un semillerista") {
                 alert("el programa no se creo porque el usuario es un semillerista")
                 window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el programa no se creo porque el usuario ya es Director de programa") {
+                alert("el programa no se creo porque el usuario ya es Director de programa")
+                window.location.href = "/Programas";
             }else{
               alert("no se pudo crear el programa")
               window.location.href = "/Programas";

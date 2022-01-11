@@ -6,7 +6,6 @@ import Header from '../../../components/Global/Header';
 
 export default class InsertarGrupoInvestigacion extends Component {
 
-    cajaIDRef = React.createRef();
     cajaNombreRef = React.createRef();
     cajaFecha_funRef = React.createRef();
     cajaCategoriaRef = React.createRef();
@@ -21,15 +20,15 @@ rol:[] }
 
     nuevoGrupoInvestigacion = (e) => {
         e.preventDefault();
-        var idgrupo = this.cajaIDRef.current.value;
+
         var nom = this.cajaNombreRef.current.value;
         var fe_fun = this.cajaFecha_funRef.current.value;
         var cat = this.cajaCategoriaRef.current.value;
         var fe_cat = this.cajaFecha_catRef.current.value;
         var dir = this.cajaDirector_grupoRef.current.value;
         var grupo = {
-            id: idgrupo
-            , nombre: nom 
+   
+            nombre: nom 
             , fechaFun: fe_fun
             , categoria: cat
             , fechaCat: fe_cat
@@ -43,6 +42,7 @@ rol:[] }
             if (res.data.respuesta==="el grupo se creo") {
                 alert("Se creo el grupo de investigación")
                 window.location.href = "/GruposInvestigacion";
+                console.log(grupo);
             }else if (res.data.respuesta==="el grupo no se creo porque el usuario no existe"){
               alert("El grupo no se creo porque el usuario no existe")
               window.location.href = "/GruposInvestigacion";
@@ -53,17 +53,8 @@ rol:[] }
             }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un estudiante activo"){
                 alert("El grupo no se creó porque el usuario que escogió es un estudiante activo")
                 window.location.href = "/GruposInvestigacion";
-            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un egresado"){
-                alert("El grupo no se creo porque el usuario que escogio es un egresado")
-                window.location.href = "/GruposInvestigacion";
-            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un investigador en formación"){
-                alert("El grupo no se creo porque el usuario que escogio es un investigador en formación")
-                window.location.href = "/GruposInvestigacion";
-            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio hace parte del personal de biblioteca"){
-                alert("El grupo no se creo porque el usuario que escogio hace parte del personal de biblioteca")
-                window.location.href = "/GruposInvestigacion";
-            }else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio hace parte del personal de publicaciones"){
-                alert("El grupo no se creo porque el usuario que escogio hace parte del personal de publicaciones")
+            }else if (res.data.respuesta==="este usuario ya es lider de grupo"){
+                alert("El grupo no se creo porque el usuario ya es lider de grupo")
                 window.location.href = "/GruposInvestigacion";
             }
             else if (res.data.respuesta==="el grupo no se creo porque el usuario que escogio es un Semillerista"){
@@ -117,9 +108,7 @@ rol:[] }
                     {/* form start */}
                     <form onSubmit={this.nuevoGrupoInvestigacion} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
-                        <div className="form-group">
-                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
-                        </div>
+                        
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre del grupo de investigación</label>
