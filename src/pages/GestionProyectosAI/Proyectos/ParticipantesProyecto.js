@@ -22,6 +22,7 @@ export default class ParticipantesProyecto extends Component {
         });
     }
 
+
     componentDidMount = () => {
         this.mostrarParticipantes();
         this.setState({pra:this.state.participantes})

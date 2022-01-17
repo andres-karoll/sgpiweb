@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Navar from '../../components/Navar'
 
 import Footer from '../../components/Footer'
-
+import md5 from 'md5'
 
 export default class Crearusuario extends Component {
 
@@ -23,7 +23,9 @@ export default class Crearusuario extends Component {
     state = { status: false ,
     programa:[],
     respuestas:[],
-    pro:[]
+    pro:[],
+    roles:[],
+    rol:[]
     }
     
     cargarProgramas = () => {
@@ -36,11 +38,21 @@ export default class Crearusuario extends Component {
           });
         });
       }   
+      cargarRoles = () => {
+        var url = "http://localhost:8080";
+        var request = "/gestionusuario/todosroles" ;
+        axios.get(url + request).then(res => {
+          this.setState({
+            roles: res.data
+            
+          });
+        });
+      } 
        
       componentDidMount = () => {
         this.cargarProgramas();
-     
-        this.setState({ pro: this.state.programa })
+        this.cargarRoles();
+        this.setState({ pro: this.state.programa, rol:this.state.roles })
       }
     nuevoUsuario = (e) => {
         e.preventDefault();
@@ -61,7 +73,7 @@ export default class Crearusuario extends Component {
             cedula: ced
             , codUniversitario: codU
             , correoEst: correoE
-            , contrasena: clave
+            , contrasena: md5(clave)
             , nombres: nombre
             , apellidos: apellido
             , telefono: tel
@@ -70,6 +82,7 @@ export default class Crearusuario extends Component {
             , programa: programa
             , tipo:tipoU
         };
+        console.log(grupo)
         if(clave !="" && clave!=cClave){
             alert("Error: las contraseñas no coinciden!");
         }
@@ -83,8 +96,12 @@ export default class Crearusuario extends Component {
                if (res.data.respuesta==="usuario creado") {
                 alert("El usuario fue creado correctamente")
                 window.location.href ="/"
+            }else if(res.data.respuesta==="el tipo de usuario es incorrecto"){
+              alert("El usuario no se pudo crear por favor verifica los datos")
+              window.location.href ="/Registro"
             }else{
               alert("El usuario no se pudo crear por favor verifica los datos")
+             
               window.location.href ="/Registro"
             }
         });
@@ -157,15 +174,18 @@ export default class Crearusuario extends Component {
                         <label> Tipo de usuario  </label>
                         <div class="form-outline form-white mb-4">
                         
-                        <select ref={this.cajaTipo} className="form-control" style={{ color: "black" }}>
-                        <option style={{color: "black"}}>Escoge tu rol </option> 
-                        <option style={{color: "black"}}>Estudiante</option> 
-                        <option style={{color: "black"}} >Profesor</option> 
-                        <option style={{color: "black"}}>Administrativo</option> 
-                        <option style={{color: "black"}}>Profesional de Investigacion</option>
-                        <option style={{color: "black"}}>Biblioteca</option> 
-                        
-                        </select>
+                        <select ref={this.cajaTipo}className="form-control" style={{ color: "black" }} >
+                          <option selected > Elige una opción </option>
+                            {this.state.status === false &&
+                              (this.state.roles.map((rol) => {
+                                return (
+                                  <option style={{ color: "black" }}>{rol.nombre}</option>
+                                );
+                              }
+                              )
+                              )}
+                          </select>
+                      
                         </div>
                         <br />
                         <button className="btn btn-success" onSubmit={this.nuevoUsuario} >Añadir</button>

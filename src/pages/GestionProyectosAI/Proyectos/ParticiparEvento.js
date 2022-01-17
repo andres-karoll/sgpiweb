@@ -66,7 +66,7 @@ ParticiparEvento =  (e) => {
                 {/* general form elements */}
                 <div className="card card-primary">
                 <div className="card-header" style={{align:"center"}}>
-                <h3 className="card-title"  >Unirse a un semillero</h3>
+                <h3 className="card-title"  >Participa en un evento</h3>
               </div>
                 {/* /.card-header */}
                 {/* form start */}
@@ -92,9 +92,12 @@ ParticiparEvento =  (e) => {
                         <input type="text" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Fecha de participacion</label>
-                        <input type="text" name="cajanom" className="form-control" ref={this.cajaFecha}/>
-                    </div>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de participacion</label>
+                                                    {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                                                </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Reconocimiento</label>
                         <input type="text" name="cajanom" className="form-control" ref={this.cajaReconocimiento}/>

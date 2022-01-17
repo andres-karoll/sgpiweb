@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-export default class TrabajoGrado extends Component {
+export default class Antecedentes extends Component {
 
    
     state = {
@@ -12,9 +12,10 @@ export default class TrabajoGrado extends Component {
         proyectos:[],
         pro:[]
       }
-      cargarGruposI = () => {
+      cargarAntecedentes = () => {
         var url = "http://localhost:8080";
-        var request = "/gestiontrabajogrado/proyectosgrado/"+ localStorage.getItem("cedula");
+        var request = "/gestionproyectosinvestigacion/antecedentesporproyecto/"+this.props.id;
+        console.log(this.props.id)
         axios.get(url + request).then(res => {
           this.setState({
             proyectos: res.data
@@ -23,7 +24,7 @@ export default class TrabajoGrado extends Component {
         });
       }
       componentDidMount = () => {
-        this.cargarGruposI();
+        this.cargarAntecedentes();
         this.setState({pro:this.state.proyectos})
       }
       render() {
@@ -37,7 +38,7 @@ export default class TrabajoGrado extends Component {
                 <section className="content">
                     <br />
                     <div class="alert alert-info alert-dismissible">
-                      <h1><i class="fas fa-user-friends nav-icon"></i>Tus Proyectos de grado</h1>
+                      <h1><i class="fas fa-user-friends nav-icon"></i>Antecedentes del proyecto</h1>
                     </div>
                 </section>
           </div> 
@@ -45,7 +46,7 @@ export default class TrabajoGrado extends Component {
              rol==="Egresado"?(
            <></>
               ) :(
-                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoGrado"} >crear un poryecto</NavLink>
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarAntecedente/"+this.props.id} >Agrega un antecente</NavLink>
                 )
            }
               {this.state.status === true &&
@@ -108,8 +109,6 @@ export default class TrabajoGrado extends Component {
                                 {pro.estado}
                                 </a>
                               </td>
-                           
-                              
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}

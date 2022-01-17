@@ -69,6 +69,13 @@ CrearProyecto =  (e) => {
             axios.post(url, proyecto).then(res => {
                 console.log(proyecto)
             this.setState({ status: true });
+            if (res.data.respuesta === "el proyecto fue creado") {
+                alert("El proyecto fue creado correctamente")
+                window.location.href = "/ProyectoSemillero"
+            } else {
+                alert("El proyecto no se pudo crear por favor verifica los datos")
+                window.location.href = "/ProyectoSemillero"
+            }
         });
     }   
     render() {    

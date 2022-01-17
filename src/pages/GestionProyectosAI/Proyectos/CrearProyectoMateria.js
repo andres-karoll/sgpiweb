@@ -9,7 +9,7 @@ export default class CrearProyectoMateria extends Component {
             materia:[],
             mat:[]}
 CargarMateria = () => {
-    var request = "/gestioninstitucional/listarmateriasdeprograma/"+this.props.id ;
+    var request = "/gestioninstitucional/listarmateriasdeprograma/"+localStorage.getItem("programa") ;
     var url = "http://localhost:8080" + request;
    axios.get(url).then(res => {
       this.setState({
@@ -35,7 +35,7 @@ componentDidMount = () => {
                 <section className="content">
                     <br />
                     <div class="alert alert-info alert-dismissible">
-                      <h1><i class="fas fa-user-friends nav-icon"></i>Programas</h1>
+                      <h1><i class="fas fa-user-friends nav-icon"></i>¿Para cual materia vas hacer el proyecto?</h1>
                       </div>
                       </section>
           </div>
@@ -52,10 +52,6 @@ componentDidMount = () => {
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i className="fas fa-minus" />
                           </button>
-                          {/* 
-                          <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i className="fas fa-times" />
-                          </button>*/}
                         </div>
                       </div>
                       <div className="card-body p-0">
@@ -96,7 +92,7 @@ componentDidMount = () => {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/CrearProyecto/"+mat.catalogo} >Modificar</NavLink>
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/CrearProyecto/"+mat.catalogo} >Seleccionar</NavLink>
                               </div>                   
                               </td>
                             </tr>

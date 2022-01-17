@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class Participaciones extends Component {
+export default class AreasConocimientoProyecto extends Component {
 
 
   state = {
@@ -13,9 +13,9 @@ export default class Participaciones extends Component {
     pro: []
   }
 
-  Eventos = () => {
+  AreasConocimiento = () => {
     var url = "http://localhost:8080";
-    var request = "/gestionproyectosaulaintegrador/participacionesproyecto/"+this.props.id;
+    var request = "/gestionproyectosaulaintegrador/areasconocimientoproyecto/"+this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
         evento: res.data
@@ -24,7 +24,7 @@ export default class Participaciones extends Component {
     });
   }
   componentDidMount = () => {
-    this.Eventos();
+    this.AreasConocimiento();
     this.setState({ eve: this.state.evento })
   }
   render() {
@@ -38,19 +38,18 @@ export default class Participaciones extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1><i class="fas fa-user-friends nav-icon"></i>Tus Participaciones</h1>
-                {
-             rol==="Egresado"?(
-           <></>
-              ) :(
-                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticiparEvento/" + this.props.id} >Participa en un evento</NavLink>
-             )
-           }
+                <h1><i class="fas fa-user-friends nav-icon"></i>Areas de conocimiento del proyecto</h1>
               </div>
             </section>
           </div>
           
-         
+           {
+             rol==="Egresado"?(
+           <></>
+              ) :(
+                <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AgregarAreasConocimiento/" + this.props.id} >Agregar Areas de conocimiento</NavLink>
+             )
+           }
             
 
           {this.state.status === true &&

@@ -132,6 +132,11 @@ import FilesPrueba from './FilesPrueba';
 //import ListadeProductosPrueba from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import ListarProductos from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import MeterArchivo from './pages/Proyectos/Productos/MeterArchivo';
+import AreasConocimientoProyecto from './pages/GestionProyectosAI/Proyectos/AreasConocimientoProyecto'
+import DetalleProyectoGrado from './pages/GestionTrabajoGrado/DetallesProyectoGrado'
+import Antecedentes from './pages/GestionTrabajoGrado/Antecedentes'
+import AgregarAntecedente from './pages/GestionTrabajoGrado/AgregarAntecedente'
+import CrearProyectoGrado from './pages/GestionTrabajoGrado/CrearProyectoGrado'
 
 export default function App() {
   return (
@@ -164,7 +169,7 @@ export default function App() {
 
 
 
-            {/**<Route exact path="/MeterArchivo" component={FilesPrueba} /> */}
+         <Route exact path="/MeterArchivo" component={FilesPrueba} /> 
             <Route exact path="/Archivos" component={ListarProductos} />
             <Route exact path="/Meter" component={MeterArchivo} />
 
@@ -603,10 +608,8 @@ export default function App() {
                             var id = props.match.params.id;
                             return <CrearProyectoPrograma id={id}/>
                         }} /> 
-                         <Route exact path="/CrearProyectoMateria/:id" render={props => {
-                            var id = props.match.params.id;
-                            return <CrearProyectoMateria id={id}/>
-                        }} /> 
+                  
+                        <Route  path="/CrearProyectoMateria/"exact component={CrearProyectoMateria}/>
                         <Route exact path="/CrearProyecto/:id" render={props => {
                             var id = props.match.params.id;
                             return <CrearProyecto id={id}/>
@@ -659,8 +662,27 @@ export default function App() {
                         var id = props.match.params.id;
                         return <Participaciones id={id} />
                     }} />
+                      <Route exact path="/AreasConocimientoProyecto/:id" render={props => {
+                        var id = props.match.params.id;
+                        return < AreasConocimientoProyecto id={id} />
+                    }} />
+                    <Route exact path="/DetalleProyectoGrado/:id" render={props => {
+                        var id = props.match.params.id;
+                        return < DetalleProyectoGrado id={id} />
+                    }} />
                     <Route path="/TrabajoGrado" exact component={TrabajoGrado} />
-                   
+                    <Route exact path="/Antecedentes/:id" render={props => {
+                        var id = props.match.params.id;
+                        return < Antecedentes id={id} />
+                    }} />
+                     <Route exact path="/AgregarAntecedente/:id" render={props => {
+                        var id = props.match.params.id;
+                        return < AgregarAntecedente id={id} />
+                    }} />
+                   <Route exact path="/CrearProyectoGrado/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <CrearProyectoGrado id={id} />
+                    }} />
             <Route component ={() => (
           <Error/>)
         } />

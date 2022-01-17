@@ -13,19 +13,17 @@ status: false,
 
   cargarProyectos= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarproyectosdelsemillero/" +this.props.id;
+    var request = "/gestionproyectosinvestigacion/proyectossemillero/" +localStorage.getItem("cedula");
     axios.get(url + request).then(res => {
       this.setState({
         proyectos: res.data
         , status: true
       });
     });
-    
   }
 
   componentDidMount = () => {
     this.cargarProyectos();
-    //this.cargarLineas();
 
   }
 

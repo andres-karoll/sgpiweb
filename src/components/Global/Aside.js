@@ -17,15 +17,11 @@ export default class Aside extends Component {
               <a href="#" className="d-block">SGPI</a>
             </div>
           </div>
-
-
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-            <a href="index3.html" className="brand-link">
-              <span className="brand-text font-weight-light">USUARIO DE PRUEBA</span>
+            <a href={"/Perfil/"+localStorage.getItem("cedula")} className="brand-link">
+              <span className="brand-text font-weight-light"  >USUARIO DE PRUEBA</span>
             </a>
           </div>
-
-
           {/* Sidebar Menu */}
           <nav className="mt-2">
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -209,7 +205,7 @@ export default class Aside extends Component {
                 </li>
 
               }
-              {(rol==='Estudiante'||rol==='Profesor'||rol==='Egresado')&&
+              {(rol==='Estudiante activo'||rol==='Docentes'||rol==='Egresado')&&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
                     <i className="fas fa-newspaper nav-icon" />
@@ -234,7 +230,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon"> </i>
-                          <p>Proyectos de semillero</p>
+                          <p>ingresa a un semillero</p>
                         </a>
                       </li>
                     </Link>
