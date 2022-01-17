@@ -5,7 +5,7 @@ import Search from './Search';
 // import NotFoundImg from '../images/404.png'
 
 const SearchP = () => (
-  <div>
+  <div style={{backgroundColor: "#080424"}}>
     <Navar/>
     <div class="py-5">
     <div class="container">

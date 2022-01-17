@@ -79,11 +79,14 @@ export default class Eventos extends Component {
                           <th style={{ width: '10%' }}>
                             Fecha del evento
                           </th> 
-                          <th style={{ width: '20%' }}>
+                          <th style={{ width: '10%' }}>
                             Sitio web
                           </th> 
-                          <th style={{ width: '20%' }}>
+                          <th style={{ width: '10%' }}>
                             URL memoria
+                          </th>  
+                          <th style={{ width: '5%' }}>
+                            Estado
                           </th>                                    
                         </tr>
                       </thead>
@@ -117,10 +120,15 @@ export default class Eventos extends Component {
                             {eve.url_memoria}
                             </a>
                           </td>
+                          <td>
+                            <a>
+                            {eve.estado}
+                            </a>
+                          </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActualizarEvento/" + eve.id} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarEvento/" + eve.id} >Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActualizarEvento/" + eve.id} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarEvento/" + eve.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

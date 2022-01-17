@@ -10,7 +10,8 @@ export default class ActualizarLinea extends Component {
     cajaDescripcionRef = React.createRef();
     cajaFechaRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false,
+    linea:{}}
 
     nuevaLinea = (e) => {
         e.preventDefault();
@@ -22,18 +23,36 @@ export default class ActualizarLinea extends Component {
             , descripcion: des
             , fecha: fe
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearlinea';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarlinea';
         axios.post(url, linea).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se actualizo la linea") {
+                alert("se actualizo la linea")
+                window.location.href = "/Lineas";
+            }else{
+              alert("no se pudo actualizar la linea")
+              window.location.href = "/Lineas";
+            }
         });
     }
+    Cargar = () => {
+        var request = "/gestioninstitucional/lineaid/" +this.props.nombre;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            linea: res.data
+            , status: true
+          })
+        });
+      }
 
-
-
+      componentDidMount = () => {
+        this.Cargar();
+      }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Lineas" />
+            //return <Redirect to="/Lineas" />
         }
         return (
             <div>
@@ -58,16 +77,16 @@ export default class ActualizarLinea extends Component {
                         <div className="card-body">
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputEmail1">nombre</label>
-                            <input type="text" name="cajanom" className="form-control" value = {this.props.nombre} placeholder="Nombre" ref={this.cajaNombreRef} readOnly/>
+                            <label htmlFor="exampleInputEmail1">nombre actual: {this.state.linea.nombre}</label>
+                            <input type="text" name="cajanom" className="form-control" value = {this.props.nombre} ref={this.cajaNombreRef} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
+                       
+                            <label htmlFor="exampleInputPassword1">Descripción actual: {this.state.linea.descripcion}</label>
+                            <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder={this.state.linea.descripcion} ref={this.cajaDescripcionRef}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Fecha de creación</label>
+                            <label htmlFor="exampleInputPassword1">Fecha de creación actual: {this.state.linea.fecha}</label>
 {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
 <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>                        </div>

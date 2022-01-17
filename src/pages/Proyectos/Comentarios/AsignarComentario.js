@@ -36,6 +36,13 @@ export default class AsignarComentario extends Component {
         var url = 'http://localhost:8080/productos/crearcomentario';
         axios.post(url, comentario).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="el comentario se creo") {
+                alert("el comentario se creo")
+                //window.location.href ="/ProyectosAulaIntegrador" 
+            }else{
+              alert("no se pudo crear el comentario")
+              //window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }
 
@@ -68,8 +75,7 @@ export default class AsignarComentario extends Component {
                     <form onSubmit={this.nuevoComentario} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
+                            <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -89,11 +95,11 @@ export default class AsignarComentario extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Producto ID </label>
-                            <input type="text" name="cajatel" className="form-control" value={this.props.id} placeholder="Proyecto" ref={this.cajaProductoIDRef} readOnly/>
+                            <input type="hidden" name="cajatel" className="form-control" value={this.props.id} placeholder="Proyecto" ref={this.cajaProductoIDRef} readOnly/>
                         </div>
 
                         </div>

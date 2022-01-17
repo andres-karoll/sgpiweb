@@ -31,7 +31,35 @@ export default class InsertarPrograma extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearprograma';
         axios.post(url, programa).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Programas";
+            
+            if (res.data.respuesta==="se creo el programa") {
+                alert("se creo el programa")
+                window.location.href = "/Programas";
+            }if (res.data.respuesta==="se creo el programa") {
+                alert("se creo el programa")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="la facultad no existe") {
+                alert("la facultad no existe")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el usuario no existe") {
+                alert("el usuario no existe")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el programa no se creo porque el usuario es un estudiante inactivo") {
+                alert("el programa no se creo porque el usuario es un estudiante inactivo")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el programa no se creo porque el usuario es un estudiante activo") {
+                alert("el programa no se creo porque el usuario es un estudiante activo")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el programa no se creo porque el usuario es un semillerista") {
+                alert("el programa no se creo porque el usuario es un semillerista")
+                window.location.href = "/Programas";
+            }else if (res.data.respuesta==="el programa no se creo porque el usuario ya es Director de programa") {
+                alert("el programa no se creo porque el usuario ya es Director de programa")
+                window.location.href = "/Programas";
+            }else{
+              alert("no se pudo crear el programa")
+              window.location.href = "/Programas";
+            }
         });
     }
     Cargar = () => {
@@ -75,8 +103,7 @@ export default class InsertarPrograma extends Component {
                     <form onSubmit={this.nuevoPrograma} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required/>
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -99,8 +126,8 @@ export default class InsertarPrograma extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Director</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Director" ref={this.cajaDirectorRef} required/>
+                            <label htmlFor="exampleInputPassword1">Cedula del Director</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder="Director" ref={this.cajaDirectorRef} required/>
                         </div>
                     
                         </div>

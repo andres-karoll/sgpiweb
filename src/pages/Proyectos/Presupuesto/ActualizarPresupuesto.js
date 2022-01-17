@@ -14,7 +14,24 @@ export default class ActualizarPresupuesto extends Component {
     cajaDescripcionRef = React.createRef();
     cajaProyectoRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false,
+    presupuesto:{}}
+
+
+    Cargar = () => {
+        var request = "/gestionfinanciera/presupuestoid/" +this.props.id;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            presupuesto: res.data
+            , status: true
+          })
+        });
+      }
+
+      componentDidMount = () => {
+        this.Cargar();
+      }
 
     nuevoPresupuesto = (e) => {
         e.preventDefault();
@@ -22,17 +39,23 @@ export default class ActualizarPresupuesto extends Component {
         var mon = this.cajaMontoRef.current.value;
         var fec = this.cajaFechaRef.current.value;
         var des = this.cajaDescripcionRef.current.value;
-        var pro = this.cajaProyectoRef.current.value;
+      
         var presupuesto = {
             id: idpre
             , monto: mon
             , fecha: fec
-            , proyecto: pro
             , descripcion: des
         };
-        var url = 'http://localhost:8080/gestionfinanciera/crearpresupuesto';
+        var url = 'http://localhost:8080/gestionfinanciera/modificarpresupuesto';
         axios.post(url, presupuesto).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se actualizo el presupuesto") {
+                alert("el presupuesto se actualizó")
+                window.location.href ="/PresupuestoProyecto/" + this.state.presupuesto.proyecto
+            }else{
+              alert("no se pudo actualizar el presupuesto")
+              window.location.href ="/Proyectos"
+            }
         });
     }
 
@@ -41,7 +64,7 @@ export default class ActualizarPresupuesto extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+           // return <Redirect to="/Proyectos" />
         }
         return (
             <div>
@@ -57,7 +80,7 @@ export default class ActualizarPresupuesto extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Asignar presupuesto</h3>
+                    <h3 className="card-title"  >Actualizar presupuesto</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -65,28 +88,23 @@ export default class ActualizarPresupuesto extends Component {
                     <form onSubmit={this.nuevoPresupuesto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} />
+                            <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Monto de dinero</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Monto de dinero" ref={this.cajaMontoRef} required/>
+                     
+                            <label htmlFor="exampleInputPassword1">Monto de dinero actual: {this.state.presupuesto.monto}</label>
+                            <input type="number" name="cajatel" className="form-control" placeholder={this.state.presupuesto.monto} ref={this.cajaMontoRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
+                    
+                            <label htmlFor="exampleInputPassword1">Fecha actual: {this.state.presupuesto.fecha}</label>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Descripción</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Proyecto</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Proyecto" ref={this.cajaProyectoRef} required/>
+              
+                            <label htmlFor="exampleInputPassword1">Descripción actual {this.state.presupuesto.descripcion}</label>
+                            <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder={this.state.presupuesto.descripcion} ref={this.cajaDescripcionRef} />
                         </div>
 
                         </div>

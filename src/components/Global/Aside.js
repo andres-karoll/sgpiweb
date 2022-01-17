@@ -18,7 +18,9 @@ export default class Aside extends Component {
             </div>
           </div>
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
             <a href={"/Perfil/"+localStorage.getItem("cedula")} className="brand-link">
+
               <span className="brand-text font-weight-light"  >USUARIO DE PRUEBA</span>
             </a>
           </div>

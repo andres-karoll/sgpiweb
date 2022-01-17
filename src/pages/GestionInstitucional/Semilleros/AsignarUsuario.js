@@ -22,7 +22,13 @@ export default class AsignarUsuario extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/asignarsemillero';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            
+            if (res.data.respuesta==="el usuario fue asignado exitosamente") {
+                alert("el usuario fue asignado exitosamente")
+                //window.location.href = "/Semilleros";
+            }else{
+              alert("el usuario no fue asignado exitosamente")
+              //window.location.href = "/Semilleros";
+            }
         });
     }
     render() {
@@ -43,10 +49,8 @@ export default class AsignarUsuario extends Component {
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Semillero</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
+                        <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
 

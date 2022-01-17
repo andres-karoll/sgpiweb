@@ -94,8 +94,8 @@ export default class Materias extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActulizarMateria/" + mate.catalogo} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarMateria/" + mate.catalogo} >Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarMateria/" + mate.catalogo} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarMateria/" + mate.catalogo} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

@@ -44,6 +44,13 @@ export default class CrearConvocatorias extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearconvocatoria';
         axios.post(url, convocatoria).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo la convocatoria") {
+                alert("se creo la convocatoria")
+                //window.location.href = "/Clases";
+            }else{
+              alert("no se pudo crear la convocatoria")
+              //window.location.href = "/Clases";
+            }
         });
     }
 
@@ -74,8 +81,7 @@ export default class CrearConvocatorias extends Component {
                         <div className="card-body">
                         <div className="form-group">
                         
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required/>
+                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

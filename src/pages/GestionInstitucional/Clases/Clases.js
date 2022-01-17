@@ -117,9 +117,9 @@ export default class Clases extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info"  to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ActulizarClase/" + cla.numero} >Modificar</NavLink>
                           
-                          <NavLink className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

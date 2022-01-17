@@ -15,8 +15,23 @@ export default class ActualizarComentario extends Component {
     cajaFechaRef = React.createRef();
     cajaProductoIDRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false,
+    comentario:{}}
 
+
+    Cargar = () => {
+        var request = "/productos/comentarioid/" +this.props.id;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            comentario: res.data
+            , status: true
+          })
+        });
+      }
+      componentDidMount = () => {
+        this.Cargar();
+      }
     nuevoComentario = (e) => {
         e.preventDefault();
         var idcom = this.cajaIDRef.current.value;
@@ -24,18 +39,23 @@ export default class ActualizarComentario extends Component {
         var fas = this.cajaFaseRef.current.value;
         var niv = this.cajaNivelRef.current.value;
         var fec = this.cajaFechaRef.current.value;
-        var pro = this.cajaProductoIDRef.current.value;
         var comentario = {
             id: idcom
             , comentario: com
             , fase: fas
             , nivel: niv
             , fecha: fec 
-            , producto_id: pro
         };
-        var url = 'http://localhost:8080/productos/crearcomentario';
+        var url = 'http://localhost:8080/productos/modificarcomentario';
         axios.post(url, comentario).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se actualizo el comentario") {
+                alert("se actualizo el comentario")
+                window.location.href ="/ComentariosProducto/" + this.state.comentario.producto_id
+            }else{
+              alert("no se pudo crear el comentario")
+              window.location.href ="/ComentariosProducto/" + this.state.comentario.producto_id
+            }
         });
     }
 
@@ -44,7 +64,7 @@ export default class ActualizarComentario extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>
@@ -68,33 +88,31 @@ export default class ActualizarComentario extends Component {
                     <form onSubmit={this.nuevoComentario} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} value={this.props.id} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} value={this.props.id} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Comentario</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Comentario" ref={this.cajaComentarioRef} required/>
+                     
+                            <label htmlFor="exampleInputPassword1">Comentario actual: {this.state.comentario.comentario}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.comentario.comentario} ref={this.cajaComentarioRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fase</label>
-                            <input type="text" name="cajatel" className="form-control" ref={this.cajaFaseRef} required/>
+                      
+                            <label htmlFor="exampleInputPassword1">Fase actual: {this.state.comentario.fase}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.comentario.fase} ref={this.cajaFaseRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nivel</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
+                       
+                            <label htmlFor="exampleInputPassword1">Nivel actual: {this.state.comentario.nivel}</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.comentario.nivel} ref={this.cajaNivelRef} />
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
+                        
+                            <label htmlFor="exampleInputPassword1">Fecha actual: {this.state.comentario.fecha}</label>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Producto ID </label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProductoIDRef} required/>
+                            <input type="hidden" name="cajatel" className="form-control" placeholder="Proyecto" ref={this.cajaProductoIDRef} />
                         </div>
 
                         </div>
