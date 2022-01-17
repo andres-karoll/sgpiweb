@@ -95,7 +95,8 @@ export default class AsignarComentario extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaRef} required/>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
                         <div className="form-group">
                             <input type="hidden" name="cajatel" className="form-control" value={this.props.id} placeholder="Proyecto" ref={this.cajaProductoIDRef} readOnly/>

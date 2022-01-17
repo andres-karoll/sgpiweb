@@ -76,13 +76,13 @@ export default class AsignarPresupuesto extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Monto de dinero</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Monto de dinero" ref={this.cajaMontoRef} required/>
+                            <input type="number" name="cajatel" className="form-control" placeholder="Monto de dinero" ref={this.cajaMontoRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={
-                                new Date().getFullYear()+"-"+('0' + new Date().getMonth()).slice(-2)+"-"+ ('0' + new Date().getDate()).slice(-2)} ref={this.cajaFechaRef} required/>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

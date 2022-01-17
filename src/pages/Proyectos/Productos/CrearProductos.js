@@ -21,15 +21,14 @@ export default class CrearProducto extends Component {
 
     nuevoProducto = (e) => {
         e.preventDefault();
-        var idpro = this.cajaIDRef.current.value;
+
         var tit = this.cajaTituloRef.current.value;
         var tip = this.cajaTipoRef.current.value;
         var url = this.cajaURLRef.current.value;
         var pro = this.cajaProyectoRef.current.value;
         var fec = this.cajaFechaRef.current.value;
         var producto = {
-            id: idpro
-            , titulo_producto: tit
+            titulo_producto: tit
             , tipo_producto: tip
             , url_repo: url
             , proyecto: pro
@@ -144,9 +143,7 @@ export default class CrearProducto extends Component {
                     {/* form start */}
                     <form onSubmit={this.nuevoProducto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
-                        <div className="form-group">
-                            <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} />
-                        </div>
+                        
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Titulo del producto</label>
@@ -200,8 +197,8 @@ export default class CrearProducto extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control" value={
-                                new Date().getFullYear()+"-"+('0' + new Date().getMonth()).slice(-2)+"-"+ ('0' + new Date().getDate()).slice(-2)} ref={this.cajaFechaRef} required/>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
