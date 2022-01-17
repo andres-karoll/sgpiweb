@@ -79,8 +79,7 @@ export default class RealizarCompra extends Component {
                     <form onSubmit={this.nuevaCompra} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
+                            <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
                         {/** 
                         <div className="form-group">

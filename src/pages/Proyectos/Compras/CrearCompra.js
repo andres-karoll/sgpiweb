@@ -81,8 +81,7 @@ export default class CrearCompra extends Component {
                     <form onSubmit={this.nuevaCompra} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">ID</label>
-                            <input type="text" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
+                            <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -92,7 +91,8 @@ export default class CrearCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de solicitud de la compra</label>
-       <input type="text" name="cajatel" className="form-control" value={new Date().getFullYear()+"-"+(new Date().getMonth() + 1)+"-"+new Date().getDate()} ref={this.cajaFechaSolicitudRef} required/>
+                            <input type="date" id="start" name="trip-start"
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaSolicitudRef} required></input>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -133,8 +133,7 @@ export default class CrearCompra extends Component {
                             <input type="text" name="cajatel" className="form-control"  placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">ID del presupuesto</label>
-                            <input type="text" name="cajatel" className="form-control"  value={this.props.id} ref={this.cajaPresupuestoRef} readOnly/>
+                            <input type="hidden" name="cajatel" className="form-control"  value={this.props.id} ref={this.cajaPresupuestoRef} readOnly/>
                         </div>
                         </div>
                         {/* /.card-body */}

@@ -57,6 +57,8 @@ export default class DetallesConvocatoria extends Component {
     <div className="card">
       <div className="card-header">
         <h3 className="card-title">id: {this.props.id}</h3>
+
+
         <div className="card-tools">
           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i className="fas fa-minus" />
@@ -64,7 +66,10 @@ export default class DetallesConvocatoria extends Component {
           <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
             <i className="fas fa-times" />
           </button>
+         
         </div>
+
+        <img src="https://i.ibb.co/5TxG7hC/pngtree-banner-technology-minimalist-gradient-blue-layered-background-image-277347.jpg" alt="pngtree-banner-technology-minimalist-gradient-blue-layered-background-image-277347"  style={{  width: '100%', height: '150px'}}></img>
       </div>
       <div className="card-body">
         <div className="row">
@@ -82,7 +87,7 @@ export default class DetallesConvocatoria extends Component {
                 <div className="info-box bg-light">
                   <div className="info-box-content">
                     <span className="info-box-text text-center text-muted">Fecha fin</span>
-                    <span className="info-box-number text-center text-muted mb-0">{this.state.convocatoria.fecha_fin}</span>
+                    <span className="info-box-number text-center text-muted mb-0">{this.state.convocatoria.fecha_final}</span>
                   </div>
                 </div>
               </div>

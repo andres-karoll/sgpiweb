@@ -14,7 +14,8 @@ export default class ActualizarClase extends Component {
 
     state = { status: false,
         materias:[],
-        mate:[] 
+        mate:[],
+        clase:{}
     }
 
     nuevaClase = (e) => {
@@ -31,10 +32,26 @@ export default class ActualizarClase extends Component {
             , materia: mat
             , profesor: pro
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearclase';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarclase';
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Clases";
+            
+            if (res.data.respuesta==="la clase fue actualizada") {
+                alert("la clase fue actualizada")
+                window.location.href = "/Clases";
+            }else if (res.data.respuesta==="el usuario que escogio es un Estudiante inactivo") {
+                alert("el usuario que escogio es un Estudiante inactivo")
+                window.location.href = "/Clases";
+            }else if (res.data.respuesta==="el usuario que escogio es un Estudiante activo") {
+                alert("el usuario que escogio es un Estudiante activo")
+                window.location.href = "/Clases";
+            }else if (res.data.respuesta==="el usuario que escogio es un Semillerista") {
+                alert("el usuario que escogio es un Semillerista")
+                window.location.href = "/Clases";
+            }else{
+              alert("no se pudo actualizar la clase")
+              window.location.href = "/Clases";
+            }
         });
     }
     
@@ -48,8 +65,20 @@ export default class ActualizarClase extends Component {
           })
         });
       }
+
+      Cargardos = () => {
+        var request = "/gestioninstitucional/claseid/" + this.props.numero ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            clase: res.data
+            , status: true
+          })
+        });
+      }
       componentDidMount = () => {
         this.Cargar();
+        this.Cargardos();
       }
 
     render() {
@@ -78,14 +107,14 @@ export default class ActualizarClase extends Component {
                     <form onSubmit={this.nuevaClase} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputEmail1">Numero</label>
+                    
+                            <label htmlFor="exampleInputEmail1">Numero de la clase: {this.state.clase.numero} </label>
                             <input type="text" name="cajanom" className="form-control" value = {this.props.numero} placeholder="Numero" ref={this.cajaNumeroRef} readOnly/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la Clase</label>
-                            <input type="text" name="cajadir" className="form-control" value = {this.props.nombre} placeholder="Nombre de clase" ref={this.cajaNombreRef} required/>
+                    
+                            <label htmlFor="exampleInputPassword1">Nombre de la Clase actual: {this.state.clase.nombre}</label>
+                            <input type="text" name="cajadir" className="form-control"  placeholder={this.state.clase.nombre} ref={this.cajaNombreRef} />
                         </div>
                         {/** 
                         <div className="form-group">
@@ -94,10 +123,10 @@ export default class ActualizarClase extends Component {
                         </div>*/}
 
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="exampleInputPassword1">Semestre</label>
-                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaSemestreRef} required>
-                        <option selected="selected">1</option>
+                       
+                        <label htmlFor="exampleInputPassword1">Semestre de la clase actual: {this.state.clase.semestre}</label>
+                        <select className="form-control select2" style={{width: '100%'}} ref={this.cajaSemestreRef} >
+                        <option selected="selected">{this.state.clase.semestre}</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -115,8 +144,9 @@ export default class ActualizarClase extends Component {
 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{  width: '50%'}}htmlFor="exampleInputPassword1">Materia</label>
-                            <select ref={this.cajaMateriaRef} style={{width: '50%', height: "30px"}} required>
+                            <label style={{  width: '50%'}}htmlFor="exampleInputPassword1">Materia actual: {this.state.clase.materia}</label>
+                            <select ref={this.cajaMateriaRef} style={{width: '50%', height: "30px"}} >
+                            <option disabled selected value={this.state.clase.materia_id}>{this.state.clase.materia}</option>
                                 {
                             ( this.state.materias.map((mate) => {
                             return(
@@ -132,8 +162,11 @@ export default class ActualizarClase extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Profesor</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Profesor" ref={this.cajaProfesorRef} required/>
+                            <label htmlFor="exampleInputPassword1">Profesor actual: {this.state.clase.profesor}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Si desea actualizar el profesor ingrese la cedula</label>
+                            <input type="text" name="cajatel" className="form-control" placeholder="Profesor" ref={this.cajaProfesorRef} />
+                            </div>
                         </div>
                     
                         </div>

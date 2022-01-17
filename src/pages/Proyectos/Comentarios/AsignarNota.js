@@ -24,6 +24,13 @@ export default class AsignarNota extends Component {
         var url = 'http://localhost:8080/productos/asignarnota';
         axios.post(url, calificacion).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se asigno la nota") {
+                alert("se asigno la nota")
+                //window.location.href ="/ProyectosAulaIntegrador"
+            }else{
+              alert("No se pudo")
+              //window.location.href ="/ProyectosAulaIntegrador"
+            }
         });
     }
 
@@ -63,8 +70,7 @@ export default class AsignarNota extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">ID Comentario</label>
-                            <input type="text" name="cajatel" className="form-control" value = {this.props.id} ref={this.cajaIDComentarioRef} readOnly/>
+                            <input type="hidden" name="cajatel" className="form-control" value = {this.props.id} ref={this.cajaIDComentarioRef} readOnly/>
                         </div>
                         
                        

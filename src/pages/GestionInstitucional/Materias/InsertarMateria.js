@@ -28,7 +28,14 @@ progra:[] }
         var url = 'http://localhost:8080/gestioninstitucional/crearmateria';
         axios.post(url, materia).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Materias";
+            
+            if (res.data.respuesta==="se creo la materia") {
+                alert("se creo la materia")
+                window.location.href = "/Materias";
+            }else{
+              alert("no se crear la materia")
+              window.location.href = "/Materias";
+            }
         });
     }
     Cargar = () => {

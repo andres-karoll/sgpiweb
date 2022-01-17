@@ -22,7 +22,13 @@ export default class AsignarProgramaGrupoI extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/asignarprogramaagrupo';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            window.location.href = "/GruposInvestigacion";
+            if (res.data.respuesta==="se asigno el programa correctamente") {
+                alert("se asigno el programa correctamente")
+                window.location.href = "/GruposInvestigacion";
+            }else{
+              alert("no se pudo asignar el programa correctamente")
+              window.location.href = "/GruposInvestigacion";
+            }
         });
     }
     Cargar = () => {
@@ -57,10 +63,8 @@ export default class AsignarProgramaGrupoI extends Component {
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Grupo de investigación</label>
                         <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
+                        <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
                         </div>
                     </div>
                     {/** 

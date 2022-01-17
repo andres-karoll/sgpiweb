@@ -70,14 +70,14 @@ export default class Facultades extends Component {
                           <th style={{ width: '15%' }}>
                             # ID
                           </th>
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                             Nombre
                           </th>
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                             Decano
                           </th>               
                           
-                          <th style={{width: '25%'}}>
+                          <th style={{width: '20%'}}>
                           Coordinador invitado
                           </th>                       
                         </tr>
@@ -105,8 +105,8 @@ export default class Facultades extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActulizarFacultad/" + facul.id} >Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarFacultad/" + facul.id} >Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarFacultad/" + facul.id} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarFacultad/" + facul.id} >Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>

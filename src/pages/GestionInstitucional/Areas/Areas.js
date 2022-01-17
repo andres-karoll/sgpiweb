@@ -41,7 +41,7 @@ export default class Areas extends Component {
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%",fontSize:"large"}} to={"/InsertarArea"} >Insertar</NavLink>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarArea"} >Insertar</NavLink>
       {this.state.status === true &&
         (
           this.state.areas.map((are, i) => {
@@ -67,22 +67,22 @@ export default class Areas extends Component {
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '10%',fontSize:"small"}}>
+                          <th style={{ width: '10%'}}>
                             id
                           </th>
-                          <th style={{ width: '15%',fontSize:"small" }}>
+                          <th style={{ width: '15%'}}>
                             Nombre
                           </th>
-                          <th style={{ width: '30%',fontSize:"small" }}>
+                          <th style={{ width: '30%'}}>
                             Descripción
                           </th> 
-                          <th style={{ width: '20%',fontSize:"small" }}>
+                          <th style={{ width: '20%'}}>
                             Gran area
                           </th>                                    
                         </tr>
                       </thead>
                       <tbody>
-                        <tr  style={{fontSize:"small" }}>
+                        <tr>
                           <td>
                              {are.id}
                           </td>
@@ -103,8 +103,8 @@ export default class Areas extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink className="btn btn-info" to={"/ActualizarArea/" + are.id}  style={{fontSize:"large" }}>Modificar</NavLink>
-                          <NavLink className="btn btn-danger"  to={"/EliminarArea/" + are.id}  style={{fontSize:"large" }}>Eliminar</NavLink>  
+                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ActualizarArea/" + are.id}>Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"   to={"/EliminarArea/" + are.id}>Eliminar</NavLink>  
                                                   
                           </td>
                         </tr>
@@ -113,8 +113,8 @@ export default class Areas extends Component {
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li className="nav-item">
           <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon"  style={{fontSize:"large" }}/>        
-            <p  style={{ width: '20%',fontSize:"large" }}>
+            <i className="fas fa-lightbulb nav-icon"  />        
+            <p  style={{ width: '20%'}}>
               Funciones
               <i className="right fas fa-angle-left" />
             </p>
@@ -123,9 +123,9 @@ export default class Areas extends Component {
           <ul className="nav nav-treeview">
 
             <Link to={"/ProyectosArea/" + are.id}>
-            <li className="nav-item"  style={{fontSize:"large" }}>
+            <li className="nav-item" >
               <a  className="nav-link">
-                <i className="fas fa-eye nav-icon"  style={{fontSize:"large" }}/>
+                <i className="fas fa-eye nav-icon"  />
                 
                 <p>. Ver proyectos asociados al Area</p>
                  
