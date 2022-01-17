@@ -11,7 +11,7 @@ export default class AgregarParticipante extends Component {
     cajaCedula = React.createRef();
     cajaFecha = React.createRef();
     cajaRol = React.createRef();
-    
+
 
 AgregarParticipante =  (e) => {
         e.preventDefault();
@@ -28,7 +28,13 @@ AgregarParticipante =  (e) => {
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/agregarParticipante';
             axios.post(url, participante).then(res => {
             this.setState({ status: true });
-            window.location.href = "/ProyectosAulaIntegrador" ;       
+            if (res.data.respuesta === "el participante fue agregado") {
+                alert("El participante fue agregado")
+                window.location.href = "/ProyectosAulaIntegrador"
+            } else {
+                alert("El participante no pudo ser agregado")
+                window.location.href = "/ProyectosAulaIntegrador"
+            }
         });
     }   
     render() {            
@@ -62,15 +68,24 @@ AgregarParticipante =  (e) => {
                             <input type="text" name="cajadir" className="form-control"   ref={this.cajaCedula} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Fecha</label>
-                            <input type="text" name="cajatel" className="form-control"ref={this.cajaFecha}/>
-                        </div>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de inicio</label>
+                                                    {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                                                </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                         <div></div>
                         <select ref={this.cajaRol}>
-                                    <option style={{color: "black"}}>Lider</option>
-                                    <option style={{color: "black"}}>coLider</option>
+                        {
+                                                            localStorage.getItem("tipo") === "Estudiante activo" ? (
+
+                                                                <option style={{ color: "black" }}>Participante</option>
+                                                            ) : (
+                                                                <option style={{ color: "black" }}>Lider </option>
+                                                            )
+                                                        }
                         </select>
                         </div>
                         </div>

@@ -40,7 +40,14 @@ AgregarAreasConocimiento =  (e) => {
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/agregarareaconocimiento/';
             axios.post(url, AreasConocimiento).then(res => {
             this.setState({ status: true });
-            window.location.href = "/Home/Login/Dashboart/" ;       
+            if (res.data.respuesta === "se agrego exitosamente las areas") {
+                alert("El area de conocimiento fue agregada exitosamente")
+                window.location.href = "/AreasConocimientoProyecto/"+this.props.id
+            } else {
+                alert(res.data.respuesta)
+                window.location.href = "/AreasConocimientoProyecto/"+this.props.id
+            }
+           
         });
     }   
     render() {            
@@ -58,7 +65,7 @@ AgregarAreasConocimiento =  (e) => {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Unirse a un semillero</h3>
+                    <h3 className="card-title"  >Agregar areas de conocimiento  </h3>
                   </div>
                     {/* /.card-header */}
                     {/* form start */}
@@ -85,7 +92,7 @@ AgregarAreasConocimiento =  (e) => {
                         </div>
                         </div>
                         <div className="card-footer">
-                       <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.AgregarAreasConocimiento} to={"/ProyectoSemillero"} >Participar</NavLink>
+                       <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.AgregarAreasConocimiento} to={"/AreasConocimientoProyecto/"+this.props.id} >Agregar area</NavLink>
                         </div>
                     </form>
                     </div>

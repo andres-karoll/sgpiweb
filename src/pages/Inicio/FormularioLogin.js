@@ -1,5 +1,6 @@
 import React, { Component, NavLink } from 'react'
 import axios from 'axios'
+import md5 from 'md5'
 export default class FormularioLogin extends Component {
 
   cajaCorreo = React.createRef();
@@ -23,7 +24,7 @@ export default class FormularioLogin extends Component {
 
     var grupo = {
       correoEstudiantil: correo
-      , contrasena: clave
+      , contrasena: md5(clave)
       , tipoUsuario: tipo
 
     };
@@ -38,6 +39,7 @@ export default class FormularioLogin extends Component {
         if (response.cedula!= null) {
           localStorage.setItem("cedula", response.cedula)
           localStorage.setItem("tipo", reTipo)
+          localStorage.setItem("programa",response.programa_id);
           alert('bienvenido');
           window.location.href = "/Home/Login/Dashboart/";
         } else {
@@ -84,9 +86,12 @@ export default class FormularioLogin extends Component {
                           <label class="form-label" for="typePasswordX">Password</label>
                         </div>
                         <div class="form-outline form-white mb-4">
-                          <select ref={this.cajaTipo}>
+                          <select ref={this.cajaTipo}  style={{ color: "black" }}>
+                          <option selected > Elige una opción </option>
                             {this.state.status === true &&
+                            
                               (this.state.roles.map((rol) => {
+                                
                                 return (
                                   <option style={{ color: "black" }}>{rol.nombre}</option>
                                 );

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
-export default class CrearProyecto extends Component {
+export default class CrearProyectoGrado extends Component {
     state = {
         status: false,
         tipo: [],
@@ -32,6 +32,7 @@ export default class CrearProyecto extends Component {
             })
         });
     }
+    cajaId = React.createRef();
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
@@ -54,6 +55,7 @@ export default class CrearProyecto extends Component {
     }
     CrearProyecto = (e) => {
         e.preventDefault();
+        var ids = this.cajaId.current.value;
         var tit = this.cajaTitulo.current.value;
         var desc = this.cajaDescripcion.current.value;
         var met = this.cajaMetodologia.current.value;
@@ -67,6 +69,7 @@ export default class CrearProyecto extends Component {
         var ro = this.cajaRol.current.value;
         var clas = this.cajaClase.current.value;
         var proyecto = {
+            id: ids,
             titulo: tit,
             estado: esta,
             descripcion: desc,
@@ -115,6 +118,10 @@ export default class CrearProyecto extends Component {
                                         {/* form start */}
                                         <form style={{ width: "50%", margin: "auto" }} onSubmit={this.CrearProyecto}>
                                             <div className="card-body">
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputEmail1">Id</label>
+                                                    <input type="text" name="cajanom" className="form-control" ref={this.cajaId} />
+                                                </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Titulo</label>
@@ -165,14 +172,14 @@ export default class CrearProyecto extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Aula" readOnly />
+                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Grado" readOnly />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
                                                     <select ref={this.cajaRol}>
                                                         {
-                                                            localStorage.getItem("tipo") === "Estudiante activo" ? (
+                                                            localStorage.getItem("tipo") === "Estudiante" ? (
 
                                                                 <option style={{ color: "black" }}>Participante</option>
                                                             ) : (
@@ -195,7 +202,7 @@ export default class CrearProyecto extends Component {
                                                             )
                                                         }
                                                     </select>
-                                                </div>
+                                                </div>  
                                             </div>
                                             <div className="card-footer">
                                                 <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.CrearProyecto} to={"/ProyectosAulaIntegrador/"} >Crear Proyecto</NavLink>

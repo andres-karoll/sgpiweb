@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
-export default class DetallesProyecto extends Component {
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
+export default class DetalleProyectoGrado extends Component {
 
   state = {
     proyecto: {}
@@ -20,9 +20,20 @@ export default class DetallesProyecto extends Component {
       });
     });
   }
+  EliminarProyecto = () => {
+    var request = "/gestionproyectosaulaintegrador/eliminarproyecto/" + this.props.id;
+    var url = "http://localhost:8080" + request;
+    axios.post(url).then(res => {
+      this.setState({
+      status: true
+      });
+    });
+  }
+
 
   componentDidMount = () => {
     this.mostrarProyecto();
+    this.EliminarProyecto();
   }
 
   render() {
@@ -188,7 +199,20 @@ export default class DetallesProyecto extends Component {
 
                               <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento de este proyecto</NavLink>
                             </li>
-                            
+                            <li>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Antecedentes/" + this.state.proyecto.id} >Antecedentes</NavLink>
+                            </li>
+                            <li>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.EliminarProyecto()} >Eliminar Proyecto</NavLink>
+                            </li>
                             <li>
                               <a href className="btn-link text-secondary"><i className="far fa-fw fa-envelope" /> Email-from-flatbal.mln</a>
                             </li>

@@ -185,15 +185,19 @@ export default class DetallesProyectoSemillero extends Component {
             </div>
             <h5 className="mt-5 text-muted">Archivos del proyecto</h5>
             <ul className="list-unstyled">
-              <li>
-                <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Functional-requirements.docx</a>
-              </li>
-              <li>
-                <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-pdf" /> UAT.pdf</a>
-              </li>
-              <li>
-                <a href className="btn-link text-secondary"><i className="far fa-fw fa-envelope" /> Email-from-flatbal.mln</a>
-              </li>
+            <li>
+                              <div>
+                                <br />
+                              </div>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >Participaciones en eventos</NavLink>
+                            </li>
+                            <li>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento de este proyecto</NavLink>
+                            </li>
               <li>
                 <a href className="btn-link text-secondary"><i className="far fa-fw fa-image " /> Logo.png</a>
               </li>

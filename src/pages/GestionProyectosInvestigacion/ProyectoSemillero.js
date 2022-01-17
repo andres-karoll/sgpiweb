@@ -22,8 +22,25 @@ export default class ProyectoSemillero extends Component {
           });
         });
       }
+      verificarSemillero=()=>{
+        var url="http://localhost:8080";
+        var request="/gestionproyectosinvestigacion/verficarSemillero/"+localStorage.getItem("cedula");
+        axios.get(url+request).
+        then(response => {
+          return response.data;
+        }).then(response => {
+          if (response.respuesta== "este usuario ya esta asignado a un semillero") {
+            alert('estas inscrito aun semillero');
+            window.location.href = "/Home/Login/Dashboart/";
+          } else {
+            alert('el usuario o contraseña o el tipo de usuario son incorrectos');
+            window.location.href = "/" ;
+          } 
+        })
+      }
       componentDidMount = () => {
         this.cargarGruposI();
+        this.verificarSemillero();
         this.setState({pro:this.state.proyectos})
       }
       render() {
@@ -37,35 +54,40 @@ export default class ProyectoSemillero extends Component {
                 <section className="content">
                     <br />
                     <div class="alert alert-info alert-dismissible">
-                      <h1><i class="fas fa-user-friends nav-icon"></i>Tus Proyectos</h1>
+                      <h1><i class="fas fa-user-friends nav-icon"></i>Tus Proyectos de semillero</h1>
                     </div>
                 </section>
           </div> 
           {
              rol==="Egresado"?(
            <></>
-              ) :(
+              ) : rol==="Estudiante activo"?(
+                <></>
+              )
+                :(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un poryecto</NavLink>
                 )
            }
           {
              rol==="Egresado"?(
            <></>
-              ) :(
+              )  :
+              rol==="Estudiante activo"?(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/UnirseSemillero"} >Unirse a un semillero</NavLink>
 
+              ):(
+                <></>
                 )
            }
              {
              rol==="Egresado"?(
            <></>
+              ): rol==="Estudiante activo"?(
+                <></>
               ) :(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}to={"/ParticiparConvocatoria/"} >Participar en una Convocatoria</NavLink>
                 )
            }
-
-         
-
               {this.state.status === true &&
             (
               this.state.proyectos.map((pro) => {

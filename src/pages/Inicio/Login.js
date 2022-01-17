@@ -2,6 +2,7 @@ import React from 'react'
 import Navar from  '../../components/Navar'
 import FormularioLogin from  './FormularioLogin'
 import Footer from '../../components/Footer'
+
 const Login= () => (
 <div>
 <Navar/>

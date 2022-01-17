@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-class Perfil extends Component  {
+export default class Perfil extends Component  {
      
     state = {
         Perfil: {}
@@ -63,4 +63,4 @@ class Perfil extends Component  {
         )
     }
 }
-export default Perfil
+

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-export default class TrabajoGrado extends Component {
+export default class ProyectoLibre extends Component {
 
    
     state = {
