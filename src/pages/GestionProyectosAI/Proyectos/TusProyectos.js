@@ -44,7 +44,7 @@ export default class TusProyectos extends Component {
           </div>
 
           {
-            rol === "Egresado" ? (
+            rol === "Egresado"  || rol === "Estudiante inactivo"? (
               <></>
             ) : (
               <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/CrearProyectoMateria"} >crear un proyecto</NavLink>

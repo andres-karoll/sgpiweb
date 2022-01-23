@@ -62,6 +62,8 @@ export default class HomeInstitucional extends Component {
                   </section>
       </div>
 
+      
+
       <div className="row">
 
       {this.state.status === true &&
@@ -109,6 +111,28 @@ export default class HomeInstitucional extends Component {
         })
       )}
 </div>
+
+
+
+      <div class="card">
+        <div class="card-body row">
+          <div class="col-6 text-center align-items-center justify-content-center">
+            <div class="">
+            <img className="card-img-top" src="https://i.ibb.co/pvf2JFY/banner-facultad-ingenieria.png" />
+             
+            
+            </div>
+          </div>
+          <div class="col-6 text-center d-flex align-items-center justify-content-center">
+           
+           <h2>
+
+Los ingenieros de Sistemas, bonaventurianos, son profesionales emprendedores, éticos, con pensamiento crítico, espíritu creativo e investigativo y un alto compromiso social, capaces de diseñar, construir, implementar y administrar de forma segura y confiable, soluciones informáticas a través del uso de las TIC.<strong></strong></h2>
+          </div>
+        </div>
+      </div>
+
+
 <div className="card card-success">
   <div className="card-body">
     <div className="row">
@@ -139,6 +163,35 @@ export default class HomeInstitucional extends Component {
   </div>
 </div>
 
+<div className="card card-success">
+  <div className="card-body">
+    <div className="row">
+      <div className="col-md-12 col-lg-6 col-xl-4">
+        <div className="card mb-2 bg-gradient-dark">
+          <img className="card-img-top" src="https://i.ibb.co/W3v7RNm/usb-bogota-26.jpg" alt="Dist Photo 1" />
+          <div className="card-img-overlay d-flex flex-column justify-content-end">
+
+          </div>
+        </div>
+      </div>
+      <div className="col-md-12 col-lg-6 col-xl-4">
+        <div className="card mb-2">
+          <img className="card-img-top" src="https://i.ibb.co/vhpXwjW/usb-bogota-38.jpg" alt="Dist Photo 2" />
+          <div className="card-img-overlay d-flex flex-column justify-content-center">
+          </div>
+        </div>
+      </div>
+      <div className="col-md-12 col-lg-6 col-xl-4">
+        <div className="card mb-2">
+          <img className="card-img-top" src="https://i.ibb.co/DkRjzX3/usb-bogota-01.jpg" alt="Dist Photo 2" />
+          <div className="card-img-overlay d-flex flex-column justify-content-center">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 

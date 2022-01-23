@@ -19,7 +19,6 @@ CargarUsuario = () => {
     });
   }
 
-    cajaId = React.createRef();
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
@@ -37,7 +36,6 @@ componentDidMount = () => {
     }
 CrearProyecto =  (e) => {
         e.preventDefault();
-        var ids = this.cajaId.current.value;
         var tit= this.cajaTitulo.current.value;
         var desc = this.cajaDescripcion.current.value;
         var met = this.cajaMetodologia.current.value;
@@ -51,7 +49,6 @@ CrearProyecto =  (e) => {
         var ro=this.cajaRol.current.value;
         var semi=this.cajaSemillero.current.value;
         var proyecto = {
-                id:ids,
                 titulo:tit,
                 estado:esta,
                 descripcion:desc,
@@ -100,32 +97,35 @@ CrearProyecto =  (e) => {
                     {/* form start */}
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.CrearProyecto}>
                         <div className="card-body">
-                        <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Id</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} />
-                        </div>
                         
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Titulo</label>
                             <input type="text" name="cajadir" className="form-control"   ref={this.cajaTitulo} />
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Descripcion</label>
                             <input type="text" name="cajatel" className="form-control"ref={this.cajaDescripcion}/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha inicio</label>
                             <input type="text" name="cajatel" className="form-control"ref={this.cajaFecha} />                        
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Estado del proyecto</label>
                         <div></div>
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <select ref={this.cajaEstado}>
+
                                     <option style={{color: "black"}} >Propuesta</option>
                             
                         </select>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">visibilidad del proyecto</label>
                         <div></div>
                         <select ref={this.cajaVis}>
@@ -134,6 +134,7 @@ CrearProyecto =  (e) => {
                         </select>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Ciudad</label>
                         <div></div>
                         <select ref={this.cajaCiu}>
@@ -142,18 +143,22 @@ CrearProyecto =  (e) => {
                         </select>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Metodologia</label>
                             <input type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia}/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Justificacion</label>
                             <input type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion}/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
                         <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Semillero" readOnly/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                         <div></div>
                         <select ref={this.cajaRol}>
@@ -164,6 +169,7 @@ CrearProyecto =  (e) => {
                         {this.state.status === true &&
                         (
                         <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Semillero asociado</label>
                         <input type="text" name="cajatel" className="form-control" ref={this.cajaSemillero} value={this.state.usuario.semillero_id} readOnly/>
                         </div>

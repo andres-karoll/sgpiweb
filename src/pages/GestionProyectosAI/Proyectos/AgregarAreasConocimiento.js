@@ -72,9 +72,10 @@ AgregarAreasConocimiento =  (e) => {
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarAreasConocimiento}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Areas de conocimiento</label>
                             <div></div>
-                            <select ref={this.cajaArea}>
+                            <select ref={this.cajaArea} required>
                             {this.state.status === true &&
                               (this.state.Areas.map((are) => {
                                 return (
@@ -87,11 +88,13 @@ AgregarAreasConocimiento =  (e) => {
                           </select>   
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Tu proyecto</label>
                             <input type="text" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly/>
                         </div>
                         </div>
                         <div className="card-footer">
+                        
                        <NavLink style={{width: '50%'}} className="btn btn-success" onClick={this.AgregarAreasConocimiento} to={"/AreasConocimientoProyecto/"+this.props.id} >Agregar area</NavLink>
                         </div>
                     </form>

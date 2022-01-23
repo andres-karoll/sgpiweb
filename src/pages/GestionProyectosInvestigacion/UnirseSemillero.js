@@ -63,11 +63,13 @@ AgregarParticipante =  (e) => {
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarParticipante}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Cedula</label>
                             <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCedula} value={ localStorage.getItem("cedula")} readOnly/>
                         </div>
                         
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Semillero</label>
                             <select ref={this.cajaId}>
                             {this.state.status === true &&

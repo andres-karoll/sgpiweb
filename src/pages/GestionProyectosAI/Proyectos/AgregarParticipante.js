@@ -59,13 +59,15 @@ AgregarParticipante =  (e) => {
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.AgregarParticipante}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Id</label>
                             <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly/>
                         </div>
                         
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Cedula</label>
-                            <input type="text" name="cajadir" className="form-control"   ref={this.cajaCedula} />
+                            <input type="text" name="cajadir" className="form-control"   ref={this.cajaCedula} required/>
                         </div>
                         <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -75,9 +77,10 @@ AgregarParticipante =  (e) => {
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
                                                 </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                         <div></div>
-                        <select ref={this.cajaRol}>
+                        <select ref={this.cajaRol} required>
                         {
                                                             localStorage.getItem("tipo") === "Estudiante activo" ? (
 

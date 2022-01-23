@@ -1,7 +1,26 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 import { Link } from 'react-router-dom'
 export default class Aside extends Component {
+  state = { 
+    status:false,
+nombre:[],nom:[]}
+
+  CargarNombre = () => {
+    var request = "/gestionusuario/nombre/"+localStorage.getItem("cedula");
+    var url = "http://localhost:8080" + request;
+   axios.get(url).then(res => {
+     
+      this.setState({
+        nombre: res.data
+        , status:true
+      })
+    });
+  }
+  componentDidMount = () => {
+    this.CargarNombre();
+  }
+
   render() {
     var rol = localStorage.getItem("tipo");
     return (
@@ -20,8 +39,10 @@ export default class Aside extends Component {
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
 
             <a href={"/Perfil/"+localStorage.getItem("cedula")} className="brand-link">
-
-              <span className="brand-text font-weight-light"  >USUARIO DE PRUEBA</span>
+            {this.state.status === true && (this.state.nombre.map((nom)=>{return (
+              <span className="brand-text font-weight-light"  >{nom.nombres} </span>
+              );}))}
+              
             </a>
           </div>
           {/* Sidebar Menu */}
@@ -207,7 +228,7 @@ export default class Aside extends Component {
                 </li>
 
               }
-              {(rol==='Estudiante activo'||rol==='Docentes'||rol==='Egresado')&&
+              {(rol==='Estudiante activo'||rol==='Docentes'||rol==='Egresado'||rol==='Estudiante inactivo')&&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
                     <i className="fas fa-newspaper nav-icon" />

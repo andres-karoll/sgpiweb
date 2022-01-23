@@ -72,12 +72,14 @@ AgregarAntecedente =  (e) => {
                         <div className="card-body">
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Proyecto</label>
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly/>
                         </div>
                         
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Antecedente</label>
-                            <select ref={this.cajaAnte}>
+                            <select ref={this.cajaAnte} required>
                             {this.state.status === true &&
                               (this.state.semilleros.map((semi) => {
                                 return (

@@ -31,6 +31,38 @@ componentDidMount = () => {
       <div>
       <Aside/>
       <Header/>
+
+      <div class="card">
+        <div class="card-body row">
+          <div class="col-5 text-center d-flex align-items-center justify-content-center">
+            <div class="">
+              <h2>Admin<strong>LTE</strong></h2>
+           
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input type="text" id="inputName" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">E-Mail</label>
+              <input type="email" id="inputEmail" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="inputSubject">Subject</label>
+              <input type="text" id="inputSubject" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="inputMessage">Message</label>
+              <textarea id="inputMessage" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+             
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="content-wrapper">
       <div className="card card-primary card-outline "style={{ width: '50%', marginLeft:"auto", marginRight:"auto"}}>
       <div className="card-body box-profile">
@@ -66,6 +98,8 @@ componentDidMount = () => {
       {/* /.card-body */}
 
     </div>
+
+    
     </div>
     </div>
 )
