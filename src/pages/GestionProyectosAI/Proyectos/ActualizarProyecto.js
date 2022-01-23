@@ -8,7 +8,7 @@ export default class ActualizarProyecto extends Component {
     state = { 
         status: false,
     proyecto:[]}
-    w
+
     
     CargarProyecto = () => {
         var request = "/gestionproyectosaulaintegrador/listarporid/"+this.props.id ;

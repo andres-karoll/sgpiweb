@@ -32,33 +32,45 @@ export default class Perfil extends Component  {
             <div>
             <Header/>
                 <Aside /> 
+
             <div className="content-wrapper">
-                
-        
-                <br /><br />  
-                <h1 align="center"><u>Detalles Perfil </u></h1>
-                {this.state.status === true &&
-                
-                (
-                    <React.Fragment>
-                        <br />
+      <div className="card card-primary card-outline "style={{ width: '50%', marginLeft:"auto", marginRight:"auto"}}>
+      <div className="card-body box-profile">
+        <div className="text-center">
+          <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/12S4G68/icon-5359553-960-720.png" alt="User profile picture" />
+        </div>
+        <h3 className="profile-username text-center">{this.state.Perfil.nombres}</h3>
+        <ul className="list-group list-group-unbordered mb-3">
+        <li className="list-group-item">
+            <b style={{fontSize:"large"}}>Codigo universitario</b> <a style={{fontSize:"large"}}className="float-right">{this.state.Perfil.cod_Universitario}</a>
+          </li>
+          <li className="list-group-item">
+          <b style={{fontSize:"large"}}>Correo Estudiantil</b> <a style={{fontSize:"large"}} className="float-right">{this.state.Perfil.correo_est}</a>
+          </li>
+          <li className="list-group-item">
+            <b style={{fontSize:"large"}}>Telefono</b> <a style={{fontSize:"large"}} className="float-right">{this.state.Perfil.telefono}</a>
+          </li>
+          <li className="list-group-item">
+            <b style={{fontSize:"large"}}>Programa</b> <a style={{fontSize:"large"}} className="float-right">{this.state.Perfil.programa}</a>
+          </li>
+          <li className="list-group-item">
+            <b style={{fontSize:"large"}}>Correo Personal</b> <a style={{fontSize:"large"}} className="float-right" >{this.state.Perfil.correo_personal}</a>
+    
+          </li>
+          <div className="card-body">
+    
+          </div>
+        </ul>
+    
+        <NavLink to={"/Modificar/" + this.state.Perfil.cedula} style={{width: "50%", fontSize:"large"}} className="btn btn-primary">Actualizar perfil</NavLink>
+        <NavLink className="btn btn-danger" to={"/delete/" + this.state.Perfil.nombres} style={{width: "50%", fontSize:"large"}}>Eliminar cuenta</NavLink>
+      </div>
+      {/* /.card-body */}
 
-                        <br /><br />
-                        <h3 align="center">Nombre completo: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.nombres} {this.state.Perfil.apellidos}</span></h3>
-                        <h3 align="center">Codigo Universitario: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.cod_Universitario}</span></h3>
-                        <h3 align="center">Correo Estudiantil: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.correo_est}</span></h3>
-                        <h3 align="center">Telefono: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.telefono}</span></h3>
-                        <h3 align="center">Programa: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.programa}</span></h3>
-                        <h3 align="center">Correo Personal: <span style={{color: "green", fontWeight: "bold"}}>{this.state.Perfil.correo_personal}</span></h3>
-                        <div className="d-flex justify-content-center " >
-                        <NavLink to={"/Modificar/" + this.state.Perfil.cedula} className="btn btn-primary ">Modificar</NavLink> &nbsp;&nbsp;
-                        <NavLink to={"/delete/" + this.state.Perfil.nombres} className="btn btn-danger">Borrar</NavLink>
-                        </div>
-                    </React.Fragment>
+    </div>
 
-
-                )}
-            </div>
+    
+    </div>
             </div>
         )
     }

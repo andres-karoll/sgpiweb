@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 export default class Aside extends Component {
+
   state = {
     status: false,
     nombre:[],
@@ -22,6 +23,8 @@ export default class Aside extends Component {
 componentDidMount = () => {
   this.CargarNombre();
 }
+
+
   render() {
     var rol = localStorage.getItem("tipo");
     return (
@@ -38,10 +41,12 @@ componentDidMount = () => {
             </div>
           </div>
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
             <a href={"/Perfil/"+  localStorage.getItem("cedula")} className="brand-link">
              
                     <span className="brand-text font-weight-light"  >{this.state.nombre.nombres} </span>
                
+
             </a>
           </div>
           {/* Sidebar Menu */}
@@ -288,7 +293,9 @@ componentDidMount = () => {
                 </li>
 
               }
-              {(rol==='Docentes'||rol==='Egresado')&&
+
+              {(rol==='Estudiante activo'||rol==='Docentes'||rol==='Egresado'||rol==='Estudiante inactivo')&&
+
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
                     <i className="fas fa-newspaper nav-icon" />
