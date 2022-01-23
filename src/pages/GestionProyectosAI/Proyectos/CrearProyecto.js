@@ -9,7 +9,9 @@ export default class CrearProyecto extends Component {
         tipo: [],
         tip: [],
         clase: [],
-        cla: []
+        cla: [],
+        Macro:[],
+        mac:[]
     }
     CargarTipos = () => {
         var request = "/gestionfiltroproyecto/todoslostiposproyecto";
@@ -32,6 +34,16 @@ export default class CrearProyecto extends Component {
             })
         });
     }
+    CargarMacroProyecto=()=>{
+        var request = "/gestionproyectosaulaintegrador/macroProyectos/";
+        var url = "http://localhost:8080" + request;
+        axios.get(url).then(res => {
+            this.setState({
+                Macro: res.data
+                , status: true
+            })
+        });
+    }
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
@@ -44,6 +56,7 @@ export default class CrearProyecto extends Component {
     cajaClase = React.createRef();
     cajaRol = React.createRef();
     cajaParticipante = React.createRef();
+    cajaMacro=React.createRef();
     componentDidMount = () => {
         this.CargarTipos();
         this.setState({
@@ -51,6 +64,7 @@ export default class CrearProyecto extends Component {
             cla: this.state.clase
         });
         this.CargarClase();
+        this.CargarMacroProyecto();
     }
     CrearProyecto = (e) => {
         e.preventDefault();
@@ -66,19 +80,21 @@ export default class CrearProyecto extends Component {
         var part = localStorage.getItem("cedula");
         var ro = this.cajaRol.current.value;
         var clas = this.cajaClase.current.value;
+        var ma= this.cajaMacro.current.value;
         var proyecto = {
             titulo: tit,
             estado: esta,
             descripcion: desc,
             fechainicio: fecha,
-            visibilidad: vis,
+            visibilidad: 1,
             ciudad: ciu,
             metodologia: met,
             justificacion: jus,
             tipo: tip,
             usuario: part,
             rol: ro,
-            clase: clas
+            clase: clas,
+            macro:ma
         };
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/crearproyecto';
         axios.post(url, proyecto).then(res => {
@@ -113,7 +129,7 @@ export default class CrearProyecto extends Component {
                                         </div>
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form style={{ width: "50%", margin: "auto" }} onSubmit={this.CrearProyecto}>
+                                        <form onSubmit={this.CrearProyecto} style={{ width: "50%", margin: "auto" }} >
                                             <div className="card-body">
 
                                                 <div className="form-group">
@@ -165,12 +181,19 @@ export default class CrearProyecto extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Aula" readOnly />
+                                                    <div></div>
+                                                    <select ref={this.cajaTipo} style={{ color: "black" }}>
+                                                        <option selected > Elige el Tipo de proyecto </option>
+                                                        <option style={{ color: "black" }}>Aula</option>
+                                                        <option style={{ color: "black" }}>Libre</option>
+                                                        <option style={{ color: "black" }}>Grado</option>
+                                                    </select>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
-                                                    <select ref={this.cajaRol}>
+                                                    <select ref={this.cajaRol}  style={{ color: "black" }}>
+                                                    <option selected > Elige el Rol que vas a tener en el proyecto </option>
                                                         {
                                                             localStorage.getItem("tipo") === "Estudiante activo" ? (
 
@@ -184,7 +207,8 @@ export default class CrearProyecto extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Clase</label>
                                                     <div></div>
-                                                    <select ref={this.cajaClase}>
+                                                    <select ref={this.cajaClase} style={{ color: "black" }}>
+                                                    <option selected > Elige la clase en la que vas hacer el proyecto </option>
                                                         {this.state.status === true &&
                                                             (this.state.clase.map((cla) => {
                                                                 return (
@@ -196,9 +220,25 @@ export default class CrearProyecto extends Component {
                                                         }
                                                     </select>
                                                 </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1">Macro Proyecto</label>
+                                                    <div></div>
+                                                    <select ref={this.cajaMacro} style={{ color: "black" }}>
+                                                    <option selected value={0}>Selecciona el macro proyecto </option>
+                                                        {this.state.status === true &&
+                                                                (this.state.Macro.map((mac) => {
+                                                                return (
+                                                                    <option style={{ color: "black" }} value={mac.id}>{mac.nombre}</option>
+                                                                );
+                                                            }
+                                                            )
+                                                            )
+                                                        }
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div className="card-footer">
-                                                <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.CrearProyecto} to={"/ProyectosAulaIntegrador/"} >Crear Proyecto</NavLink>
+                                            <button style={{fontSize:"large" }} className="btn btn-success">Crear proyecto</button>
                                             </div>
                                         </form>
                                     </div>

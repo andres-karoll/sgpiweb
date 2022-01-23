@@ -152,7 +152,7 @@ export default class DetallesProyecto extends Component {
                             <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
                               <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Productos</NavLink>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ProductosProyecto/" + this.state.proyecto.id} >Productos</NavLink>
                             </div>
                           </td>
                         </div>
@@ -179,19 +179,25 @@ export default class DetallesProyecto extends Component {
                               <div>
                                 <br />
                               </div>
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >Participaciones en eventos</NavLink>
-                            </li>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >eventos</NavLink>
+                            </li>                  
                             <li>
+                              
                               <div>
                                 <br />
                               </div>
 
                               <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento de este proyecto</NavLink>
                             </li>
-                            
                             <li>
-                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-envelope" /> Email-from-flatbal.mln</a>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
                             </li>
+                            
+                            
                             <li>
                               <a href className="btn-link text-secondary"><i className="far fa-fw fa-image " /> Logo.png</a>
                             </li>
