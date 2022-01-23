@@ -9,7 +9,7 @@ export default class ActualizarProyecto extends Component {
         status: false,
     statuss:"hola",
     proyecto:[]}
-    w
+
     
     CargarProyecto = () => {
         var request = "/gestionproyectosaulaintegrador/listarporid/"+this.props.id ;

@@ -109,20 +109,22 @@ export default class CrearProyecto extends Component {
                                     {/* general form elements */}
                                     <div className="card card-primary">
                                         <div className="card-header" style={{ align: "center" }}>
-                                            <h3 className="card-title"  >Actualizar una Materia</h3>
+                                            <h3 className="card-title"  >Crear Proyecto</h3>
                                         </div>
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form style={{ width: "50%", margin: "auto" }} onSubmit={this.CrearProyecto}>
+                                        <form onSubmit={this.CrearProyecto} style={{ width: "50%", margin: "auto" }} >
                                             <div className="card-body">
 
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Titulo</label>
-                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaTitulo} />
+                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaTitulo} required/>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} />
+                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -132,45 +134,53 @@ export default class CrearProyecto extends Component {
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado del proyecto</label>
                                                     <div></div>
-                                                    <select ref={this.cajaEstado}>
+                                                    <select ref={this.cajaEstado} required>
+                                                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                         <option style={{ color: "black" }} >Propuesta</option>
 
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">visibilidad del proyecto</label>
                                                     <div></div>
-                                                    <select ref={this.cajaVis}>
+                                                    <select ref={this.cajaVis} required>
                                                         <option style={{ color: "black" }} value={0} >Publico</option>
                                                         <option style={{ color: "black" }} value={1} >Privado</option>
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Ciudad</label>
                                                     <div></div>
-                                                    <select ref={this.cajaCiu}>
+                                                    <select ref={this.cajaCiu} required>
                                                         <option style={{ color: "black" }}>Bogota</option>
                                                         <option style={{ color: "black" }}>Cali</option>
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Metodologia</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia} />
+                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia} required/>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Justificacion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} />
+                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} required/>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
                                                     <input type="text" name="cajatel" className="form-control" ref={this.cajaTipo} value="Aula" readOnly />
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
-                                                    <select ref={this.cajaRol}>
+                                                    <select ref={this.cajaRol} required>
                                                         {
                                                             localStorage.getItem("tipo") === "Estudiante activo" ? (
 
@@ -182,9 +192,10 @@ export default class CrearProyecto extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
+                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Clase</label>
                                                     <div></div>
-                                                    <select ref={this.cajaClase}>
+                                                    <select ref={this.cajaClase} required>
                                                         {this.state.status === true &&
                                                             (this.state.clase.map((cla) => {
                                                                 return (

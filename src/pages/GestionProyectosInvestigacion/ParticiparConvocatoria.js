@@ -82,6 +82,7 @@ ParticiparConvocatoria =  (e) => {
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.ParticiparConvocatoria}>
                         <div className="card-body">
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Tus proyectos de semillero</label>
                             <div></div>
                             <select ref={this.cajaProyecto}>
@@ -99,6 +100,7 @@ ParticiparConvocatoria =  (e) => {
                         </div>
                         
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Convocatorias Abiertas</label>
                             <div></div>
                             <select ref={this.cajaConvocatoria}>
@@ -113,6 +115,7 @@ ParticiparConvocatoria =  (e) => {
                               }
                           </select>
                           <div className="form-group">
+                          <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Estado de la participacion </label>
                         <input type="text" name="cajatel" className="form-control" ref={this.cajaEstado} value="Propuesta" readOnly/>
                         </div>
