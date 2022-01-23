@@ -43,7 +43,11 @@ export default class Participaciones extends Component {
              rol==="Egresado"?(
            <></>
               ) :(
-                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticiparEvento/" + this.props.id} >Participa en un evento</NavLink>
+                <div>
+                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticiparEvento/" + this.props.id} >Participa en un evento de la universidad</NavLink>
+                
+                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticipacionesExternas/" + this.props.id} >Participa en un evento externo</NavLink>
+             </div>
              )
            }
               </div>
@@ -113,10 +117,6 @@ export default class Participaciones extends Component {
                                 </a>
                               </td>
                               <td className="project-actions text-right" style={{ width: '40%' }}>
-                                <div className=" mt-3 pb-3 mb-3 d-flex">
-                                  {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticiparEvento/" + eve.id} >Participar en este evento</NavLink>
-                                </div>
                               </td>
                             </tr>
                           </tbody>

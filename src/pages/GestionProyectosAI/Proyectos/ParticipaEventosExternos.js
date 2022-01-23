@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from '../../../components/Global/Header';
 import { NavLink} from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
-export default class ParticiparEvento extends Component {
+export default class ParticipaEventosExternos extends Component {
     state = { 
             status: false,
             Evento:[],
@@ -15,19 +15,13 @@ export default class ParticiparEvento extends Component {
     cajaEvento = React.createRef();
     cajaFecha=React.createRef();
     cajaReconocimiento=React.createRef();
-    mostrarEventos= () => {
-        var request = "/gestionproyectosaulaintegrador/listareventos"
-        var url = "http://localhost:8080" + request;
-        axios.get(url).then(res => {
-            this.setState({
-                Evento : res.data
-                ,status: true
-            });
-        });
-    }
-
+    cajaNombre=React.createRef();
+    cajaFecha1=React.createRef();
+    cajaEntidad=React.createRef();
+    cajaSitioWeb=React.createRef();
+    cajaUrl=React.createRef();
+    cajaEstado=React.createRef();
     componentDidMount = () => {
-        this.mostrarEventos();
         this.setState({
             eve:this.state.Evento,
             
@@ -39,11 +33,21 @@ ParticiparEvento =  (e) => {
         var even=this.cajaEvento.current.value;
         var fe=this.cajaFecha.current.value;
         var reco=this.cajaReconocimiento.current.value;
+        var esta=this.cajaEstado.current.value;
+        var fe2= this.cajaFecha1.current.value;
+        var enti = this.cajaEntidad.current.value;
+        var sitio= this.cajaSitioWeb.current.value;
+        var url = this.cajaUrl.current.value;
         var ParticipacionEvento = {
-                proyecto:proye,
-                evento:even ,
-                fecha:fe,
-                reconocimiento:reco
+            proyecto:proye,
+            nombre:even,
+            fecha:fe,
+            estado:esta,
+            fecha1:fe2,
+            reconocimiento:reco,
+            entidad:enti,
+            sitioWeb:sitio,
+            url_memoria:url
         };
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/participarevento/';
             axios.post(url, ParticipacionEvento).then(res => {
@@ -70,22 +74,36 @@ ParticiparEvento =  (e) => {
               </div>
                 {/* /.card-header */}
                 {/* form start */}
-                <form  onSubmit={this.ParticiparEvento} style={{width: "50%", margin: "auto"}}>
+                <form   onSubmit={this.ParticiparEvento} style={{width: "50%", margin: "auto"}}>
                     <div className="card-body">
+                    
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Eventos vigentes </label>
+                        <label htmlFor="exampleInputPassword1">Nombre evento </label>
                         <div></div>
-                        <select ref={this.cajaEvento} required>
-                        {this.state.status === true &&
-                          (this.state.Evento.map((eve) => {
-                            return (
-                              <option style={{ color: "black" }} value={eve.id}>{eve.nombre}</option>
-                            );
-                          }
-                          )
-                          )
-                          }
-                      </select>   
+                        <input type="text" name="cajanom" className="form-control" ref={this.cajaEvento} required/>
+                      
+                    </div>
+                    <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de creacio del evento</label>
+                                                    {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                    </div>
+                    <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1">Estado del evento</label>
+                                                    <div></div>
+                                                    <select ref={this.cajaMacro} style={{ color: "black" }}>
+                                                    <option selected value={0}>Selecciona un estado </option>
+                                                    <option >Abierta</option>
+                                                    <option >Cerrada</option>
+                                                    </select>
+                                                </div>
+                                                <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Entidad </label>
+                        <div></div>
+                        <input type="text" name="cajanom" className="form-control" ref={this.cajaEvento} required/>
+                      
                     </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Tu proyecto</label>
@@ -96,7 +114,7 @@ ParticiparEvento =  (e) => {
                                                     <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de participacion</label>
                                                     {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
                                                     <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
-                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha1} required></input>
                                                 </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Reconocimiento</label>
@@ -105,7 +123,7 @@ ParticiparEvento =  (e) => {
                     </div>
                     <div className="card-footer">
                     <button style={{fontSize:"large" }} className="btn btn-success">Participar</button>
-                   </div>
+                    </div>
                 </form>
                 </div>
                 {/* /.card */}

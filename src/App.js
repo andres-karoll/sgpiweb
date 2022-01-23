@@ -133,7 +133,7 @@ import FilesPrueba from './FilesPrueba';
 //import ListadeProductosPrueba from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import ListarProductos from './pages/Proyectos/Productos/ListadeProductosPrueba';
 import MeterArchivo from './pages/Proyectos/Productos/MeterArchivo';
-
+import TusClases from './pages/GestionProyectosAI/Proyectos/TusClases'
 import AreasConocimientoProyecto from './pages/GestionProyectosAI/Proyectos/AreasConocimientoProyecto'
 import DetalleProyectoGrado from './pages/GestionTrabajoGrado/DetallesProyectoGrado'
 import Antecedentes from './pages/GestionTrabajoGrado/Antecedentes'
@@ -143,6 +143,7 @@ import CrearProyectoGrado from './pages/GestionTrabajoGrado/CrearProyectoGrado'
 import UploadFiles from './components/Upload-files.component'
 import ProductosProyectoVisible from './pages/Proyectos/Productos/ProductosProyectoVisible'
 import UsuarioPerfil from './pages/Usuario/UsuarioPerfil'
+import ParticipaEventosExternos from './pages/GestionProyectosAI/Proyectos/ParticipaEventosExternos'
 
 
 export default function App() {
@@ -202,6 +203,7 @@ export default function App() {
 
 
             <Route path="/ProyectosGrado" exact component={ProyectosGrado}/>
+            <Route path="/CrearProyectoGrado" exact component={CrearProyectoGrado}/>
             <Route path="/ProyectosGradoFin" exact component={ProyectosGradoFin}/>
             <Route exact path="/DetallesProyecto/:id" render={props => {
                             var id = props.match.params.id;
@@ -689,6 +691,11 @@ export default function App() {
                         var id = props.match.params.id;
                         return <Participaciones id={id} />
                     }} />
+                     <Route exact path="/ParticipacionesExternas/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ParticipaEventosExternos id={id} />
+                    }} />
+                    
                       <Route exact path="/AreasConocimientoProyecto/:id" render={props => {
                         var id = props.match.params.id;
                         return < AreasConocimientoProyecto id={id} />
@@ -710,6 +717,8 @@ export default function App() {
                         var id = props.match.params.id;
                         return <CrearProyectoGrado id={id} />
                     }} />
+                    <Route path="/TusClases" exact component={TusClases} />
+
             <Route component ={() => (
           <Error/>)
         } />

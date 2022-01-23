@@ -30,7 +30,7 @@ export default class ProyectoSemillero extends Component {
           return response.data;
         }).then(response => {
           if (response.respuesta== "este usuario ya esta asignado a un semillero") {
-            alert('estas inscrito aun semillero');
+            alert('Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista');
             window.location.href = "/Home/Login/Dashboart/";
           } else {
             alert('el usuario o contraseña o el tipo de usuario son incorrectos');
@@ -148,8 +148,6 @@ export default class ProyectoSemillero extends Component {
                                 {pro.estado}
                                 </a>
                               </td>
-                           
-                              
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}

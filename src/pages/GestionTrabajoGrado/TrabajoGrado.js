@@ -45,7 +45,7 @@ export default class TrabajoGrado extends Component {
              rol==="Egresado"?(
            <></>
               ) :(
-                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoGrado"} >crear un poryecto</NavLink>
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/  CrearProyectoMateria/"} >crear un poryecto</NavLink>
                 )
            }
               {this.state.status === true &&
@@ -113,7 +113,7 @@ export default class TrabajoGrado extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetalleProyectoGrado/" + pro.id} >Detalles</NavLink>
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoAI/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
                             </tr>
