@@ -4,16 +4,16 @@ import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class InsertarMateria extends Component {
-    
+export default class ActualizarMateriaPrograma extends Component {
 
     cajaCatalogoRef = React.createRef();
     cajaNombreRef = React.createRef();
     cajaProgramaRef = React.createRef();
 
     state = { status: false,
-    programas:[],
-progra:[] }
+        programas:[],
+        progra:[],
+    materia:{} }
 
     nuevaMateria = (e) => {
         e.preventDefault();
@@ -25,15 +25,14 @@ progra:[] }
             , nombre: nom
             , programa: pro
         };
-        var url = 'http://localhost:8080/gestioninstitucional/crearmateria';
+        var url = 'http://localhost:8080/gestioninstitucional/modificarmateria';
         axios.post(url, materia).then(res => {
             this.setState({ status: true });
-            
-            if (res.data.respuesta==="se creo la materia") {
-                alert("se creo la materia")
+            if (res.data.respuesta==="la materia fue actualizada") {
+                alert("la materia fue actualizada")
                 window.location.href = "/HomeInstitucional";
             }else{
-              alert("no se crear la materia")
+              alert("la materia no fue actualizada")
               window.location.href = "/HomeInstitucional";
             }
         });
@@ -48,14 +47,24 @@ progra:[] }
           })
         });
       }
+      Cargardos = () => {
+        var request = "/gestioninstitucional/materiaid/" + this.props.catalogo ;
+        var url = "http://localhost:8080" + request;
+         axios.get(url).then(res => {
+          this.setState({
+            materia: res.data
+            , status: true
+          })
+        });
+      }
       componentDidMount = () => {
         this.Cargar();
-        
+        this.Cargardos();
       }
     render() {
-        
+        var programa = localStorage.getItem("programa");
         if(this.state.status === true){
-           // return <Redirect to="/Materias" />
+            //return <Redirect to="/Materias" />
         }
         return (
             <div>
@@ -71,7 +80,7 @@ progra:[] }
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear una Materia</h3>
+                    <h3 className="card-title"  >Actualizar una Materia</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -79,28 +88,22 @@ progra:[] }
                     <form onSubmit={this.nuevaMateria} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputEmail1">Catalogo</label>
-                            <input type="number" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCatalogoRef} required/>
+                            <label htmlFor="exampleInputEmail1">Catalogo actual: {this.state.materia.catalogo}</label>
+                            <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{color: "red"}}>El catalogo no puede ser modificado</label>
+                            <input type="text" name="cajanom" className="form-control" value = {this.props.catalogo} placeholder="Catalogo" ref={this.cajaCatalogoRef}/>
+                            </div>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la Materia</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
-                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
-                                {this.state.status === true && 
+            
+                            <label htmlFor="exampleInputPassword1">Nombre de la Materia actual: {this.state.materia.nombre}</label>
                             
-                            ( this.state.programas.map((progra) => {
-                            return(
-                                    <option value={progra.id}>{progra.nombre}</option> 
-                                    );
-                                })
-                                )}
-                            </select>
+                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef}/>
+                        </div>
+                        <div className="form-group">
+
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa actual es {programa}</label>
+                            <input type="text" name="cajadir" className="form-control" value={programa} ref={this.cajaProgramaRef} readOnly/>
                         </div>
                         </div>
                         {/* /.card-body */}

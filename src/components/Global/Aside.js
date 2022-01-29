@@ -27,6 +27,7 @@ componentDidMount = () => {
 
   render() {
     var rol = localStorage.getItem("tipo");
+    var programa = localStorage.getItem("programa");
     return (
       <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' }}>
         <div className="sidebar" style={{ position: 'fixed', overflowY: 'scroll', scrollbarWidth: 'thin', width: '250px' }}>
@@ -37,17 +38,17 @@ componentDidMount = () => {
               <img src="https://i.ibb.co/X201Qwc/LOGO.png" className="img-circle elevation-2" alt="User Image" />
             </div>
             <div className="info">
-              <a href="#" className="d-block">SGPI</a>
+              <a href="/HomeInstitucional" className="d-block">SGPI</a>
             </div>
           </div>
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
 
             <a href={"/Perfil/"+  localStorage.getItem("cedula")} className="brand-link">
-             
-                    <span className="brand-text font-weight-light"  >{this.state.nombre.nombres} </span>
-               
 
+            <span className="brand-text font-weight-light"  >{rol} | { this.state.nombre.nombres} </span> 
             </a>
+
+           
           </div>
           {/* Sidebar Menu */}
           <nav className="mt-2">
@@ -115,8 +116,61 @@ componentDidMount = () => {
             </li>
             
               }
+
+{ (rol ==="Director programa") &&
+
+
+<li className="nav-item menu-open">
+<div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
+
+</div>
+                  <a href="#" className="nav-link ">
+                    <i className="fas fa-user-tie nav-icon" />
+                    <p>
+                      Gestion institucional
+                      <i className="right fas fa-angle-left " />
+                    </p>
+
+                  </a>
+                  <ul className="nav nav-treeview">
+                    
+                    <Link to={"/MateriasPrograma/" +programa}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-book-reader nav-icon" />
+
+                          <p>Materias de tu programa</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                  </ul>
+                  <ul className="nav nav-treeview">
+                    
+                    <Link to={"/UsuariosPrograma/" +programa}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-user-friends  nav-icon" />
+
+                          <p>Usuarios de tu programa</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                  </ul>
+                </li>
+}
+
+
+
+
               { (rol ==="Biblioteca" || rol ==="Admin") &&
                 <li className="nav-item menu-open">
+                  <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
+
+</div>
                   <a href="#" className="nav-link ">
                     <i className="fas fa-newspaper nav-icon" />
                     <p>
@@ -149,6 +203,48 @@ componentDidMount = () => {
                   </ul>
                 </li>
               }
+
+{ (rol ==="Personal publicaciones" || rol ==="Personal biblioteca") &&
+                <li className="nav-item menu-open">
+                  <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
+
+</div>
+                  <a href="#" className="nav-link ">
+                    <i className="fas fa-newspaper nav-icon" />
+                    <p>
+                      Gestion
+                      <i className="right fas fa-angle-left" />
+                    </p>
+
+                  </a>
+                  <ul className="nav nav-treeview">
+                    <Link to="/ProyectosGradoFin">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                          <p>Trabajos de grado terminados</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                    <Link to="/ProyectosGrado">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-graduation-cap nav-icon" />
+
+                          <p>Trabajos de grado</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                  </ul>
+                </li>
+              }
+
+
+
               {(rol ==="Administrativo"||rol === "Admin" )&&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">

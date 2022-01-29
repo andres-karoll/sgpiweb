@@ -1,36 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ClasesMateria extends Component {
+
+export default class UsuariosPrograma extends Component {
 
   state = {
-status: false,
-    clases:[]
+    usuarios: []
+    , status: false
   }
 
-  cargarClase= () => {
+  cargarUsuarios = () => {
+    var programa = localStorage.getItem("programa");
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarclasespormateria/" +this.props.id;
+    var request = "/gestioninstitucional/listarusuariosporprograma/" + programa;
+    
     axios.get(url + request).then(res => {
+      
       this.setState({
-        clases: res.data
+        
+        usuarios: res.data
         , status: true
       });
+      
     });
-    
   }
+  
 
   componentDidMount = () => {
-    this.cargarClase();
-    //this.cargarLineas();
-
+    this.cargarUsuarios();
   }
 
   render() {
     return (
+
     <div>
       <Aside/>
       <Header/>
@@ -39,23 +44,22 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Clases de la Materia con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-book-reader nav-icon"></i>Usuarios de este programa</h1>
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClaseMateria/"+this.props.id} >Crear Clase</NavLink>
+      
       {this.state.status === true &&
         (
-          this.state.clases.map((cla, i) => {
+          this.state.usuarios.map((usu) => {
            
             return (
-
               <section className="content">
                 {/* Default box */}
                 <div className="card">
-                
+                    
                   <div className="card-header">
-                    <h3 className="card-title">Clase de la materia con ID: {this.props.id}</h3>
+                    <h3 className="card-title">Nombre de Usuario: {usu.nombres} {usu.apellidos}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -70,41 +74,58 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '20%' }}>
-                            numero
+                          <th style={{ width: '15%' }}>
+                            Cedula
                           </th>
-                          <th style={{ width: '20%' }}>
-                           nombre
-                          </th>               
-                          <th style={{ width: '20%' }}>
-                            profesor
+                          <th style={{ width: '15%' }}>
+                            Codigo estudiantil
                           </th>
-                          <th style={{ width: '20%' }}>
-                            materia
+                          <th style={{ width: '15%' }}>
+                            Correo personal
                           </th>
+                          <th style={{ width: '15%' }}>
+                            Correo Estudiantil
+                          </th>
+                          <th style={{ width: '15%' }}>
+                            Telefono
+                          </th>   
+                          <th style={{ width: '15%' }}>
+                            Rol
+                          </th>                                 
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                          {cla.numero}
+                             {usu.cedula}
                           </td>
                           <td>
-                          {cla.nombre}
+                            <a>
+                            {usu.cod_Universitario}
+                            </a>
                           </td>
                           <td>
-                          {cla.profesor}
+                            <a>
+                            {usu.correo_personal}
+                            </a>
                           </td>
                           <td>
-                          {cla.materia}
+                            <a>
+                            {usu.correo_est}
+                            </a>
                           </td>
-                          
+                          <td>
+                            <a>
+                            {usu.telefono}
+                            </a>
+                          </td>
+                          <td>
+                            <a>
+                            {usu.rol}
+                            </a>
+                          </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
-                          {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ActulizarClaseMateria/" + cla.numero} >Modificar</NavLink>
-                          
-                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
-                                                  
+                          {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}                          
                           </td>
                         </tr>
                       </tbody>
