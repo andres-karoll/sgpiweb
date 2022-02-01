@@ -41,8 +41,7 @@ export default class ConvocatoriasAbiertas extends Component {
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatoria"} >Crear Convocatoria</NavLink>
-      {this.state.status === true &&
+       {this.state.status === true &&
         (
           this.state.convocatorias.map((con, i) => {
            

@@ -6,7 +6,9 @@ import { NavLink} from 'react-router-dom';
 export default class CrearProyectoSemillero extends Component {
     state = { 
             status: false,
-            usuario:[],   
+            usuario:[],
+            Macro:[],
+            mac:[]   
         }
 CargarUsuario = () => {
     var request = "/gestionusuario/buscarusuario/"+localStorage.getItem("cedula") ;
@@ -18,7 +20,16 @@ CargarUsuario = () => {
       })
     });
   }
-
+  CargarMacroProyecto=()=>{
+    var request = "/gestionproyectosaulaintegrador/macroProyectos/";
+    var url = "http://localhost:8080" + request;
+    axios.get(url).then(res => {
+        this.setState({
+            Macro: res.data
+            , status: true
+        })
+    });
+}
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
@@ -31,8 +42,10 @@ CargarUsuario = () => {
     cajaRol=React.createRef();
     cajaParticipante=React.createRef();
     cajaSemillero=React.createRef();
+    cajaMacro=React.createRef();
 componentDidMount = () => {
         this.CargarUsuario();
+        this.CargarMacroProyecto();
     }
 CrearProyecto =  (e) => {
         e.preventDefault();
@@ -48,6 +61,7 @@ CrearProyecto =  (e) => {
         var part=localStorage.getItem("cedula");
         var ro=this.cajaRol.current.value;
         var semi=this.cajaSemillero.current.value;
+        var macr=this.cajaMacro.current.value;
         var proyecto = {
                 titulo:tit,
                 estado:esta,
@@ -60,7 +74,8 @@ CrearProyecto =  (e) => {
                 tipo:tip,
                 usuario:part,
                 rol:ro,
-                semillero:semi
+                semillero:semi,
+                macro:macr
         };
         var url = 'http://localhost:8080/gestionproyectosinvestigacion/crearproyecto';
             axios.post(url, proyecto).then(res => {
@@ -76,7 +91,7 @@ CrearProyecto =  (e) => {
         });
     }   
     render() {    
-         
+         var rol=localStorage.getItem("tipo")
         return (
             <div>
                 <Aside/>
@@ -93,6 +108,10 @@ CrearProyecto =  (e) => {
                     <div className="card-header" style={{align:"center"}}>
                     <h3 className="card-title"  >Crear proyecto semillero</h3>
                   </div>
+                  {
+            (rol === "Docente lider semillero") &&
+              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/MacroProyectos"} >Macro proyectos</NavLink>
+          }
                     {/* /.card-header */}
                     {/* form start */}
                     <form  style={{width: "50%", margin: "auto"}} onSubmit={this.CrearProyecto}>
@@ -109,10 +128,12 @@ CrearProyecto =  (e) => {
                             <input type="text" name="cajatel" className="form-control"ref={this.cajaDescripcion}/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha inicio</label>
-                            <input type="text" name="cajatel" className="form-control"ref={this.cajaFecha} />                        
-                        </div>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de inicio</label>
+                                                    {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha_fun" ref={this.cajaFecha_funRef} />*/}
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                                                </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Estado del proyecto</label>
@@ -165,6 +186,25 @@ CrearProyecto =  (e) => {
                                     <option style={{color: "black"}}>Participante</option>
                                     <option style={{color: "black"}}>coLider</option>
                         </select>
+                        {
+                            (rol==="Docente lider semillero")&&
+                            <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1">Macro Proyecto</label>
+                                                    <div></div>
+                                                    <select ref={this.cajaMacro} style={{ color: "black" }}>
+                                                    <option selected value={0}>Selecciona el macro proyecto </option>
+                                                        {this.state.status === true &&
+                                                                (this.state.Macro.map((mac) => {
+                                                                return (
+                                                                    <option style={{ color: "black" }} value={mac.id}>{mac.nombre}</option>
+                                                                );
+                                                            }
+                                                            )
+                                                            )
+                                                        }
+                                                    </select>
+                                                </div>
+                        }
                         </div>
                         {this.state.status === true &&
                         (

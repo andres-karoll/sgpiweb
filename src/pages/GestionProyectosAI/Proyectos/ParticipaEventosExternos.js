@@ -49,7 +49,7 @@ ParticiparEvento =  (e) => {
             sitioWeb:sitio,
             url_memoria:url
         };
-        var url = 'http://localhost:8080/gestionproyectosaulaintegrador/participarevento/';
+        var url = 'http://localhost:8080/gestionproyectosaulaintegrador/participareventoExterno';
             axios.post(url, ParticipacionEvento).then(res => {
             this.setState({ status: true });
             window.location.href = "/Participaciones/"+this.props.id ;       
@@ -93,7 +93,7 @@ ParticiparEvento =  (e) => {
                     <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Estado del evento</label>
                                                     <div></div>
-                                                    <select ref={this.cajaMacro} style={{ color: "black" }}>
+                                                    <select ref={this.cajaEstado} style={{ color: "black" }}>
                                                     <option selected value={0}>Selecciona un estado </option>
                                                     <option >Abierta</option>
                                                     <option >Cerrada</option>
@@ -102,7 +102,19 @@ ParticiparEvento =  (e) => {
                                                 <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Entidad </label>
                         <div></div>
-                        <input type="text" name="cajanom" className="form-control" ref={this.cajaEvento} required/>
+                        <input type="text" name="cajanom" className="form-control" ref={this.cajaEntidad} required/>
+                      
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Sitio Web </label>
+                        <div></div>
+                        <input type="text" name="cajanom" className="form-control" ref={this.cajaSitioWeb} required/>
+                      
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Url memoria </label>
+                        <div></div>
+                        <input type="text" name="cajanom" className="form-control" ref={this.cajaUrl} required/>
                       
                     </div>
                     <div className="form-group">

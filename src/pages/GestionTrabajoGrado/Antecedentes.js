@@ -14,7 +14,7 @@ export default class Antecedentes extends Component {
       }
       cargarAntecedentes = () => {
         var url = "http://localhost:8080";
-        var request = "/gestionproyectosinvestigacion/antecedentesporproyecto/"+this.props.id;
+        var request = "/gestionproyectosinvestigacion/listarAntecedentes/"+this.props.id;
         console.log(this.props.id)
         axios.get(url + request).then(res => {
           this.setState({
@@ -43,7 +43,7 @@ export default class Antecedentes extends Component {
                 </section>
           </div> 
           {
-             rol==="Egresado"?(
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
            <></>
               ) :(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarAntecedente/"+this.props.id} >Agrega un antecente</NavLink>
@@ -128,48 +128,6 @@ export default class Antecedentes extends Component {
                 </p>
                           
               </a>
-              <ul className="nav nav-treeview">
-              <Link to={"/AsignarLineaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                  <i className="fas fa-check nav-icon"> </i>
-                  
-                    <p>Asignar Linea al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/AsignarProgramaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Asignar Programa al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/LineasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver lineas de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/ProgramasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver programa de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-              </ul>
             </li>
     
                         </ul>

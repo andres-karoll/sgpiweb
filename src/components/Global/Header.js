@@ -5,6 +5,7 @@ export default class Header extends Component {
  cerrarSesion=()=>{
     localStorage.removeItem('cedula');
     localStorage.removeItem('tipo');
+    localStorage.clear();
     window.location.href="/";
  
   }

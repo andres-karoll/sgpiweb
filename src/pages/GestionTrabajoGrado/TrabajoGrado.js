@@ -42,10 +42,10 @@ export default class TrabajoGrado extends Component {
                 </section>
           </div> 
           {
-             rol==="Egresado"?(
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
            <></>
               ) :(
-                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/  CrearProyectoMateria/"} >crear un poryecto</NavLink>
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoMateria/"} >crear un poryecto</NavLink>
                 )
            }
               {this.state.status === true &&
@@ -130,46 +130,21 @@ export default class TrabajoGrado extends Component {
                           
               </a>
               <ul className="nav nav-treeview">
-              <Link to={"/AsignarLineaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                  <i className="fas fa-check nav-icon"> </i>
-                  
-                    <p>Asignar Linea al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/AsignarProgramaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Asignar Programa al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/LineasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver lineas de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/ProgramasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver programa de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
+              {
+            rol === "Egresado"  || rol === "Estudiante inactivo"? (
+              <></>
+            ) : (
+              <Link to={"/SubirProductos/" + pro.id}>
+              <li className="nav-item">
+                <a  className="nav-link">
+                  <i className="fas fa-file-upload nav-icon" />
+  
+                  <p>Subir Productos</p>
+                   
+                </a>
+              </li>
+              </Link>)
+          }
               </ul>
             </li>
     

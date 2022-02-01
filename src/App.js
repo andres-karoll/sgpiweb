@@ -144,6 +144,8 @@ import UploadFiles from './components/Upload-files.component'
 import ProductosProyectoVisible from './pages/Proyectos/Productos/ProductosProyectoVisible'
 import UsuarioPerfil from './pages/Usuario/UsuarioPerfil'
 import ParticipaEventosExternos from './pages/GestionProyectosAI/Proyectos/ParticipaEventosExternos'
+import CrearMacro from './pages/GestionProyectosAI/Proyectos/crearMacro'
+import MacroProyectos from './pages/GestionProyectosAI/Proyectos/MacroProyectos'
 
 
 export default function App() {
@@ -718,6 +720,8 @@ export default function App() {
                         return <CrearProyectoGrado id={id} />
                     }} />
                     <Route path="/TusClases" exact component={TusClases} />
+                    <Route path="/MacroProyectos" exact component={MacroProyectos} />
+                    <Route path="/crearMacro" exact component={CrearMacro} />
 
             <Route component ={() => (
           <Error/>)

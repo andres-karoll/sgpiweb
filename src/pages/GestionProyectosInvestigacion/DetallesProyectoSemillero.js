@@ -26,6 +26,7 @@ export default class DetallesProyectoSemillero extends Component {
     }
 
     render() {
+      var rol=localStorage.getItem("tipo")
         return (
             <div>
             <Aside /> 
@@ -91,7 +92,7 @@ export default class DetallesProyectoSemillero extends Component {
                   </div>
                 </div>
               </div>
-              {this.state.proyecto.semillero !=null &&(
+         
               <div className="col-12 col-sm-4">
                 <div className="info-box bg-light">
                   <div className="info-box-content">
@@ -100,7 +101,7 @@ export default class DetallesProyectoSemillero extends Component {
                   </div>
                 </div>
               </div>
-              )}
+         
             </div>
             <div className="row">
               <div className="col-12">
@@ -161,8 +162,9 @@ export default class DetallesProyectoSemillero extends Component {
             <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                             <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
-                             <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Productos</NavLink>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ProductosProyecto/" + this.state.proyecto.id} >Productos</NavLink>
+                           
                              
                               </div>                   
             </td>
@@ -185,26 +187,67 @@ export default class DetallesProyectoSemillero extends Component {
             </div>
             <h5 className="mt-5 text-muted">Archivos del proyecto</h5>
             <ul className="list-unstyled">
-            <li>
+
+                            <li>
                               <div>
                                 <br />
                               </div>
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >Participaciones en eventos</NavLink>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >eventos</NavLink>
+                            </li>
+                            <li>
+
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento </NavLink>
                             </li>
                             <li>
                               <div>
                                 <br />
                               </div>
-
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento de este proyecto</NavLink>
+                              {
+                                rol === "Egresado" || rol === "Estudiante inactivo" ? (
+                                  <></>
+                                ) : (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
+                                )
+                              } 
+                                </li>
+                              <li>
+                              <div>
+                                <br />
+                              </div>
+                              {
+                                rol === "Docentes"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/EliminarProyecto/" + this.state.proyecto.id} >Eliminar  Proyecto</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
+                                              {
+                                rol === "Docente investigador"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticiparConvocatoria"} >Participa en una Convocatoria</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
                             </li>
-              <li>
-                <a href className="btn-link text-secondary"><i className="far fa-fw fa-image " /> Logo.png</a>
-              </li>
-              <li>
-                <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Contract-10_12_2014.docx</a>
-              </li>
-            </ul>
+
+                            <li>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Antecedentes/" + this.state.proyecto.id} >Antecedentes</NavLink>
+                            </li>
+
+                            <li>
+                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Contract-10_12_2014.docx</a>
+                            </li>
+                          </ul>
 
           </div>
         </div>

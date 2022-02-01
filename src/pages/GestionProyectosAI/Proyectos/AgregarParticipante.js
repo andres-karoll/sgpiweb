@@ -37,7 +37,8 @@ AgregarParticipante =  (e) => {
             }
         });
     }   
-    render() {            
+    render() {    
+        var rol=localStorage.getItem("tipo")       
         return (
             <div>
                 <Aside/>
@@ -80,16 +81,24 @@ AgregarParticipante =  (e) => {
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                         <div></div>
-                        <select ref={this.cajaRol} required>
                         {
-                                                            localStorage.getItem("tipo") === "Estudiante activo" ? (
-
+                                                            rol === "Estudiante activo" &&
+                        <select ref={this.cajaRol} required>
+                        
+                                                                
                                                                 <option style={{ color: "black" }}>Participante</option>
-                                                            ) : (
-                                                                <option style={{ color: "black" }}>Lider </option>
-                                                            )
+                                                                </select>
+                                                            
                                                         }
-                        </select>
+                         {
+                                                            rol === "Docentes" &&
+                        <select ref={this.cajaRol} required>
+                        
+                        <option style={{ color: "black" }}>Lider</option>
+                                                                <option style={{ color: "black" }}>Participante</option>
+                                                                </select>
+                                                            
+                                                        }
                         </div>
                         </div>
                         <div className="card-footer">

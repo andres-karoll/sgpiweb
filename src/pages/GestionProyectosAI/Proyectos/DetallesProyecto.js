@@ -26,6 +26,7 @@ export default class DetallesProyecto extends Component {
   }
 
   render() {
+    var rol = localStorage.getItem("tipo");
     return (
       <div>
         <Aside />
@@ -174,33 +175,63 @@ export default class DetallesProyecto extends Component {
                           </div>
                           <h5 className="mt-5 text-muted">Archivos del proyecto</h5>
                           <ul className="list-unstyled">
-                          
+
                             <li>
                               <div>
                                 <br />
                               </div>
                               <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Participaciones/" + this.state.proyecto.id} >eventos</NavLink>
-                            </li>                  
+                            </li>
                             <li>
-                              
+
                               <div>
                                 <br />
                               </div>
 
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento de este proyecto</NavLink>
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AreasConocimientoProyecto/" + this.state.proyecto.id} >Areas de conocimiento </NavLink>
                             </li>
                             <li>
                               <div>
                                 <br />
                               </div>
+                              {
+                                rol === "Egresado" || rol === "Estudiante inactivo" ? (
+                                  <></>
+                                ) : (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
+                                )
+                              } 
+                                </li>
+                              <li>
+                              <div>
+                                <br />
+                              </div>
+                              {
+                                rol === "Docentes"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/EliminarProyecto/" + this.state.proyecto.id} >Eliminar  Proyecto</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
+                                              {
+                                rol === "Docente investigador"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticiparConvocatoria"} >Participa en una Convocatoria</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
+                            </li>
 
-                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
-                            </li>
-                            
-                            
                             <li>
-                              <a href className="btn-link text-secondary"><i className="far fa-fw fa-image " /> Logo.png</a>
+                              <div>
+                                <br />
+                              </div>
+
+                              <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Antecedentes/" + this.state.proyecto.id} >Antecedentes</NavLink>
                             </li>
+
                             <li>
                               <a href className="btn-link text-secondary"><i className="far fa-fw fa-file-word" /> Contract-10_12_2014.docx</a>
                             </li>
