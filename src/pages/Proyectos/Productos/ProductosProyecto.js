@@ -20,24 +20,18 @@ status: false,
        productos: res.data
         , status: true
       });
-      //window.location.href = "/Proyectos";
+      if (this.state.productos.length === 0) {
+        alert("este proyecto no tiene productos")
+        window.history.back();
+    }
     });
     
   }
-  Cargar = () => {
-    var request = "/gestioninstitucional/listargruposi" ;
-    var url = "http://localhost:8080" + request;
-     axios.get(url).then(res => {
-      this.setState({
-        gruposi: res.data
-        , status: true
-      })
-    });
-  }
+
 
   componentDidMount = () => {
     this.cargarProductos();
-    this.Cargar();
+
 
   }
 

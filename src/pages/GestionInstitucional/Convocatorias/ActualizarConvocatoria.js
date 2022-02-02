@@ -47,10 +47,10 @@ export default class ActualizarConvocatorias extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo la convocatoria") {
                 alert("se actualizó la convocatoria")
-                window.location.href = "/Convocatorias";
+                window.history.back();
             }else{
               alert("no se pudo actualizar la convocatoria")
-              window.location.href = "/Convocatorias";
+              
             }
         });
     }

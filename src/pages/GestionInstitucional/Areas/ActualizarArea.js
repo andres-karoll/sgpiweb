@@ -31,10 +31,10 @@ export default class ActualizarArea extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo la area") {
                 alert("se actualizó la area")
-                window.location.href ="/AreasConocimiento"
+                window.history.back();
             }else{
               alert("no se pudo actualizar la area")
-              window.location.href ="/AreasConocimiento"
+              
             }
         });
     }

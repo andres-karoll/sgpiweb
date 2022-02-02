@@ -21,7 +21,10 @@ status: false,
        productos: res.data
         , status: true
       });
-      //window.location.href = "/Proyectos";
+      if (this.state.productos.length === 0) {
+        alert("este proyecto no tiene productos")
+        window.history.back();
+    }
     });
     
   }
@@ -33,6 +36,7 @@ status: false,
         gruposi: res.data
         , status: true
       })
+      
     });
   }
 

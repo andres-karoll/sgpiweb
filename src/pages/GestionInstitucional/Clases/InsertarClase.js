@@ -35,30 +35,30 @@ mate:[] }
             this.setState({ status: true });
             if (res.data.respuesta==="se creo la clase") {
                 alert("se creo la clase")
-                window.location.href = "/Clases";
+                window.history.back();
             }else if (res.data.respuesta==="el usuario no existe") {
                 alert("el usuario no existe")
-                window.location.href = "/Clases";
+               
             }else if (res.data.respuesta==="la materia no existe") {
                 alert("la materia no existe")
-                window.location.href = "/Clases";
+               
             
             }else if (res.data.respuesta==="la clase ya existe") {
                 alert("la clase ya existe")
-                window.location.href = "/Clases";
+               
             
             }else if (res.data.respuesta==="esta persona es usuario inactivo") {
                 alert("el usuario es un estudiante inactivo")
-                window.location.href = "/Clases";
+             
             }else if (res.data.respuesta==="esta persona es usuario activo") {
                 alert("el usuario es un estudiante activo")
-                window.location.href = "/Clases";
+               
             }else if (res.data.respuesta==="esta persona es usuario semillerista") {
                 alert("el usuario es un semillerista")
-                window.location.href = "/Clases";
+               
             }else{
               alert("no se pudo crear la clase")
-              window.location.href = "/Clases";
+              
             }
             
         });

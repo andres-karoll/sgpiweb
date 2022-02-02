@@ -31,10 +31,10 @@ progra:[] }
             
             if (res.data.respuesta==="se creo la materia") {
                 alert("se creo la materia")
-                window.location.href = "/HomeInstitucional";
+                window.history.back();
             }else{
               alert("no se crear la materia")
-              window.location.href = "/HomeInstitucional";
+              window.history.back();
             }
         });
     }

@@ -46,10 +46,10 @@ export default class CrearConvocatorias extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo la convocatoria") {
                 alert("se creo la convocatoria")
-                //window.location.href = "/Clases";
+                window.history.back();
             }else{
               alert("no se pudo crear la convocatoria")
-              //window.location.href = "/Clases";
+              
             }
         });
     }
@@ -86,18 +86,18 @@ export default class CrearConvocatorias extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nombre de la convocatoria</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaNombreRef} required/>
+                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
                         </div> 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Contexto</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaContextoRef} required/>
+                            <input type="text" name="cajatel" className="form-control" placeholder="Contexto" ref={this.cajaContextoRef} required/>
                         </div> 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Estado</label>
                             <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
-                            <option selected="selected"></option>
+                            <option selected="selected">Abierto</option>
                             <option>Abierto</option>
                             <option>Cerrado</option>
                             </select>
@@ -127,12 +127,12 @@ export default class CrearConvocatorias extends Component {
                         <div className="form-group">
                       
                             <label htmlFor="exampleInputPassword1">Numero de productos</label>
-                            <input type="number" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaNumProductosRef} />
+                            <input type="number" name="cajatel" className="form-control" placeholder="Numero de productos" ref={this.cajaNumProductosRef} />
                         </div>
                         <div className="form-group">
                         
                             <label htmlFor="exampleInputPassword1">Entidad</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaEntidadRef} />
+                            <input type="text" name="cajatel" className="form-control" placeholder="Entidad" ref={this.cajaEntidadRef} />
                         </div>
                                              
                         </div>

@@ -38,19 +38,19 @@ export default class ActualizarClase extends Component {
             
             if (res.data.respuesta==="la clase fue actualizada") {
                 alert("la clase fue actualizada")
-                window.location.href = "/Clases";
+                window.history.back();
             }else if (res.data.respuesta==="el usuario que escogio es un Estudiante inactivo") {
                 alert("el usuario que escogio es un Estudiante inactivo")
-                window.location.href = "/Clases";
+               
             }else if (res.data.respuesta==="el usuario que escogio es un Estudiante activo") {
                 alert("el usuario que escogio es un Estudiante activo")
-                window.location.href = "/Clases";
+                
             }else if (res.data.respuesta==="el usuario que escogio es un Semillerista") {
                 alert("el usuario que escogio es un Semillerista")
-                window.location.href = "/Clases";
+               
             }else{
               alert("no se pudo actualizar la clase")
-              window.location.href = "/Clases";
+              
             }
         });
     }

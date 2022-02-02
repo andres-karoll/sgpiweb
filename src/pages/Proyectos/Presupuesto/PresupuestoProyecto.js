@@ -17,9 +17,16 @@ status: false,
     var request = "/gestionfinanciera/listarpresupuestoporproyecto/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
+      
        presupuesto: res.data
         , status: true
+        
       });
+      if (this.state.presupuesto.length === 0) {
+        alert("este proyecto no tiene presupuesto")
+        window.history.back();
+    }
+
     });
     
   }
@@ -57,7 +64,7 @@ status: false,
       {this.state.status === true &&
         (
           this.state.presupuesto.map((pre, i) => {
-           
+        
             return (
               <div className="card card-primary card-outline "style={{ width: '50%', marginLeft:"auto", marginRight:"auto"}}>
   <div className="card-body box-profile">
@@ -175,6 +182,8 @@ status: false,
                     </ul>
 </div>
             );
+   
+
         })
       )}
 

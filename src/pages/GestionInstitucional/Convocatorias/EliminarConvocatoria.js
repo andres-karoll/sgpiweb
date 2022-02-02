@@ -13,6 +13,13 @@ export default class EliminarConvocatoria extends Component {
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="no se pudo eliminar") {
+                alert("no se pudo eliminar")
+            }
+            else{
+                alert("eliminado con Exito")
+                window.history.back();
+            }
         });
     }
 

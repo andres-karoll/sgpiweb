@@ -359,6 +359,26 @@ componentDidMount = () => {
                         </a>
                       </li>
                     </Link>
+                    <Link to="/ConvocatoriasAbiertas">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-door-open nav-icon" />
+
+                          <p> Convocatorias Abiertas</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                    <Link to="/ConvocatoriasCerradas">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-door-closed nav-icon" />
+
+                          <p> Convocatorias Cerradas</p>
+
+                        </a>
+                      </li>
+                    </Link>
 
                   </ul>
                 </li>
