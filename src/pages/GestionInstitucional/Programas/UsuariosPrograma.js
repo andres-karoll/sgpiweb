@@ -1,40 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectosConvocatoria extends Component {
+
+export default class UsuariosPrograma extends Component {
 
   state = {
-status: false,
-    proyectos:[]
+    usuarios: []
+    , status: false
   }
 
-  cargarProyecto= () => {
+  cargarUsuarios = () => {
+    var programa = localStorage.getItem("programa");
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarlosproyectosdeconvocatoria/" +this.props.id;
+    var request = "/gestioninstitucional/listarusuariosporprograma/" + programa;
+    
     axios.get(url + request).then(res => {
+      
       this.setState({
-        proyectos: res.data
+        
+        usuarios: res.data
         , status: true
       });
-      if (this.state.proyectos.length === 0) {
-        alert("Esta convocatoria no tiene proyectos")
-        window.history.back();
-    }
+      
     });
-    
   }
+  
 
   componentDidMount = () => {
-    this.cargarProyecto();
-    //this.cargarLineas();
-
+    this.cargarUsuarios();
   }
 
   render() {
     return (
+
     <div>
       <Aside/>
       <Header/>
@@ -43,22 +44,22 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-book-reader nav-icon"></i>Usuarios de este programa</h1>
                   </div>
                   </section>
       </div>
+      
       {this.state.status === true &&
         (
-          this.state.proyectos.map((pro, i) => {
+          this.state.usuarios.map((usu) => {
            
             return (
-
               <section className="content">
                 {/* Default box */}
                 <div className="card">
-                
+                    
                   <div className="card-header">
-                    <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
+                    <h3 className="card-title">Nombre de Usuario: {usu.nombres} {usu.apellidos}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -73,48 +74,58 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '5%' }}>
-                            id de proyecto
+                          <th style={{ width: '15%' }}>
+                            Cedula
                           </th>
                           <th style={{ width: '15%' }}>
-                           Titulo del proyecto
-                          </th>               
-                          <th style={{ width: '25%' }}>
-                            Descripción
+                            Codigo estudiantil
                           </th>
-                          <th style={{ width: '10%' }}>
-                            Estado
+                          <th style={{ width: '15%' }}>
+                            Correo personal
                           </th>
-                          <th style={{ width: '10%' }}>
-                          Convocatoria
+                          <th style={{ width: '15%' }}>
+                            Correo Estudiantil
                           </th>
+                          <th style={{ width: '15%' }}>
+                            Telefono
+                          </th>   
+                          <th style={{ width: '15%' }}>
+                            Rol
+                          </th>                                 
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                          {pro.id_proyecto}
+                             {usu.cedula}
                           </td>
                           <td>
-                          {pro.titulo_proyecto}
+                            <a>
+                            {usu.cod_Universitario}
+                            </a>
                           </td>
                           <td>
-                          {pro.descripcion_proyecto}
+                            <a>
+                            {usu.correo_personal}
+                            </a>
                           </td>
                           <td>
-                          {pro.estado_proyecto}
+                            <a>
+                            {usu.correo_est}
+                            </a>
                           </td>
                           <td>
-                          {pro.convocatoria}
+                            <a>
+                            {usu.telefono}
+                            </a>
                           </td>
-                          <td className="project-actions text-right">
-                            
-                          <NavLink to={"/DetallesProyecto/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
-                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink> 
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id_proyecto} >Productos</NavLink>
-                          
-                          
-                            
+                          <td>
+                            <a>
+                            {usu.rol}
+                            </a>
+                          </td>
+                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}                          
                           </td>
                         </tr>
                       </tbody>

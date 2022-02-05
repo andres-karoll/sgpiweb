@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class MateriaPrograma extends Component {
@@ -43,6 +43,7 @@ status: false,
                   </div>
                   </section>
       </div>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarMateriaPrograma/"+this.props.id} >Crear Materia</NavLink>
       {this.state.status === true &&
         (
           this.state.materias.map((mat, i) => {
@@ -92,11 +93,38 @@ status: false,
                           {mat.programa}
                           </td>
                           <td className="project-actions text-right" style={{width: '40%'}}>
-                 
+                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarMateriaPrograma/" + mat.catalogo} >Modificar</NavLink>
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarMateria/" + mat.catalogo} >Eliminar</NavLink>  
                           </td>
                         </tr>
                       </tbody>
                     </table>
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/ClasesMateria/" + mat.catalogo}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver las Clases de la materia</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

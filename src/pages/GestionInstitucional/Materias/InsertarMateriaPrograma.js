@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class InsertarMateria extends Component {
+export default class InsertarMateriaPrograma extends Component {
     
 
     cajaCatalogoRef = React.createRef();
@@ -31,10 +31,10 @@ progra:[] }
             
             if (res.data.respuesta==="se creo la materia") {
                 alert("se creo la materia")
-                window.location.href = "/HomeInstitucional";
+                window.history.back();
             }else{
               alert("no se crear la materia")
-              window.location.href = "/HomeInstitucional";
+              window.history.back();
             }
         });
     }
@@ -90,17 +90,8 @@ progra:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa</label>
-                            <select ref={this.cajaProgramaRef} style={{width: '50%',  height: "30px"}} required>
-                                {this.state.status === true && 
-                            
-                            ( this.state.programas.map((progra) => {
-                            return(
-                                    <option value={progra.id}>{progra.nombre}</option> 
-                                    );
-                                })
-                                )}
-                            </select>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa actual es {this.props.id}</label>
+                            <input type="text" name="cajadir" className="form-control" value={this.props.id} ref={this.cajaProgramaRef} required/>
                         </div>
                         </div>
                         {/* /.card-body */}

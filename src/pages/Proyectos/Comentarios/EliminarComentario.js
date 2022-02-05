@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+
+
 
 
 export default class EliminarComentario extends Component {
@@ -23,9 +23,7 @@ export default class EliminarComentario extends Component {
         }
         return (
             <div>
-               
-                <Aside/>
-                <Header/>
+             
             <div className="content-wrapper">
             <div>
             <section className="content">

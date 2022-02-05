@@ -30,10 +30,10 @@ export default class InsertarArea extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo la area") {
                 alert("se creo la area")
-                //window.location.href ="/ProyectosAulaIntegrador"
+                window.history.back();
             }else{
               alert("no se pudo crear")
-              //window.location.href ="/ProyectosAulaIntegrador"
+            
             }
         });
     }
@@ -43,7 +43,7 @@ export default class InsertarArea extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/AreasConocimiento" />
+            //return <Redirect to="/AreasConocimiento" />
         }
         return (
             <div>

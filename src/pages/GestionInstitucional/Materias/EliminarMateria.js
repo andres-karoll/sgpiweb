@@ -18,7 +18,7 @@ export default class EliminarMateria extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Materias" />
+            return <Redirect to="/HomeInstitucional" />
         }
         return (
             <div>

@@ -191,6 +191,17 @@ function Proyectos(){
               </a>
             </li>
             </Link>
+
+            <Link to={"/AceptarDenegarConvocatoria/" + proye.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-check-double nav-icon" />
+                
+                <p>Aceptar Denegar convocatoria</p>
+                 
+              </a>
+            </li>
+            </Link>
             
           </ul>
         </li>
