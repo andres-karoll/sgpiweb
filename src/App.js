@@ -144,6 +144,13 @@ import UploadFiles from './components/Upload-files.component'
 import ProductosProyectoVisible from './pages/Proyectos/Productos/ProductosProyectoVisible'
 import UsuarioPerfil from './pages/Usuario/UsuarioPerfil'
 import ParticipaEventosExternos from './pages/GestionProyectosAI/Proyectos/ParticipaEventosExternos'
+
+/*error*/
+import CrearMacro from './pages/GestionProyectosAI/Proyectos/crearMacro'
+import MacroProyectos from './pages/GestionProyectosAI/Proyectos/MacroProyectos'
+import TusProyectosConvocatoria from './pages/GestionProyectosInvestigacion/TusProyectosConvocatoria'
+
+  /*error*/
 import InsertarMateriaPrograma from './pages/GestionInstitucional/Materias/InsertarMateriaPrograma'
 import ActualizarMateriaPrograma from './pages/GestionInstitucional/Materias/ActualizarMateriaPrograma'
 import InsertarClaseMateria from './pages/GestionInstitucional/Clases/InsertarClaseMateria'
@@ -766,7 +773,11 @@ export default function App() {
                         return <CrearProyectoGrado id={id} />
                     }} />
                     <Route path="/TusClases" exact component={TusClases} />
-
+                    <Route path="/MacroProyectos" exact component={MacroProyectos} />
+                    <Route path="/crearMacro" exact component={CrearMacro} />
+                    <Route path="/TusProyectosConvocatoria" exact component={TusProyectosConvocatoria} />
+                    <Route path="/TusProyectosSemillero" exact component={TusProyectosConvocatoria} />
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />                    
             <Route component ={() => (
           <Error/>)
         } />

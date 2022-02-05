@@ -40,7 +40,7 @@ export default class Participaciones extends Component {
               <div class="alert alert-info alert-dismissible">
                 <h1><i class="fas fa-user-friends nav-icon"></i>Tus Participaciones</h1>
                 {
-             rol==="Egresado"?(
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
            <></>
               ) :(
                 <div>

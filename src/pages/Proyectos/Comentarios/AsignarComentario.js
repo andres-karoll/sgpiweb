@@ -38,7 +38,7 @@ export default class AsignarComentario extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="el comentario se creo") {
                 alert("el comentario se creo")
-                //window.location.href ="/ProyectosAulaIntegrador" 
+                //window.location.href ="/ProyectosAulaIntegrador"
             }else{
               alert("no se pudo crear el comentario")
               //window.location.href ="/ProyectosAulaIntegrador"
@@ -50,9 +50,11 @@ export default class AsignarComentario extends Component {
 
 
     render() {
+
         if(this.state.status === true){
             return <Redirect to="/Proyectos" />
         }
+        var rol=localStorage.getItem("tipo")
         return (
             <div>
                 <Aside/>
@@ -88,6 +90,16 @@ export default class AsignarComentario extends Component {
                             <input type="text" name="cajatel" className="form-control" ref={this.cajaFaseRef} required/>
                         </div>
                         <div className="form-group">
+                        {
+                            rol==="Docentes"&&
+                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
+                        
+                        }
+                        {
+                            rol==="Docentes"&&
+                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
+                        
+                        }
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nivel</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>

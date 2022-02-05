@@ -29,6 +29,7 @@ export default class ParticipantesProyecto extends Component {
     }
 
     render() {
+      var rol = localStorage.getItem("tipo")
         return (
             <div>
             <Aside/>
@@ -42,9 +43,22 @@ export default class ParticipantesProyecto extends Component {
                       </div>
                   </section>
             </div>
-            <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarParticipante/"+this.props.id} >Agregar Participante</NavLink>   
-            <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/EliminarParticipante/"+this.props.id} >Terminar proceso de participante</NavLink>   
-           {this.state.status === true &&
+            {
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
+           <></>
+              ) :(
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarParticipante/"+this.props.id} >Agregar Participante</NavLink>   
+                  )
+           }
+            {
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
+           <></>
+              ) :(
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/EliminarParticipante/"+this.props.id} >Terminar proceso de participante</NavLink>   
+                )
+           }
+             
+            {this.state.status === true &&
               (
                 this.state.participantes.map((pra) => {
                   return (
@@ -115,8 +129,7 @@ export default class ParticipantesProyecto extends Component {
                                 <td className="project-actions text-right" style={{width: '40%'}}>
                                 <div className=" mt-3 pb-3 mb-3 d-flex">
                                 {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                                <NavLink style={{width: '50%'}} className="btn btn-success" to={"/Perfil/"+pra.cedula} >Ver perfil</NavLink> 
-                                </div>                   
+                               </div>                   
                                 </td>
                               </tr>
                             </tbody>

@@ -39,11 +39,14 @@ AgregarAntecedente =  (e) => {
             axios.post(url, participante).then(res => {
             this.setState({ status: true });
             console.log(res.data.respuesta)
-            if (res.data.respuesta === "el proyecto fue creado") {
-                alert("El proyecto fue creado correctamente")
+            if (res.data.respuesta === "se agrego exitosamente el antecedente") {
+                alert("se agrego exitosamente el antecedentee")
                 window.location.href = "/Antecedentes/"+this.props.id ;       
-            } else {
-                alert(res.data.respuesta)
+            }else if(res.data.respuesta === "el antecedente aun no a terminado"){
+                alert("el antecedente aun no a terminado")
+            }
+             else {
+                alert("no se agrego el antecedente")
                 window.location.href = "/Antecedentes/"+this.props.id ;       
             }
             

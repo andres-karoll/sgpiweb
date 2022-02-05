@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-export default class Antecedentes extends Component {
+export default class TrabajosGrado extends Component {
 
    
     state = {
@@ -12,10 +12,9 @@ export default class Antecedentes extends Component {
         proyectos:[],
         pro:[]
       }
-      cargarAntecedentes = () => {
+      cargarGruposI = () => {
         var url = "http://localhost:8080";
-        var request = "/gestionproyectosinvestigacion/listarAntecedentes/"+this.props.id;
-        console.log(this.props.id)
+        var request = "/gestionproyectosinvestigacion/proyectosGrado"
         axios.get(url + request).then(res => {
           this.setState({
             proyectos: res.data
@@ -24,7 +23,7 @@ export default class Antecedentes extends Component {
         });
       }
       componentDidMount = () => {
-        this.cargarAntecedentes();
+        this.cargarGruposI();
         this.setState({pro:this.state.proyectos})
       }
       render() {
@@ -38,7 +37,7 @@ export default class Antecedentes extends Component {
                 <section className="content">
                     <br />
                     <div class="alert alert-info alert-dismissible">
-                      <h1><i class="fas fa-user-friends nav-icon"></i>Antecedentes del proyecto</h1>
+                      <h1><i class="fas fa-user-friends nav-icon"></i>Tus Proyectos de grado</h1>
                     </div>
                 </section>
           </div> 
@@ -46,7 +45,7 @@ export default class Antecedentes extends Component {
              rol==="Egresado" || rol==="Estudiante inactivo"?(
            <></>
               ) :(
-                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarAntecedente/"+this.props.id} >Agrega un antecente</NavLink>
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoMateria/"} >crear un poryecto</NavLink>
                 )
            }
               {this.state.status === true &&
@@ -109,10 +108,12 @@ export default class Antecedentes extends Component {
                                 {pro.estado}
                                 </a>
                               </td>
+                           
+                              
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetalleProyectoGrado/" + pro.id} >Detalles</NavLink>
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoAI/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
                             </tr>
@@ -128,6 +129,23 @@ export default class Antecedentes extends Component {
                 </p>
                           
               </a>
+              <ul className="nav nav-treeview">
+              {
+            rol === "Egresado"  || rol === "Estudiante inactivo"? (
+              <></>
+            ) : (
+              <Link to={"/SubirProductos/" + pro.id}>
+              <li className="nav-item">
+                <a  className="nav-link">
+                  <i className="fas fa-file-upload nav-icon" />
+  
+                  <p>Subir Productos</p>
+                   
+                </a>
+              </li>
+              </Link>)
+          }
+              </ul>
             </li>
     
                         </ul>

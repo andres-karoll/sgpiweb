@@ -1,40 +1,37 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-import { Link,NavLink } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
-export default class Convocatorias extends Component {
+
+import { NavLink,Link } from 'react-router-dom';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
+export default class TusProyectosSemillero extends Component {
 
   state = {
-    convocatorias: []
-    , status: false
+status: false,
+    proyectos:[]
   }
 
-  cargarConvocatorias = () => {
+  cargarProyecto= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarconvocatorias";
-    
+    var request = "/gestionproyectosinvestigacion/tusProyectosSemillero/" +localStorage.getItem("cedula");
     axios.get(url + request).then(res => {
-      
       this.setState({
-        
-        convocatorias: res.data
+        proyectos: res.data
         , status: true
       });
-      
     });
+    
   }
-  
 
   componentDidMount = () => {
-    this.cargarConvocatorias();
+    this.cargarProyecto();
+    //this.cargarLineas();
+
   }
 
   render() {
-   var rol=localStorage.getItem("tipo")
     return (
-
     <div>
       <Aside/>
       <Header/>
@@ -43,27 +40,22 @@ export default class Convocatorias extends Component {
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-pencil-alt nav-icon"></i>Convocatorias</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
-      {(rol==="Admin")&&
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatorias"} >Insertar</NavLink>
-      }
-       {(rol==="Profesional investigacion")&&
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatorias"} >Insertar</NavLink>
-      }
       {this.state.status === true &&
         (
-          this.state.convocatorias.map((con) => {
+          this.state.proyectos.map((pro, i) => {
            
             return (
+
               <section className="content">
                 {/* Default box */}
                 <div className="card">
-                    
+                
                   <div className="card-header">
-                    <h3 className="card-title">Nombre: {con.nombre}</h3>
+                    <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -79,66 +71,47 @@ export default class Convocatorias extends Component {
                       <thead>
                         <tr>
                           <th style={{ width: '5%' }}>
-                            ID
+                            id de proyecto
                           </th>
                           <th style={{ width: '15%' }}>
-                          Nombre de convocatoria
+                           Titulo del proyecto
+                          </th>               
+                          <th style={{ width: '25%' }}>
+                            Descripción
                           </th>
                           <th style={{ width: '10%' }}>
-                          Fecha Inicio
+                            Estado
                           </th>
                           <th style={{ width: '10%' }}>
-                          Fecha Fin
+                          Convocatoria
                           </th>
-                          <th style={{ width: '15%' }}>
-                          Entidad
-                          </th>
-                          <th style={{ width: '15%' }}>
-                          Estado
-                          </th>                                    
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                             {con.id}
+                          {pro.id}
                           </td>
                           <td>
-                            <a>
-                            {con.nombre_convocatoria}
-                            </a>
+                          {pro.titulo}
                           </td>
                           <td>
-                            <a>
-                            {con.fecha_inicio}
-                            </a>
+                          {pro.descripcion}
                           </td>
                           <td>
-                            <a>
-                            {con.fecha_final}
-                            </a>
+                          {pro.estado}
                           </td>
                           <td>
-                            <a>
-                            {con.entidad}
-                            </a>
+                          {pro.convocatoria}
                           </td>
-                          <td>
-                            <a>
-                            {con.estado}
-                            </a>
-                          </td>
-                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          <td className="project-actions text-right">
+                            
+                          <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink> 
+                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id} >Productos</NavLink>
                           
-                          <NavLink to={"/DetallesConvocatoria/" + con.id} style={{width: '30%'}} className="btn btn-primary">Detalles</NavLink> 
-                          {(rol==="Admin")&&
-                           <NavLink style={{width: '30%'}} className="btn btn-success"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
-                       
                           
-                          }
-                        {(rol==="Admin")&&
-                         <NavLink style={{width: '30%'}} className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
-                         }
+                            
                           </td>
                         </tr>
                       </tbody>
@@ -155,12 +128,13 @@ export default class Convocatorias extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ProyectosConvocatoria/" + con.id}>
+            
+            <Link to={"/SubirProductos/" + pro.id}>
             <li className="nav-item">
               <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
+                <i className="fas fa-file-upload nav-icon" />
                 
-                <p>Ver proyectos de la Convocatoria</p>
+                <p>Subir Productos</p>
                  
               </a>
             </li>

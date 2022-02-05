@@ -45,7 +45,7 @@ export default class ConvocatoriasAbiertas extends Component {
                   </div>
                   </section>
       </div>
-     
+
       {this.state.status === true &&
         (
           this.state.convocatorias.map((con, i) => {

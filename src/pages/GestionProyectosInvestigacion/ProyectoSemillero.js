@@ -31,7 +31,7 @@ export default class ProyectoSemillero extends Component {
         }).then(response => {
           if (response.respuesta== "este usuario ya esta asignado a un semillero") {
             alert('Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista');
-            window.location.href = "/Home/Login/Dashboart/";
+            window.location.href = "/HomeInstitucional";
           } else {
             alert('el usuario o contraseña o el tipo de usuario son incorrectos');
             window.location.href = "/" ;
@@ -40,7 +40,11 @@ export default class ProyectoSemillero extends Component {
       }
       componentDidMount = () => {
         this.cargarGruposI();
-        this.verificarSemillero();
+        if(localStorage.getItem("tipo")==="Estudiante activo" ){
+          this.verificarSemillero();
+        }
+
+        
         this.setState({pro:this.state.proyectos})
       }
       render() {
@@ -61,7 +65,7 @@ export default class ProyectoSemillero extends Component {
           {
              rol==="Egresado"?(
            <></>
-              ) : rol==="Estudiante activo"?(
+              ) : rol==="Estudiante activo" ||rol==="Estudiante inactivo"?(
                 <></>
               )
                 :(
@@ -69,18 +73,17 @@ export default class ProyectoSemillero extends Component {
                 )
            }
           {
-             rol==="Egresado"?(
+             rol==="Egresado" || rol==="Estudiante inactivo"?(
            <></>
               )  :
               rol==="Estudiante activo"?(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/UnirseSemillero"} >Unirse a un semillero</NavLink>
-
               ):(
                 <></>
                 )
            }
              {
-             rol==="Egresado"?(
+             rol==="Egresado"||rol==="Estudiante inactivo"?(
            <></>
               ): rol==="Estudiante activo"?(
                 <></>
@@ -151,6 +154,8 @@ export default class ProyectoSemillero extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink>
+                              
                               <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoSemillero/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
