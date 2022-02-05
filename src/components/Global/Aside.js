@@ -54,6 +54,173 @@ componentDidMount = () => {
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
+          { (rol ==="Profesional investigacion" ) &&
+                <li className="nav-item menu-open">
+                <a href="#" className="nav-link ">
+                  <i className="fas fa-newspaper nav-icon" />
+                  <p>
+                    Biblioteca
+                    <i className="right fas fa-angle-left" />
+                  </p>
+
+                </a>
+                <ul className="nav nav-treeview">
+                  <Link to="/Convocatorias">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Convocatorias </p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/ProyectoSemillero">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon" />
+
+                        <p>Tus proyectos de convocatoria finalizados</p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/Convocatorias">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Todas las convocatorias </p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/ProyectosGrado">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Proyectos de grado </p>
+
+                      </a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+              }
+               { (rol ==="Lider grupo investigacion" ) &&
+                <li className="nav-item menu-open">
+                <a href="#" className="nav-link ">
+                  <i className="fas fa-newspaper nav-icon" />
+                  <p>
+                    Biblioteca
+                    <i className="right fas fa-angle-left" />
+                  </p>
+
+                </a>
+                <ul className="nav nav-treeview">
+                  <Link to="/ConvocatoriasAbiertas">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Convocatorias Abiertas</p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/ProyectoSemillero">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon" />
+
+                        <p>Tus proyectos de convocatoria finalizados</p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/Convocatorias">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Todas las convocatorias </p>
+
+                      </a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+              }
+         { (rol ==="Investigador formacion" ) &&
+                <li className="nav-item menu-open">
+                <a href="#" className="nav-link ">
+                  <i className="fas fa-newspaper nav-icon" />
+                  <p>
+                    Biblioteca
+                    <i className="right fas fa-angle-left" />
+                  </p>
+
+                </a>
+                <ul className="nav nav-treeview">
+                  <Link to="/TusProyectosConvocatoria">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                        <p>Tus proyectos convocatoria</p>
+
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to="/ProyectoSemillero">
+                    <li className="nav-item">
+                      <a className="nav-link">
+                        <i className="fas fa-graduation-cap nav-icon" />
+
+                        <p>Tus proyectos</p>
+
+                      </a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+              }
+         {
+           (rol==="Semillerista")&&
+           <li className="nav-item menu-open">
+           <a href="#" className="nav-link ">
+             <i className="fas fa-newspaper nav-icon" />
+             <p>
+               Menu
+               <i className="right fas fa-angle-left" />
+             </p>
+
+           </a>
+           <ul className="nav nav-treeview">
+             <Link to="/TusProyectosSemillero/">
+               <li className="nav-item">
+                 <a className="nav-link">
+                   <i className="fas fa-graduation-cap nav-icon"> </i>
+
+                   <p>Tus semilleros</p>
+
+                 </a>
+               </li>
+             </Link>
+             <Link to="/ProyectoSemillero">
+               <li className="nav-item">
+                 <a className="nav-link">
+                   <i className="fas fa-graduation-cap nav-icon" />
+
+                   <p>Tus proyectos</p>
+
+                 </a>
+               </li>
+             </Link>
+           </ul>
+         </li>
+         }
          { (rol ==="Docente lider semillero" ) &&
                 <li className="nav-item menu-open">
                 <a href="#" className="nav-link ">

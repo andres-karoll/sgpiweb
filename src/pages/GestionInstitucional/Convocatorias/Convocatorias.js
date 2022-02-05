@@ -32,6 +32,7 @@ export default class Convocatorias extends Component {
   }
 
   render() {
+   var rol=localStorage.getItem("tipo")
     return (
 
     <div>
@@ -46,7 +47,12 @@ export default class Convocatorias extends Component {
                   </div>
                   </section>
       </div>
+      {(rol==="Admin")&&
       <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatorias"} >Insertar</NavLink>
+      }
+       {(rol==="Profesional investigacion")&&
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/CrearConvocatorias"} >Insertar</NavLink>
+      }
       {this.state.status === true &&
         (
           this.state.convocatorias.map((con) => {
@@ -123,16 +129,46 @@ export default class Convocatorias extends Component {
                             </a>
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
-                           <NavLink to={"/DetallesConvocatoria/" + con.id} style={{width: '30%'}} className="btn btn-primary">Detalles</NavLink> 
-                          <NavLink style={{width: '30%'}} className="btn btn-success"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
                           
-                          <NavLink style={{width: '30%'}} className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
-                                                  
+                          <NavLink to={"/DetallesConvocatoria/" + con.id} style={{width: '30%'}} className="btn btn-primary">Detalles</NavLink> 
+                          {(rol==="Admin")&&
+                           <NavLink style={{width: '30%'}} className="btn btn-success"  to={"/ActulizarConvocatoria/" + con.id} >Modificar</NavLink>
+                       
+                          
+                          }
+                        {(rol==="Admin")&&
+                         <NavLink style={{width: '30%'}} className="btn btn-danger"  to={"/EliminarConvocatoria/" + con.id} >Eliminar</NavLink>  
+                         }
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li className="nav-item">
+          <a href="#" className="nav-link ">
+            <i className="fas fa-lightbulb nav-icon" />        
+            <p>
+              Funciones
+              <i className="right fas fa-angle-left" />
+            </p>
+                      
+          </a>
+          <ul className="nav nav-treeview">
+
+            <Link to={"/ProyectosConvocatoria/" + con.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-eye nav-icon" />
+                
+                <p>Ver proyectos de la Convocatoria</p>
+                 
+              </a>
+            </li>
+            </Link>
+            
+          </ul>
+        </li>
+                    </ul>
                   </div>
                   
                   {/* /.card-body */}

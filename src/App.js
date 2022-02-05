@@ -146,6 +146,7 @@ import UsuarioPerfil from './pages/Usuario/UsuarioPerfil'
 import ParticipaEventosExternos from './pages/GestionProyectosAI/Proyectos/ParticipaEventosExternos'
 import CrearMacro from './pages/GestionProyectosAI/Proyectos/crearMacro'
 import MacroProyectos from './pages/GestionProyectosAI/Proyectos/MacroProyectos'
+import TusProyectosConvocatoria from './pages/GestionProyectosInvestigacion/TusProyectosConvocatoria'
 
 
 export default function App() {
@@ -722,7 +723,9 @@ export default function App() {
                     <Route path="/TusClases" exact component={TusClases} />
                     <Route path="/MacroProyectos" exact component={MacroProyectos} />
                     <Route path="/crearMacro" exact component={CrearMacro} />
-
+                    <Route path="/TusProyectosConvocatoria" exact component={TusProyectosConvocatoria} />
+                    <Route path="/TusProyectosSemillero" exact component={TusProyectosConvocatoria} />
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />                    
             <Route component ={() => (
           <Error/>)
         } />

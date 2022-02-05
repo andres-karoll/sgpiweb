@@ -187,7 +187,7 @@ CrearProyecto =  (e) => {
                                     <option style={{color: "black"}}>coLider</option>
                         </select>
                         {
-                            (rol==="Docente lider semillero")&&
+                            (rol==="Docente lider semillero" ||rol==="Semillerista")&&
                             <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Macro Proyecto</label>
                                                     <div></div>
