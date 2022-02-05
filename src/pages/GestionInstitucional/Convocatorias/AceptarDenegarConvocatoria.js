@@ -9,7 +9,8 @@ export default class AceptarDenegarConvocatoria extends Component {
 
     cajaIDRef = React.createRef();
     cajaEstadoRef = React.createRef();
-
+    cajaProyectoRef = React.createRef();
+    cajaConvocatoriaRef=React.createRef();
     state = { status: false,
     convocatorias:[],
     proyecto:[]}
@@ -103,6 +104,7 @@ export default class AceptarDenegarConvocatoria extends Component {
     <ul className="list-group list-group-unbordered mb-3">
     <li className="list-group-item">
         <b>Proyecto</b> <a className="float-right">{this.state.proyecto.titulo}</a>
+        <input type='hidden' ref={this.cajaProyectoRef} value={this.state.proyecto.id} />
       </li>
 
       <li className="list-group-item">
@@ -115,15 +117,11 @@ export default class AceptarDenegarConvocatoria extends Component {
       <li className="list-group-item">
         <b>Justificacion</b> <a className="float-right">{this.state.proyecto.justificacion}</a>
       </li>
-
-      <li className="list-group-item">
-        <b>Estado</b> <a className="float-right">{this.state.proyecto.estado}</a>
-      </li>
       
       <li className="list-group-item">
         <b>Convocatoria</b> <a className="float-right">{}</a>
         <div className="form-group">
-                            <select className="form-control select2" ref={this.cajaGrupoInvestigacionRef} required>
+                            <select className="form-control select2" ref={this.cajaConvocatoriaRef} required>
                                 {this.state.status === true && 
                             
                             ( this.state.convocatorias.map((conv) => {
