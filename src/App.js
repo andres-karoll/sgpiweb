@@ -152,6 +152,7 @@ import UsuariosPrograma from './pages/GestionInstitucional/Programas/UsuariosPro
 import ProductosProyectoGrado from './pages/Biblioteca/ProductosProyectoGrado'
 import Modificar from './pages/Usuario/Modificar'
 import EliminarUsuario from './pages/Usuario/EliminarUsuario'
+import AceptarDenegarConvocatoria from './pages/GestionInstitucional/Convocatorias/AceptarDenegarConvocatoria'
 
 
 export default function App() {
@@ -446,6 +447,11 @@ export default function App() {
             <Route exact path="/EliminarConvocatoria/:id" render={props => {
                             var id = props.match.params.id;
                             return <EliminarConvocatoria id={id} />
+                        }} />  
+
+            <Route exact path="/AceptarDenegarConvocatoria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AceptarDenegarConvocatoria id={id} />
                         }} />                
 
 
