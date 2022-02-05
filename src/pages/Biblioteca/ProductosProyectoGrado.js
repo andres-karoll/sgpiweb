@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { NavLink, Link } from 'react-router-dom';
-import Aside from '../../../components/Global/Aside';
-import Header from '../../../components/Global/Header';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
 
-export default class ProductosProyecto extends Component {
+
+export default class ProductosProyectoGrado extends Component {
 
   state = {
 status: false,
@@ -27,16 +28,25 @@ status: false,
     });
     
   }
-
+  Cargar = () => {
+    var request = "/gestioninstitucional/listargruposi" ;
+    var url = "http://localhost:8080" + request;
+     axios.get(url).then(res => {
+      this.setState({
+        gruposi: res.data
+        , status: true
+      })
+      
+    });
+  }
 
   componentDidMount = () => {
     this.cargarProductos();
-
+    this.Cargar();
 
   }
 
   render() {
-   var rol = localStorage.getItem("tipo")
     return (
     <div>
       <Aside/>
@@ -92,66 +102,9 @@ status: false,
 
       </div>
     </ul>
-    {
-            rol === "Egresado"  || rol === "Estudiante inactivo"|| rol==="Docentes"? (
-              <></>
-            ) : (
-              <NavLink to={"/ActualizarProducto/" + pro.id} style={{width: "50%"}} className="btn btn-primary">Actualizar producto</NavLink>
-    
-  )
-          }
-          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Docentes"? (
-              <></>
-            ) : (
-              <NavLink className="btn btn-danger" to={"/EliminarProducto/" + pro.id}  style={{width: "50%"}}>Eliminar producto</NavLink>
-     
-  )}
-           </div>
+  </div>
   {/* /.card-body */}
-  <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Comentarios
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/ComentariosProducto/" + pro.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver comentarios de este producto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-          <ul className="nav nav-treeview">
-          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Estudiante activo"? (
-              <></>
-            ) : (
-              <Link to={"/CrearComentario/" + pro.id}>
-              <li className="nav-item">
-                <a  className="nav-link">
-                  <i className="fas fa-comment nav-icon" />
-                  
-                  <p>Crear comentario</p>
-                   
-                </a>
-              </li>
-              </Link>
-  )}
-            
-            
-          </ul>
-        </li>
-                    </ul>
+  
 </div>
 
             );

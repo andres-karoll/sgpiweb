@@ -19,6 +19,10 @@ export default class ConvocatoriasCerradas extends Component {
         convocatorias: res.data
         , status: true
       });
+      if (this.state.convocatorias.length === 0) {
+        alert("no hay convocatorias cerradas")
+        window.history.back();
+    }
     });
   }
 

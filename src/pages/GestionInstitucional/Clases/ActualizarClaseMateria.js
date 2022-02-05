@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class ActualizarClase extends Component {
+export default class ActualizarClaseMateria extends Component {
 
     cajaNumeroRef = React.createRef();
     cajaNombreRef = React.createRef();
@@ -41,22 +41,23 @@ export default class ActualizarClase extends Component {
                 window.history.back();
             }else if (res.data.respuesta==="el usuario que escogio es un Estudiante inactivo") {
                 alert("el usuario que escogio es un Estudiante inactivo")
-               
+                
             }else if (res.data.respuesta==="el usuario que escogio es un Estudiante activo") {
                 alert("el usuario que escogio es un Estudiante activo")
                 
             }else if (res.data.respuesta==="el usuario que escogio es un Semillerista") {
                 alert("el usuario que escogio es un Semillerista")
-               
+              
             }else{
               alert("no se pudo actualizar la clase")
-              
+            
             }
         });
     }
     
     Cargar = () => {
-        var request = "/gestioninstitucional/listarmaterias" ;
+        var programa = localStorage.getItem("programa");
+        var request = "/gestioninstitucional/listarmateriasdeprograma/"+ programa;
         var url = "http://localhost:8080" + request;
          axios.get(url).then(res => {
           this.setState({
@@ -82,6 +83,7 @@ export default class ActualizarClase extends Component {
       }
 
     render() {
+        
         if(this.state.status === true){
             //return <Redirect to="/Clases" />
         }
@@ -144,7 +146,7 @@ export default class ActualizarClase extends Component {
 
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{  width: '50%'}}htmlFor="exampleInputPassword1">Materia actual: {this.state.clase.materia}</label>
+                            <label style={{  width: '50%'}}htmlFor="exampleInputPassword1">Materias que tienes en tu programa: {this.state.clase.materia}</label>
                             <select ref={this.cajaMateriaRef} style={{width: '50%', height: "30px"}} >
                             <option disabled selected value={this.state.clase.materia_id}>{this.state.clase.materia}</option>
                                 {

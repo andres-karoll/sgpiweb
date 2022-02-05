@@ -19,6 +19,10 @@ status: false,
         proyectos: res.data
         , status: true
       });
+      if (this.state.proyectos.length === 0) {
+        alert("Esta convocatoria no tiene proyectos")
+        window.history.back();
+    }
     });
     
   }

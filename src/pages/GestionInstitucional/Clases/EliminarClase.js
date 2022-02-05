@@ -13,12 +13,22 @@ export default class EliminarClase extends Component {
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="no se pudo eliminar") {
+                alert("No se pudo eliminar")
+                
+                
+            }
+            else{
+                alert("eliminado con Exito")
+                window.history.back();
+            }
         });
+        
     }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Clases" />
+            //return <Redirect to="/Clases" />
         }
         return (
             <div>

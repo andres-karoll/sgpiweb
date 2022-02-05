@@ -43,6 +43,7 @@ status: false,
                   </div>
                   </section>
       </div>
+      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClaseMateria/"+this.props.id} >Crear Clase</NavLink>
       {this.state.status === true &&
         (
           this.state.clases.map((cla, i) => {
@@ -69,16 +70,16 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                             numero
                           </th>
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                            nombre
                           </th>               
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                             profesor
                           </th>
-                          <th style={{ width: '25%' }}>
+                          <th style={{ width: '20%' }}>
                             materia
                           </th>
                         </tr>
@@ -97,8 +98,13 @@ status: false,
                           <td>
                           {cla.materia}
                           </td>
-                          <td className="project-actions text-right" style={{width: '40%'}}>
-                 
+                          
+                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
+                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ActulizarClaseMateria/" + cla.numero} >Modificar</NavLink>
+                          
+                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarClase/" + cla.numero} >Eliminar</NavLink>  
+                                                  
                           </td>
                         </tr>
                       </tbody>

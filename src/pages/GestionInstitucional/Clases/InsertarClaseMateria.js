@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
-export default class InsertarClase extends Component {
+export default class InsertarClaseMateria extends Component {
 
     cajaNumeroRef = React.createRef();
     cajaNombreRef = React.createRef();
@@ -38,24 +38,24 @@ mate:[] }
                 window.history.back();
             }else if (res.data.respuesta==="el usuario no existe") {
                 alert("el usuario no existe")
-               
+                
             }else if (res.data.respuesta==="la materia no existe") {
                 alert("la materia no existe")
-               
+                
             
             }else if (res.data.respuesta==="la clase ya existe") {
                 alert("la clase ya existe")
-               
+                
             
             }else if (res.data.respuesta==="esta persona es usuario inactivo") {
                 alert("el usuario es un estudiante inactivo")
-             
+               
             }else if (res.data.respuesta==="esta persona es usuario activo") {
                 alert("el usuario es un estudiante activo")
-               
+                
             }else if (res.data.respuesta==="esta persona es usuario semillerista") {
                 alert("el usuario es un semillerista")
-               
+                
             }else{
               alert("no se pudo crear la clase")
               
@@ -140,22 +140,9 @@ mate:[] }
    
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{  width: '50%'}} htmlFor="exampleInputPassword1">Materia</label>
+                            <label style={{  width: '50%'}} htmlFor="exampleInputPassword1">Materia actual es {this.props.catalogo}</label>
 
-
-                            <select ref={this.cajaMateriaRef} style={{width: '50%', height: "30px"}} required> 
-                                {
-                            ( this.state.materias.map((mate) => {
-                            return(
-                                    <option  key={mate.catalogo} value={mate.catalogo}> {mate.catalogo}:{mate.nombre}</option> 
-                                    
-                                    );
-                                    
-                                })
-                                
-                                )}
-                                
-                            </select>
+                            <input type="text" name="cajadir" className="form-control" value={this.props.catalogo} ref={this.cajaMateriaRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

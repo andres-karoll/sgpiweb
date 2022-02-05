@@ -40,10 +40,9 @@ export default class InsertarEvento extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo el evento") {
                 alert("se creo el evento")
-                //window.location.href = "/Clases";
+                window.history.back();
             }else{
               alert("no se pudo crear el evento")
-              //window.location.href = "/Clases";
             }
         });
     }

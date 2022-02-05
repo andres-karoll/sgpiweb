@@ -19,6 +19,10 @@ export default class ConvocatoriasAbiertas extends Component {
         convocatorias: res.data
         , status: true
       });
+      if (this.state.convocatorias.length === 0) {
+        alert("no hay convocatorias abiertas")
+        window.history.back();
+    }
     });
   }
 
@@ -41,7 +45,8 @@ export default class ConvocatoriasAbiertas extends Component {
                   </div>
                   </section>
       </div>
-       {this.state.status === true &&
+
+      {this.state.status === true &&
         (
           this.state.convocatorias.map((con, i) => {
            

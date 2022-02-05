@@ -144,9 +144,22 @@ import UploadFiles from './components/Upload-files.component'
 import ProductosProyectoVisible from './pages/Proyectos/Productos/ProductosProyectoVisible'
 import UsuarioPerfil from './pages/Usuario/UsuarioPerfil'
 import ParticipaEventosExternos from './pages/GestionProyectosAI/Proyectos/ParticipaEventosExternos'
+
+/*error*/
 import CrearMacro from './pages/GestionProyectosAI/Proyectos/crearMacro'
 import MacroProyectos from './pages/GestionProyectosAI/Proyectos/MacroProyectos'
 import TusProyectosConvocatoria from './pages/GestionProyectosInvestigacion/TusProyectosConvocatoria'
+
+  /*error*/
+import InsertarMateriaPrograma from './pages/GestionInstitucional/Materias/InsertarMateriaPrograma'
+import ActualizarMateriaPrograma from './pages/GestionInstitucional/Materias/ActualizarMateriaPrograma'
+import InsertarClaseMateria from './pages/GestionInstitucional/Clases/InsertarClaseMateria'
+import ActualizarClaseMateria from './pages/GestionInstitucional/Clases/ActualizarClaseMateria'
+import UsuariosPrograma from './pages/GestionInstitucional/Programas/UsuariosPrograma'
+import ProductosProyectoGrado from './pages/Biblioteca/ProductosProyectoGrado'
+import Modificar from './pages/Usuario/Modificar'
+import EliminarUsuario from './pages/Usuario/EliminarUsuario'
+import AceptarDenegarConvocatoria from './pages/GestionInstitucional/Convocatorias/AceptarDenegarConvocatoria'
 
 
 export default function App() {
@@ -177,8 +190,15 @@ export default function App() {
                             var id = props.match.params.id;
                             return <UsuarioPerfil id={id}/>
                         }} />
+            <Route exact path="/Modificar/:cedula" render={props => {
+                            var cedula = props.match.params.cedula;
+                            return <Modificar cedula={cedula} />
+                        }} />
       
-
+      <Route exact path="/EliminarUsuario/:cedula" render={props => {
+                            var cedula = props.match.params.cedula;
+                            return <EliminarUsuario cedula={cedula} />
+                        }} />
 
 
 
@@ -211,6 +231,10 @@ export default function App() {
             <Route exact path="/DetallesProyecto/:id" render={props => {
                             var id = props.match.params.id;
                             return <DetallesProyectoGrado id={id} />
+                        }} />
+            <Route exact path="/ProductosProyectoGrado/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <ProductosProyectoGrado id={id} />
                         }} />
 
 
@@ -344,15 +368,29 @@ export default function App() {
                             var id = props.match.params.id;
                             return <MateriaPrograma id={id}/>
                         }} />  
+            <Route exact path="/UsuariosPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <UsuariosPrograma id={id}/>
+                        }} />  
 
 
 
             <Route path="/Materias" exact component={Materias}/>
-            <Route path="/InsertarMateria" exact component={InsertarMateria}/>                 
+            <Route path="/InsertarMateria" exact component={InsertarMateria}/> 
+
+            <Route exact path="/InsertarMateriaPrograma/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <InsertarMateriaPrograma id={id}/>
+                        }} />                  
             <Route exact path="/ActulizarMateria/:catalogo" render={props => {
                             var catalogo = props.match.params.catalogo;
                             return <ActualizarMateria catalogo={catalogo}/>
-                        }} />              
+                        }} />     
+
+<Route exact path="/ActulizarMateriaPrograma/:catalogo" render={props => {
+                            var catalogo = props.match.params.catalogo;
+                            return <ActualizarMateriaPrograma catalogo={catalogo}/>
+                        }} />          
             <Route exact path="/EliminarMateria/:catalogo" render={props => {
                             var catalogo = props.match.params.catalogo;
                             return <EliminarMateria catalogo={catalogo}/>
@@ -369,12 +407,21 @@ export default function App() {
 
 
             <Route path="/Clases" exact component={Clases}/>
-            <Route path="/InsertarClase" exact component={InsertarClase}/>                 
+            <Route path="/InsertarClase" exact component={InsertarClase}/>  
+            <Route exact path="/InsertarClaseMateria/:catalogo" render={props => {
+                            var catalogo = props.match.params.catalogo;
+                            return <InsertarClaseMateria catalogo={catalogo}/>
+                        }} />                
             <Route exact path="/ActulizarClase/:numero" render={props => {
                             var numero = props.match.params.numero;
                             var nombre = props.match.params.nombre;
                             return <ActualizarClase numero={numero} nombre={nombre}/>
-                        }} />                
+                        }} /> 
+            <Route exact path="/ActulizarClaseMateria/:numero" render={props => {
+                            var numero = props.match.params.numero;
+                            var nombre = props.match.params.nombre;
+                            return <ActualizarClaseMateria numero={numero} nombre={nombre}/>
+                        }} />               
             <Route exact path="/EliminarClase/:numero" render={props => {
                             var numero = props.match.params.numero;
                             return <EliminarClase numero={numero}/>
@@ -407,6 +454,11 @@ export default function App() {
             <Route exact path="/EliminarConvocatoria/:id" render={props => {
                             var id = props.match.params.id;
                             return <EliminarConvocatoria id={id} />
+                        }} />  
+
+            <Route exact path="/AceptarDenegarConvocatoria/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <AceptarDenegarConvocatoria id={id} />
                         }} />                
 
 

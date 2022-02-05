@@ -41,10 +41,10 @@ export default class InsertarEvento extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo el evento") {
                 alert("se actualizó el evento")
-                window.location.href = "/Eventos";
+                window.history.back();
             }else{
               alert("no se pudo actualizar el evento")
-              window.location.href = "/Eventos";
+              
             }
         });
     }

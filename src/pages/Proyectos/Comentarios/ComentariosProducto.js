@@ -20,6 +20,10 @@ status: false,
        comentarios: res.data
         , status: true
       });
+      if (this.state.comentarios.length === 0) {
+        alert("este producto no tiene comentarios")
+        window.history.back();
+    }
     });
     
   }

@@ -19,6 +19,10 @@ status: false,
        proyectos: res.data
         , status: true
       });
+      if (this.state.proyectos.length === 0) {
+        alert("esta area no tiene proyectos")
+        window.history.back();
+    }
     });
     
   }
