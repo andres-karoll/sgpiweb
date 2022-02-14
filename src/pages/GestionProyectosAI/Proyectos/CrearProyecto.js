@@ -101,10 +101,10 @@ export default class CrearProyecto extends Component {
             this.setState({ status: true });
             if (res.data.respuesta === "el proyecto fue creado") {
                 alert("El proyecto fue creado correctamente")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.location.href = "/ProyectosAulaIntegrador";
             } else {
                 alert("El proyecto no se pudo crear por favor verifica los datos")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.location.href = "/ProyectosAulaIntegrador";
             }
         });
     }
@@ -135,12 +135,15 @@ export default class CrearProyecto extends Component {
                                                 <div className="form-group">
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Titulo</label>
-                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaTitulo} required/>
+                                                    <div></div>
+                                                    <textarea name="comentarios" rows="2" cols="100" wrap="physical"ref={this.cajaTitulo} required/>
                                                 </div>
                                                 <div className="form-group">
+                                               
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required/>
+                                                    <div></div>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical"  ref={this.cajaDescripcion} required/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -155,8 +158,8 @@ export default class CrearProyecto extends Component {
                                                     <div></div>
                                                     <select ref={this.cajaEstado} required>
                                                     <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <option selected >El estado del proyecto </option>
                                                         <option style={{ color: "black" }} >Propuesta</option>
-
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
@@ -164,6 +167,7 @@ export default class CrearProyecto extends Component {
                                                     <label htmlFor="exampleInputPassword1">visibilidad del proyecto</label>
                                                     <div></div>
                                                     <select ref={this.cajaVis} required>
+                                                    <option selected >Escoge la visibilidad del proyecto </option>
                                                         <option style={{ color: "black" }} value={0} >Publico</option>
                                                         <option style={{ color: "black" }} value={1} >Privado</option>
                                                     </select>
@@ -173,6 +177,7 @@ export default class CrearProyecto extends Component {
                                                     <label htmlFor="exampleInputPassword1">Ciudad</label>
                                                     <div></div>
                                                     <select ref={this.cajaCiu} required>
+                                                        <option selected >Escoge una la ciudad </option>
                                                         <option style={{ color: "black" }}>Bogota</option>
                                                         <option style={{ color: "black" }}>Cali</option>
                                                     </select>
@@ -180,12 +185,14 @@ export default class CrearProyecto extends Component {
                                                 <div className="form-group">
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Metodologia</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia} required/>
+                                                    <div></div>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaMetodologia} required/>
                                                 </div>
                                                 <div className="form-group">
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Justificacion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} required/>
+                                                    <div></div>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaJustificacion} required/>
                                                 </div>
                                                 <div className="form-group">
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

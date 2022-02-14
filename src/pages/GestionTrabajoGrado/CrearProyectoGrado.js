@@ -83,10 +83,10 @@ export default class CrearProyectoGrado extends Component {
             this.setState({ status: true });
             if (res.data.respuesta === "el proyecto fue creado") {
                 alert("El proyecto fue creado correctamente")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.history.back();
             } else {
                 alert("El proyecto no se pudo crear por favor verifica los datos")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.history.back();
             }
         });
     }

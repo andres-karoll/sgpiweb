@@ -219,7 +219,7 @@ export default class DetallesProyectoSemillero extends Component {
                                 <br />
                               </div>
                               {
-                                rol === "Docentes"  ? (
+                                rol === "Docentes" || rol==="Docente lider semillero" ? (
                                   <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/EliminarProyecto/" + this.state.proyecto.id} >Eliminar  Proyecto</NavLink>
                                
                                 ) : (

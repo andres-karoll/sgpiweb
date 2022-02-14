@@ -39,6 +39,7 @@ status: false,
   }
 
   render() {
+    var rol=localStorage.getItem("tipo")
     return (
     <div>
       <Aside/>
@@ -90,9 +91,25 @@ status: false,
       </li>
 
     </ul>
-
-    <NavLink to={"/ActualizarPresupuesto/" + pre.id} className="btn btn-primary" style={{width: "50%"}}>Actualizar</NavLink>
-    <NavLink className="btn btn-danger" to={"/EliminarPresupuesto/" + pre.id} style={{width: "50%"}}>Eliminar</NavLink>
+    {
+             rol==="Docente investigador" ?(
+             
+              <></>
+             
+              ) :(
+                <NavLink to={"/ActualizarPresupuesto/" + pre.id} className="btn btn-primary" style={{width: "50%"}}>Actualizar</NavLink>
+             )
+           }
+ {
+             rol==="Docente investigador" ?(
+             
+              <></>
+             
+              ) :(
+                <NavLink className="btn btn-danger" to={"/EliminarPresupuesto/" + pre.id} style={{width: "50%"}}>Eliminar</NavLink>
+             )
+           }
+    
   </div>
   <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li className="nav-item">

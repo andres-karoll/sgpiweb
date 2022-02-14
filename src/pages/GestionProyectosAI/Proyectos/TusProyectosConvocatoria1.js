@@ -1,36 +1,38 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectosConvocatoria extends Component {
+export default class TusProyectosConvocatoria1 extends Component {
 
   state = {
+      
 status: false,
-    proyectos:[]
+    proyectos:[],
+    pro:[]
   }
-
-  cargarProyecto= () => {
+  
+  CargarProyecto = () => {
+    var proyeto = {
+      id: localStorage.getItem("cedula"),
+      convocatoria: this.props.id
+  };
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarlosproyectosdeconvocatoria/" +this.props.id;
-    axios.get(url + request).then(res => {
+    var request = url+"/gestionproyectosaulaintegrador/tusProyectosConvocatoria";
+    
+    axios.post(request,proyeto).then(res => {
+      
       this.setState({
+        
         proyectos: res.data
         , status: true
       });
-      if (this.state.proyectos.length === 0) {
-        alert("Esta convocatoria no tiene proyectos")
-        window.history.back();
-    }
+      
     });
-    
   }
-
   componentDidMount = () => {
-    this.cargarProyecto();
-    //this.cargarLineas();
-
+    this.CargarProyecto();
   }
 
   render() {
@@ -93,24 +95,24 @@ status: false,
                       <tbody>
                         <tr>
                           <td>
+                          {pro.id}
+                          </td>
+                          <td>
+                          {pro.titulo}
+                          </td>
+                          <td>
+                          {pro.descripcion}
+                          </td>
+                          <td>
                           {pro.id_proyecto}
                           </td>
                           <td>
-                          {pro.titulo_proyecto}
-                          </td>
-                          <td>
-                          {pro.descripcion_proyecto}
-                          </td>
-                          <td>
-                          {pro.estado_proyecto}
-                          </td>
-                          <td>
-                          {pro.convocatoria}
+                          {pro.nombre_convocatoria}
                           </td>
                           <td className="project-actions text-right">
-                          <NavLink to={"/DetallesProyecto/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
-                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink> 
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id_proyecto} >Productos</NavLink>
+                          <NavLink to={"/DetallesProyecto/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink> 
+                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id} >Productos</NavLink>
                           
                           
                             
@@ -118,36 +120,7 @@ status: false,
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            
-          <Link to={"/AsignarPersupuesto/" + pro.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                   
-
-        </ul>
-             
+                    
                   </div>
                   
                   {/* /.card-body */}

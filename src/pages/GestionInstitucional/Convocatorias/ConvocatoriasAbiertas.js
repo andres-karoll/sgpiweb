@@ -31,6 +31,7 @@ export default class ConvocatoriasAbiertas extends Component {
   }
 
   render() {
+    var rol=localStorage.getItem("tipo");
     return (
 
     <div>
@@ -155,16 +156,33 @@ export default class ConvocatoriasAbiertas extends Component {
           </a>
           <ul className="nav nav-treeview">
 
-            <Link to={"/ProyectosConvocatoria/" + con.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver proyectos de la Convocatoria</p>
-                 
-              </a>
-            </li>
-            </Link>
+           
+            {
+             rol==="Docente investigador"|| rol==="Docente lider semillero" ?(
+              <Link to={"/TusProyectosConvocatoria1/" + con.id}>
+              <li className="nav-item">
+                <a  className="nav-link">
+                  <i className="fas fa-eye nav-icon" />
+                  
+                  <p>Tus proyectos convocatoria</p>
+                   
+                </a>
+              </li>
+              </Link>
+         
+              ) :(
+                <Link to={"/ProyectosConvocatoria/" + con.id}>
+                <li className="nav-item">
+                  <a  className="nav-link">
+                    <i className="fas fa-eye nav-icon" />
+                    
+                    <p>Ver proyectos de la Convocatoria</p>
+                     
+                  </a>
+                </li>
+                </Link>
+             )
+           }
             
           </ul>
         </li>

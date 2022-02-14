@@ -38,7 +38,7 @@ AgregarParticipante =  (e) => {
         var url = 'http://localhost:8080/gestionusuario/asignarsemillero';
             axios.post(url, participante).then(res => {
             this.setState({ status: true });
-            window.location.href = "/ProyectosAulaIntegrador" ;       
+            window.history.back();   
         });
     }   
     render() {            

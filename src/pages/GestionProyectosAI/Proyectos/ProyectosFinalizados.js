@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectosConvocatoria extends Component {
+export default class ProyectosFinalizados extends Component {
 
   state = {
 status: false,
@@ -13,14 +13,14 @@ status: false,
 
   cargarProyecto= () => {
     var url = "http://localhost:8080";
-    var request = "/gestioninstitucional/listarlosproyectosdeconvocatoria/" +this.props.id;
+    var request = "/gestionproyectosinvestigacion/proyectosFinalizadosClase/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
         proyectos: res.data
         , status: true
       });
       if (this.state.proyectos.length === 0) {
-        alert("Esta convocatoria no tiene proyectos")
+        alert("Esta clase no tiene proyectos")
         window.history.back();
     }
     });
@@ -43,10 +43,16 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Clase con id: {this.props.id}</h1>
                   </div>
                   </section>
       </div>
+      <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/MacroProyectos"} >Macro proyectos</NavLink>
+      <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/CrearProyectoMateria"} >crear un proyecto</NavLink>
+          <div></div>
+      <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/ProyectosPropuesta/"+this.props.id} >Proyectos propuesta</NavLink> 
+      <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/ProyectosDesarrollo/"+this.props.id} >Proyectos desarrollo</NavLink> 
+      <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/ProyectosFinalizados/"+this.props.id} >Proyectos Finalizados</NavLink>         
       {this.state.status === true &&
         (
           this.state.proyectos.map((pro, i) => {
@@ -58,7 +64,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
+                    <h3 className="card-title">Proyecto de la clase con ID: {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -73,81 +79,54 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '5%' }}>
-                            id de proyecto
+                          <th style={{ width: '10%' }}>
+                            id
                           </th>
-                          <th style={{ width: '15%' }}>
-                           Titulo del proyecto
+                          <th style={{ width: '25%' }}>
+                           titulo
                           </th>               
                           <th style={{ width: '25%' }}>
-                            Descripción
+                            descripción
                           </th>
-                          <th style={{ width: '10%' }}>
-                            Estado
+                          <th style={{ width: '25%' }}>
+                            metodologia
                           </th>
-                          <th style={{ width: '10%' }}>
-                          Convocatoria
+                          <th style={{ width: '25%' }}>
+                           estado
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>
-                          {pro.id_proyecto}
+                          {pro.id}
                           </td>
                           <td>
-                          {pro.titulo_proyecto}
+                          {pro.titulo}
                           </td>
                           <td>
-                          {pro.descripcion_proyecto}
+                          {pro.descripcion}
                           </td>
                           <td>
-                          {pro.estado_proyecto}
+                          {pro.metodologia}
                           </td>
                           <td>
-                          {pro.convocatoria}
+                          {pro.estado}
                           </td>
-                          <td className="project-actions text-right">
-                          <NavLink to={"/DetallesProyecto/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
-                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink> 
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id_proyecto} >Productos</NavLink>
+                          <td className="project-actions text-right" style={{width: '40%'}}>
+                 
+                          </td>
+                          <td className="project-actions text-right" style={{width: '30%'}}>
+                          <NavLink to={"/DetallesProyectoAI/" + pro.id} className="btn btn-primary">Detalles</NavLink>
                           
-                          
+                          {/* <NavLink className="btn btn-info" to={"/DetallesPrueba/" + proye.id} >Modificar</NavLink> */}
+                          {/* <NavLink className="btn btn-danger" to={"/DetallesPrueba/" + proye.id} >Eliminar</NavLink> */}
+                      
                             
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            
-          <Link to={"/AsignarPersupuesto/" + pro.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                   
-
-        </ul>
-             
                   </div>
                   
                   {/* /.card-body */}
