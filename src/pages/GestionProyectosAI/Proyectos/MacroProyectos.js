@@ -35,10 +35,10 @@ export default class MacroProyectos extends Component {
             this.setState({ status: true });
             if (res.data.respuesta === "el macro se finalizar correctamente") {
                 alert("el macro se finalizar correctamente")
-                window.location.href = "/MacroProyectos"
+                window.history.back();
             } else {
                 alert("el macro no se puedo finalizar")
-                window.location.href = "/MacroProyectos"
+                window.history.back();
             }
         });
     }
@@ -127,8 +127,12 @@ export default class MacroProyectos extends Component {
                                                             <td className="project-actions text-right" style={{ width: '40%' }}>
                                                             </td>
                                                             <div className=" mt-3 pb-3 mb-3 d-flex">
-                                                            <input  type="hidden" ref={this.cajaId} value={ma.id}/>                                  {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                                                        <button style={{ width: '50%' }} className="btn btn-success" onClick={this.cerrarMacro} >Cerrar Macro </button>
+                                                            <input  type="hidden" ref={this.cajaId} value={ma.id}/>   
+                                                            
+                                                            
+                                                        <NavLink style={{ width: '100%' }} className="btn btn-success"  to={"/ModificarMacro/"+ma.id}>Modificar Macro </NavLink>
+                                                                                            {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
+                                                        <button style={{ width: '100%' }} className="btn btn-success" onClick={this.cerrarMacro} >Cerrar Macro </button>
                                                           </div>
                                                         </tr>
                                                     </tbody>

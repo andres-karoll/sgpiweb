@@ -30,10 +30,10 @@ AgregarParticipante =  (e) => {
             this.setState({ status: true });
             if (res.data.respuesta === "el participante fue agregado") {
                 alert("El participante fue agregado")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.history.back();
             } else {
                 alert("El participante no pudo ser agregado")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.history.back();
             }
         });
     }   
@@ -91,7 +91,7 @@ AgregarParticipante =  (e) => {
                                                             
                                                         }
                          {
-                                                            rol === "Docentes" &&
+                                                            rol === "Docentes" || rol ==="Docente lider semillero"&&
                         <select ref={this.cajaRol} required>
                         
                         <option style={{ color: "black" }}>Lider</option>

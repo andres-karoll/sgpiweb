@@ -44,10 +44,11 @@ AgregarAntecedente =  (e) => {
                 window.location.href = "/Antecedentes/"+this.props.id ;       
             }else if(res.data.respuesta === "el antecedente aun no a terminado"){
                 alert("el antecedente aun no a terminado")
+                window.history.back();
             }
              else {
                 alert("no se agrego el antecedente")
-                window.location.href = "/Antecedentes/"+this.props.id ;       
+                window.history.back();       
             }
             
         });

@@ -1,56 +1,37 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
 
-export default class AceptarDenegarConvocatoria extends Component {
+export default class Evaluacion extends Component {
 
     cajaIDRef = React.createRef();
     cajaEstadoRef = React.createRef();
     cajaProyectoRef = React.createRef();
-    cajaConvocatoriaRef=React.createRef();
     state = { status: false,
-    convocatorias:[],
     proyecto:[]}
-
     actualizar = (e) => {
         e.preventDefault();
         var pro = this.cajaProyectoRef.current.value;
-        var con = this.cajaConvocatoriaRef.current.value;
         var est = this.cajaEstadoRef.current.value;
-
         var estado = {
             proyecto: pro
-            , convocatoria: con
             , estado: est
-
         };
-        var url = 'http://localhost:8080/gestionproyectosinvestigacion/aval/';
+        var url = 'http://localhost:8080/gestionproyectosinvestigacion/evaluar/';
         axios.post(url, estado).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="Se realizo la validacion exitosamente") {
-                alert("Se realizo la validacion exitosamente")
-                window.history.back();
+              alert("Se realizo la validacion exitosamente")
+              window.history.back();
             }else{
               alert("No se puedo realizar la actualizacion de estado")
+              window.history.back();
             }
         });
     }
-
-
-    Cargar = () => {
-        var request = "/gestionproyectosinvestigacion/paticipacionesConvocatoria/"+ this.props.id ;
-        var url = "http://localhost:8080" + request;
-         axios.get(url).then(res => {
-          this.setState({
-            convocatorias: res.data
-            , status: true
-          })
-        });
-      }
-
-
       Cargardos = () => {
         var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -63,14 +44,11 @@ export default class AceptarDenegarConvocatoria extends Component {
       }
 
       componentDidMount = () => {
-        this.Cargar();
         this.Cargardos();
       }
 
     render() {
-        if(this.state.status === true){
-           // return <Redirect to="/Proyectos" />
-        }
+      
         return (
             <div>
                 <Aside/>
@@ -116,39 +94,23 @@ export default class AceptarDenegarConvocatoria extends Component {
       <li className="list-group-item">
         <b>Justificacion</b> <a className="float-right">{this.state.proyecto.justificacion}</a>
       </li>
-      
       <li className="list-group-item">
-        <b>Convocatoria</b> <a className="float-right">{}</a>
-        <div className="form-group">
-                            <select className="form-control select2" ref={this.cajaConvocatoriaRef} required>
-                                {this.state.status === true && 
-                            
-                            ( this.state.convocatorias.map((conv) => {
-                            return(
-                                    <option value={conv.id}> {conv.id}{conv.nombre_convocatoria}</option> 
-                                    );
-                                })
-                                )}
-                            </select>
-                        </div>
+        <b>Estado</b> <a className="float-right">{this.state.proyecto.estado}</a>
       </li>
-
-      
-
-
     </ul>
-
-
   </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="exampleInputPassword1">Estado de la Solicitud</label>
+                        <label htmlFor="exampleInputPassword1">Evaluar</label>
                         <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
-                        <option selected="selected">Aceptada</option>
-                    
-                        <option value = "2">Aceptada</option>
-          
-                        <option value = "4">Denegada</option>
+                        <option selected>Elige una opcion</option>                  
+                    {(this.state.proyecto.estado==="Propuesta") &&
+                        <option value = "Desarrollo">Desarrollo</option>                                                             
+                    }
+                    {(this.state.proyecto.estado==="Desarrollo") &&
+                        <option value = "Finalizado">Finalizado</option>                                                             
+                    }
+                       <option value = "Rechazar">Rechazar</option>    
                         </select>
                         </div>
                         </div>

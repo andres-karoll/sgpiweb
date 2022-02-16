@@ -31,6 +31,7 @@ status: false,
   }
 
   render() {
+    var rol= localStorage.getItem("tipo")
     return (
     <div>
       <Aside/>
@@ -40,10 +41,20 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Tus proyectos semillero</h1>
                   </div>
                   </section>
       </div>
+      {
+             rol==="Egresado"?(
+           <></>
+              ) : rol==="Estudiante activo" ||rol==="Estudiante inactivo"?(
+                <></>
+              )
+                :(
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un poryecto</NavLink>
+                )
+           }
       {this.state.status === true &&
         (
           this.state.proyectos.map((pro, i) => {
@@ -55,7 +66,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
+                   
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />
@@ -83,7 +94,7 @@ status: false,
                             Estado
                           </th>
                           <th style={{ width: '10%' }}>
-                          Convocatoria
+                          semillero
                           </th>
                         </tr>
                       </thead>
@@ -102,7 +113,7 @@ status: false,
                           {pro.estado}
                           </td>
                           <td>
-                          {pro.convocatoria}
+                          {pro.semillero}
                           </td>
                           <td className="project-actions text-right">
                             

@@ -90,16 +90,8 @@ export default class AsignarComentario extends Component {
                             <input type="text" name="cajatel" className="form-control" ref={this.cajaFaseRef} required/>
                         </div>
                         <div className="form-group">
-                        {
-                            rol==="Docentes"&&
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
                         
-                        }
-                        {
-                            rol==="Docentes"&&
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
-                        
-                        }
+
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nivel</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>

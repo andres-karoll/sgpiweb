@@ -57,7 +57,7 @@ ParticiparConvocatoria =  (e) => {
         var url = 'http://localhost:8080/gestionproyectosinvestigacion/participarconvocatoria/';
             axios.post(url, ParticipacionConvocatoria).then(res => {
             this.setState({ status: true });
-            window.location.href = "/ProyectoSemillero" ;       
+            window.history.back();  
         });
     }   
     render() {            

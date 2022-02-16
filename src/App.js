@@ -160,8 +160,18 @@ import ProductosProyectoGrado from './pages/Biblioteca/ProductosProyectoGrado'
 import Modificar from './pages/Usuario/Modificar'
 import EliminarUsuario from './pages/Usuario/EliminarUsuario'
 import AceptarDenegarConvocatoria from './pages/GestionInstitucional/Convocatorias/AceptarDenegarConvocatoria'
+
 import DetallesLindo from './pages/Proyectos/Proyectos/DetallesLindo'
 import ModificarRol from './pages/Usuario/ModificarRol'
+
+import ProyectosPropuesta from './pages/GestionProyectosAI/Proyectos/ProyectosPropuesta'
+import ProyectosDesarrollo from './pages/GestionProyectosAI/Proyectos/ProyectosDesarrollo'
+import ProyectosFinalizados from './pages/GestionProyectosAI/Proyectos/ProyectosFinalizados'
+import Evaluacion from './pages/GestionProyectosAI/Proyectos/Evaluacion'
+import ModificarMacro from './pages/GestionProyectosAI/Proyectos/ModificarMacro'
+import TusProyectosConvocatoria1 from './pages/GestionProyectosAI/Proyectos/TusProyectosConvocatoria1'
+import TusProyectosSemillero from './pages/GestionProyectosInvestigacion/TusProyectosSemillero'
+
 
 
 export default function App() {
@@ -450,6 +460,10 @@ export default function App() {
                             var id = props.match.params.id;
                             return <ProyectosConvocatoria id={id} />
                         }} />
+                        <Route exact path="/TusProyectosConvocatoria1/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <TusProyectosConvocatoria1 id={id} />
+                        }} />
             <Route path="/Convocatorias" exact component={Convocatorias}/> 
             <Route path="/CrearConvocatorias" exact component={CrearConvocatorias}/> 
             <Route exact path="/ActulizarConvocatoria/:id" render={props => {
@@ -665,27 +679,6 @@ export default function App() {
                         var id = props.match.params.id;
                         return <Perfil id={id} />
                     }} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <Route path="/ProyectosAulaIntegrador" exact component={TusProyectos}/>
             <Route path="/CrearProyectoFacultad" exact component={CrearProyectoFacultad}/>
             
@@ -693,6 +686,10 @@ export default function App() {
                             var id = props.match.params.id; 
                             return <ActualizarProyecto id={id}/>
                         }} />   
+                        <Route exact path="/ModificarMacro/:id" render={props => {
+                            var id = props.match.params.id; 
+                            return <ModificarMacro id={id}/>
+                        }} />  
                         <Route exact path="/CrearProyectoPrograma/:id" render={props => {
                             var id = props.match.params.id;
                             return <CrearProyectoPrograma id={id}/>
@@ -743,6 +740,23 @@ export default function App() {
                         var id = props.match.params.id;
                         return <AgregarAreasConocimiento id={id} />
                     }} />
+                    <Route exact path="/ProyectosPropuesta/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectosPropuesta id={id} />
+                    }} />
+                     <Route exact path="/ProyectosDesarrollo/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectosDesarrollo id={id} />
+                        
+                    }} />
+                     <Route exact path="/ProyectosFinalizados/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectosFinalizados id={id} />
+                    }} />
+                     <Route exact path="/Evaluacion/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <Evaluacion id={id} />
+                    }} />
                      <Route exact path="/ParticiparEvento/:id" render={props => {
                         var id = props.match.params.id;
                         return <ParticiparEvento id={id} />
@@ -781,15 +795,14 @@ export default function App() {
                     <Route path="/MacroProyectos" exact component={MacroProyectos} />
                     <Route path="/crearMacro" exact component={CrearMacro} />
                     <Route path="/TusProyectosConvocatoria" exact component={TusProyectosConvocatoria} />
-                    <Route path="/TusProyectosSemillero" exact component={TusProyectosConvocatoria} />
-                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    
-
-
-
 
 
 
                     <Route path="/ModificarRol" exact component={ModificarRol} />                
+
+                    <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />                    
+
             <Route component ={() => (
           <Error/>)
         } />

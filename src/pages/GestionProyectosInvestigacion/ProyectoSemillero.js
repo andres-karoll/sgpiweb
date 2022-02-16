@@ -32,9 +32,6 @@ export default class ProyectoSemillero extends Component {
           if (response.respuesta== "este usuario ya esta asignado a un semillero") {
             alert('Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista');
             window.location.href = "/HomeInstitucional";
-          } else {
-            alert('el usuario o contraseña o el tipo de usuario son incorrectos');
-            window.location.href = "/" ;
           } 
         })
       }
@@ -91,6 +88,14 @@ export default class ProyectoSemillero extends Component {
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}to={"/ParticiparConvocatoria/"} >Participar en una Convocatoria</NavLink>
                 )
            }
+            {
+            rol === "Docente lider semillero"? (
+              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/MacroProyectos"} >Macro proyectos</NavLink>
+           
+            ) : (
+              <></>
+            )
+          }
               {this.state.status === true &&
             (
               this.state.proyectos.map((pro) => {
@@ -154,69 +159,20 @@ export default class ProyectoSemillero extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink>
-                              
+                              {(rol==="Semillerista")&&
+                               <NavLink style={{width: '50%'}} className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink>
+                            
+                              }
+
+
+                               
                               <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoSemillero/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                        <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li className="nav-item">
-              <a href="#" className="nav-link ">
-                <i className="fas fa-lightbulb nav-icon" />        
-                <p>
-                  Funciones
-                  <i className="right fas fa-angle-left" />
-                </p>
-                          
-              </a>
-              <ul className="nav nav-treeview">
-              <Link to={"/AsignarLineaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                  <i className="fas fa-check nav-icon"> </i>
-                  
-                    <p>Asignar Linea al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/AsignarProgramaGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Asignar Programa al grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/LineasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver lineas de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-                <Link to={"/ProgramasGrupoI/" + pro.id}>
-                <li className="nav-item">
-                  <a  className="nav-link">
-                    <i className="fas fa-check nav-icon" />
-                    
-                    <p>Ver programa de este grupo de investigación</p>
-                     
-                  </a>
-                </li>
-                </Link>
-              </ul>
-            </li>
-    
-                        </ul>
+                   
                          
                       </div>
                       {/* /.card-body */}

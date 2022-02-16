@@ -42,10 +42,10 @@ AgregarAreasConocimiento =  (e) => {
             this.setState({ status: true });
             if (res.data.respuesta === "se agrego exitosamente las areas") {
                 alert("El area de conocimiento fue agregada exitosamente")
-                window.location.href = "/AreasConocimientoProyecto/"+this.props.id
+                window.history.back();
             } else {
                 alert(res.data.respuesta)
-                window.location.href = "/AreasConocimientoProyecto/"+this.props.id
+                window.history.back();
             }
            
         });
