@@ -106,7 +106,7 @@ mate:[] }
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Numero</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Numero" ref={this.cajaNumeroRef} required/>
+                            <input type="number" name="cajanom" className="form-control" placeholder="Numero" ref={this.cajaNumeroRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

@@ -120,7 +120,7 @@ export default class CrearProducto extends Component {
             fileInfos,
           } = this.state;
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+          window.history.back();
         }
         return (
             <div>

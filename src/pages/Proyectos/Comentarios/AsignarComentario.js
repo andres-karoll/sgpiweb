@@ -38,10 +38,10 @@ export default class AsignarComentario extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="el comentario se creo") {
                 alert("el comentario se creo")
-                //window.location.href ="/ProyectosAulaIntegrador"
+                window.history.back();
             }else{
               alert("no se pudo crear el comentario")
-              //window.location.href ="/ProyectosAulaIntegrador"
+              window.history.back();
             }
         });
     }
@@ -52,7 +52,7 @@ export default class AsignarComentario extends Component {
     render() {
 
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         var rol=localStorage.getItem("tipo")
         return (

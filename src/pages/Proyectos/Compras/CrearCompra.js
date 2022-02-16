@@ -49,6 +49,13 @@ export default class CrearCompra extends Component {
         var url = 'http://localhost:8080/gestionfinanciera/crearcompra';
         axios.post(url, compra).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="compra creada") {
+                alert("compra creada")
+                window.history.back();
+            }else{
+              alert("no se pudo crear la compra")
+              window.history.back();
+            }
         });
     }
 
@@ -57,7 +64,7 @@ export default class CrearCompra extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>
@@ -97,7 +104,12 @@ export default class CrearCompra extends Component {
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Tipo de compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
+                    
+                            <select className="form-control select2" style={{width: '100%'}} ref={this.cajaTipoRef}  >
+                      
+                        <option>Servicio</option>
+                        <option>Articulo</option>
+                        </select>
                         </div>
                         {/** 
                         <div className="form-group">

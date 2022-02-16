@@ -34,10 +34,10 @@ export default class AsignarPresupuesto extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo") {
                 alert("el presupuesto se asigno")
-                //window.location.href ="/ProyectosAulaIntegrador"
+                window.history.back();
             }else{
               alert("no se pudo asignar el presupuesto")
-              //window.location.href ="/ProyectosAulaIntegrador"
+              window.history.back();
             }
         });
     }
@@ -47,7 +47,7 @@ export default class AsignarPresupuesto extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>

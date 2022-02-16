@@ -160,6 +160,8 @@ import ProductosProyectoGrado from './pages/Biblioteca/ProductosProyectoGrado'
 import Modificar from './pages/Usuario/Modificar'
 import EliminarUsuario from './pages/Usuario/EliminarUsuario'
 import AceptarDenegarConvocatoria from './pages/GestionInstitucional/Convocatorias/AceptarDenegarConvocatoria'
+import DetallesLindo from './pages/Proyectos/Proyectos/DetallesLindo'
+import ModificarRol from './pages/Usuario/ModificarRol'
 
 
 export default function App() {
@@ -218,7 +220,10 @@ export default function App() {
 
 
 
-
+            <Route exact path="/DetallesLindo/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <DetallesLindo id={id} />
+                        }} />
 
             <Route path="/Registro" exact component={Registro}/>
             
@@ -777,7 +782,14 @@ export default function App() {
                     <Route path="/crearMacro" exact component={CrearMacro} />
                     <Route path="/TusProyectosConvocatoria" exact component={TusProyectosConvocatoria} />
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosConvocatoria} />
-                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />                    
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    
+
+
+
+
+
+
+                    <Route path="/ModificarRol" exact component={ModificarRol} />                
             <Route component ={() => (
           <Error/>)
         } />

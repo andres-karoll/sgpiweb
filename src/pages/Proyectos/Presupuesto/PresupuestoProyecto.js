@@ -9,7 +9,8 @@ export default class PresupuestoProyecto extends Component {
 
   state = {
 status: false,
-    presupuesto:[]
+    presupuesto:[],
+    compratotal:[]
   }
 
   cargarPresupuesto= () => {
@@ -30,10 +31,21 @@ status: false,
     });
     
   }
+  Cargar = () => {
+    var request = "/gestionfinanciera/comprastotalesporpresupuesto/" +this.props.id;
+    var url = "http://localhost:8080" + request;
+     axios.get(url).then(res => {
+      this.setState({
+        compratotal: res.data
+        , status: true
+      })
+    });
+  }
   
 
   componentDidMount = () => {
     this.cargarPresupuesto();
+    this.Cargar();
     //this.cargarLineas();
 
   }
@@ -88,6 +100,11 @@ status: false,
       <b className="text-success">Monto de presupuesto</b>
         <h3 className="text-success float-right">${pre.monto}</h3>
       </li>
+      <li className="list-group-item">
+      <b className="text-danger">PRESUPUESTO GASTADO</b>
+        <h3 className="text-danger float-right">{this.state.compratotal.salida}</h3>
+      </li>
+
 
     </ul>
 
@@ -97,7 +114,8 @@ status: false,
   <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li className="nav-item">
           <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
+            <i className="fas fa-lightbulb nav-icon" />   
+                 
             <p>
               Compras
               <i className="right fas fa-angle-left" />

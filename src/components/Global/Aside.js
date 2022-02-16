@@ -365,6 +365,46 @@ componentDidMount = () => {
 
 
 
+{ (rol ==="Docente investigador") &&
+                <li className="nav-item menu-open">
+                  <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
+
+</div>
+                  <a href="#" className="nav-link ">
+                    <i className="fas fa-newspaper nav-icon" />
+                    <p>
+                      Menu
+                      <i className="right fas fa-angle-left" />
+                    </p>
+
+                  </a>
+                  <ul className="nav nav-treeview">
+                  <Link to="/ConvocatoriasAbiertas">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-door-open nav-icon" />
+
+                          <p> Convocatorias Abiertas</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                    <Link to="/TusProyectosSemillero">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-door-open nav-icon" />
+
+                          <p> Tus proyectos Semillero</p>
+
+                        </a>
+                      </li>
+                    </Link>
+                  </ul>
+                </li>
+              }
+
+
 
               { (rol ==="Biblioteca" || rol ==="Admin") &&
                 <li className="nav-item menu-open">
@@ -401,6 +441,7 @@ componentDidMount = () => {
                         </a>
                       </li>
                     </Link>
+                    
                   </ul>
                 </li>
               }
@@ -586,7 +627,16 @@ componentDidMount = () => {
                         </a>
                       </li>
                     </Link>
+                    <Link to="/ModificarRol">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-user-cog nav-icon"> </i>
 
+                          <p>Agregar rol a usuario</p>
+
+                        </a>
+                      </li>
+                    </Link>
                   </ul>
                 </li>
               }
