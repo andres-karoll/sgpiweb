@@ -46,11 +46,10 @@ export default class Clases extends Component {
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClase"} >Insertar</NavLink>
+     { /*<NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarClase"} >Insertar</NavLink>*/}
       {this.state.status === true &&
         (
           this.state.clases.map((cla) => {
-           
             return (
               <section className="content">
                 {/* Default box */}
@@ -116,43 +115,14 @@ export default class Clases extends Component {
                           </td>
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ProyectosClase/" + cla.numero} >Ver Proyectos</NavLink> 
-                                                  
+                          <NavLink style={{width: '50%'}} className="btn btn-success"  to={"/ProyectosPropuesta/" + cla.numero} >Ver Proyectos</NavLink>                  
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/ProyectosClase/" + cla.numero}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver proyectos de la clase</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                    </ul>
                   </div>
-                  
                   {/* /.card-body */}
-                </div>
-                
+                </div>  
                 {/* /.card */}
               </section>
             );

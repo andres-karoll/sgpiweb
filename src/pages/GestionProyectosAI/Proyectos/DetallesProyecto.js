@@ -222,6 +222,15 @@ export default class DetallesProyecto extends Component {
                                   <></>
                               )
                               }
+                               
+                                              {
+                                rol === "Docente lider semillero"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/ParticiparConvocatoria"} >Participa en una Convocatoria</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
                             </li>
 
                             <li>

@@ -42,10 +42,10 @@ export default class EliminarParticipante extends Component {
             this.setState({ status: true });
                 if (res.data.respuesta==="el participante termino su proceso en el proyecto") {
                 alert("El participante termino su proceso")
-                window.location.href ="/ParticipantesProyecto/"+this.props.id;
+                window.history.back();
             }else{
               alert("Ocurrio un error")
-              window.location.href ="/ParticipantesProyecto/"+this.props.id;
+              window.history.back();
             }
         });
     }
@@ -98,7 +98,9 @@ export default class EliminarParticipante extends Component {
 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Fecha Fin</label>
-                            <input type="text" name="cajatel" className="form-control"ref={this.cajaFecha}/>
+                              <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
+                          
                         </div>                                                                                         
                         </div>
                         <div className="card-footer">               

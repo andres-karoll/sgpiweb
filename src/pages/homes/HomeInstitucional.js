@@ -61,11 +61,7 @@ export default class HomeInstitucional extends Component {
                   </div>
                   </section>
       </div>
-
-      
-
       <div className="row">
-
       {this.state.status === true &&
         (
           this.state.info.map((con) => {

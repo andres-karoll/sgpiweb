@@ -53,7 +53,7 @@ export default class ActualizarProyecto extends Component {
                 window.location.href = "/ProyectosAulaIntegrador"
             } else {
                 alert("El proyecto no se pudo actualizar")
-                window.location.href = "/ProyectosAulaIntegrador"
+                window.history.back();
             }
         });
     }
