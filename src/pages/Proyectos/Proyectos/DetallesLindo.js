@@ -230,8 +230,21 @@ export default class DetallesLindo extends Component {
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
                               <NavLink style={{ width: '100%', margin: "20px"}} className="btn btn-primary" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
                               <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ProductosProyecto/" + this.state.proyecto.id} >Productos</NavLink>
-                              <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
-                              <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-danger" to={"/EliminarProyecto/" + this.state.proyecto.id} >Eliminar  Proyecto</NavLink>
+                              {
+                                rol === "Egresado" || rol === "Estudiante inactivo" ? (
+                                  <></>
+                                ) : (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-primary" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
+                                )
+                              } 
+                              {
+                                rol === "Docentes"  ? (
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/EliminarProyecto/" + this.state.proyecto.id} >Eliminar  Proyecto</NavLink>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
 
 
                             </div>
@@ -274,7 +287,10 @@ export default class DetallesLindo extends Component {
               </a>
             </li>
             </Link>
-            <Link to={"/ParticiparConvocatoria"} >
+
+            {
+                                rol === "Docente investigador" || rol === "Docente lider semillero" ? (
+                                  <Link to={"/ParticiparConvocatoria"} >
             <li className="nav-item" >
               <a  className="nav-link">
                 <i className="fas fa-eye nav-icon"  />
@@ -286,6 +302,13 @@ export default class DetallesLindo extends Component {
               </a>
             </li>
             </Link>
+                               
+                                ) : (
+                                  <></>
+                              )
+                              }
+
+            
             <Link to={"/Antecedentes/" + this.state.proyecto.id} >
             <li className="nav-item" >
               <a  className="nav-link">

@@ -96,7 +96,7 @@ export default class ModificarRol extends Component {
                         <option>Personal publicaciones</option>
                         <option>Profesional investigacion</option>
                         <option>Semillerista</option>
-                        <option>Visitante</option>
+                       
                         </select>
                         </div>
 
