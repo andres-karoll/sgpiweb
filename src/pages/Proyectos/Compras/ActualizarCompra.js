@@ -111,7 +111,12 @@ export default class ActualizarCompra extends Component {
                         <div className="form-group">
                         
                             <label htmlFor="exampleInputPassword1">Tipo de compra actual: {this.state.compra.tipo}</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.compra.tipo} ref={this.cajaTipoRef} />
+                      
+                            <select className="form-control select2" style={{width: '100%'}} ref={this.cajaTipoRef}  >
+                        <option selected="selected">{this.state.compra.tipo}</option>
+                        <option>Servicio</option>
+                        <option>Articulo</option>
+                        </select>
                         </div>
                         <div className="form-group">
                   

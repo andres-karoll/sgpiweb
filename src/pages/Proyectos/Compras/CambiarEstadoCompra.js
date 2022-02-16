@@ -25,6 +25,13 @@ export default class CambiarEstadoCompra extends Component {
         var url = 'http://localhost:8080/gestionfinanciera/actualizarestadocompra';
         axios.post(url, estado).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo") {
+                alert("se actualizo la compra")
+                window.history.back();
+            }else{
+              alert("no se pudo actualizar la compra")
+              window.history.back();
+            }
         });
     }
 
@@ -33,7 +40,7 @@ export default class CambiarEstadoCompra extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>

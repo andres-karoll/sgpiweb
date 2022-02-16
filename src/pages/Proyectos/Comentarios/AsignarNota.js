@@ -26,10 +26,10 @@ export default class AsignarNota extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="se asigno la nota") {
                 alert("se asigno la nota")
-                //window.location.href ="/ProyectosAulaIntegrador"
+                window.history.back();
             }else{
               alert("No se pudo")
-              //window.location.href ="/ProyectosAulaIntegrador"
+              window.history.back();
             }
         });
     }
@@ -39,7 +39,7 @@ export default class AsignarNota extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+           // return <Redirect to="/Proyectos" />
         }
         return (
             <div>

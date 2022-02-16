@@ -21,6 +21,13 @@ export default class DesAsignarNota extends Component {
         var url = 'http://localhost:8080/productos/eliminarnota';
         axios.post(url, calificacion).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se elimino la nota") {
+                alert("se elimino la nota")
+                window.history.back();
+            }else{
+              alert("No se pudo eliminar la nota")
+              window.history.back();
+            }
         });
     }
 
@@ -29,7 +36,7 @@ export default class DesAsignarNota extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>

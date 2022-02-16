@@ -89,9 +89,7 @@ export default class UsuariosPrograma extends Component {
                           <th style={{ width: '15%' }}>
                             Telefono
                           </th>   
-                          <th style={{ width: '15%' }}>
-                            Rol
-                          </th>                                 
+                                 
                         </tr>
                       </thead>
                       <tbody>
@@ -119,11 +117,8 @@ export default class UsuariosPrograma extends Component {
                             {usu.telefono}
                             </a>
                           </td>
-                          <td>
-                            <a>
-                            {usu.rol}
-                            </a>
-                          </td>
+                 
+
                           <td className="project-actions text-right" style={{width: '30%'}}>
                           {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}                          
                           </td>

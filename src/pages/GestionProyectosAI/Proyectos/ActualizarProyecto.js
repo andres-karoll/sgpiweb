@@ -74,7 +74,7 @@ export default class ActualizarProyecto extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Actualizar una Materia</h3>
+                    <h3 className="card-title"  >Actualizar Proyecto</h3>
                   </div>
                     {/* /.card-header */}
                     {/* form start */}

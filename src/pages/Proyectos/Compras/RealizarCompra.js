@@ -25,18 +25,14 @@ export default class RealizarCompra extends Component {
     nuevaCompra = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;
-        //var fecso = this.cajaFechaSolicitudRef.current.value;
-        //var nom = this.cajaNombreRef.current.value;
-       // var tip = this.cajaTipoRef.current.value;
+
 
         var cod = this.cajaCodigoCompraRef.current.value;
         var val = this.cajaValorRef.current.value;
         var fecco = this.cajaFechaCompraRef.current.value;
 
         var est = this.cajaEstadoRef.current.value;
-        //var lin = this.cajaLinkRef.current.value;
-        //var desc = this.cajaDescripcionRef.current.value;
-        //var pre = this.cajaPresupuestoRef.current.value;
+
         var compra = {
               id: idco
             , codigo_compra: cod
@@ -47,6 +43,22 @@ export default class RealizarCompra extends Component {
         var url = 'http://localhost:8080/gestionfinanciera/realizarcompra';
         axios.post(url, compra).then(res => {
             this.setState({ status: true });
+            if (res.data.respuesta==="se creo") {
+                alert("se creo la clase")
+                window.history.back();
+            }
+            else if (res.data.respuesta==="la fecha debe ser mayor a la fecha de solicitud") {
+                alert("la fecha debe ser mayor a la fecha de solicitud")
+                window.history.back();
+            }
+            else if (res.data.respuesta==="no se puede realizar la compra, el presupuesto se a excedido") {
+                alert("no se puede realizar la compra, el presupuesto se a excedido")
+                window.history.back();
+            }
+            else{
+                alert("no se pudo crear")
+                window.history.back();
+            }
         });
     }
 
@@ -55,7 +67,7 @@ export default class RealizarCompra extends Component {
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+            //return <Redirect to="/Proyectos" />
         }
         return (
             <div>

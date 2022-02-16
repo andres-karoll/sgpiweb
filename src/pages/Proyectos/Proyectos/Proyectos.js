@@ -202,6 +202,17 @@ function Proyectos(){
               </a>
             </li>
             </Link>
+
+            <Link to={"/DetallesLindo/" + proye.id}>
+            <li className="nav-item">
+              <a  className="nav-link">
+                <i className="fas fa-heart nav-icon" />
+                
+                <p>Detalles Lindo uwu</p>
+                 
+              </a>
+            </li>
+            </Link>
             
           </ul>
         </li>

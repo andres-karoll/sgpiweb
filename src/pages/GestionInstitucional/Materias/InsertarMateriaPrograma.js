@@ -81,7 +81,7 @@ progra:[] }
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputEmail1">Catalogo</label>
-                            <input type="number" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCatalogoRef} required/>
+                            <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaCatalogoRef} required/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

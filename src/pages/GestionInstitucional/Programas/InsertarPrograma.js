@@ -35,9 +35,6 @@ export default class InsertarPrograma extends Component {
             if (res.data.respuesta==="se creo el programa") {
                 alert("se creo el programa")
                 window.location.href = "/Programas";
-            }if (res.data.respuesta==="se creo el programa") {
-                alert("se creo el programa")
-                window.location.href = "/Programas";
             }else if (res.data.respuesta==="la facultad no existe") {
                 alert("la facultad no existe")
                 window.location.href = "/Programas";
