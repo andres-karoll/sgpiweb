@@ -64,7 +64,7 @@ export default class CrearMacro extends Component {
                                                 <div className="form-group">
                                                 <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required/>
+                                                    <textarea rows="5" cols="100" wrap="physical"  type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>

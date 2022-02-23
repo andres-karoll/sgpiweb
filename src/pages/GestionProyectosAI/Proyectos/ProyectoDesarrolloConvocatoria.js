@@ -1,38 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectosArea extends Component {
-
+export default class ProyectoDesarrolloConvocatoria extends Component {
   state = {
     status: false,
-    proyectos: []
+    proye: []
   }
-
-  cargarProyectos = () => {
+  cargarProyecto = () => {
     var url = "http://localhost:8080";
-    var request = "/gestionfiltroproyecto/listarproyectosporarea/" + this.props.id;
+    var request = "/gestioninstitucional/ProyectosPostuladosConvocatorias/" + this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
-        proyectos: res.data
+        proye: res.data
         , status: true
       });
-      if (this.state.proyectos.length === 0) {
-        alert("esta area no tiene proyectos")
-        window.history.back();
+      if (this.state.proye.length === 0) {
+        alert("este proyecto no tiene presupuesto")
       }
     });
-
   }
-
   componentDidMount = () => {
-    this.cargarProyectos();
-    //this.cargarLineas();
-
+    this.cargarProyecto();
   }
-
   render() {
     return (
       <div>
@@ -43,22 +34,19 @@ export default class ProyectosArea extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1 style={{ fontSize: "x-large" }} >< i style={{ fontSize: "x-large" }} class="fas fa-eye nav-icon"></i>Proyectos del Area con ID: {this.props.id}</h1>
+                <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
               </div>
             </section>
           </div>
           {this.state.status === true &&
             (
-              this.state.proyectos.map((pro, i) => {
-
+              this.state.proye.map((pro, i) => {
                 return (
-
                   <section className="content">
                     {/* Default box */}
                     <div className="card">
-
                       <div className="card-header">
-                        <h3 className="card-title">Id del area: {this.props.id}</h3>
+                        <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
                         <div className="card-tools">
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i className="fas fa-minus" />
@@ -72,32 +60,23 @@ export default class ProyectosArea extends Component {
                       <div className="card-body p-0">
                         <table className="table table-striped projects">
                           <thead>
-                            <tr style={{ fontSize: "large" }}>
-
-                              <th style={{ width: '5%' }}>
-                                ID
+                            <tr>
+                              <th style={{ width: '15%' }}>
+                                Titulo del proyecto
                               </th>
-                              <th style={{ width: '20%' }}>
-                                Titulo de proyecto
+                              <th style={{ width: '25%' }}>
+                                Descripción
                               </th>
-                              <th style={{ width: '20%' }}>
-                                descripción
+                              <th style={{ width: '10%' }}>
+                                Convocatoria
                               </th>
-                              <th style={{ width: '20%' }}>
-                                justificación
+                              <th style={{ width: '10%' }}>
+                                Estado en la convocatoria
                               </th>
-                              <th style={{ width: '20%' }}>
-                                visibilidad
-                              </th>
-
                             </tr>
                           </thead>
-                          <tbody style={{ fontSize: "large" }}>
+                          <tbody>
                             <tr>
-
-                              <td>
-                                {pro.id}
-                              </td>
                               <td>
                                 {pro.titulo}
                               </td>
@@ -105,22 +84,21 @@ export default class ProyectosArea extends Component {
                                 {pro.descripcion}
                               </td>
                               <td>
-                                {pro.justificacion}
+                                {pro.nombre_convocatoria}
                               </td>
                               <td>
-                                {pro.visibilidad}
+                                {pro.id_proyecto}
                               </td>
-                              <td className="project-actions text-right" style={{ width: '40%' }}>
-
+                              <td className="project-actions text-right">
+                                <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                                <NavLink className="btn btn-warning" to={"/EvaluacionConvocatorias/" + pro.id} >Evaluar</NavLink>
                               </td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
-
                       {/* /.card-body */}
                     </div>
-
                     {/* /.card */}
                   </section>
                 );

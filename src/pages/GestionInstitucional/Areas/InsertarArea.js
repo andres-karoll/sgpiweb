@@ -11,7 +11,7 @@ export default class InsertarArea extends Component {
     cajaDescripcionRef = React.createRef();
     cajaGranAreaRef = React.createRef();
 
-    state = { status: false}
+    state = { status: false }
 
     nuevaArea = (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ export default class InsertarArea extends Component {
         var des = this.cajaDescripcionRef.current.value;
         var gran = this.cajaGranAreaRef.current.value;
         var area = {
-            id:ida,
+            id: ida,
             nombre: nom
             , descripcion: des
             , gran_area: gran
@@ -28,12 +28,12 @@ export default class InsertarArea extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/creararea';
         axios.post(url, area).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la area") {
+            if (res.data.respuesta === "se creo la area") {
                 alert("se creo la area")
                 window.history.back();
-            }else{
-              alert("no se pudo crear")
-            
+            } else {
+                alert("no se pudo crear")
+
             }
         });
     }
@@ -42,65 +42,65 @@ export default class InsertarArea extends Component {
 
 
     render() {
-        if(this.state.status === true){
+        if (this.state.status === true) {
             //return <Redirect to="/AreasConocimiento" />
         }
         return (
             <div>
-                <Aside/>
-                <Header/>
-            <div className="content-wrapper">
-            <section className="content">
-                
-            <div className="container-fluid">
-                <div className="row">
-                {/* left column */}
-                <div className="col-md-12">
-                    {/* general form elements */}
-                    <div className="card card-primary">
-                    <div className="card-header" style={{align:"center"}}>
-                    <h3  style={{fontSize:"large" }} className="card-title"  >Crear una Area</h3>
-                  </div>
-                   
-                    {/* /.card-header */}
-                    {/* form start */}
-                    <form onSubmit={this.nuevaArea} style={{width: "50%", margin: "auto"}}>
-                        <div className="card-body">
-                        <div className="form-group">
-                            <input type="hidden" style={{fontSize:"large" }} name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Nombre</label>
-                            <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Descripción</label>
-                            <textarea type="text" rows="15" style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{fontSize:"large" }} htmlFor="exampleInputPassword1">Grand area</label>
-                            <input style={{fontSize:"large" }} type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} required/>
-                        </div>
-                        
+                <Aside />
+                <Header />
+                <div className="content-wrapper">
+                    <section className="content">
 
-                        </div>
-                        {/* /.card-body */}
-                        <div className="card-footer">
-                        <button style={{fontSize:"large" }} className="btn btn-success">Enviar</button>
-                        </div>
-                    </form>
-                    </div>
-                    {/* /.card */}
+                        <div className="container-fluid">
+                            <div className="row">
+                                {/* left column */}
+                                <div className="col-md-12">
+                                    {/* general form elements */}
+                                    <div className="card card-primary">
+                                        <div className="card-header" style={{ align: "center" }}>
+                                            <h3 style={{ fontSize: "large" }} className="card-title"  >Crear una Area</h3>
+                                        </div>
+
+                                        {/* /.card-header */}
+                                        {/* form start */}
+                                        <form onSubmit={this.nuevaArea} style={{ width: "50%", margin: "auto" }}>
+                                            <div className="card-body">
+                                                <div className="form-group">
+                                                    <input type="hidden" style={{ fontSize: "large" }} name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label style={{ fontSize: "large" }} htmlFor="exampleInputPassword1">Nombre</label>
+                                                    <input style={{ fontSize: "large" }} type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label style={{ fontSize: "large" }} htmlFor="exampleInputPassword1">Descripción</label>
+                                                    <textarea type="text" rows="15" style={{ fontSize: "large" }} type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label style={{ fontSize: "large" }} htmlFor="exampleInputPassword1">Grand area</label>
+                                                    <input style={{ fontSize: "large" }} type="text" name="cajatel" className="form-control" placeholder="Grand area" ref={this.cajaGranAreaRef} required />
+                                                </div>
+
+
+                                            </div>
+                                            {/* /.card-body */}
+                                            <div className="card-footer">
+                                                <button style={{ fontSize: "large" }} className="btn btn-success">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    {/* /.card */}
+                                </div>
+                                {/*/.col (right) */}
+                            </div>
+                            {/* /.row */}
+                        </div>{/* /.container-fluid */}
+                    </section>
                 </div>
-                {/*/.col (right) */}
-                </div>
-                {/* /.row */}
-            </div>{/* /.container-fluid */}
-            </section>
-            </div>
             </div>
         )
     }
