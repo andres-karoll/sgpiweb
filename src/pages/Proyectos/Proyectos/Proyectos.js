@@ -149,7 +149,7 @@ function Proyectos(){
                           </td>
                           <td className="project-actions text-right">
                             
-                          <NavLink to={"/DetallesProyecto/" + proye.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink to={"/DetallesLindo/" + proye.id} className="btn btn-primary">Detalles</NavLink>
                           <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + proye.id} >Presupuesto</NavLink> 
                           <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + proye.id} >Productos</NavLink>
                           
@@ -203,16 +203,7 @@ function Proyectos(){
             </li>
             </Link>
 
-            <Link to={"/DetallesLindo/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-heart nav-icon" />
-                
-                <p>Detalles Lindo uwu</p>
-                 
-              </a>
-            </li>
-            </Link>
+    
             
           </ul>
         </li>
