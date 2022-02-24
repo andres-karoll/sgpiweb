@@ -38,9 +38,20 @@ export default class Aside extends Component {
               <a href="/HomeInstitucional" className="d-block">SGPI</a>
             </div>
           </div>
-          <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div className=" ">
+ 
             <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link">
-              <span className="brand-text font-weight-light"  >{rol} | {this.state.nombre.nombres} </span>
+           
+              <span className="brand-text font-weight-light"  >{rol} </span>
+            </a>
+          </div>
+          <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+
+
+            
+            <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link">
+           
+              <span className="brand-text font-weight-light"  > {this.state.nombre.nombres} </span>
             </a>
           </div>
           {/* Sidebar Menu */}
@@ -62,9 +73,9 @@ export default class Aside extends Component {
               {(rol === "Coordinador investigacion facultad") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -101,7 +112,7 @@ export default class Aside extends Component {
                 (rol === "Egresado") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-folder-open nav-icon" />
                     <p>
                       Tus Proyectos
                       <i className="right fas fa-angle-left" />
@@ -111,7 +122,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectosAulaIntegrador">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-book nav-icon"> </i>
                           <p>Proyectos de clase</p>
                         </a>
                       </li>
@@ -121,7 +132,7 @@ export default class Aside extends Component {
                     <Link to="/TrabajoGrado/">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-user-graduate nav-icon"> </i>
                           <p>Proyecto de grado</p>
                         </a>
                       </li>
@@ -129,7 +140,7 @@ export default class Aside extends Component {
                   </ul>
 
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-seedling nav-icon" />
                     <p>
                       Semillero
                       <i className="right fas fa-angle-left" />
@@ -139,7 +150,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-seedling nav-icon"> </i>
                           <p>Proyectos Semillero</p>
                         </a>
                       </li>
@@ -150,9 +161,9 @@ export default class Aside extends Component {
               {(rol === "Profesional investigacion") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -204,9 +215,9 @@ export default class Aside extends Component {
               {(rol === "Lider grupo investigacion") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -215,7 +226,7 @@ export default class Aside extends Component {
                     <Link to="/ConvocatoriasAbiertas">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-door-open nav-icon"> </i>
 
                           <p>Convocatorias Abiertas</p>
 
@@ -225,7 +236,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-check-double nav-icon" />
 
                           <p>Tus proyectos de convocatoria finalizados</p>
 
@@ -235,7 +246,7 @@ export default class Aside extends Component {
                     <Link to="/Convocatorias">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-address-book nav-icon"> </i>
 
                           <p>Todas las convocatorias </p>
 
@@ -248,9 +259,9 @@ export default class Aside extends Component {
               {(rol === "Investigador formacion") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -286,7 +297,7 @@ export default class Aside extends Component {
                     <Link to="/TusProyectosSemillero/">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-folder-open nav-icon" />
 
                           <p>Tus proyectos</p>
 
@@ -299,9 +310,9 @@ export default class Aside extends Component {
               {(rol === "Docente investigador") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -320,7 +331,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-folder-open nav-icon" />
 
                           <p>Tus proyectos</p>
 
@@ -333,9 +344,9 @@ export default class Aside extends Component {
               {(rol === "Lider investigacion facultad") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -344,9 +355,9 @@ export default class Aside extends Component {
                     <Link to="/ConvocatoriasAbiertas">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-door-open nav-icon"> </i>
 
-                          <p>Convocatorias</p>
+                          <p>Convocatorias Abiertas</p>
 
                         </a>
                       </li>
@@ -365,7 +376,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-check-double nav-icon" />
 
                           <p>Tus proyectos de convocatoria finalizados</p>
 
@@ -379,9 +390,9 @@ export default class Aside extends Component {
               {(rol === "Docente lider semillero") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -400,7 +411,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-folder-open nav-icon" />
 
                           <p>Tus proyectos</p>
 
@@ -413,7 +424,7 @@ export default class Aside extends Component {
               {(rol === "Estudiante activo" || rol === "Estudiante inactivo") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-folder-open nav-icon" />
                     <p>
                       Tus Proyectos
                       <i className="right fas fa-angle-left" />
@@ -423,7 +434,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectosAulaIntegrador">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-book nav-icon"> </i>
                           <p>Proyectos de clase</p>
                         </a>
                       </li>
@@ -433,7 +444,7 @@ export default class Aside extends Component {
                     <Link to="/TrabajoGrado/">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-user-graduate nav-icon"> </i>
                           <p>Proyecto de grado</p>
                         </a>
                       </li>
@@ -441,7 +452,7 @@ export default class Aside extends Component {
                   </ul>
 
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-seedling nav-icon" />
                     <p>
                       Semillero
                       <i className="right fas fa-angle-left" />
@@ -451,7 +462,7 @@ export default class Aside extends Component {
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-seedling nav-icon"> </i>
                           <p>Proyectos Semillero</p>
                         </a>
                       </li>
@@ -465,14 +476,11 @@ export default class Aside extends Component {
 
 
                 <li className="nav-item menu-open">
-                  <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-
-
-                  </div>
+     
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-user-tie nav-icon" />
+                    <i className="fas fa-bars nav-icon" />
                     <p>
-                      Gestion institucional
+                      Menu
                       <i className="right fas fa-angle-left " />
                     </p>
 
@@ -508,7 +516,7 @@ export default class Aside extends Component {
                     <Link to={"/UsuariosPrograma/" + programa}>
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-user-friends  nav-icon" />
+                          <i className="fas fa-clipboard-check  nav-icon" />
 
                           <p>Evaluar proyectos de convocatoria</p>
 
@@ -528,7 +536,7 @@ export default class Aside extends Component {
 
 </div>
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars nav-icon" />
                     <p>
                       Menu
                       <i className="right fas fa-angle-left" />
@@ -549,7 +557,7 @@ export default class Aside extends Component {
                     <Link to="/TusProyectosSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-door-open nav-icon" />
+                          <i className="fas fa-seedling nav-icon" />
 
                           <p> Tus proyectos Semillero</p>
 
@@ -569,9 +577,9 @@ export default class Aside extends Component {
 
                   </div>
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars  nav-icon" />
                     <p>
-                      Biblioteca
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
 
@@ -610,9 +618,9 @@ export default class Aside extends Component {
 
                   </div>
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars nav-icon" />
                     <p>
-                      Gestion
+                      Menu
 
                       <i className="right fas fa-angle-left" />
                     </p>
@@ -654,7 +662,7 @@ export default class Aside extends Component {
                   <a href="#" className="nav-link ">
                     <i className="fas fa-user-tie nav-icon" />
                     <p>
-                      Gestion institucional
+                      Menu
                       <i className="right fas fa-angle-left " />
                     </p>
 
@@ -851,12 +859,12 @@ export default class Aside extends Component {
                 </li>
               }
             */}
-              {(rol === 'Docentes') &&
+              {(rol === 'Docente') &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
-                    <i className="fas fa-newspaper nav-icon" />
+                    <i className="fas fa-bars nav-icon" />
                     <p>
-                      Tus Proyectos
+                      Menu
                       <i className="right fas fa-angle-left" />
                     </p>
                   </a>
@@ -864,7 +872,7 @@ export default class Aside extends Component {
                     <Link to="/TusClases">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-chalkboard-teacher nav-icon"> </i>
                           <p>Tus CLases</p>
                         </a>
                       </li>
