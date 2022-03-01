@@ -121,6 +121,7 @@ status: false,
                         </tr>
                       </tbody>
                     </table>
+                    {pro.id_proyecto !="Propuesta" || pro.id_proyecto !="Finalizado" &&
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                           <li className="nav-item">
                             <a href="#" className="nav-link ">
@@ -133,24 +134,20 @@ status: false,
                             </a>
                             <ul className="nav nav-treeview">
 
-     
-                            
-                                  <Link to={"/EvaluacionConvocatorias/" + pro.id}>
-                                    <li className="nav-item">
-                                      <a className="nav-link">
-                                        <i className="fas fa-eye nav-icon" />
+                        
+                             <Link to={"/EvaluacionConvocatorias/" + pro.id}>
+                             <li className="nav-item">
+                               <a className="nav-link">
+                                 <i className="fas fa-eye nav-icon" />
+                                 <p>Finalizar proyecto</p>
 
-                                        <p>Finalizar proyecto</p>
-
-                                      </a>
-                                    </li>
-                                  </Link>
-
-                               
-
+                               </a>
+                             </li>
+                           </Link>
                             </ul>
                           </li>
                         </ul>
+                      }
                   </div>
                   
                   {/* /.card-body */}

@@ -122,24 +122,30 @@ export default class EvaluacionConvocatoria extends Component {
                               <option value="Validacion 2">Validacion 2</option>
                             }
                             {(pro.id_proyecto=== "Validacion 2") &&
-                              <option value="Desarrollo">Pasar a desarrollo</option>
+                              <option value="Validacion 3">Validacion 3</option>
                             }
-                            {(pro.id_proyecto === "Desarrollo") &&
-                              <option value="Finalizado">Finalizado</option>
+                            {(pro.id_proyecto === "Validacion 3") &&
+                              <option value="Desarrollo">Desarrollo</option>
                             }
                             {(pro.id_proyecto === "Finalizado") &&
                               <option value="Aceptado 1">Aceptado 1</option>
                             }
-                            {(pro.id_proyecto === "Finalizado") &&
+                            {(pro.id_proyecto === "Desarrollo") &&
+                              <option value="Finalizado">Finalizado</option>
+                            }
+                            {(pro.id_proyecto === "Finalizado" || pro.id_proyecto === "Aceptado 1"|| pro.id_proyecto === "Aceptado 2") &&
                               <option value="Desarrollo">Volver a desarrollo</option>
                             }
                             {(pro.id_proyecto === "Aceptado 1") &&
                               <option value="Aceptado 2">Aceptado 2</option>
                             }
                             {(pro.id_proyecto === "Aceptado 2") &&
-                              <option value="Aceptado 3">Finalizar</option>
+                              <option value="Terminado">Terminar procesos</option>
                             }
-                            <option value="Finalizado">Rechazar</option>
+                            {(pro.id_proyecto=== "Propuesta" ||pro.id_proyecto=== "Validacion 1" ||pro.id_proyecto === "Validacion 3")&&
+                            <option value="Propuesta">Rechazar</option>
+                            }
+                            
                           </select>
                         </div>
                       </div>

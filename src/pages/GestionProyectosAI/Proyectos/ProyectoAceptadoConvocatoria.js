@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ProyectoDesarrolloConvocatoria extends Component {
+export default class ProyectoAceptadoConvocatoria extends Component {
   state = {
     status: false,
     proye: []
@@ -92,8 +92,10 @@ export default class ProyectoDesarrolloConvocatoria extends Component {
                               </td>
                               <td className="project-actions text-right">
                                 <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                                {(pro.id_proyecto !="Terminado")&&
                                 <NavLink className="btn btn-warning" to={"/EvaluacionConvocatorias/" + pro.id} >Evaluar</NavLink>
-                              </td>
+                                }
+                                </td>
                             </tr>
                           </tbody>
                         </table>

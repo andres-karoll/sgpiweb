@@ -17,8 +17,9 @@ export default class ProyectosConvocatorias extends Component {
         , status: true
       });
       if (this.state.proye.length === 0) {
-        alert("este proyecto no tiene presupuesto")
-      }
+        alert("Esta clase no tiene proyectos")
+        window.history.back();
+    }
     });
   }
   componentDidMount = () => {

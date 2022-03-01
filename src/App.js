@@ -173,6 +173,7 @@ import Crearusuario from './pages/Usuario/CrearUsuario'
 import ProyectosPostuladosConvocatorias from './pages/GestionProyectosAI/Proyectos/ProyectosConvocatorias'
 import ProyectoDesarrolloConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoDesarrolloConvocatoria'
 import EvaluacionConvocatoria from './pages/GestionProyectosAI/Proyectos/EvaluacionConvocatoria'
+import ProyectoAceptadoConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoAceptadoConvocatoria'
 
 
 
@@ -213,13 +214,6 @@ export default function App() {
                             var cedula = props.match.params.cedula;
                             return <EliminarUsuario cedula={cedula} />
                         }} />
-
-
-
-
-
-
-
             {/**<Route exact path="/MeterArchivo" component={FilesPrueba} /> */}
             <Route exact path="/MeterArchivo" component={UploadFiles} /> 
 
@@ -812,6 +806,10 @@ export default function App() {
                     <Route exact path="/ProyectoDesarrolloConvocatoria/:id" render={props => {
                         var id = props.match.params.id;
                         return <ProyectoDesarrolloConvocatoria id={id} />
+                    }} />
+                    <Route exact path="/ProyectoAceptadoConvocatoria/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectoAceptadoConvocatoria id={id} />
                     }} />
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
                     <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    

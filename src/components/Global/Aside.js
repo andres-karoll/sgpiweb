@@ -51,22 +51,23 @@ export default class Aside extends Component {
               {(rol === "Direccion investigacion corporativo") &&
                 <li className="nav-item menu-open">
                   <ul className="nav nav-treeview">
-                  <Link to={"/ProyectosConvocatorias/"+"Validacion 2"}>
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-user-friends  nav-icon" />
-                          <p>Proyectos fase 2 convocatorias</p>
-                        </a>
-                      </li>
-                    </Link>
+                 
                     <Link to={"/ProyectosConvocatorias/"+"Validacion 2"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
-                          <p>Trabajos de grado fase 2 </p>
+                          <p>Proyectos fase 3 convocatorias</p>
                         </a>
                       </li>
                     </Link>
+                    <Link to={"/ProyectoAceptadoConvocatoria/"+"Aceptado 2"}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-user-friends  nav-icon" />
+                          <p>Proyectos fase 7 convocatorias</p>
+                        </a>
+                      </li>
+                    </Link>|
                   </ul>
                 </li>
               }
@@ -86,11 +87,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
-
-
                           <p>Trabajos de grado</p>
-
-
                         </a>
                       </li>
                     </Link>
@@ -108,15 +105,24 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
-                          <p>Proyectos fase 1 convocatorias</p>
+                          <p>Proyectos fase 2 convocatorias</p>
                         </a>
                       </li>
                     </Link>
-                    <Link to={"/ProyectoDesarrolloConvocatoria/"+"Desarrollo"}>
+
+                    <Link to={"/ProyectoDesarrolloConvocatoria/"+"Validacion 3"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
-                          <p>Proyectos fase 3 convocatorias</p>
+                          <p>Proyectos fase 4 convocatorias</p>
+                        </a>
+                      </li>
+                    </Link>
+                    <Link to={"/ProyectoAceptadoConvocatoria/"+"Aceptado 1"}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-user-friends  nav-icon" />
+                          <p>Proyectos fase 6 convocatorias</p>
                         </a>
                       </li>
                     </Link>
@@ -194,13 +200,11 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
-                    <Link to="/ProyectoSemillero">
+                    <Link to={"/ProyectoAceptadoConvocatoria/"+"Terminado"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
-
                           <p>Tus proyectos de convocatoria finalizados</p>
-
                         </a>
                       </li>
                     </Link>
@@ -252,9 +256,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
-
                           <p>Tus proyectos de convocatoria finalizados</p>
-
                         </a>
                       </li>
                     </Link>
@@ -262,19 +264,23 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon"> </i>
-
                           <p>Todas las convocatorias </p>
-
                         </a>
                       </li>
                     </Link>
-                    <Link to="/Convocatorias">
+                    <Link to={"/ProyectosConvocatorias/"+"Propuesta"}>
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
-
-                          <p>Todas las convocatorias </p>
-
+                          <i className="fas fa-user-friends  nav-icon" />
+                          <p>Proyectos fase 1 convocatorias</p>
+                        </a>
+                      </li>
+                    </Link>
+                    <Link to={"/ProyectoAceptadoConvocatoria/"+"Finalizado"}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-user-friends  nav-icon" />
+                          <p>Proyectos fase 5 convocatorias</p>
                         </a>
                       </li>
                     </Link>
@@ -427,9 +433,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon"> </i>
-
                           <p>Convocatorias</p>
-
                         </a>
                       </li>
                     </Link>
@@ -437,9 +441,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
-
                           <p>Tus proyectos</p>
-
                         </a>
                       </li>
                     </Link>
