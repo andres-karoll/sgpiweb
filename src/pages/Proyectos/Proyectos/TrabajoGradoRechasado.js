@@ -11,7 +11,7 @@ function TrabajoGradoRechasado(){
     const [busqueda, setbusqueda] = useState("");
 
     const peticionGet = async()=>{
-        await axios.get("http://localhost:8080/gestionfiltroproyecto/listarproyectos")
+        await axios.get("http://localhost:8080/gestionproyectosinvestigacion/TrabajoGradoRechazados/"+localStorage.getItem("cedula"))
         .then(response=>{
             setproyectos(response.data);
             settablaproyectos(response.data);
