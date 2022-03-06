@@ -104,16 +104,17 @@ export default class EvaluacionProyectoGrado extends Component {
                             </li>
                           </ul>
                         </div>
-                        {(this.state.proyecto.estado==="Correcciones")&&
+                        {this.state.proyecto.estado==="Correcciones"?(
                          <div className="form-group">
                          <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                              <label htmlFor="exampleInputPassword1">Reconocimientos</label>
                              <div></div>
                              <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} required/>
                          </div>
-                        }
+                         ):(
                         
-                        
+                         <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value=""/>
+                         )}
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                           <label htmlFor="exampleInputPassword1">Evaluar</label>
