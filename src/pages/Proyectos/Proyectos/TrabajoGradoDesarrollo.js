@@ -5,13 +5,13 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { prettyDOM } from '@testing-library/dom';
 
-function Proyectos(){
+function TrabajoGradoDesarrollo(){
     const [proyectos, setproyectos] = useState([]);
     const [tablaproyectos, settablaproyectos] = useState([]);
     const [busqueda, setbusqueda] = useState("");
 
     const peticionGet = async()=>{
-        await axios.get("http://localhost:8080/gestionfiltroproyecto/listarproyectos")
+        await axios.get("http://localhost:8080/gestionproyectosinvestigacion/TrabajoGradoDesarrollo/"+localStorage.getItem("cedula"))
         .then(response=>{
             setproyectos(response.data);
             settablaproyectos(response.data);
@@ -27,10 +27,7 @@ function Proyectos(){
 
     const filtrar = (terminoBusqueda)=>{
         var ResultadosBusqueda = tablaproyectos.filter((elemento)=>{
-            if(elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-            ||elemento.estado.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-            ||elemento.fecha_inicio.toString().includes(terminoBusqueda.toLowerCase())
-            ||elemento.fecha_fin.toString().includes(terminoBusqueda.toLowerCase())){
+            if(elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
                 return elemento;
             }
         });
@@ -45,20 +42,118 @@ function Proyectos(){
         <div>
       <Aside/>
       <Header/>
+
+
+      
       <div className="content-wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
       <div>
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class=" fas fa-cubes  nav-icon"></i>Todos los proyetos en SGPI</h1>
+                  <h1><i class=" fas fa-cubes  nav-icon"></i>Todos los proyetos en estado de Desarrollo</h1>
                   </div>
                   </section>
             </div>
+
+
+
+
+            
+
+<div>
+<Link to="/TrabajoGradoInicio">
+  <div style={{width: '20%'}}className="col-md-3 col-sm-6 col-12" href>
+    <div className="info-box">
+      <span className="info-box-icon bg-info"><i className="fas fa-address-book" /></span>
+      <div className="info-box-content">
+        <h4 className="info-box-text">Estado inicial</h4>
+    
+      </div>
+      {/* /.info-box-content */}
+    </div>
+    {/* /.info-box */}
+  </div>
+  </Link>
+  {/* /.col */}
+  <Link to="/TrabajoGradoDesarrollo">
+  <div style={{width: '20%'}} className="col-md-3 col-sm-6 col-12">
+    <div className="info-box">
+      <span className="info-box-icon bg-info"><i className="fas fa-running" /></span>
+      <div className="info-box-content">
+        <h4 className="info-box-text">En desarrollo</h4>
+  
+      </div>
+      {/* /.info-box-content */}
+    </div>
+    {/* /.info-box */}
+  </div>
+  </Link>
+  {/* /.col */}
+  <Link to="/TrabajoGradoICorrecciones">
+  <div style={{width: '20%'}} className="col-md-3 col-sm-6 col-12">
+    <div className="info-box">
+      <span className="info-box-icon bg-info"><i className="fas fa-edit" /></span>
+      <div className="info-box-content">
+        <h4 className="info-box-text">Correcciones</h4>
+   
+      </div>
+      {/* /.info-box-content */}
+    </div>
+    {/* /.info-box */}
+  </div>
+  </Link>
+  <Link to="/TrabajoGradoFin">
+  <div style={{width: '20%'}}  className="col-md-3 col-sm-6 col-12">
+    <div className="info-box">
+      <span className="info-box-icon bg-info" ><i className="fas fa-check-double" /></span>
+      <div className="info-box-content">
+        <h4 className="info-box-text">Finalizados</h4>
+   
+      </div>
+      {/* /.info-box-content */}
+    </div>
+    {/* /.info-box */}
+  </div>
+  </Link>
+  {/* /.col */}
+  <Link to="/TrabajoGradoRechasado">
+  <div style={{width: '20%'}} className="col-md-3 col-sm-6 col-12">
+    <div className="info-box">
+      <span className="info-box-icon bg-danger"><i className="fas fa-thumbs-down" /></span>
+      <div className="info-box-content">
+        <h4 className="info-box-text">Rechazados</h4>
+      </div>
+      {/* /.info-box-content */}
+    </div>
+    {/* /.info-box */}
+  </div>
+  </Link>
+  {/* /.col */}
+</div>
+
+
       <div className="container-fluid">
     <div className="row"style={{width: '100%', height: "50px", padding:"5px"}}>
       <div className="col-md-8 offset-md-2 ">
           <div className="input-group">
-            <input type="search" onChange = {handleChange} className="form-control form-control-lg" placeholder="Busqueda por titulo, estado, fecha(año-mes-dia)" />
+            <input type="search" onChange = {handleChange} className="form-control form-control-lg" placeholder="Busqueda por titulo" />
             <div className="input-group-append">
             </div>
           </div>
@@ -93,23 +188,19 @@ function Proyectos(){
                             # ID
                           </th>
                           <th style={{ width: '20%' }}>
-                            Nombre del proyecto
+                            Titulo del proyecto
                           </th> 
-                          <th style={{width: '10%'}}>
-                            Fecha de inicio
+                          <th style={{width: '30%'}}>
+                            Descripcion
                           </th>
-                          <th style={{width: '10%'}}>
-                            Fecha Final
-                          </th>              
+                               
                           <th style={{width: '20%'}}>
-                            Descripción
+                            Tipo de proyecto
                           </th>
                           <th style={{ width: '5%' }} className="text-center">
                             Estado
                           </th>
-                          <th style={{ width: '5%' }} className="text-center">
-                            Visibilidad
-                          </th>
+                  
                         </tr>
                       </thead>
                       <tbody>
@@ -122,92 +213,30 @@ function Proyectos(){
                             {proye.titulo}
                             </a>
                             <br />
-                            <small>
-                              Metodologia: {proye.metodologia}
-                            </small>
+                      
                           </td>
+                          <td>                   
+                            {proye.descripcion}
+                          </td>
+ 
                           <td className="project_progress">
                             <small>
-                              {proye.fecha_inicio}
-                            </small>
-                          </td>
-                          <td className="project_progress">
-                            <small>
-                              {proye.fecha_fin}
-                            </small>
-                          </td>
-                          <td className="project_progress">
-                            <small>
-                              {proye.descripcion}
+                              {proye.tipo_proyecto}
                             </small>
                           </td>
                           <td className="project-state">
                             <span className="badge badge-success">{proye.estado}</span>
                           </td>
-                          <td className="project-state">
-                            <span className="badge badge-success">{proye.visibilidad}</span>
-                          </td>
+                     
                           <td className="project-actions text-right">
                             
-                          <NavLink to={"/DetallesLindo/" + proye.id} className="btn btn-primary">Detalles</NavLink>
-                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + proye.id} >Presupuesto</NavLink> 
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + proye.id} >Productos</NavLink>
-                          
-                          
-                            
+                          <NavLink style={{width: '50%'}} to={"/DetallesProyectoAI/" + proye.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink  style={{width: '50%'}} className="btn btn-success" to={"/EvaluarProyectoGrado/" + proye.id} >Evaluar</NavLink>     
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/AsignarPersupuesto/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            <Link to={"/SubirProductos/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-file-upload nav-icon" />
-                
-                <p>Subir Productos</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-            <Link to={"/AceptarDenegarConvocatoria/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-check-double nav-icon" />
-                
-                <p>Aceptar Denegar convocatoria</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-    
-            
-          </ul>
-        </li>
-                    </ul>
+           
                   </div>
                   {/* /.card-body */}
                 </div>
@@ -219,4 +248,4 @@ function Proyectos(){
     );
 }
 
-export default Proyectos
+export default TrabajoGradoDesarrollo;

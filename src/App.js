@@ -171,6 +171,11 @@ import Evaluacion from './pages/GestionProyectosAI/Proyectos/Evaluacion'
 import ModificarMacro from './pages/GestionProyectosAI/Proyectos/ModificarMacro'
 import TusProyectosConvocatoria1 from './pages/GestionProyectosAI/Proyectos/TusProyectosConvocatoria1'
 import TusProyectosSemillero from './pages/GestionProyectosInvestigacion/TusProyectosSemillero'
+import TrabajoGradoInicio from './pages/Proyectos/Proyectos/TrabajoGradoInicio'
+import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesarrollo'
+import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
+import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
+import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
 
 
 
@@ -801,7 +806,13 @@ export default function App() {
                     <Route path="/ModificarRol" exact component={ModificarRol} />                
 
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
-                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />                    
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />
+
+                    <Route path="/TrabajoGradoInicio" exact component={TrabajoGradoInicio} />
+                    <Route path="/TrabajoGradoDesarrollo" exact component={TrabajoGradoDesarrollo} />  
+                    <Route path="/TrabajoGradoICorrecciones" exact component={TrabajoGradoCorrecciones} />
+                    <Route path="/TrabajoGradoFin" exact component={TrabajoGradoFin} />  
+                    <Route path="/TrabajoGradoRechasado" exact component={TrabajoGradoRechasado} />                         
 
             <Route component ={() => (
           <Error/>)
