@@ -5,11 +5,12 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
 
-export default class Evaluacion extends Component {
+export default class EvaluacionProyectoGrado extends Component {
 
   cajaIDRef = React.createRef();
   cajaEstadoRef = React.createRef();
   cajaProyectoRef = React.createRef();
+  cajaReconocimientos=React.createRef();
   state = {
     status: false,
     proyecto: []
@@ -18,19 +19,21 @@ export default class Evaluacion extends Component {
     e.preventDefault();
     var pro = this.cajaProyectoRef.current.value;
     var est = this.cajaEstadoRef.current.value;
+    var rec = this.cajaReconocimientos.current.value;
     var estado = {
       proyecto: pro
-      , estado: est
+      , estado: est,
+      reconocimientos:rec
     };
-    var url = 'http://localhost:8080/gestionproyectosinvestigacion/evaluar/';
+    var url = 'http://localhost:8080/gestionproyectosinvestigacion/cambiarEstadoTrabajoGrado/';
     axios.post(url, estado).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
         alert("Se realizo la validacion exitosamente")
-        window.history.back();
+        window.location.href="/HomeInstitucional"      
       } else {
         alert("No se puedo realizar la actualizacion de estado")
-        window.history.back();
+        window.location.href="/HomeInstitucional"      
       }
     });
   }
@@ -101,21 +104,35 @@ export default class Evaluacion extends Component {
                             </li>
                           </ul>
                         </div>
+                        {(this.state.proyecto.estado==="Correcciones")&&
+                         <div className="form-group">
+                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                             <label htmlFor="exampleInputPassword1">Reconocimientos</label>
+                             <div></div>
+                             <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} required/>
+                         </div>
+                        }
+                        
+                        
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                           <label htmlFor="exampleInputPassword1">Evaluar</label>
                           <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
                             <option selected>Elige una opcion</option>
-                            {(this.state.proyecto.estado === "Propuesta") &&
+                            {(this.state.proyecto.estado === "Inicio") &&
                               <option value="Desarrollo">Desarrollo</option>
                             }
                             {(this.state.proyecto.estado === "Desarrollo") &&
+                              <option value="Correcciones">Correcciones</option>
+                            }
+                            {(this.state.proyecto.estado === "Correcciones") &&
                               <option value="Finalizado">Finalizado</option>
                             }
-
+                            
                             <option value="Rechazar">Rechazar</option>
                           </select>
                         </div>
+
                       </div>
                       {/* /.card-body */}
                       <div className="card-footer">

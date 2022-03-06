@@ -3,14 +3,14 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class DesAsignarLineaGrupoI extends Component {
 
     cajaGrupoRef = React.createRef();
     cajaLineaRef = React.createRef();
 
-    state = { lineas: [],status: false }
+    state = { lineas: [], status: false }
 
     nuevaDesAsignacion = (e) => {
         e.preventDefault();
@@ -23,82 +23,82 @@ export default class DesAsignarLineaGrupoI extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/desasignarlineaagrupo';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            
-            if (res.data.respuesta==="se desasigno la linea correctamente") {
+
+            if (res.data.respuesta === "se desasigno la linea correctamente") {
                 alert("sse desasigno la linea correctamente")
                 window.location.href = "/GruposInvestigacion";
-            }else{
-              alert("no se pudo desasignar la linea correctamente")
-              window.location.href = "/GruposInvestigacion";
+            } else {
+                alert("no se pudo desasignar la linea correctamente")
+                window.location.href = "/GruposInvestigacion";
             }
         });
     }
     Cargar = () => {
-        var request = "/gestioninstitucional/listarlineasdelgrupo/" + this.props.id ;
+        var request = "/gestioninstitucional/listarlineasdelgrupo/" + this.props.id;
         var url = "http://localhost:8080" + request;
-         axios.get(url).then(res => {
-          this.setState({
-            lineas: res.data
-            , status: true
-          })
+        axios.get(url).then(res => {
+            this.setState({
+                lineas: res.data
+                , status: true
+            })
         });
-      }
-      componentDidMount = () => {
+    }
+    componentDidMount = () => {
         this.Cargar();
-      }
+    }
 
-      
+
 
     render() {
-        if(this.state.status === true){
-          //  return <Redirect to="/GruposInvestigacion" />
+        if (this.state.status === true) {
+            //  return <Redirect to="/GruposInvestigacion" />
         }
         return (
             <div>
-                <Aside/>
-                <Header/>
-            <div className="content-wrapper">
-                <div className="card card-info">
-                <div className="card-header">
-                    <h3 className="card-title">DES-Asignar linea de investigación al grupo de investigación</h3>
-                </div>
-                {/* /.card-header */}
-                {/* form start */}
-                <form onSubmit={this.nuevaDesAsignacion} className="form-horizontal">
-                    <div className="card-body">
-                    <div className="form-group row">
-                        <div className="col-sm-10">
-                        <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly/>
+                <Aside />
+                <Header />
+                <div className="content-wrapper">
+                    <div className="card card-info">
+                        <div className="card-header">
+                            <h3 className="card-title">DES-Asignar linea de investigación al grupo de investigación</h3>
                         </div>
+                        {/* /.card-header */}
+                        {/* form start */}
+                        <form onSubmit={this.nuevaDesAsignacion} className="form-horizontal">
+                            <div className="card-body">
+                                <div className="form-group row">
+                                    <div className="col-sm-10">
+                                        <input type="hidden" className="form-control" id="inputEmail3" value={this.props.id} placeholder="Grupo de investigación" ref={this.cajaGrupoRef} readOnly />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Linea de investigación</label>
+                                    <div className="col-sm-10">
+                                        <select ref={this.cajaLineaRef} style={{ width: '50%', height: "30px" }}>
+                                            {this.state.status === true &&
+
+                                                (this.state.lineas.map((li) => {
+                                                    return (
+                                                        <option value={li.id}>{li.nombre}</option>
+                                                    );
+                                                })
+                                                )}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* /.card-body */}
+                            <div className="card-footer">
+                                <button type="submit" className="btn btn-success">Enviar</button>
+                                <NavLink to="/GruposInvestigacion" className="btn btn-danger">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            {/* /.card-footer */}
+                        </form>
                     </div>
-                    <div className="form-group row">
-                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Linea de investigación</label>
-                        <div className="col-sm-10">
-                            <select ref={this.cajaLineaRef} style={{width: '50%',  height: "30px"}}>
-                                {this.state.status === true && 
-                            
-                            ( this.state.lineas.map((li) => {
-                            return(
-                                    <option value={li.id}>{li.nombre}</option> 
-                                    );
-                                })
-                                )}
-                            </select>
-                        </div>
-                    </div>
-                    </div>
-                    {/* /.card-body */}
-                    <div className="card-footer">
-                    <button type="submit" className="btn btn-success">Enviar</button>
-                    <NavLink to="/GruposInvestigacion" className="btn btn-danger">Cancelar</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                    {/* /.card-footer */}
-                </form>
                 </div>
-            </div>
             </div>
 
-        )    
+        )
     }
 }

@@ -100,7 +100,7 @@ ParticiparEvento =  (e) => {
                                                 </div>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Reconocimiento</label>
-                        <input type="text" name="cajanom" className="form-control" ref={this.cajaReconocimiento} required/>
+                        <textarea rows="5" cols="100" wrap="physical" type="text" name="cajanom" className="form-control" ref={this.cajaReconocimiento} required/>
                     </div>
                     </div>
                     <div className="card-footer">

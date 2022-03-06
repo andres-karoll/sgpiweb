@@ -15,9 +15,9 @@ export default class CrearConvocatorias extends Component {
     cajaContextoRef = React.createRef();
     cajaNumProductosRef = React.createRef();
     cajaEntidadRef = React.createRef();
-    
 
-    state = { status: false}
+
+    state = { status: false }
 
     nuevaConvocatorias = (e) => {
         e.preventDefault();
@@ -38,118 +38,118 @@ export default class CrearConvocatorias extends Component {
             , fecha_final: fef
             , entidad: ent
             , nombre_convocatoria: nomcon
-            , numero_productos:numpro
+            , numero_productos: numpro
             , contexto: con
         };
         var url = 'http://localhost:8080/gestioninstitucional/crearconvocatoria';
         axios.post(url, convocatoria).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la convocatoria") {
+            if (res.data.respuesta === "se creo la convocatoria") {
                 alert("se creo la convocatoria")
                 window.history.back();
-            }else{
-              alert("no se pudo crear la convocatoria")
-              
+            } else {
+                alert("no se pudo crear la convocatoria")
+
             }
         });
     }
 
     render() {
-        if(this.state.status === true){
+        if (this.state.status === true) {
             return <Redirect to="/Convocatorias" />
         }
         return (
             <div>
-                <Aside/>
-                <Header/>
-            <div className="content-wrapper">
-            <section className="content">
-                
-            <div className="container-fluid">
-                <div className="row">
-                {/* left column */}
-                <div className="col-md-12">
-                    {/* general form elements */}
-                    <div className="card card-primary">
-                    <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear una Convocatoria</h3>
-                  </div>
-                   
-                    {/* /.card-header */}
-                    {/* form start */}
-                    <form onSubmit={this.nuevaConvocatorias} style={{width: "50%", margin: "auto"}}>
-                        <div className="card-body">
-                        <div className="form-group">
-                        
-                            <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la convocatoria</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
-                        </div> 
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Contexto</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Contexto" ref={this.cajaContextoRef} required/>
-                        </div> 
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Estado</label>
-                            <select className="form-control select2" style={{width: '100%'}} ref={this.cajaEstadoRef} required>
-                            <option selected="selected">Abierto</option>
-                            <option>Abierto</option>
-                            <option>Cerrado</option>
-                            </select>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Tipo</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
-                        </div> 
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de inicio</label>
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-                             min="2000-01-01" max="2100-12-31" ref={this.cajaFechaInicioRef} required></input>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha final</label>
-                            <input  type="date" id="start" name="trip-start" style={{ height: "30px"}}
-                             min="2000-01-01" max="2100-12-31" ref={this.cajaFechaFinalRef} required></input>
-                            
-                        </div>
-                        <div class="form-group">
-                  
+                <Aside />
+                <Header />
+                <div className="content-wrapper">
+                    <section className="content">
 
+                        <div className="container-fluid">
+                            <div className="row">
+                                {/* left column */}
+                                <div className="col-md-12">
+                                    {/* general form elements */}
+                                    <div className="card card-primary">
+                                        <div className="card-header" style={{ align: "center" }}>
+                                            <h3 className="card-title"  >Crear una Convocatoria</h3>
+                                        </div>
+
+                                        {/* /.card-header */}
+                                        {/* form start */}
+                                        <form onSubmit={this.nuevaConvocatorias} style={{ width: "50%", margin: "auto" }}>
+                                            <div className="card-body">
+                                                <div className="form-group">
+
+                                                    <input type="hidden" name="cajanom" className="form-control" placeholder="ID" ref={this.cajaIDRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Nombre de la convocatoria</label>
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Contexto</label>
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Contexto" ref={this.cajaContextoRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Estado</label>
+                                                    <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
+                                                        <option selected="selected">Abierto</option>
+                                                        <option>Abierto</option>
+                                                        <option>Cerrado</option>
+                                                    </select>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Tipo</label>
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de inicio</label>
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaInicioRef} required></input>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha final</label>
+                                                    <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
+                                                        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaFinalRef} required></input>
+
+                                                </div>
+                                                <div class="form-group">
+
+
+                                                </div>
+                                                <div className="form-group">
+
+                                                    <label htmlFor="exampleInputPassword1">Numero de productos</label>
+                                                    <input type="number" name="cajatel" className="form-control" placeholder="Numero de productos" ref={this.cajaNumProductosRef} />
+                                                </div>
+                                                <div className="form-group">
+
+                                                    <label htmlFor="exampleInputPassword1">Entidad</label>
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Entidad" ref={this.cajaEntidadRef} />
+                                                </div>
+
+                                            </div>
+                                            {/* /.card-body */}
+                                            <div className="card-footer">
+                                                <button className="btn btn-success">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    {/* /.card */}
+                                </div>
+                                {/*/.col (right) */}
                             </div>
-                        <div className="form-group">
-                      
-                            <label htmlFor="exampleInputPassword1">Numero de productos</label>
-                            <input type="number" name="cajatel" className="form-control" placeholder="Numero de productos" ref={this.cajaNumProductosRef} />
-                        </div>
-                        <div className="form-group">
-                        
-                            <label htmlFor="exampleInputPassword1">Entidad</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Entidad" ref={this.cajaEntidadRef} />
-                        </div>
-                                             
-                        </div>
-                        {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
-                        </div>
-                    </form>
-                    </div>
-                    {/* /.card */}
+                            {/* /.row */}
+                        </div>{/* /.container-fluid */}
+                    </section>
                 </div>
-                {/*/.col (right) */}
-                </div>
-                {/* /.row */}
-            </div>{/* /.container-fluid */}
-            </section>
-            </div>
             </div>
         )
     }

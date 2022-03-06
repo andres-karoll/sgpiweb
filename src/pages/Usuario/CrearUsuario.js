@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-import Navar from '../../components/Navar'
+import { NavLink, Link } from 'react-router-dom';
+import Aside from '../../components/Global/Aside';
+import Header from '../../components/Global/Header';
 
-import Footer from '../../components/Footer'
 import md5 from 'md5'
-
 export default class Crearusuario extends Component {
 
+ 
     cajaCedula = React.createRef();
     cajacodUniversitario = React.createRef();
     cajaCorreoE = React.createRef();
@@ -108,29 +108,14 @@ export default class Crearusuario extends Component {
        
        
       }
-  
 
-    render() {
-        
-        return (
-            <div>
-                <Navar />
-                <div class="py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12" ></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12" ></div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                <section class="vh-100 " style={{ background: 'rgb(2,0,36)' }}>
+  render() {
+    var rol = localStorage.getItem("tipo");
+    return (
+      <div>
+        <Aside />
+        <Header />
+        <section class="vh-100 " style={{ background: 'rgb(2,0,36)' }}>
           
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -155,7 +140,7 @@ export default class Crearusuario extends Component {
                         <input type="password" name="pwd1" className="form-control" ref={this.cajaClave} required/>
                         <label> Confirmar Contraseña: </label>
                         <input type="password" name="pwd2" className="form-control" ref={this.cajaCClave} required/>
-                       
+                        
                         <input type="hidden" name="cajaVis" className="form-control" ref={this.cajaVis} value="1"/>
                         <label> programa: </label>
                         <div className="form-outline form-white mb-1">
@@ -176,9 +161,14 @@ export default class Crearusuario extends Component {
                         
                         <select ref={this.cajaTipo}className="form-control" style={{ color: "black" }} >
                           <option selected > Elige una opción </option>
-                          <option value="Estudiante activo" > Estudiante </option>
-                       
-                          
+                            {this.state.status === false &&
+                              (this.state.roles.map((rol) => {
+                                return (
+                                  <option style={{ color: "black" }}>{rol.nombre}</option>
+                                );
+                              }
+                              )
+                              )}
                           </select>
                       
                         </div>
@@ -191,10 +181,7 @@ export default class Crearusuario extends Component {
             </div>
          
         </section>
-                    <Footer />
-                </div>
-            </div>
-
-        )
-    }
+      </div>
+    )
+  }
 }

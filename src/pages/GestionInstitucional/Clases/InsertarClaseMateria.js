@@ -12,9 +12,11 @@ export default class InsertarClaseMateria extends Component {
     cajaMateriaRef = React.createRef();
     cajaProfesorRef = React.createRef();
 
-    state = { status: false,
-    materias:[],
-mate:[] }
+    state = {
+        status: false,
+        materias: [],
+        mate: []
+    }
 
     nuevaClase = (e) => {
         e.preventDefault();
@@ -33,142 +35,142 @@ mate:[] }
         var url = 'http://localhost:8080/gestioninstitucional/crearclase';
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se creo la clase") {
+            if (res.data.respuesta === "se creo la clase") {
                 alert("se creo la clase")
                 window.history.back();
-            }else if (res.data.respuesta==="el usuario no existe") {
+            } else if (res.data.respuesta === "el usuario no existe") {
                 alert("el usuario no existe")
-                
-            }else if (res.data.respuesta==="la materia no existe") {
+
+            } else if (res.data.respuesta === "la materia no existe") {
                 alert("la materia no existe")
-                
-            
-            }else if (res.data.respuesta==="la clase ya existe") {
+
+
+            } else if (res.data.respuesta === "la clase ya existe") {
                 alert("la clase ya existe")
-                
-            
-            }else if (res.data.respuesta==="esta persona es usuario inactivo") {
+
+
+            } else if (res.data.respuesta === "esta persona es usuario inactivo") {
                 alert("el usuario es un estudiante inactivo")
-               
-            }else if (res.data.respuesta==="esta persona es usuario activo") {
+
+            } else if (res.data.respuesta === "esta persona es usuario activo") {
                 alert("el usuario es un estudiante activo")
-                
-            }else if (res.data.respuesta==="esta persona es usuario semillerista") {
+
+            } else if (res.data.respuesta === "esta persona es usuario semillerista") {
                 alert("el usuario es un semillerista")
-                
-            }else{
-              alert("no se pudo crear la clase")
-              
+
+            } else {
+                alert("no se pudo crear la clase")
+
             }
-            
+
         });
     }
 
     Cargar = () => {
-        var request = "/gestioninstitucional/listarmaterias" ;
+        var request = "/gestioninstitucional/listarmaterias";
         var url = "http://localhost:8080" + request;
-         axios.get(url).then(res => {
-          this.setState({
-            materias: res.data
-            , status: true
-          })
+        axios.get(url).then(res => {
+            this.setState({
+                materias: res.data
+                , status: true
+            })
         });
-      }
-      componentDidMount = () => {
+    }
+    componentDidMount = () => {
         this.Cargar();
-      }
+    }
 
     render() {
-        if(this.state.status === true){
+        if (this.state.status === true) {
             //return <Redirect to="/Clases" />
         }
         return (
             <div>
-                <Aside/>
-                <Header/>
-            <div className="content-wrapper">
-            <section className="content">
-                
-            <div className="container-fluid">
-                <div className="row">
-                {/* left column */}
-                <div className="col-md-12">
-                    {/* general form elements */}
-                    <div className="card card-primary">
-                    <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear una Clase</h3>
-                  </div>
-                   
-                    {/* /.card-header */}
-                    {/* form start */}
-                    <form onSubmit={this.nuevaClase} style={{width: "50%", margin: "auto"}}>
-                        <div className="card-body">
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputEmail1">Numero</label>
-                            <input type="text" name="cajanom" className="form-control" placeholder="Numero" ref={this.cajaNumeroRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la Clase</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de clase" ref={this.cajaNombreRef} required/>
-                        </div>
-                        {/** 
+                <Aside />
+                <Header />
+                <div className="content-wrapper">
+                    <section className="content">
+
+                        <div className="container-fluid">
+                            <div className="row">
+                                {/* left column */}
+                                <div className="col-md-12">
+                                    {/* general form elements */}
+                                    <div className="card card-primary">
+                                        <div className="card-header" style={{ align: "center" }}>
+                                            <h3 className="card-title"  >Crear una Clase</h3>
+                                        </div>
+
+                                        {/* /.card-header */}
+                                        {/* form start */}
+                                        <form onSubmit={this.nuevaClase} style={{ width: "50%", margin: "auto" }}>
+                                            <div className="card-body">
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputEmail1">Numero</label>
+                                                    <input type="text" name="cajanom" className="form-control" placeholder="Numero" ref={this.cajaNumeroRef} required />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Nombre de la Clase</label>
+                                                    <input type="text" name="cajadir" className="form-control" placeholder="Nombre de clase" ref={this.cajaNombreRef} required />
+                                                </div>
+                                                {/** 
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Semestre</label>
                             <input type="text" name="cajatel" className="form-control" placeholder="Semestre" ref={this.cajaSemestreRef}/>
                         </div>*/}
-<div className="form-group">
-<label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-<label htmlFor="exampleInputPassword1">Semestre</label>
-<select className="form-control select2" style={{width: '100%'}} ref={this.cajaSemestreRef} required>
-  <option selected="selected">1</option>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  <option>6</option>
-  <option>7</option>
-  <option>8</option>
-  <option>9</option>
-  <option>10</option>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Semestre</label>
+                                                    <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaSemestreRef} required>
+                                                        <option selected="selected">1</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
 
 
-</select>
-</div>
-   
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{  width: '50%'}} htmlFor="exampleInputPassword1">Materia actual es {this.props.catalogo}</label>
+                                                    </select>
+                                                </div>
 
-                            <input type="text" name="cajadir" className="form-control" value={this.props.catalogo} ref={this.cajaMateriaRef} readOnly/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Profesor</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Profesor" ref={this.cajaProfesorRef} required/>
-                        </div>
-                        
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label style={{ width: '50%' }} htmlFor="exampleInputPassword1">Materia actual es {this.props.catalogo}</label>
 
+                                                    <input type="text" name="cajadir" className="form-control" value={this.props.catalogo} ref={this.cajaMateriaRef} readOnly />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <label htmlFor="exampleInputPassword1">Profesor</label>
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Profesor" ref={this.cajaProfesorRef} required />
+                                                </div>
 
 
 
-                        </div>
-                        {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
-                        </div>
-                    </form>
-                    </div>
-                    {/* /.card */}
+
+
+                                            </div>
+                                            {/* /.card-body */}
+                                            <div className="card-footer">
+                                                <button className="btn btn-success">Enviar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    {/* /.card */}
+                                </div>
+                                {/*/.col (right) */}
+                            </div>
+                            {/* /.row */}
+                        </div>{/* /.container-fluid */}
+                    </section>
                 </div>
-                {/*/.col (right) */}
-                </div>
-                {/* /.row */}
-            </div>{/* /.container-fluid */}
-            </section>
-            </div>
             </div>
         )
     }

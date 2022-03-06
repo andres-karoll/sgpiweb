@@ -160,10 +160,8 @@ import ProductosProyectoGrado from './pages/Biblioteca/ProductosProyectoGrado'
 import Modificar from './pages/Usuario/Modificar'
 import EliminarUsuario from './pages/Usuario/EliminarUsuario'
 import AceptarDenegarConvocatoria from './pages/GestionInstitucional/Convocatorias/AceptarDenegarConvocatoria'
-
 import DetallesLindo from './pages/Proyectos/Proyectos/DetallesLindo'
 import ModificarRol from './pages/Usuario/ModificarRol'
-
 import ProyectosPropuesta from './pages/GestionProyectosAI/Proyectos/ProyectosPropuesta'
 import ProyectosDesarrollo from './pages/GestionProyectosAI/Proyectos/ProyectosDesarrollo'
 import ProyectosFinalizados from './pages/GestionProyectosAI/Proyectos/ProyectosFinalizados'
@@ -171,11 +169,20 @@ import Evaluacion from './pages/GestionProyectosAI/Proyectos/Evaluacion'
 import ModificarMacro from './pages/GestionProyectosAI/Proyectos/ModificarMacro'
 import TusProyectosConvocatoria1 from './pages/GestionProyectosAI/Proyectos/TusProyectosConvocatoria1'
 import TusProyectosSemillero from './pages/GestionProyectosInvestigacion/TusProyectosSemillero'
+
+import Crearusuario from './pages/Usuario/CrearUsuario'
+import ProyectosPostuladosConvocatorias from './pages/GestionProyectosAI/Proyectos/ProyectosConvocatorias'
+import ProyectoDesarrolloConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoDesarrolloConvocatoria'
+import EvaluacionConvocatoria from './pages/GestionProyectosAI/Proyectos/EvaluacionConvocatoria'
+import ProyectoAceptadoConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoAceptadoConvocatoria'
+import EvaluacionProyectoGrado from './pages/GestionProyectosAI/Proyectos/EvalularProyectoGrado'
+
 import TrabajoGradoInicio from './pages/Proyectos/Proyectos/TrabajoGradoInicio'
 import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesarrollo'
 import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
 import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
 import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
+
 
 
 
@@ -216,13 +223,6 @@ export default function App() {
                             var cedula = props.match.params.cedula;
                             return <EliminarUsuario cedula={cedula} />
                         }} />
-
-
-
-
-
-
-
             {/**<Route exact path="/MeterArchivo" component={FilesPrueba} /> */}
             <Route exact path="/MeterArchivo" component={UploadFiles} /> 
 
@@ -762,6 +762,10 @@ export default function App() {
                         var id = props.match.params.id;
                         return <Evaluacion id={id} />
                     }} />
+                     <Route exact path="/EvaluacionConvocatorias/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <EvaluacionConvocatoria id={id} />
+                    }} />
                      <Route exact path="/ParticiparEvento/:id" render={props => {
                         var id = props.match.params.id;
                         return <ParticiparEvento id={id} />
@@ -804,8 +808,27 @@ export default function App() {
 
 
                     <Route path="/ModificarRol" exact component={ModificarRol} />                
-
+                    <Route exact path="/ProyectosConvocatorias/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectosPostuladosConvocatorias id={id} />
+                    }} />
+                    <Route exact path="/ProyectoDesarrolloConvocatoria/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectoDesarrolloConvocatoria id={id} />
+                    }} />
+                    <Route exact path="/ProyectoAceptadoConvocatoria/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <ProyectoAceptadoConvocatoria id={id} />
+                    }} />
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
+
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    
+                    <Route path="/CrearUsuario" exact component={Crearusuario} />                    
+                    <Route exact path="/EvaluarProyectoGrado/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <EvaluacionProyectoGrado id={id} />
+                    }} />
+
                     <Route path="/ProyectosGrado" exact component={ProyectosGrado} />
 
                     <Route path="/TrabajoGradoInicio" exact component={TrabajoGradoInicio} />
@@ -813,7 +836,6 @@ export default function App() {
                     <Route path="/TrabajoGradoICorrecciones" exact component={TrabajoGradoCorrecciones} />
                     <Route path="/TrabajoGradoFin" exact component={TrabajoGradoFin} />  
                     <Route path="/TrabajoGradoRechasado" exact component={TrabajoGradoRechasado} />                         
-
             <Route component ={() => (
           <Error/>)
         } />

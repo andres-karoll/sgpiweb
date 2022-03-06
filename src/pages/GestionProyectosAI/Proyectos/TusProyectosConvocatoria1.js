@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class TusProyectosConvocatoria1 extends Component {
@@ -36,6 +36,7 @@ status: false,
   }
 
   render() {
+    var rol=localStorage.getItem("tipo")
     return (
     <div>
       <Aside/>
@@ -120,7 +121,33 @@ status: false,
                         </tr>
                       </tbody>
                     </table>
-                    
+                    {pro.id_proyecto !="Propuesta" || pro.id_proyecto !="Finalizado" &&
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                          <li className="nav-item">
+                            <a href="#" className="nav-link ">
+                              <i className="fas fa-lightbulb nav-icon" />
+                              <p>
+                                Funciones
+                                <i className="right fas fa-angle-left" />
+                              </p>
+
+                            </a>
+                            <ul className="nav nav-treeview">
+
+                        
+                             <Link to={"/EvaluacionConvocatorias/" + pro.id}>
+                             <li className="nav-item">
+                               <a className="nav-link">
+                                 <i className="fas fa-eye nav-icon" />
+                                 <p>Finalizar proyecto</p>
+
+                               </a>
+                             </li>
+                           </Link>
+                            </ul>
+                          </li>
+                        </ul>
+                      }
                   </div>
                   
                   {/* /.card-body */}

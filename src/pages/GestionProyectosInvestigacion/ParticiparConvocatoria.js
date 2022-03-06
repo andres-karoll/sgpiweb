@@ -75,7 +75,7 @@ ParticiparConvocatoria =  (e) => {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Unirse a un semillero</h3>
+                    <h3 className="card-title"  >Participa en una convocatoria</h3>
                   </div>
                     {/* /.card-header */}
                     {/* form start */}
@@ -86,9 +86,11 @@ ParticiparConvocatoria =  (e) => {
                             <label htmlFor="exampleInputPassword1">Tus proyectos de semillero</label>
                             <div></div>
                             <select ref={this.cajaProyecto}>
+                            <option select>Escoge un proyecto</option>
                             {this.state.status === true &&
                               (this.state.proyecto.map((pro) => {
                                 return (
+
                                   <option style={{ color: "black" }} value={pro.id}>{pro.titulo}</option>
                                 );
                               }
@@ -104,6 +106,7 @@ ParticiparConvocatoria =  (e) => {
                             <label htmlFor="exampleInputPassword1">Convocatorias Abiertas</label>
                             <div></div>
                             <select ref={this.cajaConvocatoria}>
+                            <option select>Escoge una convocatoria</option>
                             {this.state.status === true &&
                               (this.state.convocatorias.map((conv) => {
                                 return (
