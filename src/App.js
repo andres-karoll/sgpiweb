@@ -169,12 +169,20 @@ import Evaluacion from './pages/GestionProyectosAI/Proyectos/Evaluacion'
 import ModificarMacro from './pages/GestionProyectosAI/Proyectos/ModificarMacro'
 import TusProyectosConvocatoria1 from './pages/GestionProyectosAI/Proyectos/TusProyectosConvocatoria1'
 import TusProyectosSemillero from './pages/GestionProyectosInvestigacion/TusProyectosSemillero'
+
 import Crearusuario from './pages/Usuario/CrearUsuario'
 import ProyectosPostuladosConvocatorias from './pages/GestionProyectosAI/Proyectos/ProyectosConvocatorias'
 import ProyectoDesarrolloConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoDesarrolloConvocatoria'
 import EvaluacionConvocatoria from './pages/GestionProyectosAI/Proyectos/EvaluacionConvocatoria'
 import ProyectoAceptadoConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoAceptadoConvocatoria'
 import EvaluacionProyectoGrado from './pages/GestionProyectosAI/Proyectos/EvalularProyectoGrado'
+
+import TrabajoGradoInicio from './pages/Proyectos/Proyectos/TrabajoGradoInicio'
+import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesarrollo'
+import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
+import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
+import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
+
 
 
 
@@ -813,12 +821,21 @@ export default function App() {
                         return <ProyectoAceptadoConvocatoria id={id} />
                     }} />
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
+
                     <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    
                     <Route path="/CrearUsuario" exact component={Crearusuario} />                    
                     <Route exact path="/EvaluarProyectoGrado/:id" render={props => {
                         var id = props.match.params.id;
                         return <EvaluacionProyectoGrado id={id} />
                     }} />
+
+                    <Route path="/ProyectosGrado" exact component={ProyectosGrado} />
+
+                    <Route path="/TrabajoGradoInicio" exact component={TrabajoGradoInicio} />
+                    <Route path="/TrabajoGradoDesarrollo" exact component={TrabajoGradoDesarrollo} />  
+                    <Route path="/TrabajoGradoICorrecciones" exact component={TrabajoGradoCorrecciones} />
+                    <Route path="/TrabajoGradoFin" exact component={TrabajoGradoFin} />  
+                    <Route path="/TrabajoGradoRechasado" exact component={TrabajoGradoRechasado} />                         
             <Route component ={() => (
           <Error/>)
         } />
