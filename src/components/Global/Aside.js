@@ -169,20 +169,11 @@ export default class Aside extends Component {
 
                   </a>
                   <ul className="nav nav-treeview">
-                    <Link to="/Convocatorias">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
-
-                          <p>Convocatorias </p>
-
-                        </a>
-                      </li>
-                    </Link>
+              
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon" />
+                          <i className="fas fa-check-double nav-icon" />
 
                           <p>Tus proyectos de convocatoria finalizados</p>
 
@@ -192,7 +183,7 @@ export default class Aside extends Component {
                     <Link to="/Convocatorias">
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
+                          <i className="fas fa-door-open nav-icon"> </i>
 
                           <p>Todas las convocatorias </p>
 
@@ -791,12 +782,12 @@ export default class Aside extends Component {
                   </ul>
                 </li>
               }
-              {(rol === "Profesional de investigacion" || rol === "Admin") &&
+              {(rol === "Profesional investigacion" || rol === "Admin") &&
                 <li className="nav-item menu-open">
                   <a href="#" className="nav-link ">
                     <i className="fas fa-book-open nav-icon" />
                     <p>
-                      Gestion Financiera
+                      Proyectos
                       <i className="right fas fa-angle-left" />
                     </p>
                   </a>
@@ -877,8 +868,19 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
+                    <Link to="/TrabajoGradoInicio">
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-graduation-cap nav-icon" />
+
+                          <p>Trabajos de grado Inicio</p>
+
+                        </a>
+                      </li>
+                    </Link>
                   </ul>
                 </li>
+                
               }
             </ul>
           </nav>
