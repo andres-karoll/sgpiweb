@@ -942,7 +942,7 @@ export default class Aside extends Component {
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
 
-                          <p>Trabajos de grado Inicio</p>
+                          <p>Trabajos de grado</p>
 
                         </a>
                       </li>
