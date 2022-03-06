@@ -216,11 +216,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon" />
-              
-                    <Link to="/ProyectoSemillero">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-check-double nav-icon" />
+     
 
 
                           <p>Tus proyectos de convocatoria finalizados</p>
@@ -959,9 +955,9 @@ export default class Aside extends Component {
           </nav>
           {/* /.sidebar-menu */}
         </div>
-        {/* /.sidebar */}
+  
       </aside>
-
+            
     )
   }
 }
