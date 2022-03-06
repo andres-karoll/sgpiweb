@@ -174,6 +174,7 @@ import ProyectosPostuladosConvocatorias from './pages/GestionProyectosAI/Proyect
 import ProyectoDesarrolloConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoDesarrolloConvocatoria'
 import EvaluacionConvocatoria from './pages/GestionProyectosAI/Proyectos/EvaluacionConvocatoria'
 import ProyectoAceptadoConvocatoria from './pages/GestionProyectosAI/Proyectos/ProyectoAceptadoConvocatoria'
+import EvaluacionProyectoGrado from './pages/GestionProyectosAI/Proyectos/EvalularProyectoGrado'
 
 
 
@@ -814,7 +815,10 @@ export default function App() {
                     <Route path="/TusProyectosSemillero" exact component={TusProyectosSemillero} />
                     <Route path="/ProyectosGrado" exact component={ProyectosGrado} />    
                     <Route path="/CrearUsuario" exact component={Crearusuario} />                    
-
+                    <Route exact path="/EvaluarProyectoGrado/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <EvaluacionProyectoGrado id={id} />
+                    }} />
             <Route component ={() => (
           <Error/>)
         } />
