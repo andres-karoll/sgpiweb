@@ -156,7 +156,7 @@ export default class InsertarSemillero extends Component {
                             
                             ( this.state.gruposi.map((grup) => {
                             return(
-                                    <option value={grup.id}> {grup.id}{grup.nombre}</option> 
+                                    <option value={grup.id}> {grup.nombre}</option> 
                                     );
                                 })
                                 )}

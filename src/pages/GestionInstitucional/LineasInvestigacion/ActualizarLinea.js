@@ -86,6 +86,7 @@ export default class ActualizarLinea extends Component {
                             <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder={this.state.linea.descripcion} ref={this.cajaDescripcionRef}/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha de creación actual: {this.state.linea.fecha}</label>
 {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
 <input type="date" id="start" name="trip-start" style={{ height: "30px"}}

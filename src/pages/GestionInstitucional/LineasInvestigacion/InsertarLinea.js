@@ -75,10 +75,11 @@ export default class InsertarLinea extends Component {
                             <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de creación</label>
                             {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
                             <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef}></input>
+       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
                         
 

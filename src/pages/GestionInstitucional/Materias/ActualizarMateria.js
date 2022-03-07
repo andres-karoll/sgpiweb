@@ -30,10 +30,10 @@ export default class ActualizarMateria extends Component {
             this.setState({ status: true });
             if (res.data.respuesta==="la materia fue actualizada") {
                 alert("la materia fue actualizada")
-                window.location.href = "/HomeInstitucional";
+                window.history.back();
             }else{
               alert("la materia no fue actualizada")
-              window.location.href = "/HomeInstitucional";
+              window.history.back();
             }
         });
     }

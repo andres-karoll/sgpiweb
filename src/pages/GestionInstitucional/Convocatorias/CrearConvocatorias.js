@@ -105,7 +105,11 @@ export default class CrearConvocatorias extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Tipo</label>
-                                                    <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required />
+                                                    <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaTipoRef}>
+                                                        <option selected="selected">Externa</option>
+                                                        <option>Externa</option>
+                                                        <option>Interna</option>
+                                                    </select>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>

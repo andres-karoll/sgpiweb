@@ -22,11 +22,11 @@ export default class AsignarProgramaSemillero extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/asignarsemilleroaprograma';
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se asigno el programa correctamente") {
+            if (res.data.respuesta==="se asigno la programa correctamente") {
                 alert("se asigno el programa correctamente")
                 window.location.href = "/Semilleros";
             }else{
-              alert("no se pudo asignar el programa correctamente")
+              alert("no se pudo asignar correctamente")
               window.location.href = "/Semilleros";
             }
             
@@ -55,12 +55,28 @@ export default class AsignarProgramaSemillero extends Component {
             <div>
                 <Aside/>
                 <Header/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
             <div className="content-wrapper">
-                <div className="card card-info">
+                 {/* /.card-header 
+                <div className="card card-info"style={{ width: '70%', marginLeft:"auto", marginRight:"auto" }} >*/}
+                <div className="card card-info" >
                 <div className="card-header">
                     <h3 className="card-title">Asignar programa al Semillero</h3>
                 </div>
-                {/* /.card-header */}
+               
                 {/* form start */}
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
