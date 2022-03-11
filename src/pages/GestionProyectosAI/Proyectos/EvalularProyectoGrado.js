@@ -6,15 +6,21 @@ import Header from '../../../components/Global/Header';
 
 
 export default class EvaluacionProyectoGrado extends Component {
-
+  /**
+   * definicion de variables 
+   */
   cajaIDRef = React.createRef();
   cajaEstadoRef = React.createRef();
   cajaProyectoRef = React.createRef();
-  cajaReconocimientos=React.createRef();
+  cajaReconocimientos = React.createRef();
   state = {
     status: false,
     proyecto: []
   }
+  /**
+   * metodo para cambiar de estado un proyecto 
+   * @param {*} e 
+   */
   actualizar = (e) => {
     e.preventDefault();
     var pro = this.cajaProyectoRef.current.value;
@@ -23,20 +29,23 @@ export default class EvaluacionProyectoGrado extends Component {
     var estado = {
       proyecto: pro
       , estado: est,
-      reconocimientos:rec
+      reconocimientos: rec
     };
     var url = 'http://localhost:8080/gestionproyectosinvestigacion/cambiarEstadoTrabajoGrado/';
     axios.post(url, estado).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
         alert("Se realizo la validacion exitosamente")
-        window.location.href="/HomeInstitucional"      
+        window.location.href = "/HomeInstitucional"
       } else {
         alert("No se puedo realizar la actualizacion de estado")
-        window.location.href="/HomeInstitucional"      
+        window.location.href = "/HomeInstitucional"
       }
     });
   }
+  /**
+   * metodo para traer datos de un proyecto 
+   */
   Cargardos = () => {
     var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
     var url = "http://localhost:8080" + request;
@@ -47,7 +56,9 @@ export default class EvaluacionProyectoGrado extends Component {
       })
     });
   }
-
+  /**
+   * metodo de inicio
+   */
   componentDidMount = () => {
     this.Cargardos();
   }
@@ -104,21 +115,21 @@ export default class EvaluacionProyectoGrado extends Component {
                             </li>
                           </ul>
                         </div>
-                        {this.state.proyecto.estado==="Correcciones"?(
-                         <div className="form-group">
-                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                             <label htmlFor="exampleInputPassword1">Reconocimientos</label>
-                             <div></div>
-                             <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} required/>
-                         </div>
-                         ):(
-                        
-                         <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value=""/>
-                         )}
+                        {this.state.proyecto.estado === "Correcciones" ? (
+                          <div className="form-group">
+                            <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                            <label htmlFor="exampleInputPassword1">Reconocimientos</label>
+                            <div></div>
+                            <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} required />
+                          </div>
+                        ) : (
+
+                          <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value="" />
+                        )}
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                           <label htmlFor="exampleInputPassword1">Evaluar</label>
-                          <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
+                          <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef}>
                             <option selected>Elige una opcion</option>
                             {(this.state.proyecto.estado === "Inicio") &&
                               <option value="Desarrollo">Desarrollo</option>
@@ -129,7 +140,7 @@ export default class EvaluacionProyectoGrado extends Component {
                             {(this.state.proyecto.estado === "Correcciones") &&
                               <option value="Finalizado">Finalizado</option>
                             }
-                            
+
                             <option value="Rechazar">Rechazar</option>
                           </select>
                         </div>

@@ -10,9 +10,12 @@ export default class CrearProyecto extends Component {
         tip: [],
         clase: [],
         cla: [],
-        Macro:[],
-        mac:[]
+        Macro: [],
+        mac: []
     }
+    /**
+     * lista de tipos de proyecto 
+     */
     CargarTipos = () => {
         var request = "/gestionfiltroproyecto/todoslostiposproyecto";
         var url = "http://localhost:8080" + request;
@@ -23,7 +26,9 @@ export default class CrearProyecto extends Component {
                 , status: true
             })
         });
-    }
+    }/**
+     * lista de clases por materia 
+     */
     CargarClase = () => {
         var request = "/gestioninstitucional/listarclasespormateria/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -34,7 +39,10 @@ export default class CrearProyecto extends Component {
             })
         });
     }
-    CargarMacroProyecto=()=>{
+    /**
+     * lista de macro proyectos 
+     */
+    CargarMacroProyecto = () => {
         var request = "/gestionproyectosaulaintegrador/macroProyectos/";
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
@@ -44,6 +52,9 @@ export default class CrearProyecto extends Component {
             })
         });
     }
+    /**
+     * definicion de variables 
+     */
     cajaTitulo = React.createRef();
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
@@ -56,7 +67,10 @@ export default class CrearProyecto extends Component {
     cajaClase = React.createRef();
     cajaRol = React.createRef();
     cajaParticipante = React.createRef();
-    cajaMacro=React.createRef();
+    cajaMacro = React.createRef();
+    /**
+     * metodo para la carga inicial 
+     */
     componentDidMount = () => {
         this.CargarTipos();
         this.setState({
@@ -66,6 +80,10 @@ export default class CrearProyecto extends Component {
         this.CargarClase();
         this.CargarMacroProyecto();
     }
+    /**
+     * metodo para crear un proyecto 
+     * @param {*} e 
+     */
     CrearProyecto = (e) => {
         e.preventDefault();
         var tit = this.cajaTitulo.current.value;
@@ -80,7 +98,7 @@ export default class CrearProyecto extends Component {
         var part = localStorage.getItem("cedula");
         var ro = this.cajaRol.current.value;
         var clas = this.cajaClase.current.value;
-        var ma= this.cajaMacro.current.value;
+        var ma = this.cajaMacro.current.value;
         var proyecto = {
             titulo: tit,
             estado: esta,
@@ -94,7 +112,7 @@ export default class CrearProyecto extends Component {
             usuario: part,
             rol: ro,
             clase: clas,
-            macro:ma
+            macro: ma
         };
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/crearproyecto';
         axios.post(url, proyecto).then(res => {
@@ -133,17 +151,17 @@ export default class CrearProyecto extends Component {
                                             <div className="card-body">
 
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Titulo</label>
                                                     <div></div>
-                                                    <textarea name="comentarios" rows="2" cols="100" wrap="physical"ref={this.cajaTitulo} required/>
+                                                    <textarea name="comentarios" rows="2" cols="100" wrap="physical" ref={this.cajaTitulo} required />
                                                 </div>
                                                 <div className="form-group">
-                                               
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
                                                     <div></div>
-                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical"  ref={this.cajaDescripcion} required/>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaDescripcion} required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -153,27 +171,28 @@ export default class CrearProyecto extends Component {
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado del proyecto</label>
                                                     <div></div>
-                                                    <select ref={this.cajaEstado} required>
-                                                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                                                    <option selected >El estado del proyecto </option>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
+                                                    <select ref={this.cajaEstado}>
+
                                                         <option style={{ color: "black" }} >Propuesta</option>
+
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">visibilidad del proyecto</label>
                                                     <div></div>
-                                                    <select ref={this.cajaVis} required>
-                                                    <option selected >Escoge la visibilidad del proyecto </option>
+                                                    <select ref={this.cajaVis}>
+                                                        <option selected >Escoge una la visibilidad del proyecto </option>
                                                         <option style={{ color: "black" }} value={0} >Publico</option>
                                                         <option style={{ color: "black" }} value={1} >Privado</option>
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Ciudad</label>
                                                     <div></div>
                                                     <select ref={this.cajaCiu} required>
@@ -183,19 +202,19 @@ export default class CrearProyecto extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Metodologia</label>
                                                     <div></div>
-                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaMetodologia} required/>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaMetodologia} required />
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Justificacion</label>
                                                     <div></div>
-                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaJustificacion} required/>
+                                                    <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaJustificacion} required />
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Tipo de proyecto</label>
                                                     <div></div>
                                                     <select ref={this.cajaTipo} style={{ color: "black" }}>
@@ -206,12 +225,12 @@ export default class CrearProyecto extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
 
-                                                    <select ref={this.cajaRol}  style={{ color: "black" }}>
-                                                    <option selected > Elige el Rol que vas a tener en el proyecto </option>
+                                                    <select ref={this.cajaRol} style={{ color: "black" }}>
+                                                        <option selected > Elige el Rol que vas a tener en el proyecto </option>
 
                                                         {
                                                             localStorage.getItem("tipo") === "Estudiante activo" ? (
@@ -224,12 +243,12 @@ export default class CrearProyecto extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Clase</label>
                                                     <div></div>
 
                                                     <select ref={this.cajaClase} style={{ color: "black" }}>
-                                                    <option selected > Elige la clase en la que vas hacer el proyecto </option>
+                                                        <option selected > Elige la clase en la que vas hacer el proyecto </option>
 
                                                         {this.state.status === true &&
                                                             (this.state.clase.map((cla) => {
@@ -246,9 +265,9 @@ export default class CrearProyecto extends Component {
                                                     <label htmlFor="exampleInputPassword1">Macro Proyecto</label>
                                                     <div></div>
                                                     <select ref={this.cajaMacro} style={{ color: "black" }}>
-                                                    <option selected value={0}>Selecciona el macro proyecto </option>
+                                                        <option selected value={0}>Selecciona el macro proyecto </option>
                                                         {this.state.status === true &&
-                                                                (this.state.Macro.map((mac) => {
+                                                            (this.state.Macro.map((mac) => {
                                                                 return (
                                                                     <option style={{ color: "black" }} value={mac.id}>{mac.nombre}</option>
                                                                 );
@@ -260,7 +279,7 @@ export default class CrearProyecto extends Component {
                                                 </div>
                                             </div>
                                             <div className="card-footer">
-                                            <button style={{fontSize:"large" }} className="btn btn-success">Crear proyecto</button>
+                                                <button style={{ fontSize: "large" }} className="btn btn-success">Crear proyecto</button>
                                             </div>
                                         </form>
                                     </div>

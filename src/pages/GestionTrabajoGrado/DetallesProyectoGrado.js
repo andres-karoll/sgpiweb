@@ -9,7 +9,9 @@ export default class DetalleProyectoGrado extends Component {
     proyecto: {}
     , status: false
   }
-
+  /**
+   * metodo que trae detalles del proyecto 
+   */
   mostrarProyecto = () => {
     var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
     var url = "http://localhost:8080" + request;
@@ -20,16 +22,21 @@ export default class DetalleProyectoGrado extends Component {
       });
     });
   }
+  /**
+   * metodo para eliminar un proyecto 
+   */
   EliminarProyecto = () => {
     var request = "/gestionproyectosaulaintegrador/eliminarproyecto/" + this.props.id;
     var url = "http://localhost:8080" + request;
     axios.post(url).then(res => {
       this.setState({
-      status: true
+        status: true
       });
     });
   }
-
+  /**
+   * metodo de inicio 
+   */
 
   componentDidMount = () => {
     this.mostrarProyecto();
@@ -185,7 +192,7 @@ export default class DetalleProyectoGrado extends Component {
                           </div>
                           <h5 className="mt-5 text-muted">Archivos del proyecto</h5>
                           <ul className="list-unstyled">
-                          
+
                             <li>
                               <div>
                                 <br />

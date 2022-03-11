@@ -8,6 +8,9 @@ export default class CrearProyectoPrograma extends Component {
             status: false,
             programa:[],
             pro:[]}
+            /**
+             * lista de programas por facultad
+             */
 CargarPrograma = () => {
     var request = "/gestioninstitucional/listarprogramasporfacultad/"+this.props.id ;
     var url = "http://localhost:8080" + request;
