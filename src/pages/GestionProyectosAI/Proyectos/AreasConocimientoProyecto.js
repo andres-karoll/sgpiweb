@@ -12,30 +12,39 @@ export default class AreasConocimientoProyecto extends Component {
     area: []
     , status: false
   }
-
+  /**
+   * definicion de varibles
+   */
   cajaArea = React.createRef();
+  /**
+   * metodo para elliminar un area de conocimiento 
+   * @param {*} e 
+   */
   EliminarArea = (e) => {
     e.preventDefault();
     var areaC = this.cajaArea.current.value;
     var paquete = {
-      proyecto:this.props.id,
-      areasConocimiento:areaC
+      proyecto: this.props.id,
+      areasConocimiento: areaC
     }
     var url = 'http://localhost:8080/gestionproyectosaulaintegrador/eliminarArea';
-        axios.post(url, paquete).then(res => {
-            this.setState({ status: true });
-            if (res.data.respuesta === "Se eliminado la area") {
-                alert("El proyecto fue creado correctamente")
-                window.location.href = "/ProyectosAulaIntegrador"
-            } else {
-                alert("la area no fue eliminada")
-                window.location.href = "/ProyectosAulaIntegrador"
-            }
-        });
-    }
+    axios.post(url, paquete).then(res => {
+      this.setState({ status: true });
+      if (res.data.respuesta === "Se eliminado la area") {
+        alert("El proyecto fue creado correctamente")
+        window.location.href = "/ProyectosAulaIntegrador"
+      } else {
+        alert("la area no fue eliminada")
+        window.location.href = "/ProyectosAulaIntegrador"
+      }
+    });
+  }
+  /**
+   * lista de area de conocmiento de un proyecto 
+   */
   AreasConocimiento = () => {
     var url = "http://localhost:8080";
-    var request = "/gestionproyectosaulaintegrador/areasconocimientoproyecto/"+this.props.id;
+    var request = "/gestionproyectosaulaintegrador/areasconocimientoproyecto/" + this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
         area: res.data
@@ -43,7 +52,9 @@ export default class AreasConocimientoProyecto extends Component {
       });
     });
   }
-
+  /**
+   * metodo para cargar metodos al inicio 
+   */
   componentDidMount = () => {
     this.AreasConocimiento();
     this.setState({ are: this.state.area })
@@ -63,14 +74,13 @@ export default class AreasConocimientoProyecto extends Component {
               </div>
             </section>
           </div>
-          
-           {
-             rol==="Egresado" || rol==="Estudiante inactivo"?(
-           <></>
-              ) :(
-                <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/AgregarAreasConocimiento/" + this.props.id} >Agregar Areas de conocimiento</NavLink>
-             )
-           }
+          {
+            rol === "Semillerista" || rol === "Estudiante activo" || rol === "Docente investigador" || rol === "Docente" || rol === "Docente lider semillero" || rol === "Investigador formacion" ? (
+              <NavLink style={{ width: '20%', margin: "10px" }} className="btn btn-success" to={"/AgregarAreasConocimiento/" + this.props.id} >Agregar Areas de conocimiento</NavLink>
+            ) : (
+              <></>
+            )
+          }
           {this.state.status === true &&
             (
               this.state.area.map((are) => {
@@ -128,11 +138,11 @@ export default class AreasConocimientoProyecto extends Component {
                                   {are.nombre}
                                 </a>
                               </td>
-                              <input type="hidden" value={are.id} ref={this.cajaArea}/>
+                              <input type="hidden" value={are.id} ref={this.cajaArea} />
                               <td className="project-actions text-right" style={{ width: '40%' }}>
                                 <div className=" mt-3 pb-3 mb-3 d-flex">
                                   {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                                  <button style={{ width: '50%' }} className="btn btn-success"  onClick={this.EliminarArea}>Eliminar area</button>
+                                  <button style={{ width: '50%' }} className="btn btn-success" onClick={this.EliminarArea}>Eliminar area</button>
                                 </div>
                               </td>
                             </tr>
@@ -141,7 +151,6 @@ export default class AreasConocimientoProyecto extends Component {
                       </div>
                       {/* /.card-body */}
                     </div>
-
                     {/* /.card */}
                   </section>
                 )
@@ -150,6 +159,5 @@ export default class AreasConocimientoProyecto extends Component {
         </div>
       </div>
     )
-
   }
 }

@@ -8,6 +8,9 @@ export default class CrearProyectoMateria extends Component {
             status: false,
             materia:[],
             mat:[]}
+            /**
+             * metodo para cargar materias por el programa del usuario  
+             */
 CargarMateria = () => {
     var request = "/gestioninstitucional/listarmateriasdeprograma/"+localStorage.getItem("programa") ;
     var url = "http://localhost:8080" + request;
@@ -19,8 +22,13 @@ CargarMateria = () => {
     });
     
   }
-
+/**
+ * definicion de variable 
+ */
     cajaFacultad = React.createRef();
+    /**
+     * metodo de inicio 
+     */
 componentDidMount = () => {
         this.CargarMateria();
         this.setState({mat:this.state.materia});

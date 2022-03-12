@@ -12,7 +12,9 @@ export default class MacroProyectos extends Component {
         macro: []
         , status: false
     }
-
+    /**
+     * metodo de listar macroproyectos 
+     */
     MacroProyectos = () => {
         var url = "http://localhost:8080";
         var request = "/gestionproyectosaulaintegrador/macroProyectos";
@@ -23,7 +25,14 @@ export default class MacroProyectos extends Component {
             });
         });
     }
+    /**
+     * definicion de variables 
+     */
     cajaId = React.createRef();
+    /**
+     * metodo para para cerrar un macroproyecto  
+     * @param {*} e 
+     */
     cerrarMacro = (e) => {
         e.preventDefault();
         var id = this.cajaId.current.value;
@@ -42,6 +51,9 @@ export default class MacroProyectos extends Component {
             }
         });
     }
+    /**
+     * metodo de inicio 
+     */
     componentDidMount = () => {
         this.MacroProyectos();
         this.setState({ ma: this.state.macro })
@@ -127,13 +139,13 @@ export default class MacroProyectos extends Component {
                                                             <td className="project-actions text-right" style={{ width: '40%' }}>
                                                             </td>
                                                             <div className=" mt-3 pb-3 mb-3 d-flex">
-                                                            <input  type="hidden" ref={this.cajaId} value={ma.id}/>   
-                                                            
-                                                            
-                                                        <NavLink style={{ width: '100%' }} className="btn btn-success"  to={"/ModificarMacro/"+ma.id}>Modificar Macro </NavLink>
-                                                                                            {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                                                        <button style={{ width: '100%' }} className="btn btn-success" onClick={this.cerrarMacro} >Cerrar Macro </button>
-                                                          </div>
+                                                                <input type="hidden" ref={this.cajaId} value={ma.id} />
+
+
+                                                                <NavLink style={{ width: '100%' }} className="btn btn-success" to={"/ModificarMacro/" + ma.id}>Modificar Macro </NavLink>
+                                                                {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
+                                                                <button style={{ width: '100%' }} className="btn btn-success" onClick={this.cerrarMacro} >Cerrar Macro </button>
+                                                            </div>
                                                         </tr>
                                                     </tbody>
                                                 </table>

@@ -11,7 +11,13 @@ export default class TusProyectosSemillero extends Component {
 status: false,
     proyectos:[]
   }
-
+  /**
+   * definicion de variables
+   */
+  cajaSemillero = React.createRef();
+  /**
+   * metodo de carga de proyectos
+   */
   cargarProyecto= () => {
     var url = "http://localhost:8080";
     var request = "/gestionproyectosinvestigacion/tusProyectosSemillero/" +localStorage.getItem("cedula");
@@ -23,7 +29,35 @@ status: false,
     });
     
   }
+  /**
+   * metodo para salir de un semillero 
+   */
+  salirSemillero=()=>{
+  
+    var url="http://localhost:8080/gestionproyectosinvestigacion/salirSemillero/";
+    var sem = this.cajaSemillero.current.value;
+    var salida={
+      cedula:localStorage.getItem("cedula"),
+      semillero:sem
+    }
+    axios.post(url,salida).then(res => {
+      this.setState({ status: true });
+      if (res.data.respuesta === "Se realizo la validacion exitosamente") {
+          alert("A salido exitosamente del semillero")
+          localStorage.removeItem('cedula');
+          localStorage.removeItem('tipo');
+          localStorage.clear();
+          window.location.href = "/";
+      } else {
+          alert("no se pudo salir del semillero")
+          window.history.back();
+      }
+  });
 
+  }
+/**
+ * metodo de inicio
+ */
   componentDidMount = () => {
     this.cargarProyecto();
     //this.cargarLineas();
@@ -55,6 +89,8 @@ status: false,
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un poryecto</NavLink>
                 )
            }
+                <button className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}  onClick={this.salirSemillero} >Salir de semillero</button>
+           
       {this.state.status === true &&
         (
           this.state.proyectos.map((pro, i) => {
@@ -116,7 +152,7 @@ status: false,
                           {pro.semillero}
                           </td>
                           <td className="project-actions text-right">
-                            
+                            <input type='hidden' value={pro.semillero} ref={this.cajaSemillero}/>
                           <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
                           <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink> 
                           <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id} >Productos</NavLink>

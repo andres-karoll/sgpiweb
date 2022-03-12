@@ -131,7 +131,7 @@ export default class ProyectosConvocatoria extends Component {
                             <ul className="nav nav-treeview">
 
 
-                              <Link to={"/AsignarPersupuesto/" + pro.id}>
+                              <Link to={"/AsignarPersupuesto/" + pro.id_proyecto}>
                                 <li className="nav-item">
                                   <a className="nav-link">
                                     <i className="fas fa-hand-holding-usd nav-icon" />

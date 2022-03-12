@@ -139,43 +139,54 @@ status: false,
             </p>
                       
           </a>
+          {rol==="Profesional investigacion"&&
           <ul className="nav nav-treeview">
-            <Link to={"/ComprasPresupuesto/" + pre.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
+          <Link to={"/ComprasPresupuesto/" + pre.id}>
+          <li className="nav-item">
+            <a  className="nav-link">
+              <i className="fas fa-eye nav-icon" />
+              
+              <p>Ver Compras del presupuesto</p>
+               
+            </a>
+          </li>
+          </Link>
+        </ul>
+          
+          }
+           {rol==="Profesional investigacion"&&
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasSolicitadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-eye nav-icon" />
+               
+               <p>Ver Compras solicitadas</p>
                 
-                <p>Ver Compras del presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-          </ul>
-          <ul className="nav nav-treeview">
-            <Link to={"/ComprasSolicitadas/" + pre.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+         {rol==="Profesional investigacion"&&
+           
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasRealizadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-eye nav-icon" />
+               
+               <p>Ver Compras realizadas</p>
                 
-                <p>Ver Compras solicitadas</p>
-                 
-              </a>
-            </li>
-            </Link>
-          </ul>
-          <ul className="nav nav-treeview">
-            <Link to={"/ComprasRealizadas/" + pre.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-eye nav-icon" />
-                
-                <p>Ver Compras realizadas</p>
-                 
-              </a>
-            </li>
-            </Link>
-          </ul>
-          <ul className="nav nav-treeview">
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+         {rol==="Profesional investigacion"&&
+            <ul className="nav nav-treeview">
             <Link to={"/ComprasRechasadas/" + pre.id}>
             <li className="nav-item">
               <a  className="nav-link">
@@ -187,32 +198,46 @@ status: false,
             </li>
             </Link>
           </ul>
-          <ul className="nav nav-treeview">
-            <Link to={"/ComprasAceptadas/" + pre.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-check nav-icon" />
+          
+        }
+         {rol==="Profesional investigacion"&&
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasAceptadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-check nav-icon" />
+               
+               <p>Ver Compras aceptadas</p>
                 
-                <p>Ver Compras aceptadas</p>
-                 
-              </a>
-            </li>
-            </Link>
-          </ul>
-          <ul className="nav nav-treeview">
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+      
+          
+        
+        
+         
+         {rol==="Docente investigador"&&
+         <ul className="nav nav-treeview">
 
-            <Link to={"/CrearCompra/" + pre.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-cart-plus nav-icon" />
-                
-                <p>Solicitar Compra</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
+         <Link to={"/CrearCompra/" + pre.id}>
+         <li className="nav-item">
+           <a  className="nav-link">
+             <i className="fas fa-cart-plus nav-icon" />
+             
+             <p>Solicitar Compra</p>
+              
+           </a>
+         </li>
+         </Link>
+         
+       </ul>
+         
+         }
+          
         </li>
                     </ul>
 </div>

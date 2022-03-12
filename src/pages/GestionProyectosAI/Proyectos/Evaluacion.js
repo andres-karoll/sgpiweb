@@ -6,21 +6,30 @@ import Header from '../../../components/Global/Header';
 
 
 export default class Evaluacion extends Component {
-
+/**
+ * definicion de variables 
+ */
   cajaIDRef = React.createRef();
   cajaEstadoRef = React.createRef();
   cajaProyectoRef = React.createRef();
+  cajaReconocimientos=React.createRef();
   state = {
     status: false,
     proyecto: []
   }
+  /**
+   * metodo para actualizar el estado de un proyecto 
+   * @param {*} e 
+   */
   actualizar = (e) => {
     e.preventDefault();
     var pro = this.cajaProyectoRef.current.value;
     var est = this.cajaEstadoRef.current.value;
+    var reco=this.cajaReconocimientos.current.value;
     var estado = {
       proyecto: pro
-      , estado: est
+      , estado: est,
+      reconocimiento:reco
     };
     var url = 'http://localhost:8080/gestionproyectosinvestigacion/evaluar/';
     axios.post(url, estado).then(res => {
@@ -34,6 +43,9 @@ export default class Evaluacion extends Component {
       }
     });
   }
+  /**
+   * metodo para tener la informacion de un proyecto 
+   */
   Cargardos = () => {
     var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
     var url = "http://localhost:8080" + request;
@@ -101,6 +113,17 @@ export default class Evaluacion extends Component {
                             </li>
                           </ul>
                         </div>
+                        {this.state.proyecto.estado==="Desarrollo"?(
+                         <div className="form-group">
+                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                             <label htmlFor="exampleInputPassword1">Reconocimientos</label>
+                             <div></div>
+                             <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} />
+                         </div>
+                         ):(
+                        
+                         <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value=""/>
+                         )}
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                           <label htmlFor="exampleInputPassword1">Evaluar</label>

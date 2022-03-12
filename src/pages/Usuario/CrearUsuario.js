@@ -7,7 +7,7 @@ import Header from '../../components/Global/Header';
 import md5 from 'md5'
 export default class Crearusuario extends Component {
 
- 
+ /**Definicion de campos  */
     cajaCedula = React.createRef();
     cajacodUniversitario = React.createRef();
     cajaCorreoE = React.createRef();
@@ -27,7 +27,9 @@ export default class Crearusuario extends Component {
     roles:[],
     rol:[]
     }
-    //funcion para crear un programa
+
+    /**lista de programas  */
+
     cargarProgramas = () => {
         var url = "http://localhost:8080";
         var request = "/gestioninstitucional/listarprogramas" ;
@@ -38,7 +40,9 @@ export default class Crearusuario extends Component {
           });
         });
       }   
+
       //funcion para listar los roles que puede tener un usuario
+
       cargarRoles = () => {
         var url = "http://localhost:8080";
         var request = "/gestionusuario/todosroles" ;
@@ -49,12 +53,18 @@ export default class Crearusuario extends Component {
           });
         });
       } 
-       
+       /**
+        * metodo para carga inicial de metodos
+        */
       componentDidMount = () => {
         this.cargarProgramas();
         this.cargarRoles();
         this.setState({ pro: this.state.programa, rol:this.state.roles })
       }
+      /**
+       * crear un usuario 
+       * @param {*} e 
+       */
     nuevoUsuario = (e) => {
         e.preventDefault();
         var ced = this.cajaCedula.current.value;
@@ -96,14 +106,14 @@ export default class Crearusuario extends Component {
                status: true });
                if (res.data.respuesta==="usuario creado") {
                 alert("El usuario fue creado correctamente")
-                window.location.href ="/"
+                window.history.back();
             }else if(res.data.respuesta==="el tipo de usuario es incorrecto"){
               alert("El usuario no se pudo crear por favor verifica los datos")
-              window.location.href ="/Registro"
+              window.history.back();
             }else{
               alert("El usuario no se pudo crear por favor verifica los datos")
              
-              window.location.href ="/Registro"
+              window.history.back();
             }
         });
        

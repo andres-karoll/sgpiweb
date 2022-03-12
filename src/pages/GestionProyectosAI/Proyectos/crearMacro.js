@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import { NavLink } from 'react-router-dom';
+
 export default class CrearMacro extends Component {
+    /**
+     * definicion de variables 
+     */
     cajaNombre = React.createRef();
     cajaDescripcion = React.createRef();
     cajaFecha_inicio = React.createRef();
     cajaEstado = React.createRef();
+    /**
+     * metodo para crear un macro proyecto 
+     */
     CrearMacro = (e) => {
         e.preventDefault();
         var nom = this.cajaNombre.current.value;
@@ -57,14 +63,14 @@ export default class CrearMacro extends Component {
                                             <div className="card-body">
 
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Nombre</label>
-                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaNombre} required/>
+                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaNombre} required />
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
-                                                    <textarea rows="5" cols="100" wrap="physical"  type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required/>
+                                                    <textarea rows="5" cols="100" wrap="physical" type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -74,18 +80,18 @@ export default class CrearMacro extends Component {
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFecha_inicio} required></input>
                                                 </div>
                                                 <div className="form-group">
-                                                <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado del macro</label>
                                                     <div></div>
                                                     <select ref={this.cajaEstado} required>
-                                                    <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                                                        <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                         <option style={{ color: "black" }} >Inicio</option>
                                                         <option style={{ color: "black" }} >Finalizada</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div className="card-footer">
-                                            <button style={{fontSize:"large" }} className="btn btn-success">Crear proyecto</button>
+                                                <button style={{ fontSize: "large" }} className="btn btn-success">Crear proyecto</button>
                                             </div>
                                         </form>
                                     </div>

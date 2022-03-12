@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 export default class Participaciones extends Component {
@@ -12,10 +12,12 @@ export default class Participaciones extends Component {
     , status: false,
     pro: []
   }
-
+  /**
+   * lista de eventos en los que a participado un proyecto 
+   */
   Eventos = () => {
     var url = "http://localhost:8080";
-    var request = "/gestionproyectosaulaintegrador/participacionesproyecto/"+this.props.id;
+    var request = "/gestionproyectosaulaintegrador/participacionesproyecto/" + this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
         evento: res.data
@@ -23,6 +25,9 @@ export default class Participaciones extends Component {
       });
     });
   }
+  /**
+   * metodo de inicio 
+   */
   componentDidMount = () => {
     this.Eventos();
     this.setState({ eve: this.state.evento })
@@ -39,23 +44,23 @@ export default class Participaciones extends Component {
               <br />
               <div class="alert alert-info alert-dismissible">
                 <h1><i class="fas fa-user-friends nav-icon"></i>Tus Participaciones</h1>
-                {
-             rol==="Egresado" || rol==="Estudiante inactivo"?(
-           <></>
-              ) :(
-                <div>
-                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticiparEvento/" + this.props.id} >Participa en un evento de la universidad</NavLink>
-                
-                <NavLink style={{ width: '20%' }} className="btn btn-success" to={"/ParticipacionesExternas/" + this.props.id} >Participa en un evento externo</NavLink>
-             </div>
-             )
-           }
               </div>
             </section>
           </div>
-          
-         
-            
+          {
+            rol === "Semillerista" || rol === "Estudiante activo" || rol === "Docente investigador" || rol === "Docente" || rol === "Docente lider semillero" || rol === "Investigador formacion" ? (
+              <div>
+                <NavLink style={{ width: '20%', margin: "10px" }} className="btn btn-primary" to={"/ParticiparEvento/" + this.props.id} >Participa en un evento de la universidad</NavLink>
+                <NavLink style={{ width: '20%' }} className="btn btn-primary" to={"/ParticipacionesExternas/" + this.props.id} >Participa en un evento externo</NavLink>
+              </div>
+            ) : (
+              <></>
+            )
+          }
+
+
+
+
 
           {this.state.status === true &&
             (
@@ -121,7 +126,7 @@ export default class Participaciones extends Component {
                             </tr>
                           </tbody>
                         </table>
-                        
+
 
                       </div>
                       {/* /.card-body */}
