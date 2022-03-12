@@ -12,7 +12,7 @@ export default class InsertarFacultad extends Component {
     cajaCoorRef = React.createRef();
 
     state = { status: false }
-
+//metodo para insertar una facultad agregando las variables para el JSON
     nuevaFacultad = (e) => {
         e.preventDefault();
         var idfacultad = this.cajaIDRef.current.value;

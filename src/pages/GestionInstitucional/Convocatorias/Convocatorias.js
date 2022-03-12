@@ -10,7 +10,7 @@ export default class Convocatorias extends Component {
     convocatorias: []
     , status: false
   }
-
+//funcion para obtener todas las convocatorias se agregara a "convocatorias"
   cargarConvocatorias = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarconvocatorias";

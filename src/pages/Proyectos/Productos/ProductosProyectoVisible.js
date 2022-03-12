@@ -11,7 +11,7 @@ export default class ProductosProyectoVisible extends Component {
 status: false,
     productos:[]
   }
-
+//funcion para listar los productos de un proyecto
   cargarProductos= () => {
     var url = "http://localhost:8080";
     var request = "/productos/listarproductosproyecto/" +this.props.id;
@@ -24,6 +24,7 @@ status: false,
     });
     
   }
+  //funcion para listar los grupos
   Cargar = () => {
     var request = "/gestioninstitucional/listargruposi" ;
     var url = "http://localhost:8080" + request;

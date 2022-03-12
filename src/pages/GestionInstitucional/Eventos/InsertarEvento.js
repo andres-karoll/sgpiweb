@@ -15,7 +15,7 @@ export default class InsertarEvento extends Component {
     cajaMemoriabRef = React.createRef();
 
     state = { status: false }
-
+//metodo para crear un evento
     nuevaEvento = (e) => {
         e.preventDefault();
         var ida = this.cajaIDRef.current.value

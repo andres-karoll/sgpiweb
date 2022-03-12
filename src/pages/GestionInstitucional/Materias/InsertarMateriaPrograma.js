@@ -14,7 +14,7 @@ export default class InsertarMateriaPrograma extends Component {
     state = { status: false,
     programas:[],
 progra:[] }
-
+//metodo para crear la materia asiganndo las variables del JSON
     nuevaMateria = (e) => {
         e.preventDefault();
         var cata = this.cajaCatalogoRef.current.value;
@@ -38,6 +38,7 @@ progra:[] }
             }
         });
     }
+      //metodo para lisatr los programas del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramas" ;
         var url = "http://localhost:8080" + request;
@@ -90,8 +91,7 @@ progra:[] }
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa actual es {this.props.id}</label>
-                            <input type="text" name="cajadir" className="form-control" value={this.props.id} ref={this.cajaProgramaRef} required/>
+                            <input type="hidden" name="cajadir" className="form-control" value={this.props.id} ref={this.cajaProgramaRef} required/>
                         </div>
                         </div>
                         {/* /.card-body */}

@@ -18,8 +18,8 @@ export default class ActualizarClaseMateria extends Component {
         mate: [],
         clase: {}
     }
-
-    nuevaClase = (e) => {
+//funcion para actualizar la clase en donde se definen las variables para llenar el JSON que sera enviado
+    actualizarClase = (e) => {
         e.preventDefault();
         var num = this.cajaNumeroRef.current.value;
         var nom = this.cajaNombreRef.current.value;
@@ -55,7 +55,7 @@ export default class ActualizarClaseMateria extends Component {
             }
         });
     }
-
+//funcion para listar las materias de la aplicacion
     Cargar = () => {
         var programa = localStorage.getItem("programa");
         var request = "/gestioninstitucional/listarmateriasdeprograma/" + programa;
@@ -67,7 +67,7 @@ export default class ActualizarClaseMateria extends Component {
             })
         });
     }
-
+//funcion para obtener los datos de la clase
     Cargardos = () => {
         var request = "/gestioninstitucional/claseid/" + this.props.numero;
         var url = "http://localhost:8080" + request;
@@ -107,7 +107,7 @@ export default class ActualizarClaseMateria extends Component {
 
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form onSubmit={this.nuevaClase} style={{ width: "50%", margin: "auto" }}>
+                                        <form onSubmit={this.actualizarClase} style={{ width: "50%", margin: "auto" }}>
                                             <div className="card-body">
                                                 <div className="form-group">
 

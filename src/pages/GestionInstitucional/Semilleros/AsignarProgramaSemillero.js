@@ -10,7 +10,7 @@ export default class AsignarProgramaSemillero extends Component {
     cajaProgramaRef = React.createRef();
 
     state = { programas: [],status: false }
-
+//funcion para aginar un programa a un semillero
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var semi = this.cajaSemilleroRef.current.value;
@@ -32,6 +32,7 @@ export default class AsignarProgramaSemillero extends Component {
             
         });
     }
+    //funcion para listar los programas del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramas" ;
         var url = "http://localhost:8080" + request;
@@ -70,8 +71,7 @@ export default class AsignarProgramaSemillero extends Component {
 
                 
             <div className="content-wrapper">
-                 {/* /.card-header 
-                <div className="card card-info"style={{ width: '70%', marginLeft:"auto", marginRight:"auto" }} >*/}
+
                 <div className="card card-info" >
                 <div className="card-header">
                     <h3 className="card-title">Asignar programa al Semillero</h3>
@@ -85,14 +85,7 @@ export default class AsignarProgramaSemillero extends Component {
                         <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
-                    {/** 
-                    <div className="form-group row">
-                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Programa</label>
-                        <div className="col-sm-10">
-                        <input type="text" className="form-control" id="inputPassword3" placeholder="Programa" ref={this.cajaProgramaRef}/>
-                        </div>
-                    </div>
-                    */}
+            
                     <div className="form-group row">
                     <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                         <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Programa</label>

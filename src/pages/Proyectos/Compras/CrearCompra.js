@@ -21,16 +21,14 @@ export default class CrearCompra extends Component {
     cajaPresupuestoRef = React.createRef();
 
     state = { status: false}
-
+//funcion para crear una compra nuevaasignando las variables del JSON
     nuevaCompra = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;
         var fecso = this.cajaFechaSolicitudRef.current.value;
         var nom = this.cajaNombreRef.current.value;
         var tip = this.cajaTipoRef.current.value;
-        //var cod = this.cajaCodigoCompraRef.current.value;
-        //var val = this.cajaValorRef.current.value;
-        //var fecco = this.cajaFechaCompraRef.current.value;
+
         var est = this.cajaEstadoRef.current.value;
         var lin = this.cajaLinkRef.current.value;
         var desc = this.cajaDescripcionRef.current.value;
@@ -111,28 +109,12 @@ export default class CrearCompra extends Component {
                         <option>Articulo</option>
                         </select>
                         </div>
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Codigo de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Codigo" ref={this.cajaCodigoCompraRef} />
-                        </div>*/}
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Valor de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Valor" ref={this.cajaValorRef} />
-                        </div>
-                        */}
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de compra</label>
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaCompraRef} ></input>                        </div>
-       */}
+         
                         <div className="form-group">
 
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Estado de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  value={1}  ref={this.cajaEstadoRef} readOnly/>
+                            {/**  <label htmlFor="exampleInputPassword1">Estado de la compra</label>*/}
+                            <input type="hidden" name="cajatel" className="form-control"  value={1}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>

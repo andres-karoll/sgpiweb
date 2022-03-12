@@ -24,7 +24,7 @@ function TrabajoGradoRechasado(){
         filtrar(e.target.value);
     }
 
-
+//proceso para filtrar mediante los diferentes campos instanciados en el if
     const filtrar = (terminoBusqueda)=>{
         var ResultadosBusqueda = tablaproyectos.filter((elemento)=>{
             if(elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){

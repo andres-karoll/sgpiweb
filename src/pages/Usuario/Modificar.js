@@ -14,7 +14,7 @@ export default class Modificar extends Component {
     state = { status: false,
 
     usua:{} }
-
+//funcion para modificar un usuario enviadno las variables correspondientes al JSON
     nuevoUsuario = (e) => {
         e.preventDefault();
         var cedu = this.cajaCedulaRef.current.value;

@@ -10,7 +10,7 @@ export default class ProyectosArea extends Component {
     status: false,
     proyectos: []
   }
-
+//metodo para obtener los proyectos asociados a un area en concreto
   cargarProyectos = () => {
     var url = "http://localhost:8080";
     var request = "/gestionfiltroproyecto/listarproyectosporarea/" + this.props.id;

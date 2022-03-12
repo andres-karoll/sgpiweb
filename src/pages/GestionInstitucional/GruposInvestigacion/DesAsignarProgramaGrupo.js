@@ -11,7 +11,7 @@ export default class DesAsignarLineaGrupoI extends Component {
     cajaProgramaRef = React.createRef();
 
     state = { programas: [], status: false }
-
+//funcion para desasignar la linea de un grupo de investigacion 
     nuevaDesAsignacion = (e) => {
         e.preventDefault();
         var grupoi = this.cajaGrupoRef.current.value;
@@ -32,6 +32,7 @@ export default class DesAsignarLineaGrupoI extends Component {
             }
         });
     }
+    //funcion para ontener la lista de lineas del grupo de investigacion
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramadelgrupo/" + this.props.id;
         var url = "http://localhost:8080" + request;

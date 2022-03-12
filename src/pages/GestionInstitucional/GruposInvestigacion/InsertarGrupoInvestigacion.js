@@ -19,7 +19,7 @@ export default class InsertarGrupoInvestigacion extends Component {
         roles: [],
         rol: []
     }
-
+//funcion para crear un grupo de investigacion asignando las variables de su JSON
     nuevoGrupoInvestigacion = (e) => {
         e.preventDefault();
 
@@ -67,6 +67,7 @@ export default class InsertarGrupoInvestigacion extends Component {
 
         });
     }
+    //metodo para listar todas las lineas del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarlineas";
         var url = "http://localhost:8080" + request;

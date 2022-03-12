@@ -10,7 +10,7 @@ export default class GruposPrograma extends Component {
 status: false,
     grupos:[]
   }
-
+//metodo para listar los grupos de un programa
   cargarGrupo= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listargruposdelprograma/" +this.props.id;

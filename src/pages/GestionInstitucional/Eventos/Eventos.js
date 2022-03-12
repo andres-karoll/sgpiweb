@@ -10,7 +10,7 @@ export default class Eventos extends Component {
     eventos: []
     , status: false
   }
-
+//metodo para obtener todos los eventos se agregaria a "eventos"
   cargarEventos = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listareventos";

@@ -11,7 +11,7 @@ export default class Clases extends Component {
     clases: []
     , status: false
   }
-
+//funcion para obtener las clases del aplicativo se agregara a "clases"
   cargarClases = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarclases";
@@ -63,10 +63,6 @@ export default class Clases extends Component {
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i className="fas fa-minus" />
                           </button>
-                          {/* 
-                      <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i className="fas fa-times" />
-                      </button>*/}
                         </div>
                       </div>
                       <div className="card-body p-0">

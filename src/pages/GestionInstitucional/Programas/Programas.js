@@ -10,7 +10,7 @@ export default class Programas extends Component {
     programas: []
     , status: false
   }
-
+//metodo para listar los programas del aplicativo
   cargarProgramas = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarprogramas";

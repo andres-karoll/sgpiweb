@@ -10,7 +10,7 @@ export default class UsuariosSemillero extends Component {
 status: false,
     usuarios:[]
   }
-
+//funcion para ontener los usuarios de un semillero
   cargarUsuarios= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarusuariosdelsemillero/" +this.props.id;

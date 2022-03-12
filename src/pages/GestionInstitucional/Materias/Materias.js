@@ -10,7 +10,7 @@ export default class Materias extends Component {
     materias: []
     , status: false
   }
-
+//funcion para listar las materias del aplicativo 
   cargarMaterias = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarmaterias";

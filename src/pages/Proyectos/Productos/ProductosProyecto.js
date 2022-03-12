@@ -11,7 +11,7 @@ export default class ProductosProyecto extends Component {
 status: false,
     productos:[]
   }
-
+//funcion para listar los productos de un proyecto
   cargarProductos= () => {
     var url = "http://localhost:8080";
     var request = "/productos/listarproductosproyecto/" +this.props.id;
@@ -93,17 +93,19 @@ status: false,
       </div>
     </ul>
     {
-            rol === "Egresado"  || rol === "Estudiante inactivo"|| rol==="Docentes"? (
-              <></>
-            ) : (
+            rol === "Investigador formacion"  || rol === "Semillerista"? (
               <NavLink to={"/ActualizarProducto/" + pro.id} style={{width: "50%"}} className="btn btn-primary">Actualizar producto</NavLink>
+            ) : (
+              <></>
+              
     
   )
           }
-          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Docentes"? (
-              <></>
+          {rol === "Investigador formacion"  || rol === "Semillerista"? (
+            <NavLink className="btn btn-danger" to={"/EliminarProducto/" + pro.id}  style={{width: "50%"}}>Eliminar producto</NavLink>
+              
             ) : (
-              <NavLink className="btn btn-danger" to={"/EliminarProducto/" + pro.id}  style={{width: "50%"}}>Eliminar producto</NavLink>
+              <></>  
      
   )}
            </div>

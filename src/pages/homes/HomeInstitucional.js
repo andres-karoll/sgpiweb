@@ -11,7 +11,7 @@ export default class HomeInstitucional extends Component {
     con: []
     , status: false
   }
-
+//funcion para obtener el conteo de los eventos
   cargarEventos = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/contareventos";
@@ -26,6 +26,7 @@ export default class HomeInstitucional extends Component {
       
     });
   }
+  //funcion para obtener el conteo de los semilleros
   cargarSemilleros = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/contarsemilleros";

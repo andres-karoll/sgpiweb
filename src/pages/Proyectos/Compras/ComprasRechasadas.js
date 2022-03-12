@@ -13,7 +13,7 @@ status: false,
     compra:[],
     compratotal:[]
   }
-
+//metodo para obtener las compras ya realizadas
   cargarCompra= () => {
     var url = "http://localhost:8080";
     var request = "/gestionfinanciera/comprasrechazadas/" +this.props.id;
@@ -25,6 +25,7 @@ status: false,
     });
     
   }
+   //metodo para obtener las compras totales de un presupuesto
   Cargar = () => {
     var request = "/gestionfinanciera/comprastotalesporpresupuesto/" +this.props.id;
     var url = "http://localhost:8080" + request;

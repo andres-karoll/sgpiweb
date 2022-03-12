@@ -9,7 +9,7 @@ export default class MeterArchivo extends Component {
 
 
     state = { status: false}
-
+//funcion para crear un nuevo archivo
     nuevoProducto = (e) => {
         e.preventDefault();
         var arch = this.cajaArchivoRef.current.value;

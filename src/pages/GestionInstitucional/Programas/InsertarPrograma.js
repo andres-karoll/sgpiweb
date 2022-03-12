@@ -15,7 +15,7 @@ export default class InsertarPrograma extends Component {
     facultades:[],
     facul:[]
 }
-
+//funcion para crear un programa asignando las vareibales del JSON
     nuevoPrograma = (e) => {
         e.preventDefault();
         var idprograma = this.cajaIDRef.current.value;
@@ -59,6 +59,7 @@ export default class InsertarPrograma extends Component {
             }
         });
     }
+    //funcion para listar las facultades del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarfacultades" ;
         var url = "http://localhost:8080" + request;

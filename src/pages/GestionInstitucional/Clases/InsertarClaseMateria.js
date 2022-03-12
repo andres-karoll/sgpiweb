@@ -17,7 +17,7 @@ export default class InsertarClaseMateria extends Component {
         materias: [],
         mate: []
     }
-
+//funcion para crear la clase en donde se definen las variables para llenar el JSON que sera enviado
     nuevaClase = (e) => {
         e.preventDefault();
         var num = this.cajaNumeroRef.current.value;
@@ -65,7 +65,7 @@ export default class InsertarClaseMateria extends Component {
 
         });
     }
-
+//funcion para obtener la lista de las materias creadas
     Cargar = () => {
         var request = "/gestioninstitucional/listarmaterias";
         var url = "http://localhost:8080" + request;

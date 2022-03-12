@@ -11,7 +11,7 @@ export default class ComentariosProducto extends Component {
 status: false,
     comentarios:[]
   }
-
+//funcion para obtener la lista de comentarios de un producto
   cargarComentarios= () => {
     var url = "http://localhost:8080";
     var request = "/productos/listarcomentariosporproducto/" +this.props.id;

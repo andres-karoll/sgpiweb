@@ -1,7 +1,7 @@
 import React from 'react'
 import Aside from '../../components/Global/Aside'
 import Header from '../../components/Global/Header'
-
+//pagina de error 404
 const error = () => {
     return (
         

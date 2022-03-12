@@ -10,7 +10,7 @@ export default class ProgramasFacultad extends Component {
     status: false,
     programas: []
   }
-
+//metodo para obtener los programas de la facultad agregandose a "programas"
   cargarLineas = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarprogramasporfacultad/" + this.props.id;

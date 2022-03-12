@@ -11,7 +11,7 @@ export default class InsertarLinea extends Component {
     cajaFechaRef = React.createRef();
 
     state = { status: false}
-
+//funcion para crear una linea de investigacion asignando las variables del JSON
     nuevaLinea = (e) => {
         e.preventDefault();
         var nombr = this.cajaNombreRef.current.value;

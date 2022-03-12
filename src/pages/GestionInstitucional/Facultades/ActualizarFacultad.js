@@ -15,7 +15,7 @@ export default class ActualizarFacultad extends Component {
         status: false,
         facultad: {}
     }
-
+//funcion para crear una facultad asignando las variables del JSON
     nuevaFacultad = (e) => {
         e.preventDefault();
         var idfacultad = this.cajaIDRef.current.value;
@@ -57,6 +57,7 @@ export default class ActualizarFacultad extends Component {
             }
         });
     }
+    //funcion para obtener la informacion actual de la facultad
     cargar = () => {
         var request = "/gestioninstitucional/facultadid/" + this.props.id;
         var url = "http://localhost:8080" + request;

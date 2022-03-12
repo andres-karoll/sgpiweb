@@ -10,7 +10,7 @@ export default class LineasGrupoI extends Component {
     status: false,
     lineas: []
   }
-
+//funcion para listar las lineas de un grupo de investigacion en especifico
   cargarLineas = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarlineasdelgrupo/" + this.props.id;

@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarLinea extends Component {
 
     state = { status: false };
-
+//funcion para eliminar la linea de investigacion
     eliminarLinea = () => {
         var request = "/gestioninstitucional/eliminarlinea/" + this.props.nombre;
         var url = "http://localhost:8080" + request;

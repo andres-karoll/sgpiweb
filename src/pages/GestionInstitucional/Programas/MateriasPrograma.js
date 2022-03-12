@@ -10,7 +10,7 @@ export default class MateriaPrograma extends Component {
 status: false,
     materias:[]
   }
-
+//funcion para listar las materias de un programa
   cargarMateria= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarmateriasdeprograma/" +this.props.id;

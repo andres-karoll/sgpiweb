@@ -14,7 +14,7 @@ export default class InsertarMateria extends Component {
     state = { status: false,
     programas:[],
 progra:[] }
-
+//metodo para crear la materia asiganndo las variables del JSON
     nuevaMateria = (e) => {
         e.preventDefault();
         var cata = this.cajaCatalogoRef.current.value;
@@ -38,6 +38,7 @@ progra:[] }
             }
         });
     }
+    //metodo para lisatr los programas del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramas" ;
         var url = "http://localhost:8080" + request;

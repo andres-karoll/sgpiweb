@@ -8,7 +8,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarCompra extends Component {
 
     state = { status: false };
-
+//funcion para eliminar la compra
     eliminarCompra = () => {
         var request = "/gestionfinanciera/eliminarcompra/" + this.props.id;
         var url = "http://localhost:8080" + request;

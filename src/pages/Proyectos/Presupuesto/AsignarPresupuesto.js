@@ -14,7 +14,7 @@ export default class AsignarPresupuesto extends Component {
     cajaProyectoRef = React.createRef();
 
     state = { status: false}
-
+//funcion para asignar un presupuesto enviando las variables del JSON
     nuevoPresupuesto = (e) => {
         e.preventDefault();
         var idpre = this.cajaIDRef.current.value;

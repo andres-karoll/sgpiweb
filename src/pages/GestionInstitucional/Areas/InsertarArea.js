@@ -12,7 +12,7 @@ export default class InsertarArea extends Component {
     cajaGranAreaRef = React.createRef();
 
     state = { status: false }
-
+    // funcion para crear  una nueva area en donde se definen las variables para llenar el JSON que sera enviado
     nuevaArea = (e) => {
         e.preventDefault();
         var ida = this.cajaIDRef.current.value
@@ -77,7 +77,7 @@ export default class InsertarArea extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label style={{ fontSize: "large" }} htmlFor="exampleInputPassword1">Descripción</label>
-                                                    <textarea type="text" rows="15" style={{ fontSize: "large" }} type="text" name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required />
+                                                    <textarea type="text" rows="15" style={{ fontSize: "large" }} name="cajatel" className="form-control" placeholder="Descripcion" ref={this.cajaDescripcionRef} required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>

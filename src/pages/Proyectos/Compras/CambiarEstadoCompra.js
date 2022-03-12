@@ -11,7 +11,7 @@ export default class CambiarEstadoCompra extends Component {
     cajaEstadoRef = React.createRef();
 
     state = { status: false}
-
+//metodo para cambiar el estado de la compra
     actualizar = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;

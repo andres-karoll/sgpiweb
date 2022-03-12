@@ -15,8 +15,8 @@ export default class ActualizarArea extends Component {
         status: false,
         area: {}
     }
-
-    nuevaArea = (e) => {
+    //funcion para actualizar el area en donde se definen las variables para llenar el JSON que sera enviado
+    actualizarArea = (e) => {
         e.preventDefault();
         var ida = this.cajaIDRef.current.value
         var nom = this.cajaNombreRef.current.value;
@@ -40,6 +40,7 @@ export default class ActualizarArea extends Component {
             }
         });
     }
+    //funcion para obtener la informacion actual del area
     Cargar = () => {
         var request = "/gestioninstitucional/areaid/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -78,7 +79,7 @@ export default class ActualizarArea extends Component {
 
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form onSubmit={this.nuevaArea} style={{ width: "50%", margin: "auto" }}>
+                                        <form onSubmit={this.actualizarArea} style={{ width: "50%", margin: "auto" }}>
                                             <div className="card-body">
                                                 <div className="form-group">
                                                     <input type="hidden" name="cajanom" className="form-control" value={this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly />
@@ -91,7 +92,7 @@ export default class ActualizarArea extends Component {
                                                 <div className="form-group">
 
                                                     <label htmlFor="exampleInputPassword1">Descripción actual: {this.state.area.descripcion}</label>
-                                                    <textarea type="text" rows="15" type="text" name="cajatel" className="form-control" placeholder={this.state.area.descripcion} ref={this.cajaDescripcionRef} />
+                                                    <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder={this.state.area.descripcion} ref={this.cajaDescripcionRef} />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Grand area actual: {this.state.area.gran_area}</label>

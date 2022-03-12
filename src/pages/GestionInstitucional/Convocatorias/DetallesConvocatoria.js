@@ -9,7 +9,7 @@ export default class DetallesConvocatoria extends Component {
     convocatoria: {}
     , status: false
   }
-
+//funcion para obtener la informacion de una convocatoria
   mostrarConvocatoria = () => {
     var request = "/gestioninstitucional/convocatoriaporid/" + this.props.id;
     var url = "http://localhost:8080" + request;

@@ -18,7 +18,7 @@ export default class CrearConvocatorias extends Component {
 
 
     state = { status: false }
-
+//funcion para crear una convocatoria asignando las variables del JSON
     nuevaConvocatorias = (e) => {
         e.preventDefault();
         var idcon = this.cajaIDRef.current.value;

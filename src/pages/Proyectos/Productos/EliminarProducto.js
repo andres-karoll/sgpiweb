@@ -9,7 +9,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarProducto extends Component {
 
     state = { status: false };
-
+//funcion para eliminar un producto
     eliminarProducto = () => {
         var request = "/productos/eliminarproducto/" + this.props.id;
         var url = "http://localhost:8080" + request;

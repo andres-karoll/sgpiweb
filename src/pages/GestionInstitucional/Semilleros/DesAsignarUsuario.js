@@ -9,7 +9,7 @@ export default class DesAsignarUsuario extends Component {
     cajaUsuarioRef = React.createRef();
 
     state = { status: false }
-
+//funcion para desasignar un usuario al semillero
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var usu = this.cajaUsuarioRef.current.value;
