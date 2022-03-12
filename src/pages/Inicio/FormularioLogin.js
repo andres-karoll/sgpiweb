@@ -2,7 +2,9 @@ import React, { Component, NavLink } from 'react'
 import axios from 'axios'
 import md5 from 'md5'
 export default class FormularioLogin extends Component {
-
+  /**
+   * definicion de variables
+   */
   cajaCorreo = React.createRef();
   cajaClave = React.createRef();
   cajaTipo = React.createRef();
@@ -14,7 +16,10 @@ export default class FormularioLogin extends Component {
     roles: [],
     rol: []
   }
-
+  /**
+   * login
+   * @param {*} e 
+   */
   login = async (e) => {
     e.preventDefault();
 
@@ -35,23 +40,26 @@ export default class FormularioLogin extends Component {
       .then(response => {
         return response.data;
       }).then(response => {
-       
-        if (response.cedula!= null) {
+
+        if (response.cedula != null) {
           localStorage.setItem("cedula", response.cedula)
           localStorage.setItem("tipo", reTipo)
-          localStorage.setItem("programa",response.programa_id);
+          localStorage.setItem("programa", response.programa_id);
           var rol = localStorage.getItem("tipo");
           alert('bienvenido');
 
-            window.location.href = "/HomeInstitucional";
+          window.location.href = "/HomeInstitucional";
 
 
         } else {
           alert('el usuario o contraseña o el tipo de usuario son incorrectos');
-          window.location.href = "/" ;
-        } 
+          window.location.href = "/";
+        }
       })
   }
+  /**
+   * metodo que carga todos los roles 
+   */
   CargarRoles = () => {
     var request = "/gestionusuario/todosroles";
     var url = "http://localhost:8080" + request;
@@ -62,7 +70,9 @@ export default class FormularioLogin extends Component {
       })
     });
   }
-
+  /**
+   * metodo de inicio 
+   */
   componentDidMount = () => {
     this.CargarRoles();
     this.setState({ rol: this.state.roles })
@@ -82,20 +92,20 @@ export default class FormularioLogin extends Component {
                       <p class="text-white-50 mb-5">Ingrese su correo institucional y su contraseña</p>
                       <form onSubmit={this.login}>
                         <div class="form-outline form-white mb-4">
-                          <input type="email" id="typeEmailX" class="form-control form-control-lg" ref={this.cajaCorreo} required/>
+                          <input type="email" id="typeEmailX" class="form-control form-control-lg" ref={this.cajaCorreo} required />
                           <label class="form-label" for="typeEmailX">Email</label>
                         </div>
                         <div class="form-outline form-white mb-4">
-                          <input type="password" id="typePasswordX" class="form-control form-control-lg" ref={this.cajaClave} required/>
+                          <input type="password" id="typePasswordX" class="form-control form-control-lg" ref={this.cajaClave} required />
                           <label class="form-label" for="typePasswordX">Password</label>
                         </div>
                         <div class="form-outline form-white mb-4">
-                          <select ref={this.cajaTipo}  style={{ color: "black" }}>
-                          <option selected > Elige una opción </option>
+                          <select ref={this.cajaTipo} style={{ color: "black" }}>
+                            <option selected > Elige una opción </option>
                             {this.state.status === true &&
-                            
+
                               (this.state.roles.map((rol) => {
-                                
+
                                 return (
                                   <option style={{ color: "black" }}>{rol.nombre}</option>
                                 );
@@ -118,7 +128,7 @@ export default class FormularioLogin extends Component {
           </div>
         </section>
       </div>
-      
+
     )
   }
 }

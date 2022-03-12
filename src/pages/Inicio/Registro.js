@@ -7,7 +7,9 @@ import Footer from '../../components/Footer'
 import md5 from 'md5'
 
 export default class Crearusuario extends Component {
-
+/**
+ * definicion de variables
+ */
     cajaCedula = React.createRef();
     cajacodUniversitario = React.createRef();
     cajaCorreoE = React.createRef();
@@ -27,7 +29,9 @@ export default class Crearusuario extends Component {
     roles:[],
     rol:[]
     }
-    
+    /**
+     * cargar programas
+     */
     cargarProgramas = () => {
         var url = "http://localhost:8080";
         var request = "/gestioninstitucional/listarprogramas" ;
@@ -38,6 +42,9 @@ export default class Crearusuario extends Component {
           });
         });
       }   
+      /**
+       * metodo para cargar roles
+       */
       cargarRoles = () => {
         var url = "http://localhost:8080";
         var request = "/gestionusuario/todosroles" ;
@@ -48,12 +55,18 @@ export default class Crearusuario extends Component {
           });
         });
       } 
-       
+       /**
+        * metodo de inicio 
+        */
       componentDidMount = () => {
         this.cargarProgramas();
         this.cargarRoles();
         this.setState({ pro: this.state.programa, rol:this.state.roles })
       }
+      /**
+       * metodo para crear un usuario 
+       * @param {*} e 
+       */
     nuevoUsuario = (e) => {
         e.preventDefault();
         var ced = this.cajaCedula.current.value;
@@ -138,13 +151,13 @@ export default class Crearusuario extends Component {
                   <div class="card-body p-5 text-center">
                     <form onSubmit={this.nuevoUsuario} style={{ width: "50%", margin: "auto" }}>
                         <label>Cedula: </label>
-                        <input type="text" name="cajaced" className="form-control" ref={this.cajaCedula} required />
+                        <input type="number" name="cajaced" className="form-control" ref={this.cajaCedula} required />
                         <label>Codigo Universitario: </label>
                         <input type="number"  name="cajacodU" className="form-control" ref={this.cajacodUniversitario} required/>
                         <label>Correo Institucional : </label>
                         <input type="email" name="cajaCorreoE" className="form-control" ref={this.cajaCorreoE} required/>
                         <label>nombres: </label>
-                        <input type="text" name="cajaNombre" className="form-control" ref={this.cajaNombre} required/>
+                        <input type="text" name="cajaNombre" minlength="5" className="form-control" ref={this.cajaNombre} required/>
                         <label>apellidos: </label>
                         <input type="text" name="cajaApellido" className="form-control" ref={this.cajaApellido} required/>
                         <label> Telefono: </label>
@@ -155,7 +168,6 @@ export default class Crearusuario extends Component {
                         <input type="password" name="pwd1" className="form-control" ref={this.cajaClave} required/>
                         <label> Confirmar Contraseña: </label>
                         <input type="password" name="pwd2" className="form-control" ref={this.cajaCClave} required/>
-                       
                         <input type="hidden" name="cajaVis" className="form-control" ref={this.cajaVis} value="1"/>
                         <label> programa: </label>
                         <div className="form-outline form-white mb-1">
@@ -174,12 +186,9 @@ export default class Crearusuario extends Component {
                         <label> Tipo de usuario  </label>
                         <div class="form-outline form-white mb-4">
                         
-                        <select ref={this.cajaTipo}className="form-control" style={{ color: "black" }} >
-                          <option selected > Elige una opción </option>
-                          <option value="Estudiante activo" > Estudiante </option>
-                       
-                          
-                          </select>
+                   
+                          <input type="text" name="cajaVis" className="form-control" ref={this.cajaTipo} value="Estudiante activo" readOnly/>
+                      
                       
                         </div>
                         <br />

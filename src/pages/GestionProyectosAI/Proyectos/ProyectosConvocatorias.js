@@ -8,6 +8,9 @@ export default class ProyectosConvocatorias extends Component {
     status: false,
     proye: []
   }
+  /**
+   * metodo de carga de proyectos 
+   */
   cargarProyecto = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/ProyectosPostuladosConvocatorias/" + this.props.id;
@@ -19,9 +22,12 @@ export default class ProyectosConvocatorias extends Component {
       if (this.state.proye.length === 0) {
         alert("Esta clase no tiene proyectos")
         window.history.back();
-    }
+      }
     });
   }
+  /**
+   * metodo de inciio
+   */
   componentDidMount = () => {
     this.cargarProyecto();
   }

@@ -8,6 +8,9 @@ export default class ProyectoAceptadoConvocatoria extends Component {
     status: false,
     proye: []
   }
+  /**
+   * metodo para cargar proyectos que estan en una convocatoria 
+   */
   cargarProyecto = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/ProyectosPostuladosConvocatorias/" + this.props.id;
@@ -19,9 +22,12 @@ export default class ProyectoAceptadoConvocatoria extends Component {
       if (this.state.proye.length === 0) {
         alert("Esta clase no tiene proyectos")
         window.history.back();
-    }
+      }
     });
   }
+  /**
+   * metodo de inicio
+   */
   componentDidMount = () => {
     this.cargarProyecto();
   }
@@ -92,10 +98,10 @@ export default class ProyectoAceptadoConvocatoria extends Component {
                               </td>
                               <td className="project-actions text-right">
                                 <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
-                                {(pro.id_proyecto !="Terminado")&&
-                                <NavLink className="btn btn-warning" to={"/EvaluacionConvocatorias/" + pro.id} >Evaluar</NavLink>
+                                {(pro.id_proyecto != "Terminado") &&
+                                  <NavLink className="btn btn-warning" to={"/EvaluacionConvocatorias/" + pro.id} >Evaluar</NavLink>
                                 }
-                                </td>
+                              </td>
                             </tr>
                           </tbody>
                         </table>

@@ -4,40 +4,49 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
 export default class CrearProyectoFacultad extends Component {
-    state = { 
-            status: false,
-            facultad:[],
-            fac:[]}
-CargarFacultad = () => {
-    var request = "/gestioninstitucional/listarfacultades" ;
+  state = {
+    status: false,
+    facultad: [],
+    fac: []
+  }
+  /**
+   * lista de facultades
+   */
+  CargarFacultad = () => {
+    var request = "/gestioninstitucional/listarfacultades";
     var url = "http://localhost:8080" + request;
-   axios.get(url).then(res => {
+    axios.get(url).then(res => {
       this.setState({
         facultad: res.data
         , status: true
       })
     });
-    
-  }
 
-    cajaFacultad = React.createRef();
-componentDidMount = () => {
-        this.CargarFacultad();
-        this.setState({fac:this.state.facultad});
-    } 
-    render() {       
-        return (
-            <div>
-          <Aside/>
-          <Header/>
-          <div className="content-wrapper">
+  }
+  /**
+   * definicion de variables 
+   */
+  cajaFacultad = React.createRef();
+  /**
+   * metodo de carga inicial 
+   */
+  componentDidMount = () => {
+    this.CargarFacultad();
+    this.setState({ fac: this.state.facultad });
+  }
+  render() {
+    return (
+      <div>
+        <Aside />
+        <Header />
+        <div className="content-wrapper">
           <div>
-                <section className="content">
-                    <br />
-                    <div class="alert alert-info alert-dismissible">
-                      <h1><i class="fas fa-user-friends nav-icon"></i>Facultades</h1>
-                      </div>
-                      </section>
+            <section className="content">
+              <br />
+              <div class="alert alert-info alert-dismissible">
+                <h1><i class="fas fa-user-friends nav-icon"></i>Facultades</h1>
+              </div>
+            </section>
           </div>
           {this.state.status === true &&
             (
@@ -46,7 +55,7 @@ componentDidMount = () => {
                   <section className="content">
                     {/* Default box */}
                     <div className="card">
-                    
+
                       <div className="card-header">
                         <div className="card-tools">
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -67,11 +76,11 @@ componentDidMount = () => {
                               </th>
                               <th style={{ width: '15%' }}>
                                 Nombre
-                              </th>               
-                              <th style={{width: '15%'}}>
+                              </th>
+                              <th style={{ width: '15%' }}>
                                 Decano
                               </th>
-                              <th style={{width: '15%'}}>
+                              <th style={{ width: '15%' }}>
                                 Coordinador de investigación
                               </th>
                             </tr>
@@ -83,43 +92,43 @@ componentDidMount = () => {
                               </td>
                               <td>
                                 <a>
-                                {fac.nombre}
+                                  {fac.nombre}
                                 </a>
                                 <br />
                               </td>
-                              
+
                               <td className="project_progress">
                                 <a>
-                                {fac.decano}
+                                  {fac.decano}
                                 </a>
                               </td>
                               <td className="project_progress">
                                 <a>
-                                {fac.coor_inv}
+                                  {fac.coor_inv}
                                 </a>
                               </td>
-                              <td className="project-actions text-right" style={{width: '40%'}}>
-                              <div className=" mt-3 pb-3 mb-3 d-flex">
-                              {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/CrearProyectoPrograma/" + fac.id} >Modificar</NavLink>
-                              </div>                   
+                              <td className="project-actions text-right" style={{ width: '40%' }}>
+                                <div className=" mt-3 pb-3 mb-3 d-flex">
+                                  {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
+                                  <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/CrearProyectoPrograma/" + fac.id} >Modificar</NavLink>
+                                </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                 
+
                       </div>
                       {/* /.card-body */}
                     </div>
-                    
+
                     {/* /.card */}
                   </section>
                 )
-            })
-          )}
-    </div>
-    </div>
-          
-        )
-    }
+              })
+            )}
+        </div>
+      </div>
+
+    )
+  }
 }
