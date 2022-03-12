@@ -12,7 +12,7 @@ status: false,
     presupuesto:[],
     compratotal:[]
   }
-
+//funcion para obtener el presupuesto del proyecto
   cargarPresupuesto= () => {
     var url = "http://localhost:8080";
     var request = "/gestionfinanciera/listarpresupuestoporproyecto/" +this.props.id;

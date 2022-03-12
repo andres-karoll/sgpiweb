@@ -19,7 +19,7 @@ export default class InsertarSemillero extends Component {
         grup:[],
         lineas:[]
  }
-
+//funcion para crear un semillero asignando las variables del JSON
     nuevoSemillero = (e) => {
         e.preventDefault();
         var idsemillero = this.cajaIDRef.current.value;
@@ -71,6 +71,7 @@ export default class InsertarSemillero extends Component {
         
         });
     }
+    //funcion para listar los grupos de investigacion
     Cargar = () => {
         var request = "/gestioninstitucional/listargruposi" ;
         var url = "http://localhost:8080" + request;
@@ -81,7 +82,7 @@ export default class InsertarSemillero extends Component {
           })
         });
       }
-
+//funcion para listar las lineas de investigacion 
       Cargardos = () => {
         var request = "/gestioninstitucional/listarlineas" ;
         var url = "http://localhost:8080" + request;
@@ -156,18 +157,14 @@ export default class InsertarSemillero extends Component {
                             
                             ( this.state.gruposi.map((grup) => {
                             return(
-                                    <option value={grup.id}> {grup.id}{grup.nombre}</option> 
+                                    <option value={grup.id}> {grup.nombre}</option> 
                                     );
                                 })
                                 )}
                             </select>
                         </div>
                         
-                        {/* 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Linea de investigacion</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Linea de investigacion" ref={this.cajaLineaInvestigacionFef} />
-                        </div>*/}
+          
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Linea de investigacion</label>

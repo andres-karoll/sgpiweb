@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarPrograma extends Component {
 
     state = { status: false };
-
+//metodo para eliminar el programa
     eliminarPrograma = () => {
         var request = "/gestioninstitucional/eliminarprograma/" + this.props.id;
         var url = "http://localhost:8080" + request;

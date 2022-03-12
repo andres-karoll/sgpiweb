@@ -9,7 +9,6 @@ function TrabajoGradoCorrecciones(){
     const [proyectos, setproyectos] = useState([]);
     const [tablaproyectos, settablaproyectos] = useState([]);
     const [busqueda, setbusqueda] = useState("");
-
     const peticionGet = async()=>{
         await axios.get("http://localhost:8080/gestionproyectosinvestigacion/TrabajoGradoJurado/"+localStorage.getItem("cedula"))
         .then(response=>{
@@ -24,7 +23,7 @@ function TrabajoGradoCorrecciones(){
         filtrar(e.target.value);
     }
 
-
+//proceso para filtrar mediante los diferentes campos instanciados en el if
     const filtrar = (terminoBusqueda)=>{
         var ResultadosBusqueda = tablaproyectos.filter((elemento)=>{
             if(elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
@@ -47,22 +46,6 @@ function TrabajoGradoCorrecciones(){
       
       <div className="content-wrapper">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
       <div>
             <section className="content">
                 <br />

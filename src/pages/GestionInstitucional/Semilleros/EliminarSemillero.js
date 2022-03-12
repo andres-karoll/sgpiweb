@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarSemillero extends Component {
 
     state = { status: false };
-
+//funcion para eliminar un semillero
     eliminarSemillero = () => {
         var request = "/gestioninstitucional/eliminarsemillero/" + this.props.id;
         var url = "http://localhost:8080" + request;

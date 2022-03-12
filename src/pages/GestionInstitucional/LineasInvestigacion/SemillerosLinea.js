@@ -10,7 +10,7 @@ export default class SemillerosLinea extends Component {
 status: false,
     semilleros:[]
   }
-
+//funcion para listar los semilleros de una linea de investigacion
   cargarSemilleros= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarsemillerosporlinea/" +this.props.nombre;

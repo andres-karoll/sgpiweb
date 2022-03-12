@@ -11,7 +11,7 @@ export default class ModificarRol extends Component {
     cajaRolRef = React.createRef();
 
     state = { status: false}
-
+//funcion para modificar el rol de un usuario en especifico
     modificarRol = (e) => {
         e.preventDefault();
         var ced = this.cajaCedulaRef.current.value

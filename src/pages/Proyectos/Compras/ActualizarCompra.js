@@ -21,7 +21,7 @@ export default class ActualizarCompra extends Component {
 
     state = { status: false,
     compra:{}}
-
+//funcion para obtener la informacion actual de la compra
     Cargar = () => {
         var request = "/gestionfinanciera/compraid/" +this.props.id;
         var url = "http://localhost:8080" + request;
@@ -35,30 +35,25 @@ export default class ActualizarCompra extends Component {
       componentDidMount = () => {
         this.Cargar();
       }
-
-    nuevaCompra = (e) => {
+//metodo para actualizar la compra asignan las variables del JSON
+    actualizarCompra = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;
-      //  var fecso = this.cajaFechaSolicitudRef.current.value;
+
         var nom = this.cajaNombreRef.current.value;
         var tip = this.cajaTipoRef.current.value;
-       // var cod = this.cajaCodigoCompraRef.current.value;
-        //var val = this.cajaValorRef.current.value;
-       // var fecco = this.cajaFechaCompraRef.current.value;
-      //  var est = this.cajaEstadoRef.current.value;
         var lin = this.cajaLinkRef.current.value;
         var desc = this.cajaDescripcionRef.current.value;
-      //  var pre = this.cajaPresupuestoRef.current.value;
+
         var compra = {
               id: idco
-            //, fecha_solicitud: fecso
+
             , nombre: nom
             , tipo: tip
-            //, codigo_compra:
-           // , estado: est
+
             , link: lin
             , descripcion: desc
-           // , presupuesto: pre
+
         };
         var url = 'http://localhost:8080/gestionfinanciera/modificarcompra';
         axios.post(url, compra).then(res => {
@@ -98,7 +93,7 @@ export default class ActualizarCompra extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevaCompra} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarCompra} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>

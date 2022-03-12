@@ -10,7 +10,7 @@ export default class ClasesMateria extends Component {
 status: false,
     clases:[]
   }
-
+//funcion para listar las clases de una manteria
   cargarClase= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarclasespormateria/" +this.props.id;

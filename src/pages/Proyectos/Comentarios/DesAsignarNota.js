@@ -11,7 +11,7 @@ export default class DesAsignarNota extends Component {
     cajaIDComentarioRef = React.createRef();
 
     state = { status: false}
-
+//funcion para borrar una nota de un comentario
     nuevaCalificacion = (e) => {
         e.preventDefault();
         var idc = this.cajaIDComentarioRef.current.value;

@@ -10,7 +10,7 @@ export default class ProyectosSemillero extends Component {
 status: false,
     proyectos:[]
   }
-
+//funcion para listar los proyectos del semillero
   cargarProyectos= () => {
     var url = "http://localhost:8080";
     var request = "/gestionproyectosinvestigacion/proyectossemillero/" +localStorage.getItem("cedula");

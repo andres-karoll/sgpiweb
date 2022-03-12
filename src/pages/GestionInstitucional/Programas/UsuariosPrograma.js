@@ -11,7 +11,7 @@ export default class UsuariosPrograma extends Component {
     usuarios: []
     , status: false
   }
-
+//metodos para listar los usuarios de un programa
   cargarUsuarios = () => {
     var programa = localStorage.getItem("programa");
     var url = "http://localhost:8080";

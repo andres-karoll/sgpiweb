@@ -10,7 +10,7 @@ export default class AsignarProgramaGrupoI extends Component {
     cajaProgramaRef = React.createRef();
 
     state = { status: false, programas: [] }
-
+//metodo para asignar un programa a un grupo de investigacion asignando las variables del JSON
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var grupoi = this.cajaGrupoRef.current.value;
@@ -31,6 +31,7 @@ export default class AsignarProgramaGrupoI extends Component {
             }
         });
     }
+    //funcion para listar los programas 
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramas";
         var url = "http://localhost:8080" + request;

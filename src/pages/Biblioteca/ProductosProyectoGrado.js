@@ -12,7 +12,7 @@ export default class ProductosProyectoGrado extends Component {
     status: false,
     productos: []
   }
-
+//funcion para obtener la lista de productos por un proyecto en especifico  guardando esta informacion en "productos"
   cargarProductos = () => {
     var url = "http://localhost:8080";
     var request = "/productos/listarproductosproyecto/" + this.props.id;
@@ -26,7 +26,7 @@ export default class ProductosProyectoGrado extends Component {
         window.history.back();
       }
     });
-
+//funcion para obtener la lista de grupos de investigacion guardandola en "gruposi"
   }
   Cargar = () => {
     var request = "/gestioninstitucional/listargruposi";

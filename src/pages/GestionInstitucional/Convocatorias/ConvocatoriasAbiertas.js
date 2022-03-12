@@ -10,7 +10,7 @@ export default class ConvocatoriasAbiertas extends Component {
     convocatorias: []
     , status: false
   }
-
+//funcion para obtener todas las convocatorias en estado abierto
   cargarConvocatorias = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/convocatoriasestado/abierto";

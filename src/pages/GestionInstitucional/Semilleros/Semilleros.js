@@ -10,7 +10,7 @@ export default class Semilleros extends Component {
     semilleros: []
     , status: false
   }
-
+//funcion para obtener la lista de los semilleros
   cargarSemilleros = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarsemilleros";

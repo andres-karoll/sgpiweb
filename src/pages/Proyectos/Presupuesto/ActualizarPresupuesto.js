@@ -17,7 +17,7 @@ export default class ActualizarPresupuesto extends Component {
     state = { status: false,
     presupuesto:{}}
 
-
+//funcion para traer la informacion actual del presupuesto
     Cargar = () => {
         var request = "/gestionfinanciera/presupuestoid/" +this.props.id;
         var url = "http://localhost:8080" + request;
@@ -32,8 +32,8 @@ export default class ActualizarPresupuesto extends Component {
       componentDidMount = () => {
         this.Cargar();
       }
-
-    nuevoPresupuesto = (e) => {
+//funcion para actualizar el presupuesto enviando las variables del JSON
+    actualizarPresupuesto = (e) => {
         e.preventDefault();
         var idpre = this.cajaIDRef.current.value;
         var mon = this.cajaMontoRef.current.value;
@@ -85,7 +85,7 @@ export default class ActualizarPresupuesto extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevoPresupuesto} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarPresupuesto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} placeholder="ID" ref={this.cajaIDRef} />

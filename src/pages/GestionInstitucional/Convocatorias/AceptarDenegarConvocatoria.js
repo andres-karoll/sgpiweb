@@ -15,7 +15,7 @@ export default class AceptarDenegarConvocatoria extends Component {
     convocatorias: [],
     proyecto: []
   }
-
+//funcion para actualizar el estado de la convocatoria
   actualizar = (e) => {
     e.preventDefault();
     var pro = this.cajaProyectoRef.current.value;
@@ -40,7 +40,7 @@ export default class AceptarDenegarConvocatoria extends Component {
     });
   }
 
-
+//funcion para obtener las participaciones
   Cargar = () => {
     var request = "/gestionproyectosinvestigacion/paticipacionesConvocatoria/" + this.props.id;
     var url = "http://localhost:8080" + request;
@@ -52,7 +52,7 @@ export default class AceptarDenegarConvocatoria extends Component {
     });
   }
 
-
+//funcion para obtener los proyectos y su informacion
   Cargardos = () => {
     var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
     var url = "http://localhost:8080" + request;

@@ -12,7 +12,7 @@ export default class AsignarNota extends Component {
     cajaIDComentarioRef = React.createRef();
 
     state = { status: false}
-
+//metodo para asignar una calificacion a un comentario
     nuevaCalificacion = (e) => {
         e.preventDefault();
         var cal = this.cajaCalificacionRef.current.value;

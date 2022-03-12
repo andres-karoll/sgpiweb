@@ -12,8 +12,8 @@ export default class ActualizarLinea extends Component {
 
     state = { status: false,
     linea:{}}
-
-    nuevaLinea = (e) => {
+//funcion para actualizar la linea de investigacion enviando las variables del JSON
+    actualizarLinea = (e) => {
         e.preventDefault();
         var nom = this.cajaNombreRef.current.value;
         var des = this.cajaDescripcionRef.current.value;
@@ -35,6 +35,7 @@ export default class ActualizarLinea extends Component {
             }
         });
     }
+    //funcion para obtener la informacion actual de la linea de investigacion
     Cargar = () => {
         var request = "/gestioninstitucional/lineaid/" +this.props.nombre;
         var url = "http://localhost:8080" + request;
@@ -73,7 +74,7 @@ export default class ActualizarLinea extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevaLinea} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarLinea} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
@@ -86,6 +87,7 @@ export default class ActualizarLinea extends Component {
                             <textarea type="text" rows="15" name="cajatel" className="form-control" placeholder={this.state.linea.descripcion} ref={this.cajaDescripcionRef}/>
                         </div>
                         <div className="form-group">
+                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Fecha de creación actual: {this.state.linea.fecha}</label>
 {/*<input type="text" name="cajatel" className="form-control" placeholder="Fecha" ref={this.cajaFechaRef} />*/}
 <input type="date" id="start" name="trip-start" style={{ height: "30px"}}

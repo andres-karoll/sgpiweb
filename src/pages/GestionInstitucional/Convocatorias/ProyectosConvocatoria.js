@@ -10,7 +10,7 @@ export default class ProyectosConvocatoria extends Component {
     status: false,
     proyectos: []
   }
-
+//funcion para obtener los proyectos de una convocatoria
   cargarProyecto = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarlosproyectosdeconvocatoria/" + this.props.id;

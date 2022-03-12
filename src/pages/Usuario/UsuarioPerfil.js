@@ -11,7 +11,7 @@ export default class UsuarioPerfil extends Component {
       Perfil: []
       , status: false
   }
-
+//funcion que obtiene toda la informaciones de un usuario
   mostrarPerfil = () => {
     var request = "/gestionusuario/buscarusuario/"+this.props.id ;
     var url = "http://localhost:8080" + request;

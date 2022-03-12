@@ -8,7 +8,7 @@ import { Redirect, NavLink } from 'react-router-dom';
 export default class EliminarComentario extends Component {
 
     state = { status: false };
-
+//funcion para eliminar un comentario
     eliminarComentario = () => {
         var request = "/productos/eliminarcomentario/" + this.props.id;
         var url = "http://localhost:8080" + request;

@@ -19,8 +19,8 @@ export default class ActualizarSemillero extends Component {
         grup:[],
     lineas:[],
 semillero:{} }
-
-    nuevoSemillero = (e) => {
+//funcion para actualizar un semillero y asignar las variables del JSON
+    actualizarSemillero = (e) => {
         e.preventDefault();
         var idsemillero = this.props.id;
         var nom = this.cajaNombreRef.current.value;
@@ -65,6 +65,7 @@ semillero:{} }
             }
         });
     }
+    //funcion para listar los grupos de investigacion
     Cargar = () => {
         var request = "/gestioninstitucional/listargruposi" ;
         var url = "http://localhost:8080" + request;
@@ -75,6 +76,7 @@ semillero:{} }
           })
         });
       }
+      //funcion para listar las lineas de investigacion
       Cargardos = () => {
         var request = "/gestioninstitucional/listarlineas" ;
         var url = "http://localhost:8080" + request;
@@ -85,6 +87,7 @@ semillero:{} }
           })
         });
       }
+      //funcion para obtener la informacion actual del semillero
       cargartres = () => {
         var request = "/gestioninstitucional/semilleroid/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -124,7 +127,7 @@ semillero:{} }
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevoSemillero} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarSemillero} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>
@@ -170,11 +173,6 @@ semillero:{} }
                             </select>
                         </div>
 
-                        {/** 
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Linea de investigacion</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Linea de investigacion" ref={this.cajaLineaInvestigacionFef} />
-                        </div>*/}
                         <div className="form-group">
                         
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Linea de investigacion actual: {this.state.semillero.linea_investigacion}</label>

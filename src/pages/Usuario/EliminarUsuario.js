@@ -8,7 +8,7 @@ import Header from '../../components/Global/Header';
 export default class EliminarUsuario extends Component {
 
     state = { status: false };
-
+//funcion para eliminar un usuario
     eliminarusuario = () => {
        
         var request = "/gestionusuario/eliminarusuario/" + this.props.cedula;

@@ -10,7 +10,7 @@ export default class Lineas extends Component {
     lineas: []
     , status: false
   }
-
+//funcion para listar las lineas de investigacion
   cargarLineas = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarlineas";

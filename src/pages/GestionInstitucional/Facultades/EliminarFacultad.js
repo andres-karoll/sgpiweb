@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarFacultad extends Component {
 
     state = { status: false };
-
+//funcion para eliminar la facultad
     eliminarFacultad = () => {
         var request = "/gestioninstitucional/eliminarfacultad/" + this.props.id;
         var url = "http://localhost:8080" + request;

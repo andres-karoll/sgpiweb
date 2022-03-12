@@ -17,7 +17,7 @@ export default class CrearProducto extends Component {
     cajaFechaRef = React.createRef();
 
     state = { status: false}
-
+//funcion para obtener los datos ACTUALES DEL PRODUCTO
     Cargar = () => {
       var request = "/productos/productoid/" +this.props.id;
       var url = "http://localhost:8080" + request;
@@ -32,8 +32,8 @@ export default class CrearProducto extends Component {
 
 
 
-    //COSAS DEL ARCHIVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    
+    //PROGRAMA DEL ARCHIVO 
+    //definimos el constructor
     constructor(props) {
         super(props);
     
@@ -46,12 +46,14 @@ export default class CrearProducto extends Component {
             fileInfos: [], producto:{}
           };
       }
+      //definimos el metodo que nos ayudara a obtener los archivos deleccionados del input
       selectFile = (event) => {
         this.setState({
             
           selectedFiles : event.target.files,
       });
       }
+      //usamo selectedFiles para acceder al archivo actual para luego llamar al metodo currentFile con la debolucion de la respuesta
       upload = () => {
         let currentFile = this.state.selectedFiles[0];
     
@@ -88,7 +90,7 @@ export default class CrearProducto extends Component {
           selectedFiles: undefined,
         });
       }
-
+//llamamos a UploadService.getFiles() para obtmer la informacion de los archivos y asignamos el resultado a fileInfos
       componentDidMount = () => {
         this.Cargar();
         UploadService.getFiles().then((response) => {
@@ -98,8 +100,8 @@ export default class CrearProducto extends Component {
         });
         
       }
-      
-    nuevoProducto = (e) => {
+      //funcion para actualizar el producto
+      actualizarProducto = (e) => {
       e.preventDefault();
       var idpro = this.cajaIDRef.current.value;
       var tit = this.cajaTituloRef.current.value;
@@ -155,7 +157,7 @@ export default class CrearProducto extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevoProducto} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarProducto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input value={this.props.id} type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} />
@@ -193,20 +195,7 @@ export default class CrearProducto extends Component {
         <div className="alert alert-light" role="alert">
           {message}
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                            
-                       
+ {/*Asignamos la URL del archivo usando el mensaje que devuelve la funcion de subida de archivo */}
                             <label htmlFor="exampleInputPassword1">URL del producto actual: {this.state.producto.url_repo} </label>
                             <input type="text" name="cajatel" value ={message}className="form-control" placeholder={this.state.producto.url_repo} ref={this.cajaURLRef} />
                         </div>

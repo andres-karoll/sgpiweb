@@ -10,7 +10,7 @@ export default class AsignarLineaGrupoI extends Component {
     cajaLineaRef = React.createRef();
 
     state = { lineas: [], status: false }
-
+//funcion para asignar una linea a un grupo, asignando las variables del JSON
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var grupoi = this.cajaGrupoRef.current.value;
@@ -32,6 +32,7 @@ export default class AsignarLineaGrupoI extends Component {
             }
         });
     }
+    //funcion para obtener las lineas, se agregara a "lineas"
     Cargar = () => {
         var request = "/gestioninstitucional/listarlineas";
         var url = "http://localhost:8080" + request;

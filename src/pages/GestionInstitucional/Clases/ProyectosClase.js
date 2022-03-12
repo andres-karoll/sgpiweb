@@ -10,7 +10,7 @@ export default class ProyectosClase extends Component {
     status: false,
     proyectos: []
   }
-
+//funcion para obtener la lista de los proyectos de clase
   cargarProyecto = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarlosproyectosdeclase/" + this.props.id;

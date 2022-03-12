@@ -27,7 +27,9 @@ export default class Crearusuario extends Component {
     roles:[],
     rol:[]
     }
+
     /**lista de programas  */
+
     cargarProgramas = () => {
         var url = "http://localhost:8080";
         var request = "/gestioninstitucional/listarprogramas" ;
@@ -38,7 +40,9 @@ export default class Crearusuario extends Component {
           });
         });
       }   
-      /** lista de todos los roles*/
+
+      //funcion para listar los roles que puede tener un usuario
+
       cargarRoles = () => {
         var url = "http://localhost:8080";
         var request = "/gestionusuario/todosroles" ;

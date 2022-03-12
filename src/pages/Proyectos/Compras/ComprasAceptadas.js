@@ -13,7 +13,7 @@ status: false,
     compra:[],
     compratotal:[]
   }
-
+//metodo para listar las compras ya aceptadas
   cargarCompra= () => {
     var url = "http://localhost:8080";
     var request = "/gestionfinanciera/comprasaceptadas/" +this.props.id;

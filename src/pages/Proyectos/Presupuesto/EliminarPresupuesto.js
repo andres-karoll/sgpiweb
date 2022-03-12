@@ -8,7 +8,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarPresupuesto extends Component {
 
     state = { status: false };
-
+//funcion para eliminar el presupuesto
     eliminarLinea = () => {
         var request = "/gestionfinanciera/eliminarpresupuesto/" + this.props.id;
         var url = "http://localhost:8080" + request;

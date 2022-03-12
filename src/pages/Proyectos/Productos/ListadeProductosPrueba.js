@@ -10,8 +10,8 @@ export default class ListarProductos extends Component {
     areas: []
     , status: false
   }
-
-  cargarAreas = () => {
+//funcion para obtener todos los archivos
+  cargarproducto = () => {
 
     axios.get("http://localhost:8080/archivo/files").then(res => {
       this.setState({
@@ -22,7 +22,7 @@ export default class ListarProductos extends Component {
   }
 
   componentDidMount = () => {
-    this.cargarAreas();
+    this.cargarproducto();
   }
 
   render() {

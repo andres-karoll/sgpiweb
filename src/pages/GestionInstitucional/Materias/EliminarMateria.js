@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarMateria extends Component {
 
     state = { status: false };
-
+//funcion para eliminar la materia
     eliminarMateria = () => {
         var request = "/gestioninstitucional/eliminarmateria/" + this.props.catalogo;
         var url = "http://localhost:8080" + request;

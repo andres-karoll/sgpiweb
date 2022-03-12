@@ -10,7 +10,7 @@ export default class SemillerosGrupoI extends Component {
     status: false,
     semilleros: []
   }
-
+//funcion para listar los semilleros de un grupo de investigacion
   cargarGrupos = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarsemillerosporgrupo/" + this.props.id;

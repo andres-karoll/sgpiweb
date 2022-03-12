@@ -15,8 +15,8 @@ export default class ActualizarPrograma extends Component {
         facultades:[],
         facul:[],
     programa:{} }
-
-    nuevoPrograma = (e) => {
+//funcion para actualizar el programa asignando las variables del JSON
+    actualizarPrograma = (e) => {
         e.preventDefault();
         var idprograma = this.cajaIDRef.current.value;
         var nom = this.cajaNombreRef.current.value;
@@ -50,7 +50,7 @@ export default class ActualizarPrograma extends Component {
         });
     }
 
-
+//funcion para listar las facultades del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarfacultades" ;
         var url = "http://localhost:8080" + request;
@@ -61,7 +61,7 @@ export default class ActualizarPrograma extends Component {
           })
         });
       }
-
+//funcion para obtener la informacion actual del programa
       Cargardos = () => {
         var request = "/gestioninstitucional/programaid/" + this.props.id ;
         var url = "http://localhost:8080" + request;
@@ -100,7 +100,7 @@ export default class ActualizarPrograma extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevoPrograma} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarPrograma} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control" value = {this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly/>

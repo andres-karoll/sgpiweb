@@ -14,8 +14,8 @@ export default class ActualizarMateriaPrograma extends Component {
         programas:[],
         progra:[],
     materia:{} }
-
-    nuevaMateria = (e) => {
+//metodo para ctualizar la materia asiganndo las variables del JSON
+    actualizarMateria = (e) => {
         e.preventDefault();
         var cata = this.cajaCatalogoRef.current.value;
         var nom = this.cajaNombreRef.current.value;
@@ -37,6 +37,7 @@ export default class ActualizarMateriaPrograma extends Component {
             }
         });
     }
+    //metodo para lisatr los programas del aplicativo
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramas" ;
         var url = "http://localhost:8080" + request;
@@ -47,6 +48,7 @@ export default class ActualizarMateriaPrograma extends Component {
           })
         });
       }
+      //metodo para obtener la informacion actual de la materia
       Cargardos = () => {
         var request = "/gestioninstitucional/materiaid/" + this.props.catalogo ;
         var url = "http://localhost:8080" + request;
@@ -85,7 +87,7 @@ export default class ActualizarMateriaPrograma extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevaMateria} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarMateria} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Catalogo actual: {this.state.materia.catalogo}</label>
@@ -102,8 +104,7 @@ export default class ActualizarMateriaPrograma extends Component {
                         </div>
                         <div className="form-group">
 
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Programa actual es {programa}</label>
-                            <input type="text" name="cajadir" className="form-control" value={programa} ref={this.cajaProgramaRef} readOnly/>
+                            <input type="hidden" name="cajadir" className="form-control" value={programa} ref={this.cajaProgramaRef} readOnly/>
                         </div>
                         </div>
                         {/* /.card-body */}

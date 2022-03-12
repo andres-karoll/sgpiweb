@@ -18,7 +18,7 @@ export default class CrearProducto extends Component {
     cajaFechaRef = React.createRef();
 
     state = { status: false}
-
+//funcion para crear un producto enviando las variables del JSON
     nuevoProducto = (e) => {
         e.preventDefault();
 
@@ -47,8 +47,8 @@ export default class CrearProducto extends Component {
         });
     }
 
-    //COSAS DEL ARCHIVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    
+    //COSAS DEL ARCHIVO
+    //definimos el constructor
     constructor(props) {
         super(props);
     
@@ -61,12 +61,14 @@ export default class CrearProducto extends Component {
             fileInfos: [],
           };
       }
+      //definimos el metodo que nos ayudara a obtener los archivos deleccionados del input
       selectFile = (event) => {
         this.setState({
             
           selectedFiles : event.target.files,
       });
       }
+      //usamo selectedFiles para acceder al archivo actual para luego llamar al metodo currentFile con la debolucion de la respuesta
       upload = () => {
         let currentFile = this.state.selectedFiles[0];
     
@@ -103,7 +105,7 @@ export default class CrearProducto extends Component {
           selectedFiles: undefined,
         });
       }
-
+//llamamos a UploadService.getFiles() para obtmer la informacion de los archivos y asignamos el resultado a fileInfos
       componentDidMount = () => {
         UploadService.getFiles().then((response) => {
           this.setState({
@@ -178,18 +180,7 @@ export default class CrearProducto extends Component {
           {message}
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-                            
+ {/*Asignamos la URL del archivo usando el mensaje que devuelve la funcion de subida de archivo */}
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">URL del producto</label>
                             <input type="text" name="cajatel" value ={message}className="form-control" placeholder="URL" ref={this.cajaURLRef} required/>

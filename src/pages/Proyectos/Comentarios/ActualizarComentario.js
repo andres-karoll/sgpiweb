@@ -18,7 +18,7 @@ export default class ActualizarComentario extends Component {
     state = { status: false,
     comentario:{}}
 
-
+//funcion para obtener la informacion actual del comentario
     Cargar = () => {
         var request = "/productos/comentarioid/" +this.props.id;
         var url = "http://localhost:8080" + request;
@@ -32,7 +32,8 @@ export default class ActualizarComentario extends Component {
       componentDidMount = () => {
         this.Cargar();
       }
-    nuevoComentario = (e) => {
+      //metodo para actualizar el comentario asignando las variables del JSON
+    actualizarComentario = (e) => {
         e.preventDefault();
         var idcom = this.cajaIDRef.current.value;
         var com = this.cajaComentarioRef.current.value;
@@ -85,7 +86,7 @@ export default class ActualizarComentario extends Component {
                    
                     {/* /.card-header */}
                     {/* form start */}
-                    <form onSubmit={this.nuevoComentario} style={{width: "50%", margin: "auto"}}>
+                    <form onSubmit={this.actualizarComentario} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control"  placeholder="ID" ref={this.cajaIDRef} value={this.props.id} readOnly/>

@@ -17,8 +17,8 @@ export default class InsertarGrupoInvestigacion extends Component {
         gruposi: [],
         proyecto: {}
     }
-
-    nuevoGrupoInvestigacion = (e) => {
+//funcion para actualizar el grupo de investigacion asignando las variables del JSON
+    actualizarGrupoInvestigacion = (e) => {
         e.preventDefault();
         var idgrupo = parseInt(this.cajaIDRef.current.value);
         var nom = this.cajaNombreRef.current.value;
@@ -60,7 +60,7 @@ export default class InsertarGrupoInvestigacion extends Component {
             }
         });
     }
-
+//funcion para obtener informacion del grupo
     cargar = () => {
         var request = "/gestioninstitucional/grupolistarporid/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -102,7 +102,7 @@ export default class InsertarGrupoInvestigacion extends Component {
 
                                                         {/* /.card-header */}
                                                         {/* form start */}
-                                                        <form onSubmit={this.nuevoGrupoInvestigacion} style={{ width: "50%", margin: "auto" }}>
+                                                        <form onSubmit={this.actualizarGrupoInvestigacion} style={{ width: "50%", margin: "auto" }}>
                                                             <div className="card-body">
                                                                 <div className="form-group">
                                                                     <input type="hiden" name="cajanom" className="form-control" value={this.props.id} ref={this.cajaIDRef} readOnly />

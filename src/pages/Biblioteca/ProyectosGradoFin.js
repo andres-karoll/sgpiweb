@@ -10,7 +10,7 @@ function Proyectos() {
   const [proyectos, setproyectos] = useState([]);
   const [tablaproyectos, settablaproyectos] = useState([]);
   const [busqueda, setbusqueda] = useState("");
-
+//funcion para obtener la lista de proyectos de grado finalizados
   const peticionGet = async () => {
     await axios.get("http://localhost:8080/biblioteca/listarGradoTerminado")
       .then(response => {
@@ -25,7 +25,7 @@ function Proyectos() {
     filtrar(e.target.value);
   }
 
-
+//funcion para filtrar la lista de proyectos teniendo en cuenta cada uno de los items ingresados en el if
   const filtrar = (terminoBusqueda) => {
     var ResultadosBusqueda = tablaproyectos.filter((elemento) => {
       if (elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())

@@ -17,7 +17,7 @@ export default class InsertarClase extends Component {
         materias: [],
         mate: []
     }
-
+//metodo para crear una nueva clase
     nuevaClase = (e) => {
         e.preventDefault();
         var num = this.cajaNumeroRef.current.value;
@@ -65,7 +65,7 @@ export default class InsertarClase extends Component {
 
         });
     }
-
+//funcion para obtener la lista de las materias
     Cargar = () => {
         var request = "/gestioninstitucional/listarmaterias";
         var url = "http://localhost:8080" + request;

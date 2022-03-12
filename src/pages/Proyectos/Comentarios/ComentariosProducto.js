@@ -12,7 +12,9 @@ export default class ComentariosProducto extends Component {
     comentarios: []
   }
 
-  cargarComentarios = () => {
+//funcion para obtener la lista de comentarios de un producto
+  cargarComentarios= () => {
+
     var url = "http://localhost:8080";
     var request = "/productos/listarcomentariosporproducto/" + this.props.id;
     axios.get(url + request).then(res => {

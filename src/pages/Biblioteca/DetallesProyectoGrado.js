@@ -4,12 +4,12 @@ import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
 
 export default class DetallesProyectoGrado extends Component {
-
+  //
   state = {
     proyecto: {}
     , status: false
   }
-
+//funcion para obtener los datos de los proyectos de grado y guardarlo en "proyecto"
   mostrarProyecto = () => {
     var request = "/biblioteca/listarporid/" + this.props.id;
     var url = "http://localhost:8080" + request;

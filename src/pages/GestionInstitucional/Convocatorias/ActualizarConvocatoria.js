@@ -21,8 +21,8 @@ export default class ActualizarConvocatorias extends Component {
         status: false,
         convocatoria: {}
     }
-
-    nuevaConvocatorias = (e) => {
+//funcion para actualizar la convocatoria asignando las variables del JSON
+    actualizarConvocatorias = (e) => {
         e.preventDefault();
         var idcon = this.cajaIDRef.current.value;
         var est = this.cajaEstadoRef.current.value;
@@ -56,7 +56,7 @@ export default class ActualizarConvocatorias extends Component {
             }
         });
     }
-
+//funcion para obtener la informacion de la convocatoria
     Cargar = () => {
         var request = "/gestioninstitucional/convocatoriaporid/" + this.props.id;
         var url = "http://localhost:8080" + request;
@@ -94,7 +94,7 @@ export default class ActualizarConvocatorias extends Component {
                                         </div>
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form onSubmit={this.nuevaConvocatorias} style={{ width: "50%", margin: "auto" }}>
+                                        <form onSubmit={this.actualizarConvocatorias} style={{ width: "50%", margin: "auto" }}>
                                             <div className="card-body">
                                                 <div className="form-group">
                                                     <input type="hidden" name="cajanom" className="form-control" value={this.props.id} ref={this.cajaIDRef} readOnly />
@@ -118,6 +118,11 @@ export default class ActualizarConvocatorias extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Tipo actual: {this.state.convocatoria.tipo}</label>
                                                     <input type="text" name="cajatel" className="form-control" placeholder={this.state.convocatoria.tipo} ref={this.cajaTipoRef} />
+                                                    <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaTipoRef}>
+                                                        <option selected="selected">{this.state.convocatoria.tipo}</option>
+                                                        <option>Externa</option>
+                                                        <option>Interna</option>
+                                                    </select>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha de inicio actual: {this.state.convocatoria.fecha_inicio}</label>

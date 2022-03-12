@@ -21,7 +21,7 @@ export default class RealizarCompra extends Component {
     cajaPresupuestoRef = React.createRef();
 
     state = { status: false}
-
+//funcion para realizar una compra
     nuevaCompra = (e) => {
         e.preventDefault();
         var idco = this.cajaIDRef.current.value;
@@ -93,24 +93,7 @@ export default class RealizarCompra extends Component {
                         <div className="form-group">
                             <input type="hidden" name="cajanom" className="form-control"  value={this.props.id} ref={this.cajaIDRef} readOnly/>
                         </div>
-                        {/** 
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Nombre de la compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nombre" ref={this.cajaNombreRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1" style={{  width: '50%'}}>Fecha de solicitud de la compra</label>
-                            <input type="date" id="start" name="trip-start" style={{ height: "30px"}}
-       min="2000-01-01" max="2100-12-31" ref={this.cajaFechaSolicitudRef} required></input>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Tipo de compra</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Tipo" ref={this.cajaTipoRef} required/>
-                        </div>
-*/}
+    
 
 
                         
@@ -136,25 +119,10 @@ export default class RealizarCompra extends Component {
                         <div className="form-group">
 
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Estado de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  value={3}  ref={this.cajaEstadoRef} readOnly/>
+                           {/**  <label htmlFor="exampleInputPassword1">Estado de la compra</label>*/}
+                            <input type="hidden" name="cajatel" className="form-control"  value={3}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
-                        {/** 
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Link de referencia</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Estado" ref={this.cajaLinkRef} required/>
-                        </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Descripción de la compra</label>
-                            <input type="text" name="cajatel" className="form-control"  placeholder="Descripción" ref={this.cajaDescripcionRef} required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">ID del presupuesto</label>
-                            <input type="text" name="cajatel" className="form-control"  value={this.props.id} ref={this.cajaPresupuestoRef} readOnly/>
-                        </div>
-                        */}
+                
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">

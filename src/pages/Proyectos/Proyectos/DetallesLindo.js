@@ -9,12 +9,14 @@ export default class DetallesLindo extends Component {
     proyecto: {}
     , status: false
   }
+
   /**
    * mostrar datos de un proyecto 
    */
+
   mostrarProyecto = () => {
     var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
-    var url = "http://localhost:8080" + request;
+    var url = "http://localhost:8080" + request
     axios.get(url).then(res => {
       this.setState({
         proyecto: res.data

@@ -10,7 +10,7 @@ export default class Facultades extends Component {
     facultades: []
     , status: false
   }
-
+//funcion para obtener las facultades, se agregara a "facultades"
   cargarFacultades = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarfacultades";

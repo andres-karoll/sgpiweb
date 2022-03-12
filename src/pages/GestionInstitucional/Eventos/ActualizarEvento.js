@@ -18,8 +18,8 @@ export default class InsertarEvento extends Component {
         status: false,
         evento: {}
     }
-
-    nuevaEvento = (e) => {
+//funcion para actualizar el evento
+    actualizarEvento = (e) => {
         e.preventDefault();
         var ida = this.cajaIDRef.current.value
         var nom = this.cajaNombreRef.current.value;
@@ -90,7 +90,7 @@ export default class InsertarEvento extends Component {
 
                                         {/* /.card-header */}
                                         {/* form start */}
-                                        <form onSubmit={this.nuevaEvento} style={{ width: "50%", margin: "auto" }}>
+                                        <form onSubmit={this.actualizarEvento} style={{ width: "50%", margin: "auto" }}>
                                             <div className="card-body">
                                                 <div className="form-group">
                                                     <input type="hidden" name="cajanom" className="form-control" value={this.props.id} placeholder="ID" ref={this.cajaIDRef} readOnly />

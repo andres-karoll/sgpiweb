@@ -10,7 +10,7 @@ export default class ProgramaSemillero extends Component {
 status: false,
     programa:[]
   }
-
+//funcion para listar el programa del semillero
   cargarPrograma= () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarprogramadelsemillero/" +this.props.id;

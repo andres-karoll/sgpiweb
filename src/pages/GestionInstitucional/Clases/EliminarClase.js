@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarClase extends Component {
 
     state = { status: false };
-
+//funcion para eliminar una clase
     eliminarClase = () => {
         var request = "/gestioninstitucional/eliminarclase/" + this.props.numero;
         var url = "http://localhost:8080" + request;

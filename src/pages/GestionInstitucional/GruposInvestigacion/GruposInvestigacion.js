@@ -11,7 +11,7 @@ export default class GruposInvestigacion extends Component {
     , status: false,
     lineas: []
   }
-
+//metodo para obtener todos los grupos de investigacion
   cargarGruposI = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listargruposi";
@@ -21,7 +21,7 @@ export default class GruposInvestigacion extends Component {
         , status: true
       });
     });
-
+//metodo para listar las lineas de un grupo de investigacion
   }
   cargarLineas = () => {
     var url = "http://localhost:8080";

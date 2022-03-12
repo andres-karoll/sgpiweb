@@ -16,7 +16,7 @@ export default class AsignarComentario extends Component {
     cajaProductoIDRef = React.createRef();
 
     state = { status: false}
-
+//metodo para crear un comentario asignando las variables del JSON
     nuevoComentario = (e) => {
         e.preventDefault();
         var idcom = this.cajaIDRef.current.value;

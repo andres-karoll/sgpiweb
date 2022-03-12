@@ -10,7 +10,7 @@ export default class DesAsignarProgramaSemillero extends Component {
     cajaProgramaRef = React.createRef();
 
     state = { programas: [],status: false }
-
+//funcion para des asignar un programa a un semillero
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var semi = this.cajaSemilleroRef.current.value;
@@ -31,6 +31,7 @@ export default class DesAsignarProgramaSemillero extends Component {
             }
         });
     }
+    //funcion para obtener la lista de programas del semillero
     Cargar = () => {
         var request = "/gestioninstitucional/listarprogramadelsemillero/"+this.props.id;
         var url = "http://localhost:8080" + request;

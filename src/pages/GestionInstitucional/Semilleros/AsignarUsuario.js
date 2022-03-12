@@ -10,7 +10,7 @@ export default class AsignarUsuario extends Component {
     cajaUsuarioRef = React.createRef();
 
     state = { status: false }
-
+//funcion para asignar un usuario al semillero
     nuevaAsignacion = (e) => {
         e.preventDefault();
         var semi = this.cajaSemilleroRef.current.value;

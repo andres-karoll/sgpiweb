@@ -10,7 +10,7 @@ export default class Areas extends Component {
     areas: []
     , status: false
   }
-
+//funcion para obtener las areas con su informacion, se agregara a "areas"
   cargarAreas = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/listarareas";

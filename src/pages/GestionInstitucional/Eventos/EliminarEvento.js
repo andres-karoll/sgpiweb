@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 export default class EliminarEvento extends Component {
 
     state = { status: false };
-
+//funcion para eliminar un evento
     eliminarEvento = () => {
         var request = "/gestioninstitucional/eliminarevento/" + this.props.id;
         var url = "http://localhost:8080" + request;

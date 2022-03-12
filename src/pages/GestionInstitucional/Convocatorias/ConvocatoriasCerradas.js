@@ -10,7 +10,7 @@ export default class ConvocatoriasCerradas extends Component {
     convocatorias: []
     , status: false
   }
-
+//funcion para obtener todas las convocatorias en estado cerrado
   cargarConvocatorias = () => {
     var url = "http://localhost:8080";
     var request = "/gestioninstitucional/convocatoriasestado/cerrado";

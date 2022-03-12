@@ -10,7 +10,7 @@ export default class ProgramasGrupoI extends Component {
     status: false,
     programas: []
   }
-
+//funcion para listar los programas de un grupo de investigacion
   cargarGrupos = () => {
     var rol = localStorage.getItem("tipo");
     var url = "http://localhost:8080";

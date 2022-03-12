@@ -10,7 +10,7 @@ function Proyectos() {
   const [proyectos, setproyectos] = useState([]);
   const [tablaproyectos, settablaproyectos] = useState([]);
   const [busqueda, setbusqueda] = useState("");
-
+//funcion para obtener la lista de proyectos de grado 
   const peticionGet = async () => {
     await axios.get("http://localhost:8080/biblioteca/listarGrado")
       .then(response => {
@@ -25,7 +25,7 @@ function Proyectos() {
     filtrar(e.target.value);
   }
 
-
+//funcion para filtrar la lista de proyectos teniendo en cuenta cada uno de los items ingresados en el if
   const filtrar = (terminoBusqueda) => {
     var ResultadosBusqueda = tablaproyectos.filter((elemento) => {
       if (elemento.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
@@ -80,10 +80,7 @@ function Proyectos() {
                     <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                       <i className="fas fa-minus" />
                     </button>
-                    {/* 
-                      <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i className="fas fa-times" />
-                      </button>*/}
+             
                   </div>
                 </div>
                 <div className="card-body p-0">
@@ -149,44 +146,8 @@ function Proyectos() {
                       </tr>
                     </tbody>
                   </table>
-                  {/** 
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/AsignarPersupuesto/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            <Link to={"/SubirProductos/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-file-upload nav-icon" />
-                
-                <p>Subir Productos</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                    </ul>
-                  */}
+               
+                   
                 </div>
                 {/* /.card-body */}
               </div>
