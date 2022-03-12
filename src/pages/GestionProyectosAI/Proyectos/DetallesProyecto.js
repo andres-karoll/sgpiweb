@@ -126,8 +126,38 @@ export default class DetallesLindo extends Component {
 
                                 </p>
                               </div>
+<<<<<<< Updated upstream
                               <div className="post clearfix">
                                 <div >
+=======
+
+                              <div className="post clearfix">
+                                <div >
+
+                                  <span className="username">
+                                    <h1>Retroalimentacion final</h1>
+                                  </span>
+
+                                </div>
+                                {/* /.user-block */}
+                                <h3>
+
+                                {
+             this.state.proyecto.retroalimentacion_final === " "?(
+              <h3>Este proyecto aun no a finalizado</h3>
+              ) :(
+                this.state.proyecto.retroalimentacion_final
+             )
+           }
+                                </h3>
+                                <p>
+
+                                </p>
+                              </div>
+                  
+
+                            </div>
+>>>>>>> Stashed changes
 
                                   <span className="username">
                                     <h1>Retroalimentacion final</h1>
