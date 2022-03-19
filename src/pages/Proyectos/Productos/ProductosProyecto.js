@@ -3,8 +3,9 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ProductosProyecto extends Component {
+
   state = {
     status: false,
     productos: []
@@ -21,7 +22,10 @@ export default class ProductosProyecto extends Component {
         , status: true
       });
       if (this.state.productos.length === 0) {
-        alert("este proyecto no tiene productos")
+        swal({
+          title: "este proyecto no tiene productos",
+          icon:"error"
+        });
         window.history.back();
       }
     });
@@ -88,7 +92,7 @@ export default class ProductosProyecto extends Component {
       </div>
     </ul>
     {
-            rol === "Investigador formacion"  || rol === "Semillerista"? (
+            rol === "Investigador formacion"  || rol === "Semillerista"|| rol === "Admin"? (
               <NavLink to={"/ActualizarProducto/" + pro.id} style={{width: "50%"}} className="btn btn-primary">Actualizar producto</NavLink>
             ) : (
               <></>
@@ -96,7 +100,7 @@ export default class ProductosProyecto extends Component {
     
   )
           }
-          {rol === "Investigador formacion"  || rol === "Semillerista"? (
+          {rol === "Investigador formacion"  || rol === "Semillerista"|| rol === "Admin"? (
             <NavLink className="btn btn-danger" to={"/EliminarProducto/" + pro.id}  style={{width: "50%"}}>Eliminar producto</NavLink>
               
             ) : (

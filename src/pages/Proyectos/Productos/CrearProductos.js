@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import UploadService from '../../../services/upload-files.service';
 import UploadFiles from '../../../components/Upload-files.component';
+import swal from 'sweetalert';
 
 
 
@@ -38,7 +39,12 @@ export default class CrearProducto extends Component {
         axios.post(url, producto).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="el producto se creo") {
-              alert("el producto se creó")
+              
+              swal({
+                title: "el producto se creo con Exito ",
+                icon:"success"
+              });
+
               //window.location.href ="/ProyectosAulaIntegrador"
           }else{
             alert("no se pudo crear el producto")

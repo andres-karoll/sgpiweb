@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarSemillero extends Component {
 
     cajaIDRef = React.createRef();
@@ -43,30 +43,55 @@ export default class InsertarSemillero extends Component {
             this.setState({ status: true });
             
             if (res.data.respuesta==="se creo el semillero correctamente") {
-                alert("se creo el semillero correctamente")
+                swal({
+                    title: "se creo el semillero correctamente",
+                    icon:"success"
+                  });
+              
                 window.location.href = "/Semilleros";
             }else if(res.data.respuesta==="el semillero no se creo porque el usuario no existe"){
-              alert("el semillero no se creo porque el usuario no existe")
-              window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el usuario no existe",
+                    icon:"error"
+                  });
+         
             }else if(res.data.respuesta==="el semillero no se creo porque el grupo no existe"){
-                alert("el semillero no se creo porque el grupo no existe")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el grupo no existe",
+                    icon:"error"
+                  });
+                
             }else if(res.data.respuesta==="el semillero no se creo porque la linea no existe"){
-                alert("el semillero no se creo porque la linea no existe")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque la linea no existe",
+                    icon:"error"
+                  });
+                
             }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante inactivo"){
-                alert("el semillero no se creo porque el usuario es un estudiante inactivo")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+              
             }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo"){
-                alert("el semillero no se creo porque el usuario es un estudiante activo")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante activo",
+                    icon:"error"
+                  });
+        
             }else if(res.data.respuesta==="el semillero no se creo porque el usuario es un semillerista"){
-                alert("el semillero no se creo porque el usuario es un semillerista")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el usuario es un semillerista",
+                    icon:"error"
+                  });
+              
             }
             else if(res.data.respuesta==="el semillero no se creo porque el usuario escogido ya es lider de semillero"){
-                alert("el semillero no se creo porque el usuario escogido ya es lider de semillero")
-                window.location.href = "/Semilleros";
+                swal({
+                    title: "el semillero no se creo porque el usuario escogido ya es lider de semillero",
+                    icon:"error"
+                  });
+
             }
         
         });

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class DesAsignarProgramaSemillero extends Component {
 
     cajaSemilleroRef = React.createRef();
@@ -23,7 +23,11 @@ export default class DesAsignarProgramaSemillero extends Component {
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se desasigno correctamente") {
-                alert("se desasigno correctamente")
+                swal({
+                    title: "se desasigno correctamente",
+                    icon:"success"
+                  });
+             
                 window.location.href = "/Semilleros";
             }else{
               alert("NO se desasigno correctamente")

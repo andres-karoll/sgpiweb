@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarArea extends Component {
 
     cajaIDRef = React.createRef();
@@ -32,7 +32,11 @@ export default class ActualizarArea extends Component {
         axios.post(url, area).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se actualizo la area") {
-                alert("se actualizó la area")
+                swal({
+                    title: "se actualizó la area",
+                    icon:"success"
+                  });
+               
                 window.history.back();
             } else {
                 alert("no se pudo actualizar la area")

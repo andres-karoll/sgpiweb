@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class AsignarLineaGrupoI extends Component {
 
     cajaGrupoRef = React.createRef();
@@ -24,7 +24,10 @@ export default class AsignarLineaGrupoI extends Component {
             this.setState({ status: true });
 
             if (res.data.respuesta === "se asigno la facultad correctamente") {
-                alert("se asigno la facultad correctamente")
+                swal({
+                    title: "se asigno la facultad correctamente",
+                    icon:"success"
+                  });
                 window.location.href = "/GruposInvestigacion";
             } else {
                 alert("no se pudo asignar la facultad correctamente")

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProgramasGrupoI extends Component {
 
   state = {
@@ -20,6 +21,13 @@ export default class ProgramasGrupoI extends Component {
         programas: res.data
         , status: true
       });
+      if (this.state.programas.length === 0) {
+        swal({
+          title: "este grupo de investigacion no tiene programas asociados",
+          icon:"error"
+        });
+        window.history.back();
+    }
     });
 
   }

@@ -36,114 +36,150 @@ export default class DetallesConvocatoria extends Component {
 
               <div className="content-wrapper">
                 {/* Content Header (Page header) */}
-                <section className="content-header">
-                  <div className="container-fluid">
-                    <div className="row mb-2">
-                      <div className="col-sm-6">
-                        <h1>Detalles de la Convocatoria</h1>
-                      </div>
-                      <div className="col-sm-6">
-                        <ol className="breadcrumb float-sm-right">
-                          <li className="breadcrumb-item"><a href="/ConvocatoriasAbiertas">Convocatorias Abiertas</a></li>
-                          <li className="breadcrumb-item active">Detalles de la convocatoria</li>
-                        </ol>
-                      </div>
+                <div>
+                  <section className="content">
+                    <br />
+                    <div class="alert alert-info alert-dismissible">
+                      <h1><i class="fab fa-safari  nav-icon"></i>Detalles de la convocatoria</h1>
                     </div>
-                  </div>{/* /.container-fluid */}
-                </section>
+                  </section>
+                </div>
+
                 {/* Main content */}
                 <section className="content">
                   {/* Default box */}
                   <div className="card">
                     <div className="card-header">
-                      <h3 className="card-title">id: {this.props.id}</h3>
-
-
+                      <h3 className="card-title">Nombre de convocatoria : {this.state.convocatoria.nombre_convocatoria}</h3>
                       <div className="card-tools">
                         <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                           <i className="fas fa-minus" />
                         </button>
-                        <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-                          <i className="fas fa-times" />
-                        </button>
-
                       </div>
-
-                      <img src="https://i.ibb.co/5TxG7hC/pngtree-banner-technology-minimalist-gradient-blue-layered-background-image-277347.jpg" alt="pngtree-banner-technology-minimalist-gradient-blue-layered-background-image-277347" style={{ width: '100%', height: '150px' }}></img>
                     </div>
                     <div className="card-body">
                       <div className="row">
                         <div className="col-12 col-md-12 col-lg-8 order-2 order-md-1">
                           <div className="row">
-                            <div className="col-12 col-sm-4">
-                              <div className="info-box bg-light">
+                            <div className="col-12 col-sm-6">
+
+                              <div className="info-box bg-secondary">
+
+                                <span class="info-box-icon"><i class="fas fa-calendar-alt nav-icon"></i></span>
+
                                 <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">Fecha inicio</span>
-                                  <span className="info-box-number text-center text-muted mb-0">{this.state.convocatoria.fecha_inicio}</span>
+                                  <span className="info-box-text text-center ">Fecha inicio</span>
+                                  <span className="info-box-number text-center mb-0">{this.state.convocatoria.fecha_inicio}</span>
                                 </div>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-4">
-                              <div className="info-box bg-light">
+                            <div className="col-12 col-sm-6">
+                              <div className="info-box bg-secondary">
+                                <span class="info-box-icon"><i class="fas fa-calendar-alt nav-icon"></i></span>
+
                                 <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">Fecha fin</span>
-                                  <span className="info-box-number text-center text-muted mb-0">{this.state.convocatoria.fecha_final}</span>
+                                  <span className="info-box-text text-center ">Fecha final</span>
+                                  <span className="info-box-number text-center mb-0">{this.state.convocatoria.fecha_final}</span>
                                 </div>
                               </div>
                             </div>
-                            <div className="col-12 col-sm-4">
-                              <div className="info-box bg-light">
-                                <div className="info-box-content">
-                                  <span className="info-box-text text-center text-muted">Estado</span>
-                                  <span className="info-box-number text-center text-muted mb-0">{this.state.convocatoria.estado}</span>
-                                </div>
-                              </div>
-                            </div>
+
+
                           </div>
                           <div className="row">
                             <div className="col-12">
-                              <h4>Datos extras</h4>
+
                               <div className="post">
-                                <div className="user-block">
+
+                                <div >
                                   <span className="username">
-                                    <a href="#">Contexto</a>
+                                    <h1 >
+                                      Contexto
+                                    </h1>
                                   </span>
-                                  <span className="description">Contexto de la convocatoria</span>
+
                                 </div>
                                 {/* /.user-block */}
                                 <h3>
-                                  {this.state.convocatoria.contexto}
+                                {this.state.convocatoria.contexto}
                                 </h3>
+                                <p>
+
+                                </p>
                               </div>
                               <div className="post clearfix">
-                                <div className="user-block">
+                                <div >
+
                                   <span className="username">
-                                    <a href="#">Numero de productos</a>
+                                    <h1>Numero de productos</h1>
                                   </span>
-                                  <span className="description">Numero de productos requeridos por la convocatoria</span>
+
                                 </div>
                                 {/* /.user-block */}
-                                <h1>
-                                  {this.state.convocatoria.numero_productos}
-                                </h1>
+                                <h3>
+                                {this.state.convocatoria.numero_productos}
+                                </h3>
+                                <p>
+
+                                </p>
                               </div>
+
+
                             </div>
-                          </div>
-                        </div>
-                        <div className="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-                          <h3 className="text-primary"><i className="fas fa-pencil-alt" /> Nombre de convocatoria: {this.state.convocatoria.nombre_convocatoria}</h3>
-                          <br />
-                          <div className="text-muted">
-                            <p className="text-sm">Tipo
-                              <b className="d-block">{this.state.convocatoria.tipo}</b>
-                            </p>
-                            <p className="text-sm">Entidad
-                              <b className="d-block">{this.state.convocatoria.entidad}</b>
-                            </p>
+
 
                           </div>
 
+
                         </div>
+
+
+
+
+
+                        <div class="col-md-4">
+
+                          <div class="info-box mb-3 bg-info">
+                            <span class="info-box-icon"><i class="fas fa-tasks"></i></span>
+
+                            <div class="info-box-content">
+                              <h3 class="info-box-text">Tipo</h3>
+                              <h3 class="info-box-number">{this.state.convocatoria.tipo}</h3>
+                            </div>
+
+                          </div>
+
+                          <div class="info-box mb-3 bg-info">
+                            <span class="info-box-icon"><i class="fas fa-globe-americas"></i></span>
+
+                            <div class="info-box-content">
+                              <h3 class="info-box-text">Entidad</h3>
+                              <h3 class="info-box-number">{this.state.convocatoria.entidad}</h3>
+                            </div>
+
+                          </div>
+
+                          <div class="info-box mb-3 bg-info">
+                            <span class="info-box-icon"><i class="fas fa-book"></i></span>
+
+                            <div class="info-box-content">
+                              <h3 class="info-box-text">Estado</h3>
+                              <h3 class="info-box-number">{this.state.convocatoria.estado}</h3>
+                            </div>
+
+                          </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
                       </div>
                     </div>
                     {/* /.card-body */}

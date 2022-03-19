@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class EliminarCompra extends Component {
 
@@ -14,6 +14,18 @@ export default class EliminarCompra extends Component {
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
+            if (res.data==="Eliminado") {
+                swal({
+                    title: "Se elimino con exito",
+                    icon:"success"
+                  });
+                
+            }else{
+                swal({
+                    title: "no se pudo eliminar ",
+                    icon:"error"
+                  });
+            }
         });
     }
 

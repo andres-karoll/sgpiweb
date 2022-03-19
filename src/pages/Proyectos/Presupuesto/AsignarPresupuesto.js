@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class AsignarPresupuesto extends Component {
 
@@ -33,7 +33,10 @@ export default class AsignarPresupuesto extends Component {
         axios.post(url, presupuesto).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo") {
-                alert("el presupuesto se asigno")
+                swal({
+                    title: "el presupuesto se asigno",
+                    icon:"success"
+                  });
                 window.history.back();
             }else{
               alert("no se pudo asignar el presupuesto")

@@ -5,7 +5,7 @@ import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import UploadService from '../../../services/upload-files.service';
 import UploadFiles from '../../../components/Upload-files.component';
-
+import swal from 'sweetalert';
 
 
 export default class CrearProducto extends Component {
@@ -119,7 +119,11 @@ export default class CrearProducto extends Component {
       axios.post(url, producto).then(res => {
           this.setState({ status: true });
           if (res.data.respuesta==="se actualizo el producto") {
-            alert("el producto se actualizó")
+          
+            swal({
+              title: "el producto se actualizó",
+              icon:"success"
+            });
             window.location.href ="/ProductosProyecto/" + this.state.producto.proyecto
         }else{
           alert("no se pudo actualizar el producto")

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 
 export default class ActualizarComentario extends Component {
@@ -51,7 +51,11 @@ export default class ActualizarComentario extends Component {
         axios.post(url, comentario).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo el comentario") {
-                alert("se actualizo el comentario")
+                swal({
+                    title: "se actualizo el comentario",
+                    icon:"success"
+                  });
+                
                 window.location.href ="/ComentariosProducto/" + this.state.comentario.producto_id
             }else{
               alert("no se pudo crear el comentario")

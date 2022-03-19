@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class Modificar extends Component {
 
@@ -31,10 +31,17 @@ export default class Modificar extends Component {
         axios.post(url, usuario).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="el usuario fue actualizado") {
-                alert("el usuario fue actualizado")
+                swal({
+                    title: "el usuario fue actualizado",
+                    icon:"success"
+                  });
                 window.location.href = "/HomeInstitucional";
             }else{
-              alert("el usuario NO fue actualizado")
+             
+              swal({
+                title: "el usuario NO fue actualizado",
+                icon:"error"
+              });
               window.location.href = "/HomeInstitucional";
             }
         });
@@ -71,7 +78,7 @@ export default class Modificar extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Actualizar una Materia</h3>
+                    <h3 className="card-title"  >Actualizar perfil</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -89,18 +96,18 @@ export default class Modificar extends Component {
             
                             <label htmlFor="exampleInputPassword1">Telefono actual: {this.state.usua.telefono}</label>
                             
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaTelefonoRef}/>
+                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.usua.telefono} ref={this.cajaTelefonoRef}/>
                         </div>
                         <div className="form-group">
 
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Clave actual: {this.state.usua.contrasena}</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaClaveRef}/>
+                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.usua.contrasena} ref={this.cajaClaveRef}/>
                         </div>
 
                         <div className="form-group">
 
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Correo personal actual: {this.state.usua.correo_personal}</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaCorreoRef}/>
+                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.usua.correo_personal} ref={this.cajaCorreoRef}/>
                         </div>
                         </div>
                         {/* /.card-body */}

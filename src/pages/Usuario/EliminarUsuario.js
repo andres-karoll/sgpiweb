@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class EliminarUsuario extends Component {
 
@@ -16,10 +16,17 @@ export default class EliminarUsuario extends Component {
         axios.get(url).then(res => {
             this.setState({ status: true });
             if (res.data==="elimino") {
-                alert("se elimino")
+                swal({
+                    title: "se elimino",
+                    icon:"success"
+                  });
+                
                 localStorage.clear()
             }else{
-              alert("no se pudo eliminar")
+                swal({
+                    title: "no se pudo eliminar",
+                    icon:"error"
+                  });
               window.location.href = "#";
             }
         });

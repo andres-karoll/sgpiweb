@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 
 export default class ActualizarPresupuesto extends Component {
@@ -50,7 +50,11 @@ export default class ActualizarPresupuesto extends Component {
         axios.post(url, presupuesto).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo el presupuesto") {
-                alert("el presupuesto se actualizó")
+                swal({
+                    title: "el presupuesto se actualizó",
+                    icon:"success"
+                  });
+               
                 window.location.href ="/PresupuestoProyecto/" + this.state.presupuesto.proyecto
             }else{
               alert("no se pudo actualizar el presupuesto")

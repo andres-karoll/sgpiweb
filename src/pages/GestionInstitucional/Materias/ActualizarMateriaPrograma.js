@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarMateriaPrograma extends Component {
 
     cajaCatalogoRef = React.createRef();
@@ -29,7 +29,10 @@ export default class ActualizarMateriaPrograma extends Component {
         axios.post(url, materia).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="la materia fue actualizada") {
-                alert("la materia fue actualizada")
+                swal({
+                    title: "la materia fue actualizada",
+                    icon:"success"
+                  });
                 window.history.back();
             }else{
               alert("la materia no fue actualizada")

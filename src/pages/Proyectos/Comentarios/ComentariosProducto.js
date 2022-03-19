@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ComentariosProducto extends Component {
 
   state = {
@@ -23,7 +23,10 @@ export default class ComentariosProducto extends Component {
         , status: true
       });
       if (this.state.comentarios.length === 0) {
-        alert("este producto no tiene comentarios")
+        swal({
+          title: "este producto no tiene comentarios",
+          icon:"error"
+        });
         window.history.back();
       }
     });
@@ -123,19 +126,19 @@ export default class ComentariosProducto extends Component {
                             </div>
                             {/* /.col */}
                           </div>
-                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero" ? (
+                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
                             <NavLink to={"/ActualizarComentario/" + com.id} style={{ width: "50%" }} className="btn btn-primary">Actualizar Comentario</NavLink>
                           ) : (
                             <></>
                           )}
-                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero" ? (
+                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
                             <NavLink className="btn btn-danger" to={"/EliminarComentario/" + com.id} style={{ width: "50%" }}>Eliminar Comentario</NavLink>
                           ) : (
                             <></>
                           )}
                           {/* /.row */}
                         </div>
-                        {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero" ? (
+                        {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
                           <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li className="nav-item">
                               <a href="#" className="nav-link ">

@@ -1,6 +1,7 @@
 import React, { Component, NavLink } from 'react'
 import axios from 'axios'
 import md5 from 'md5'
+import swal from 'sweetalert';
 export default class FormularioLogin extends Component {
   /**
    * definicion de variables
@@ -46,14 +47,18 @@ export default class FormularioLogin extends Component {
           localStorage.setItem("tipo", reTipo)
           localStorage.setItem("programa", response.programa_id);
           var rol = localStorage.getItem("tipo");
-          alert('bienvenido');
-
+            swal({
+              title: "bienvenido",
+              icon:"success"
+            });
           window.location.href = "/HomeInstitucional";
 
-
         } else {
-          alert('el usuario o contraseña o el tipo de usuario son incorrectos');
-          window.location.href = "/";
+          swal({
+            title: "el usuario o contraseña o el tipo de usuario son incorrectos",
+            icon:"error"
+          });
+          
         }
       })
   }
@@ -80,12 +85,12 @@ export default class FormularioLogin extends Component {
 
   render() {
     return (
-      <div>
-        <section class="vh-100 " style={{ background: 'rgb(2,0,36)' }}>
-          <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style={{ borderradius: "1rem" }}>
+      <div >
+        <section class="vh-100 " style={{ background: 'rgb(245,138,48)'}}>
+          <div class="container py-5 h-100" >
+            <div class="row d-flex justify-content-center align-items-center h-100" >
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                <div class="card bg-dark text-white"  style={{  borderRadius:'25px 25px 25px 25px' }}>
                   <div class="card-body p-5 text-center">
                     <div class="mb-md-5 mt-md-4 pb-5">
                       <h2 class="fw-bold mb-2 text-uppercase">Login</h2>

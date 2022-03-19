@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarLinea extends Component {
 
     cajaNombreRef = React.createRef();
@@ -27,7 +27,10 @@ export default class ActualizarLinea extends Component {
         axios.post(url, linea).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo la linea") {
-                alert("se actualizo la linea")
+                swal({
+                    title: "se actualizo la linea",
+                    icon:"success"
+                  });
                 window.location.href = "/Lineas";
             }else{
               alert("no se pudo actualizar la linea")

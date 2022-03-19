@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarPrograma extends Component {
 
     cajaIDRef = React.createRef();
@@ -33,28 +33,58 @@ export default class InsertarPrograma extends Component {
             this.setState({ status: true });
             
             if (res.data.respuesta==="se creo el programa") {
-                alert("se creo el programa")
+                swal({
+                    title: "se creo el programa",
+                    icon:"success"
+                  });
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="la facultad no existe") {
-                alert("la facultad no existe")
+                swal({
+                    title: "la facultad no existe",
+                    icon:"error"
+                  });
+                
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el usuario no existe") {
-                alert("el usuario no existe")
+                swal({
+                    title: "el usuario no existe",
+                    icon:"error"
+                  });
+         
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el programa no se creo porque el usuario es un estudiante inactivo") {
-                alert("el programa no se creo porque el usuario es un estudiante inactivo")
+                swal({
+                    title: "el programa no se creo porque el usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+         
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el programa no se creo porque el usuario es un estudiante activo") {
-                alert("el programa no se creo porque el usuario es un estudiante activo")
+                swal({
+                    title: "el programa no se creo porque el usuario es un estudiante activo",
+                    icon:"error"
+                  });
+               
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el programa no se creo porque el usuario es un semillerista") {
-                alert("el programa no se creo porque el usuario es un semillerista")
+                swal({
+                    title: "el programa no se creo porque el usuario es un semillerista",
+                    icon:"error"
+                  });
+         
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el programa no se creo porque el usuario ya es Director de programa") {
-                alert("el programa no se creo porque el usuario ya es Director de programa")
+                swal({
+                    title: "el programa no se creo porque el usuario ya es Director de programa",
+                    icon:"error"
+                  });
                 window.location.href = "/Programas";
             }else{
-              alert("no se pudo crear el programa")
+                swal({
+                    title: "no se pudo crear el programa",
+                    icon:"error"
+                  });
+            
               window.location.href = "/Programas";
             }
         });

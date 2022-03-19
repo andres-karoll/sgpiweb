@@ -4,16 +4,21 @@ import { NavLink, Link} from 'react-router-dom';
 
 import { prettyDOM } from '@testing-library/dom';
 
+
+//loading
+import Loading from "../Loadings/Loading"
+
 function Proyectos(){
     const [proyectos, setproyectos] = useState([]);
     const [tablaproyectos, settablaproyectos] = useState([]);
     const [busqueda, setbusqueda] = useState("");
-
+  
     const peticionGet = async()=>{
         await axios.get("http://localhost:8080/gestionfiltroproyecto/listarproyectosvisibles")
         .then(response=>{
             setproyectos(response.data);
             settablaproyectos(response.data);
+            setLoading(true);
         }).catch(error=>{
             console.log(error);
         })
@@ -34,13 +39,31 @@ function Proyectos(){
         });
         setproyectos(ResultadosBusqueda);
     }
+    
+    const [loading,setLoading] = useState(false);
 
+    const cambiarEstado=()=>{
+        setLoading(true);
+        setTimeout(()=>{
+            setLoading(false);
+            
+        },2000);
+    }
 
     useEffect(() => {
+      cambiarEstado();
         peticionGet();
     }, [])
+    if(loading){
+      return(
+          <Loading/>
+      )
+  }else{
     return (
+     
+      
       <div className="card card-primary card-outline " style={{ width: '90%', marginLeft:"auto", marginRight:"auto", }}>
+       
       <div className="card-body box-profile">
             <section className="content">
                 <br />
@@ -155,9 +178,10 @@ function Proyectos(){
                 {/* /.card */}
               </section>
               ))}
+              
 
         </div>
-    );
+    );}
 }
 
 export default Proyectos

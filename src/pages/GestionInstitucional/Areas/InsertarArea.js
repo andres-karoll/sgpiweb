@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarArea extends Component {
 
     cajaIDRef = React.createRef();
@@ -29,7 +29,10 @@ export default class InsertarArea extends Component {
         axios.post(url, area).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se creo la area") {
-                alert("se creo la area")
+                swal({
+                    title: "se creo la area",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
                 alert("no se pudo crear")

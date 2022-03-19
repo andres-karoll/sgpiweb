@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class AsignarUsuario extends Component {
 
     cajaSemilleroRef = React.createRef();
@@ -23,7 +23,11 @@ export default class AsignarUsuario extends Component {
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="el usuario fue asignado exitosamente") {
-                alert("el usuario fue asignado exitosamente")
+                swal({
+                    title: "el usuario fue asignado exitosamente",
+                    icon:"success"
+                  });
+                
                 //window.location.href = "/Semilleros";
             }else{
               alert("el usuario no fue asignado exitosamente")

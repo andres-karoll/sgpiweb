@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 import md5 from 'md5'
 export default class Crearusuario extends Component {
 
@@ -95,7 +95,11 @@ export default class Crearusuario extends Component {
         };
         console.log(grupo)
         if(clave !="" && clave!=cClave){
-            alert("Error: las contraseñas no coinciden!");
+          swal({
+            title: "Error: las contraseñas no coinciden!",
+            icon:"error"
+          });
+            
         }
         
         console.log(grupo)

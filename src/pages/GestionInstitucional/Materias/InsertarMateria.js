@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarMateria extends Component {
     
 
@@ -30,7 +30,11 @@ progra:[] }
             this.setState({ status: true });
             
             if (res.data.respuesta==="se creo la materia") {
-                alert("se creo la materia")
+                swal({
+                    title: "se creo la materia",
+                    icon:"success"
+                  });
+           
                 window.history.back();
             }else{
               alert("no se crear la materia")

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class CambiarEstadoCompra extends Component {
 
@@ -26,7 +26,11 @@ export default class CambiarEstadoCompra extends Component {
         axios.post(url, estado).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo") {
-                alert("se actualizo la compra")
+                swal({
+                    title: "se actualizo la compra",
+                    icon:"success"
+                  });
+              
                 window.history.back();
             }else{
               alert("no se pudo actualizar la compra")

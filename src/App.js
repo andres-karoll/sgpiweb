@@ -182,6 +182,7 @@ import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesa
 import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
 import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
 import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
+import LoadingPrueba from './pages/Loadings/LoadingPrueba'
 
 
 
@@ -192,6 +193,7 @@ export default function App() {
       <BrowserRouter>
       <Switch>    
             <Route exact path="/" component={Home} />
+            <Route exact path="/loading" component={LoadingPrueba} />
             <Route exact path="/Home/Search" component={SearchP} />
             <Route exact path="/Home/Info" component={Info} />
             <Route exact path="/Home/Login" component={Login} />

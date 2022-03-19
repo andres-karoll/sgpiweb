@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class AsignarProgramaGrupoI extends Component {
 
     cajaGrupoRef = React.createRef();
@@ -23,7 +23,10 @@ export default class AsignarProgramaGrupoI extends Component {
         axios.post(url, asignacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se asigno el programa correctamente") {
-                alert("se asigno el programa correctamente")
+                swal({
+                    title: "se asigno el programa correctamente",
+                    icon:"success"
+                  });
                 window.location.href = "/GruposInvestigacion";
             } else {
                 alert("no se pudo asignar el programa correctamente")

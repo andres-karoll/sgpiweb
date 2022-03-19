@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProgramasFacultad extends Component {
 
   state = {
@@ -19,6 +20,14 @@ export default class ProgramasFacultad extends Component {
         programas: res.data
         , status: true
       });
+      if (this.state.programas.length === 0) {
+        swal({
+          title: "esta facultad no tiene facultades asignadas",
+          icon:"error"
+        });
+     
+        window.history.back();
+    }
     });
 
   }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 
 export default class AsignarNota extends Component {
@@ -25,7 +25,11 @@ export default class AsignarNota extends Component {
         axios.post(url, calificacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se asigno la nota") {
-                alert("se asigno la nota")
+                swal({
+                    title: "se asigno la nota",
+                    icon:"success"
+                  });
+              
                 window.history.back();
             }else{
               alert("No se pudo")

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class EliminarArea extends Component {
 
     state = { status: false };
@@ -13,13 +13,19 @@ export default class EliminarArea extends Component {
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
+            /*
             if (res.data.respuesta === "no se pudo eliminar") {
                 alert("No se pudo eliminar")
             }
             else {
-                alert("eliminado con Exito")
-                window.history.back();
-            }
+                swal({
+                    title: "eliminado con Exito",
+                    icon:"success"
+                  });
+                
+               
+            }*/
+            window.history.back();
         });
 
     }

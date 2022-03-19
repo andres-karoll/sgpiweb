@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarPrograma extends Component {
 
     cajaIDRef = React.createRef();
@@ -32,19 +32,34 @@ export default class ActualizarPrograma extends Component {
         axios.post(url, programa).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se actualizo el programa") {
-                alert("se actualizó el programa")
+                swal({
+                    title: "se actualizó el programa",
+                    icon:"success"
+                  });
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante inactivo") {
-                alert("el semillero no se creo porque el usuario es un estudiante inactivo")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo") {
-                alert("el semillero no se creo porque el usuario es un estudiante activo")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante activo",
+                    icon:"error"
+                  });
                 window.location.href = "/Programas";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un semillerista") {
-                alert("el semillero no se creo porque el usuario es un semillerista")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un semillerista",
+                    icon:"error"
+                  });
                 window.location.href = "/Programas";
             }else{
-              alert("no se pudo actualizar el programa")
+                swal({
+                    title: "no se pudo actualizar el programa",
+                    icon:"error"
+                  });
               window.location.href = "/Programas";
             }
         });

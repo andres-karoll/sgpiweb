@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProyectosClase extends Component {
 
   state = {
@@ -20,9 +21,12 @@ export default class ProyectosClase extends Component {
         , status: true
       });
       if (this.state.proyectos.length === 0) {
-        alert("Esta clase no tiene proyectos")
-        window.history.back();
-      }
+        swal({
+          title: "Esta clase no tiene proyectos",
+          icon:"error"
+        });
+     
+    }
     });
 
   }

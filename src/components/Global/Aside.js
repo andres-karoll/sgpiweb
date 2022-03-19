@@ -24,24 +24,28 @@ export default class Aside extends Component {
     var rol = localStorage.getItem("tipo");
     var programa = localStorage.getItem("programa");
     return (
-      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed' }}>
+      
+      <aside className="main-sidebar sidebar-dark-primary elevation-3" style={{ position: 'fixed', backgroundColor:'#CE6308' }}>
+       
         <div className="sidebar" style={{ position: 'fixed', overflowY: 'scroll', scrollbarWidth: 'thin', width: '250px' }}>
           {/* Sidebar user panel (optional) */}
-          <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div className="user-panel mt-4 pb-4 mb-4 d-flex">
             <div className="image">
               <img src="https://i.ibb.co/X201Qwc/LOGO.png" className="img-circle elevation-2" alt="User Image" />
             </div>
             <div className="info">
-              <a href="/HomeInstitucional" className="d-block">SGPI</a>
+              <a href="/HomeInstitucional">
+              <h2  className="d-block" style={{ color:'black' }}>SGPI</h2>
+              </a>
             </div>
           </div>
           <div className=" ">
-            <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link">
-              <span className="brand-text font-weight-light"  >{rol} </span>
+            <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link" style={{ color:'black' }}>
+              <h3 >{rol} </h3>
             </a>
           </div>
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-            <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link">
+            <a href={"/Perfil/" + localStorage.getItem("cedula")} className="brand-link" style={{ color:'black' }}>
               <span className="brand-text font-weight-light"  > {this.state.nombre.nombres} </span>
             </a>
           </div>
@@ -650,7 +654,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-pencil-alt nav-icon" />
-                          <p> CRUD de Convocatorias</p>
+                          <p> Convocatorias</p>
                         </a>
                       </li>
                     </Link>

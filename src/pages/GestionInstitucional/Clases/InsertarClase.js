@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarClase extends Component {
 
     cajaNumeroRef = React.createRef();
@@ -36,30 +36,61 @@ export default class InsertarClase extends Component {
         axios.post(url, clase).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se creo la clase") {
-                alert("se creo la clase")
+                swal({
+                    title: "se creo la clase",
+                    icon:"success"
+                  });
                 window.history.back();
             } else if (res.data.respuesta === "el usuario no existe") {
-                alert("el usuario no existe")
+                swal({
+                    title: "el usuario no existe",
+                    icon:"error"
+                  });
+                
 
             } else if (res.data.respuesta === "la materia no existe") {
-                alert("la materia no existe")
+                swal({
+                    title: "la materia no existe",
+                    icon:"error"
+                  });
+                
 
 
             } else if (res.data.respuesta === "la clase ya existe") {
-                alert("la clase ya existe")
+                swal({
+                    title: "la clase ya existe",
+                    icon:"error"
+                  });
+    
 
 
             } else if (res.data.respuesta === "esta persona es usuario inactivo") {
-                alert("el usuario es un estudiante inactivo")
+                swal({
+                    title: "el usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+             
 
             } else if (res.data.respuesta === "esta persona es usuario activo") {
-                alert("el usuario es un estudiante activo")
+                swal({
+                    title: "el usuario es un estudiante activo",
+                    icon:"error"
+                  });
+            
 
             } else if (res.data.respuesta === "esta persona es usuario semillerista") {
-                alert("el usuario es un semillerista")
+                swal({
+                    title: "el usuario es un semillerista",
+                    icon:"error"
+                  });
+           
 
             } else {
-                alert("no se pudo crear la clase")
+                swal({
+                    title: "no se pudo crear la clase",
+                    icon:"error"
+                  });
+                
 
             }
 

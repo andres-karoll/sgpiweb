@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarSemillero extends Component {
 
     cajaIDRef = React.createRef();
@@ -42,25 +42,52 @@ semillero:{} }
         axios.post(url, semillero).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="el semillero fue actualizado") {
-                alert("el semillero fue actualizado")
+                swal({
+                    title: "el semillero fue actualizado",
+                    icon:"success"
+                  });
+         
                 window.location.href = "/Semilleros";
             }else if (res.data.respuesta==="el usuario ingresado no existe") {
-                alert("el usuario ingresado no existe")
+                swal({
+                    title: "el usuario ingresado no existe",
+                    icon:"error"
+                  });
+                
                 window.location.href = "/Semilleros";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante inactivo") {
-                alert("el semillero no se creo porque el usuario es un estudiante inactivo")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+                
                 window.location.href = "/Semilleros";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un estudiante activo") {
-                alert("el semillero no se creo porque el usuario es un estudiante activo")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un estudiante activo",
+                    icon:"error"
+                  });
+              
                 window.location.href = "/Semilleros";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario es un semillerista") {
-                alert("el semillero no se creo porque el usuario es un semillerista")
+                swal({
+                    title: "el semillero no se creo porque el usuario es un semillerista",
+                    icon:"error"
+                  });
+                
                 window.location.href = "/Semilleros";
             }else if (res.data.respuesta==="el semillero no se creo porque el usuario ya es lider de semillero") {
-                alert("el semillero no se creo porque el usuario ya es lider de semillero")
+                swal({
+                    title: "el semillero no se creo porque el usuario ya es lider de semillero",
+                    icon:"error"
+                  });
+             
                 window.location.href = "/Semilleros";
             }else{
-              alert("NO se pudo actualizar el semillero correctamente")
+                swal({
+                    title: "NO se pudo actualizar el semillero correctamente",
+                    icon:"error"
+                  });
               window.location.href = "/Semilleros";
             }
         });

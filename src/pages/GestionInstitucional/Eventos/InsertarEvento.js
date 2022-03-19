@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarEvento extends Component {
 
     cajaIDRef = React.createRef();
@@ -38,8 +38,12 @@ export default class InsertarEvento extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearevento';
         axios.post(url, evento).then(res => {
             this.setState({ status: true });
+            
             if (res.data.respuesta === "se creo el evento") {
-                alert("se creo el evento")
+                swal({
+                    title: "se creo el evento",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
                 alert("no se pudo crear el evento")
