@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class CrearMacro extends Component {
     /**
      * definicion de variables 
@@ -31,9 +31,17 @@ export default class CrearMacro extends Component {
             this.setState({ status: true });
             if (res.data.respuesta === "el macro proyecto se creo correctamente") {
                 alert("el macro proyecto se creo correctamente")
+                swal({
+                    title: "El proyecto fue creado correctamente",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
-                alert("el macro proyecto proyecto no se pudo crear correctamente")
+                swal({
+                    title: "el macro proyecto proyecto no se pudo crear correctamente",
+                    icon:"error"
+                  });
+                
                 window.history.back();
             }
         });

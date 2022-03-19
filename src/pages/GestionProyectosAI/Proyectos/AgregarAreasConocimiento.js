@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from '../../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
+import swal from 'sweetalert';
 export default class AgregarAreasConocimiento extends Component {
     state = {
         status: false,
@@ -53,10 +54,16 @@ export default class AgregarAreasConocimiento extends Component {
         axios.post(url, AreasConocimiento).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se agrego exitosamente las areas") {
-                alert("El area de conocimiento fue agregada exitosamente")
+                swal({
+                    title: "El area de conocimiento fue agregada exitosamente",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
-                alert(res.data.respuesta)
+                swal({
+                    title: res.data.respuesta,
+                    icon:"error"
+                  });
                 window.history.back();
             }
 

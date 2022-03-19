@@ -102,7 +102,7 @@ export default class InsertarEvento extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado</label>
                                                     <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
-                                                        <option selected="selected">Abierto</option>
+                                                        <option selected="selected">Elija una opcion para estado del evento</option>
                                                         <option>Abierto</option>
                                                         <option>Cerrado</option>
                                                     </select>

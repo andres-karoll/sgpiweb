@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import swal from 'sweetalert';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
@@ -35,10 +35,16 @@ export default class Evaluacion extends Component {
     axios.post(url, estado).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
-        alert("Se realizo la validacion exitosamente")
+        swal({
+          title:"Se realizo la validacion exitosamente",
+          icon:"success"
+        });
         window.history.back();
       } else {
-        alert("No se puedo realizar la actualizacion de estado")
+        swal({
+          title:"No se puedo realizar la actualizacion de estado",
+          icon:"error"
+        });
         window.history.back();
       }
     });
@@ -47,7 +53,7 @@ export default class Evaluacion extends Component {
    * metodo para tener la informacion de un proyecto 
    */
   Cargardos = () => {
-    var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
+    var request = "/gestionproyectosaulaintegrador/detallePorId/" + this.props.id;
     var url = "http://localhost:8080" + request;
     axios.get(url).then(res => {
       this.setState({
@@ -79,7 +85,6 @@ export default class Evaluacion extends Component {
                     <div className="card-header" style={{ align: "center" }}>
                       <h3 className="card-title"  >Aceptar o Denegar Convocatoria</h3>
                     </div>
-
                     {/* /.card-header */}
                     {/* form start */}
                     <form onSubmit={this.actualizar} style={{ width: "50%", margin: "auto" }}>
@@ -121,7 +126,6 @@ export default class Evaluacion extends Component {
                              <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} />
                          </div>
                          ):(
-                        
                          <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value=""/>
                          )}
                         <div className="form-group">
@@ -129,10 +133,19 @@ export default class Evaluacion extends Component {
                           <label htmlFor="exampleInputPassword1">Evaluar</label>
                           <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
                             <option selected>Elige una opcion</option>
-                            {(this.state.proyecto.estado === "Propuesta") &&
+                            {this.state.proyecto.tipo_proyecto==="Grado" && this.state.proyecto.estado === "Propuesta"?(
+                              <option value="Inicio">Inicio</option>
+                            ):(
+                                <></>
+                            )
+
+                            }
+                            
+                            
+                            {(this.state.proyecto.estado === "Propuesta" && this.state.proyecto.tipo_proyecto!="Grado") &&
                               <option value="Desarrollo">Desarrollo</option>
                             }
-                            {(this.state.proyecto.estado === "Desarrollo") &&
+                            {(this.state.proyecto.estado === "Desarrollo" && this.state.proyecto.tipo_proyecto!="Grado") &&
                               <option value="Finalizado">Finalizado</option>
                             }
 

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { NavLink,Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
+import swal from 'sweetalert';
 export default class TusProyectosSemillero extends Component {
 
   state = {
@@ -43,13 +44,19 @@ status: false,
     axios.post(url,salida).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
-          alert("A salido exitosamente del semillero")
+        swal({
+          title:'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
+          icon:"success"
+        }); 
           localStorage.removeItem('cedula');
           localStorage.removeItem('tipo');
           localStorage.clear();
           window.location.href = "/";
       } else {
-          alert("no se pudo salir del semillero")
+        swal({
+          title:"no se pudo salir del semillero",
+          icon:"error"
+        }); 
           window.history.back();
       }
   });

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 import md5 from 'md5'
 export default class Crearusuario extends Component {
 
@@ -95,7 +94,11 @@ export default class Crearusuario extends Component {
         };
         console.log(grupo)
         if(clave !="" && clave!=cClave){
-            alert("Error: las contraseñas no coinciden!");
+          swal({
+            title: "Error: las contraseñas no coinciden!",
+            icon:"error"
+          });
+           
         }
         
         console.log(grupo)
@@ -105,14 +108,22 @@ export default class Crearusuario extends Component {
             this.setState({ respuestas: res.data,
                status: true });
                if (res.data.respuesta==="usuario creado") {
-                alert("El usuario fue creado correctamente")
+                swal({
+                  title: "El usuario fue creado correctamente",
+                  icon:"success"
+                });
                 window.history.back();
             }else if(res.data.respuesta==="el tipo de usuario es incorrecto"){
-              alert("El usuario no se pudo crear por favor verifica los datos")
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"error"
+              });
               window.history.back();
             }else{
-              alert("El usuario no se pudo crear por favor verifica los datos")
-             
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"error"
+              });
               window.history.back();
             }
         });

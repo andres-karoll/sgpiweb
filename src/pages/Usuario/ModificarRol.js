@@ -20,23 +20,15 @@ export default class ModificarRol extends Component {
             cedula:ced,
             rol: ro           
         };
-        var url = 'http://localhost:8080/gestionusuario/asignarrolusuario';
+        var url = 'http://localhost:8080/gestionusuario/asignartipousuario';
         axios.post(url, roll).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta==="se agrego el rol") {
+            if (res.data.respuesta==="ingresado correctamente") {
                 alert("se agrego el rol al usuario")
                 window.history.back();
-            }else if (res.data.respuesta==="el usuario no existe") {
-                alert("el usuario no existe")
+            }else if (res.data.respuesta==="el usuario o el tipo de usuario no existe") {
+                alert("el usuario o el tipo de usuario no existe")
                
-            }else if (res.data.respuesta==="el rol no existe") {
-                alert("el rol no existe")
-               
-            }else if (res.data.respuesta==="ya tiene ese rol") {
-                alert("ya tiene ese rol")
-              
-            }else{
-              alert("el rol no se pudo asignar")
             }
         });
     }

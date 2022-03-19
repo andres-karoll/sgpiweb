@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from '../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
+import swal from 'sweetalert';
 export default class UnirseSemillero extends Component {
     state = {
         status: false,
@@ -50,6 +51,10 @@ export default class UnirseSemillero extends Component {
         var url = 'http://localhost:8080/gestionusuario/asignarsemillero';
         axios.post(url, participante).then(res => {
             this.setState({ status: true });
+            swal({
+                title:'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
+                icon:"success"
+              }); 
             window.history.back();
         });
     }

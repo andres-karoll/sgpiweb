@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarProyecto extends Component {
     state = {
         status: false,
@@ -17,10 +16,9 @@ export default class ActualizarProyecto extends Component {
         var request = "/gestionproyectosaulaintegrador/listarporid/" + this.props.id;
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
-
             this.setState({
                 proyecto: res.data
-
+                , status: true
             })
         });
     }
@@ -38,7 +36,7 @@ export default class ActualizarProyecto extends Component {
     cajaDescripcion = React.createRef();
     cajaMetodologia = React.createRef();
     cajaJustificacion = React.createRef();
-
+    cajaConclusiones=React.createRef();
     /**
      * metodo para actualizar un proyecto 
      * @param {*} e 
@@ -50,21 +48,30 @@ export default class ActualizarProyecto extends Component {
         var desc = this.cajaDescripcion.current.value;
         var met = this.cajaMetodologia.current.value;
         var jus = this.cajaJustificacion.current.value;
+        var con= this.cajaConclusiones.current.value;
         var proyeto = {
             id: id
             , titulo: tit
             , descripcion: desc
             , metodologia: met
             , justificacion: jus
+            , conclusiones:con
 
         };
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/actualizarproyecto';
         axios.post(url, proyeto).then(res => {
             if (res.data.respuesta === "el proyecto fue actualizado") {
-                alert("El proyecto fue actualizado correctamente")
+                swal({
+                    title: "El proyecto fue actualizado correctamente",
+                    icon:"success"
+                  });
+                
                 window.location.href = "/ProyectosAulaIntegrador"
             } else {
-                alert("El proyecto no se pudo actualizar")
+                swal({
+                    title: "El proyecto no se pudo actualizar",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });
@@ -76,6 +83,8 @@ export default class ActualizarProyecto extends Component {
             <div>
                 <Aside />
                 <Header />
+                {this.state.status === true &&
+          (<React.Fragment>
                 <div className="content-wrapper">
                     <section className="content">
 
@@ -93,26 +102,37 @@ export default class ActualizarProyecto extends Component {
                                         <form style={{ width: "50%", margin: "auto" }}>
                                             <div className="card-body">
                                                 <div className="form-group">
-                                                    <label htmlFor="exampleInputEmail1">Proyecto</label>
-                                                    <input type="text" name="cajanom" className="form-control" value={this.props.id} ref={this.cajaId} readOnly />
+                                                    <input type="hidden" name="cajanom" className="form-control" value={this.state.proyecto.id} ref={this.cajaId}  />
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Titulo</label>
-                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaTitulo} />
+                                                    <textarea type="text" name="cajadir" className="form-control" ref={this.cajaTitulo} placeholder={this.state.proyecto.titulo}/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Descripcion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} />
+                                                    <textarea type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} placeholder={this.state.proyecto.descripcion}/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Metodologia</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia} />
+                                                    <textarea type="text" name="cajatel" className="form-control" ref={this.cajaMetodologia} placeholder={this.state.proyecto.metodologia}/>
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Justificacion</label>
-                                                    <input type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} />
+                                                    <textarea type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} placeholder={this.state.proyecto.justificacion}/>
                                                 </div>
+                                                {this.state.proyecto.estado==="Finalizado"?(
+                                                     <div className="form-group">
+                                                     <label htmlFor="exampleInputPassword1">Conclusiones</label>
+                                                     <textarea type="text" name="cajatel" className="form-control" ref={this.cajaConclusiones} />
+                                                 </div>
+                                                ):(
+                                                    <input type="hidden" name="cajatel" className="form-control" ref={this.cajaConclusiones} />
+                                            
+                                                )
+
+                                                }
+
                                             </div>
                                             <div className="card-footer">
                                                 <button className="btn btn-success " onClick={this.ActualizarProyecto}>Enviar</button>
@@ -127,7 +147,9 @@ export default class ActualizarProyecto extends Component {
                         </div>{/* /.container-fluid */}
                     </section>
                 </div>
-            </div>
-        )
-    }
+                </React.Fragment>
+          )}
+      </div>
+    )
+  }
 }

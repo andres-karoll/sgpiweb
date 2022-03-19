@@ -135,10 +135,38 @@ export default class DetallesProyectoSemillero extends Component {
                                 {/* /.user-block */}
                                 <h3>
                                   {
-                                    this.state.proyecto.retroalimentacion_final === "" ? (
+                                    this.state.proyecto.retroalimentacion_final === null ? (
                                       <h3>Este proyecto aun no a finalizado</h3>
                                     ) : (
                                       this.state.proyecto.retroalimentacion_final
+                                    )
+                                  }
+                                </h3>
+                                <p>
+                                </p>
+                              </div>
+                              <div className="post clearfix">
+                                <div>
+                                  <span className="username">
+                                    <h1>Conclusiones</h1>
+                                  </span>
+
+                                </div>
+                                {/* /.user-block */}
+                                <h3>
+                                {
+                                    this.state.proyecto.conclusiones === null ? (
+                                      this.state.proyecto.estado==="Finalizado" ?(
+                                      <div>
+                                      <h3>Este proyecto ya finalizo por favor agrege la conclusion</h3>
+                                      <h4>Esto lo puede hacer en la opcion de modicicar proyecto </h4>
+                                      </div>
+                                      ):(
+                                        <h3>Este proyecto aun no a finalizado</h3>
+                                      )
+                                    
+                                      ) : (
+                                      this.state.proyecto.conclusiones
                                     )
                                   }
                                 </h3>

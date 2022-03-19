@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Header from '../../../components/Global/Header';
-import { NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
 import Aside from '../../../components/Global/Aside';
 export default class ParticipaEventosExternos extends Component {
     state = {
@@ -62,6 +62,10 @@ export default class ParticipaEventosExternos extends Component {
         var url = 'http://localhost:8080/gestionproyectosaulaintegrador/participareventoExterno';
         axios.post(url, ParticipacionEvento).then(res => {
             this.setState({ status: true });
+            swal({
+                title:"Participo en el evento",
+                icon:"success"
+              });
             window.location.href = "/Participaciones/" + this.props.id;
         });
     }
