@@ -29,7 +29,7 @@ export default class ProyectosConvocatoria extends Component {
     }
      
     });
-
+  
   }
 
   componentDidMount = () => {
