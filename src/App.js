@@ -181,8 +181,8 @@ import TrabajoGradoInicio from './pages/Proyectos/Proyectos/TrabajoGradoInicio'
 import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesarrollo'
 import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
 import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
-import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
 import LoadingPrueba from './pages/Loadings/LoadingPrueba'
+import TrabajoGradoRechazado from './pages/Proyectos/Proyectos/TrabajoGradoRechazado'
 
 
 
@@ -837,7 +837,7 @@ export default function App() {
                     <Route path="/TrabajoGradoDesarrollo" exact component={TrabajoGradoDesarrollo} />  
                     <Route path="/TrabajoGradoICorrecciones" exact component={TrabajoGradoCorrecciones} />
                     <Route path="/TrabajoGradoFin" exact component={TrabajoGradoFin} />  
-                    <Route path="/TrabajoGradoRechasado" exact component={TrabajoGradoRechasado} />                         
+                    <Route path="/TrabajoGradoRechazado" exact component={TrabajoGradoRechazado} />                         
             <Route component ={() => (
           <Error/>)
         } />

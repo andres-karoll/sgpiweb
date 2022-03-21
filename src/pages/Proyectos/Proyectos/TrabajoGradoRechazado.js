@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink, Link} from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import { prettyDOM } from '@testing-library/dom';
+
 
 function TrabajoGradoRechazado(){
     const [proyectos, setproyectos] = useState([]);

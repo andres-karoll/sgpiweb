@@ -119,7 +119,6 @@ export default class FormularioLogin extends Component {
                               )}
                           </select>
                         </div>
-                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">¿Olvidaste tu clave?</a></p>
                         <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.login}>Ingresar</button>
                       </form>
                     </div>
