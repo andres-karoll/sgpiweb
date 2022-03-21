@@ -52,15 +52,24 @@ export default class RealizarCompra extends Component {
                 window.history.back();
             }
             else if (res.data.respuesta==="la fecha debe ser mayor a la fecha de solicitud") {
-                alert("la fecha debe ser mayor a la fecha de solicitud")
+                swal({
+                    title: "la fecha debe ser mayor a la fecha de solicitud",
+                    icon:"error"
+                  });
                 window.history.back();
             }
             else if (res.data.respuesta==="no se puede realizar la compra, el presupuesto se a excedido") {
-                alert("no se puede realizar la compra, el presupuesto se a excedido")
+                swal({
+                    title: "no se puede realizar la compra, el presupuesto se a excedido",
+                    icon:"error"
+                  });
                 window.history.back();
             }
             else{
-                alert("no se pudo crear")
+                swal({
+                    title: "no se pudo crear",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });
@@ -122,7 +131,6 @@ export default class RealizarCompra extends Component {
        
                         <div className="form-group">
 
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                            {/**  <label htmlFor="exampleInputPassword1">Estado de la compra</label>*/}
                             <input type="hidden" name="cajatel" className="form-control"  value={3}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
