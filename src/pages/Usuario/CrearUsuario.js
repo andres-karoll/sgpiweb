@@ -130,12 +130,22 @@ export default class Crearusuario extends Component {
       <div>
         <Aside />
         <Header />
-        <section class="vh-100 " style={{ background: 'rgb(2,0,36)' }}>
-          
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style={{ borderradius: "1rem" }}>
-                  <div class="card-body p-5 text-center">
+        <div>
+            <div className="content-wrapper">
+            <section className="content">
+                
+            <div className="container-fluid">
+                <div className="row">
+                {/* left column */}
+                <div className="col-md-12">
+                    {/* general form elements */}
+                    <div className="card card-primary">
+                    <div className="card-header" style={{align:"center"}}>
+                    <h3 className="card-title"  >Crear usuario</h3>
+                  </div>
+                   
+                    {/* /.card-header */}
+                    {/* form start */}
                     <form onSubmit={this.nuevoUsuario} style={{ width: "50%", margin: "auto" }}>
                         <label>Cedula: </label>
                         <input type="text" name="cajaced" className="form-control" ref={this.cajaCedula} required />
@@ -190,13 +200,16 @@ export default class Crearusuario extends Component {
                         <br />
                         <button className="btn btn-success" onSubmit={this.nuevoUsuario} >Añadir</button>
                     </form>
-                     </div>
+                    </div>
+                    {/* /.card */}
                 </div>
-              </div>
+                {/*/.col (right) */}
+                </div>
+                {/* /.row */}
+            </div>{/* /.container-fluid */}
+            </section>
             </div>
-         
-        </section>
-      </div>
+            </div> </div>
     )
   }
 }
