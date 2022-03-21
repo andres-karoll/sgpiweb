@@ -28,7 +28,7 @@ export default class InsertarFacultad extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearfacultad';
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
-            if (res.data.respuesta === "la facultad fue actualizada") {
+            if (res.data.respuesta === "la facultad fue creada") {
                 swal({
                     title: "se actualizó la facultad",
                     icon:"success"
