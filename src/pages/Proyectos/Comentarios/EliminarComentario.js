@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
-
+import swal from 'sweetalert';
+import Aside from '../../../components/Global/Aside';
+import Header from '../../../components/Global/Header';
 
 
 
@@ -14,6 +16,18 @@ export default class EliminarComentario extends Component {
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({ status: true });
+            if (res.data==="Se elimino con exito") {
+                swal({
+                    title: "Se elimino con exito",
+                    icon:"success"
+                  });
+                
+            }else{
+                swal({
+                    title: "no se pudo eliminar ",
+                    icon:"error"
+                  });
+            }
         });
     }
 
@@ -23,7 +37,8 @@ export default class EliminarComentario extends Component {
         }
         return (
             <div>
-             
+             <Aside/>
+                <Header/>
             <div className="content-wrapper">
             <div>
             <section className="content">

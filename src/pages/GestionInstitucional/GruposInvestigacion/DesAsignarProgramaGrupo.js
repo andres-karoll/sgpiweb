@@ -4,7 +4,7 @@ import { NavLink, Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { Link } from 'react-router-dom';
-
+import swal from 'sweetalert';
 export default class DesAsignarLineaGrupoI extends Component {
 
     cajaGrupoRef = React.createRef();
@@ -24,7 +24,10 @@ export default class DesAsignarLineaGrupoI extends Component {
         axios.post(url, desasignacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se desasigno el programa correctamente") {
-                alert("se desasigno el programa correctamente")
+                swal({
+                    title: "se desasigno el programa correctamente",
+                    icon:"success"
+                  });
                 window.location.href = "/GruposInvestigacion";
             } else {
                 alert("no se pudo desasignar el programa correctamente")

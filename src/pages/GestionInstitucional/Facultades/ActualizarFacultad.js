@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarFacultad extends Component {
 
     cajaIDRef = React.createRef();
@@ -32,27 +32,67 @@ export default class ActualizarFacultad extends Component {
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "la facultad fue actualizada") {
-                alert("se actualizó la facultad")
+                swal({
+                    title: "se actualizó la facultad",
+                    icon:"success"
+                  });
+               
                 window.location.href = "/Facultades";
             } else if (res.data.respuesta === "la falcultad no fue creada el primer usuario es un estudiante inactivo") {
-                alert("la falcultad no fue creada el primer usuario es un estudiante inactivo")
+                swal({
+                    title: "la falcultad no fue creada el primer usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+              
             } else if (res.data.respuesta === "la falcultad no fue creada el primer usuario es un estudiante activo") {
-                alert("la falcultad no fue creada el primer usuario es un estudiante activo")
+                swal({
+                    title: "la falcultad no fue creada el primer usuario es un estudiante activo",
+                    icon:"error"
+                  });
+                
             } else if (res.data.respuesta === "la falcultad no fue creada el primer usuario es un semillerista") {
-                alert("la falcultad no fue creada el primer usuario es un semillerista")
+                swal({
+                    title: "la falcultad no fue creada el primer usuario es un semillerista",
+                    icon:"error"
+                  });
+                
             } else if (res.data.respuesta === "la falcultad no fue creada el primer usuario ya es Lider investigacion facultad") {
-                alert("la falcultad no fue creada el primer usuario ya es Lider investigacion facultad")
+                swal({
+                    title: "la falcultad no fue creada el primer usuario ya es Lider investigacion facultad",
+                    icon:"error"
+                  });
+            
             } else if (res.data.respuesta === "la falcultad no fue creada el segundo usuario es un estudiante inactivo") {
-                alert("la falcultad no fue creada el segundo usuario es un estudiante inactivo")
+                swal({
+                    title: "la falcultad no fue creada el segundo usuario es un estudiante inactivo",
+                    icon:"error"
+                  });
+              
             } else if (res.data.respuesta === "la falcultad no fue creada el segundo usuario es un estudiante activo") {
-                alert("la falcultad no fue creada el segundo usuario es un estudiante activo")
+                swal({
+                    title: "la falcultad no fue creada el segundo usuario es un estudiante activo",
+                    icon:"error"
+                  });
+              
             } else if (res.data.respuesta === "la falcultad no fue creada el segundo usuario es un semillerista") {
-                alert("la falcultad no fue creada el segundo usuario es un semillerista")
+                swal({
+                    title: "la falcultad no fue creada el segundo usuario es un semillerista",
+                    icon:"error"
+                  });
+              
             } else if (res.data.respuesta === "la falcultad no fue creada el segundo ya es Coordinador investigacion facultad") {
-                alert("la falcultad no fue creada el segundo ya es Coordinador investigacion facultad")
+                swal({
+                    title: "la falcultad no fue creada el segundo ya es Coordinador investigacion facultad",
+                    icon:"error"
+                  });
+                
             }
             else {
-                alert("NO se pudo actualizar la facultad correctamente")
+                swal({
+                    title: "NO se pudo actualizar la facultad correctamente",
+                    icon:"error"
+                  });
+             
                 window.location.href = "/Facultades";
             }
         });

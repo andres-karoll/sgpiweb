@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProyectosSemillero extends Component {
 
   state = {
@@ -13,12 +14,20 @@ status: false,
 //funcion para listar los proyectos del semillero
   cargarProyectos= () => {
     var url = "http://localhost:8080";
-    var request = "/gestionproyectosinvestigacion/proyectossemillero/" +localStorage.getItem("cedula");
+    var request = "/gestioninstitucional/listarproyectosdelsemillero/" +this.props.id;
     axios.get(url + request).then(res => {
       this.setState({
         proyectos: res.data
         , status: true
       });
+      if (this.state.proyectos.length === 0) {
+        swal({
+          title: "este semillero no tiene proyectos",
+          icon:"error"
+        });
+     
+        window.history.back();
+    }
     });
   }
 

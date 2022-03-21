@@ -3,6 +3,7 @@ import axios from 'axios';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
 export default class CrearProyectoGrado extends Component {
     state = {
         status: false,
@@ -98,10 +99,16 @@ export default class CrearProyectoGrado extends Component {
         axios.post(url, proyecto).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el proyecto fue creado") {
-                alert("El proyecto fue creado correctamente")
+                swal({
+                    title: "El proyecto fue creado correctamente",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
-                alert("El proyecto no se pudo crear por favor verifica los datos")
+                swal({
+                    title: "El proyecto no se pudo crear por favor verifica los datos",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });
@@ -266,4 +273,3 @@ export default class CrearProyectoGrado extends Component {
         )
     }
 }
-

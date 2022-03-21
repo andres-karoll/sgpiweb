@@ -100,17 +100,15 @@ export default class CrearProyectoSemillero extends Component {
             this.setState({ status: true });
             if (res.data.respuesta === "el proyecto fue creado") {
                 swal({
-                    title:"El proyecto fue creado correctamente",
+                    title: "El proyecto fue creado correctamente",
                     icon:"success"
                   });
-                alert()
                 window.history.back();
             } else {
                 swal({
-                    title:"El proyecto no se pudo crear por favor verifica los datos",
+                    title: "El proyecto no se pudo crear por favor verifica los datos",
                     icon:"error"
                   });
-               
                 window.history.back();
             }
         });

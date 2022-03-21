@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarEvento extends Component {
 
     cajaIDRef = React.createRef();
@@ -38,8 +38,12 @@ export default class InsertarEvento extends Component {
         var url = 'http://localhost:8080/gestioninstitucional/crearevento';
         axios.post(url, evento).then(res => {
             this.setState({ status: true });
+            
             if (res.data.respuesta === "se creo el evento") {
-                alert("se creo el evento")
+                swal({
+                    title: "se creo el evento",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
                 alert("no se pudo crear el evento")
@@ -102,7 +106,7 @@ export default class InsertarEvento extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado</label>
                                                     <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
-                                                        <option selected="selected">Elija una opcion para estado del evento</option>
+                                                        <option selected="selected">Abierto</option>
                                                         <option>Abierto</option>
                                                         <option>Cerrado</option>
                                                     </select>

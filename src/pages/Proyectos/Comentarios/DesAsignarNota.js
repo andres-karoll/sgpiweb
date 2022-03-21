@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 
 export default class DesAsignarNota extends Component {
@@ -22,7 +22,11 @@ export default class DesAsignarNota extends Component {
         axios.post(url, calificacion).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se elimino la nota") {
-                alert("se elimino la nota")
+                swal({
+                    title: "se elimino la nota",
+                    icon:"success"
+                  });
+              
                 window.history.back();
             }else{
               alert("No se pudo eliminar la nota")

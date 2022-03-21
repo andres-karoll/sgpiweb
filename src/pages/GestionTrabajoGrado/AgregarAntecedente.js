@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from '../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
+import swal from 'sweetalert';
 export default class AgregarAntecedente extends Component {
     state = {
         status: false,
@@ -52,14 +53,24 @@ export default class AgregarAntecedente extends Component {
             this.setState({ status: true });
             console.log(res.data.respuesta)
             if (res.data.respuesta === "se agrego exitosamente el antecedente") {
-                alert("se agrego exitosamente el antecedentee")
+                swal({
+                    title: "se agrego exitosamente el antecedente",
+                    icon:"success"
+                  });
                 window.location.href = "/Antecedentes/" + this.props.id;
             } else if (res.data.respuesta === "el antecedente aun no a terminado") {
-                alert("el antecedente aun no a terminado")
+                swal({
+                    title: "el antecedente aun no a terminado",
+                    icon:"error"
+                  });
+    
                 window.history.back();
             }
             else {
-                alert("no se agrego el antecedente")
+                swal({
+                    title: "no se agrego el antecedente",
+                    icon:"error"
+                  });
                 window.history.back();
             }
 

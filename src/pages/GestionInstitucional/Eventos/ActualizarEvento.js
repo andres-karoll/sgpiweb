@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarEvento extends Component {
 
     cajaIDRef = React.createRef();
@@ -42,7 +42,11 @@ export default class InsertarEvento extends Component {
         axios.post(url, evento).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se actualizo el evento") {
-                alert("se actualizó el evento")
+                swal({
+                    title: "se actualizó el evento",
+                    icon:"success"
+                  });
+             
                 window.history.back();
             } else {
                 alert("no se pudo actualizar el evento")

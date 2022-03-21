@@ -181,7 +181,8 @@ import TrabajoGradoInicio from './pages/Proyectos/Proyectos/TrabajoGradoInicio'
 import TrabajoGradoDesarrollo from './pages/Proyectos/Proyectos/TrabajoGradoDesarrollo'
 import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCorrecciones'
 import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
-import TrabajoGradoRechazado from './pages/Proyectos/Proyectos/TrabajoGradoRechazado'
+import TrabajoGradoRechasado from './pages/Proyectos/Proyectos/TrabajoGradoRechasado'
+import LoadingPrueba from './pages/Loadings/LoadingPrueba'
 
 
 
@@ -192,6 +193,7 @@ export default function App() {
       <BrowserRouter>
       <Switch>    
             <Route exact path="/" component={Home} />
+            <Route exact path="/loading" component={LoadingPrueba} />
             <Route exact path="/Home/Search" component={SearchP} />
             <Route exact path="/Home/Info" component={Info} />
             <Route exact path="/Home/Login" component={Login} />
@@ -835,7 +837,7 @@ export default function App() {
                     <Route path="/TrabajoGradoDesarrollo" exact component={TrabajoGradoDesarrollo} />  
                     <Route path="/TrabajoGradoICorrecciones" exact component={TrabajoGradoCorrecciones} />
                     <Route path="/TrabajoGradoFin" exact component={TrabajoGradoFin} />  
-                    <Route path="/TrabajoGradoRechazado" exact component={TrabajoGradoRechazado} />                         
+                    <Route path="/TrabajoGradoRechasado" exact component={TrabajoGradoRechasado} />                         
             <Route component ={() => (
           <Error/>)
         } />

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class CrearConvocatorias extends Component {
 
     cajaIDRef = React.createRef();
@@ -45,7 +45,11 @@ export default class CrearConvocatorias extends Component {
         axios.post(url, convocatoria).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "se creo la convocatoria") {
-                alert("se creo la convocatoria")
+                swal({
+                    title: "se actualizó la convocatoria",
+                    icon:"success"
+                  });
+                
                 window.history.back();
             } else {
                 alert("no se pudo crear la convocatoria")
@@ -91,13 +95,13 @@ export default class CrearConvocatorias extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Contexto</label>
-                                                    <textarea type="text" name="cajatel" className="form-control" placeholder="Contexto" ref={this.cajaContextoRef} required />
+                                                    <input type="text" name="cajatel" className="form-control" placeholder="Contexto" ref={this.cajaContextoRef} required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado</label>
                                                     <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEstadoRef} required>
-                                                        <option selected="selected">Elija un estado de la convocatoria</option>
+                                                        <option selected="selected">Abierto</option>
                                                         <option>Abierto</option>
                                                         <option>Cerrado</option>
                                                     </select>
@@ -106,7 +110,7 @@ export default class CrearConvocatorias extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Tipo</label>
                                                     <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaTipoRef}>
-                                                        <option selected="selected">Elija un tipo </option>
+                                                        <option selected="selected">Externa</option>
                                                         <option>Externa</option>
                                                         <option>Interna</option>
                                                     </select>

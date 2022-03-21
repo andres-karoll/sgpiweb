@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ClasesMateria extends Component {
 
   state = {
@@ -19,6 +20,14 @@ status: false,
         clases: res.data
         , status: true
       });
+      if (this.state.clases.length === 0) {
+        swal({
+          title: "esta materia  no tiene clases asignadas",
+          icon:"error"
+        });
+     
+        window.history.back();
+    }
     });
     
   }

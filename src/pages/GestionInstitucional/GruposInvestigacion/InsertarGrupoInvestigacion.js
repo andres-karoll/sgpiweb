@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarGrupoInvestigacion extends Component {
 
     cajaNombreRef = React.createRef();
@@ -42,25 +42,45 @@ export default class InsertarGrupoInvestigacion extends Component {
             this.setState({ status: true });
 
             if (res.data.respuesta === "el grupo se creo") {
-                alert("Se creo el grupo de investigación")
+                swal({
+                    title: "Se creo el grupo de investigación",
+                    icon:"success"
+                  });
                 window.location.href = "/GruposInvestigacion";
                 console.log(grupo);
             } else if (res.data.respuesta === "el grupo no se creo porque el usuario no existe") {
-                alert("El grupo no se creo porque el usuario no existe")
+                swal({
+                    title: "El grupo no se creo porque el usuario no existe",
+                    icon:"error"
+                  });
                 window.location.href = "/GruposInvestigacion";
 
             } else if (res.data.respuesta === "el grupo no se creo porque el usuario que escogio es un estudiante inactivo") {
-                alert("El grupo no se creó porque el usuario que escogió es un estudiante inactivo")
+                swal({
+                    title: "El grupo no se creó porque el usuario que escogió es un estudiante inactivo",
+                    icon:"error"
+                  });
                 window.location.href = "/GruposInvestigacion";
             } else if (res.data.respuesta === "el grupo no se creo porque el usuario que escogio es un estudiante activo") {
-                alert("El grupo no se creó porque el usuario que escogió es un estudiante activo")
+                swal({
+                    title: "El grupo no se creó porque el usuario que escogió es un estudiante activo",
+                    icon:"error"
+                  });
+
+                
                 window.location.href = "/GruposInvestigacion";
             } else if (res.data.respuesta === "este usuario ya es lider de grupo") {
-                alert("El grupo no se creo porque el usuario ya es lider de grupo")
+                swal({
+                    title: "El grupo no se creo porque el usuario ya es lider de grupo",
+                    icon:"error"
+                  });
                 window.location.href = "/GruposInvestigacion";
             }
             else if (res.data.respuesta === "el grupo no se creo porque el usuario que escogio es un Semillerista") {
-                alert("El grupo no se creo porque el usuario que escogio es un Semillerista")
+                swal({
+                    title: "El grupo no se creo porque el usuario que escogio es un Semillerista",
+                    icon:"error"
+                  });
                 window.location.href = "/GruposInvestigacion";
             }
 

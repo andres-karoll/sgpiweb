@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProgramaSemillero extends Component {
 
   state = {
@@ -19,6 +20,13 @@ status: false,
         programa: res.data
         , status: true
       });
+      if (this.state.programa.length === 0) {
+        swal({
+          title: "este semillero no tiene programa asignado",
+          icon:"error"
+        });
+        window.history.back();
+    }
     });
     
   }

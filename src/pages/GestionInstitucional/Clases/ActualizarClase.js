@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class ActualizarClase extends Component {
 
     cajaNumeroRef = React.createRef();
@@ -38,20 +38,37 @@ export default class ActualizarClase extends Component {
             this.setState({ status: true });
 
             if (res.data.respuesta === "la clase fue actualizada") {
-                alert("la clase fue actualizada")
+                swal({
+                    title: "la clase fue actualizada",
+                    icon:"success"
+                  });
                 window.history.back();
             } else if (res.data.respuesta === "el usuario que escogio es un Estudiante inactivo") {
-                alert("el usuario que escogio es un Estudiante inactivo")
-
+                
+                swal({
+                    title: "el usuario que escogio es un Estudiante inactivo",
+                    icon:"error"
+                  });
             } else if (res.data.respuesta === "el usuario que escogio es un Estudiante activo") {
-                alert("el usuario que escogio es un Estudiante activo")
+                swal({
+                    title: "el usuario que escogio es un Estudiante activo",
+                    icon:"error"
+                  });
+            
 
             } else if (res.data.respuesta === "el usuario que escogio es un Semillerista") {
-                alert("el usuario que escogio es un Semillerista")
+                swal({
+                    title: "el usuario que escogio es un Semillerista",
+                    icon:"error"
+                  });
+               
 
             } else {
                 alert("no se pudo actualizar la clase")
-
+                swal({
+                    title: "no se pudo actualizar la clase",
+                    icon:"error"
+                  });
             }
         });
     }

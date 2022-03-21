@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class InsertarLinea extends Component {
 
     cajaNombreRef = React.createRef();
@@ -27,8 +27,10 @@ export default class InsertarLinea extends Component {
         axios.post(url, linea).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="se creo la linea") {
-                alert("se creo la linea")
-               
+                swal({
+                    title: "se creo la linea",
+                    icon:"success"
+                  });
             }else{
               alert("no se pudo creo la linea")
              

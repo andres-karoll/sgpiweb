@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class GruposPrograma extends Component {
 
   state = {
@@ -19,6 +20,14 @@ status: false,
         grupos: res.data
         , status: true
       });
+      if (this.state.grupos.length === 0) {
+        swal({
+          title: "este programa no tiene grupos de investigacion asignados",
+          icon:"error"
+        });
+     
+        window.history.back();
+    }
     });
     
   }

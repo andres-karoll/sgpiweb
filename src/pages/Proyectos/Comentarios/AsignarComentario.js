@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 
 export default class AsignarComentario extends Component {
@@ -37,7 +37,11 @@ export default class AsignarComentario extends Component {
         axios.post(url, comentario).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="el comentario se creo") {
-                alert("el comentario se creo")
+                swal({
+                    title: "el comentario se creo",
+                    icon:"success"
+                  });
+                
                 window.history.back();
             }else{
               alert("no se pudo crear el comentario")

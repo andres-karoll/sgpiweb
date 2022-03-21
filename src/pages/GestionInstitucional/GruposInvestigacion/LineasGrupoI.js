@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class LineasGrupoI extends Component {
 
   state = {
@@ -19,6 +20,13 @@ export default class LineasGrupoI extends Component {
         lineas: res.data
         , status: true
       });
+      if (this.state.lineas.length === 0) {
+        swal({
+          title: "este grupo de investigacion no tiene linea asociada",
+          icon:"error"
+        });
+        window.history.back();
+    }
     });
 
   }

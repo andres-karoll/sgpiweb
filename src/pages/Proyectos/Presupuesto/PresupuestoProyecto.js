@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 export default class PresupuestoProyecto extends Component {
 
   state = {
@@ -24,7 +24,11 @@ status: false,
         
       });
       if (this.state.presupuesto.length === 0) {
-        alert("este proyecto no tiene presupuesto")
+        swal({
+          title: "este proyecto no tiene presupuesto",
+          icon:"error"
+        });
+     
         window.history.back();
     }
 
@@ -139,7 +143,7 @@ status: false,
             </p>
                       
           </a>
-          {rol==="Profesional investigacion"&&
+          {rol==="Profesional investigacion"||rol==="Admin"&&
           <ul className="nav nav-treeview">
           <Link to={"/ComprasPresupuesto/" + pre.id}>
           <li className="nav-item">
@@ -154,7 +158,7 @@ status: false,
         </ul>
           
           }
-           {rol==="Profesional investigacion"&&
+           {rol==="Profesional investigacion"||rol==="Admin"&&
            <ul className="nav nav-treeview">
            <Link to={"/ComprasSolicitadas/" + pre.id}>
            <li className="nav-item">
@@ -169,7 +173,7 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion"&&
+         {rol==="Profesional investigacion"||rol==="Admin"&&
            
            <ul className="nav nav-treeview">
            <Link to={"/ComprasRealizadas/" + pre.id}>
@@ -185,7 +189,7 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion"&&
+         {rol==="Profesional investigacion"||rol==="Admin"&&
             <ul className="nav nav-treeview">
             <Link to={"/ComprasRechasadas/" + pre.id}>
             <li className="nav-item">
@@ -200,7 +204,7 @@ status: false,
           </ul>
           
         }
-         {rol==="Profesional investigacion"&&
+         {rol==="Profesional investigacion"||rol==="Admin"&&
            <ul className="nav nav-treeview">
            <Link to={"/ComprasAceptadas/" + pre.id}>
            <li className="nav-item">
@@ -220,7 +224,7 @@ status: false,
         
         
          
-         {rol==="Docente investigador"&&
+         {rol==="Docente investigador"||rol==="Admin"&&
          <ul className="nav nav-treeview">
 
          <Link to={"/CrearCompra/" + pre.id}>

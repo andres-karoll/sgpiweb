@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class SemillerosGrupoI extends Component {
 
   state = {
@@ -19,6 +20,13 @@ export default class SemillerosGrupoI extends Component {
         semilleros: res.data
         , status: true
       });
+      if (this.state.semilleros.length === 0) {
+        swal({
+          title: "este grupo de investigacion no tiene semilleros asociados",
+          icon:"error"
+        });
+        window.history.back();
+    }
     });
 
   }

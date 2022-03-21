@@ -5,7 +5,7 @@ import Navar from '../../components/Navar'
 
 import Footer from '../../components/Footer'
 import md5 from 'md5'
-
+import swal from 'sweetalert';
 export default class Crearusuario extends Component {
 /**
  * definicion de variables
@@ -32,7 +32,6 @@ export default class Crearusuario extends Component {
     /**
      * cargar programas
      */
-
     cargarProgramas = () => {
         var url = "http://localhost:8080";
         var request = "/gestioninstitucional/listarprogramas" ;
@@ -98,7 +97,11 @@ export default class Crearusuario extends Component {
         };
         console.log(grupo)
         if(clave !="" && clave!=cClave){
-            alert("Error: las contraseñas no coinciden!");
+          swal({
+            title: "Error: las contraseñas no coinciden!",
+            icon:"success"
+          });
+          
         }
         
         console.log(grupo)
@@ -108,13 +111,23 @@ export default class Crearusuario extends Component {
             this.setState({ respuestas: res.data,
                status: true });
                if (res.data.respuesta==="usuario creado") {
-                alert("El usuario fue creado correctamente")
+                swal({
+                  title: "El usuario fue creado correctamente",
+                  icon:"success"
+                });
                 window.location.href ="/"
             }else if(res.data.respuesta==="el tipo de usuario es incorrecto"){
-              alert("El usuario no se pudo crear por favor verifica los datos")
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"success"
+              });
+             
               window.location.href ="/Registro"
             }else{
-              alert("El usuario no se pudo crear por favor verifica los datos")
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"success"
+              });
              
               window.location.href ="/Registro"
             }
@@ -144,13 +157,15 @@ export default class Crearusuario extends Component {
                     </div>
                 </div>
                 <div>
-                <section class="vh-100 " style={{ background: 'rgb(2,0,36)' }}>
+                <section class="vh-100 " style={{ background: 'rgb(245,138,48)' }}>
           
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style={{ borderradius: "1rem" }}>
+            <div class="row d-flex justify-content-center align-items-center h-100" >
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                <div class="card bg-dark text-white" style={{  borderRadius:'25px 25px 25px 25px' }}>
                   <div class="card-body p-5 text-center">
                     <form onSubmit={this.nuevoUsuario} style={{ width: "50%", margin: "auto" }}>
+                
+
                         <label>Cedula: </label>
                         <input type="number" name="cajaced" className="form-control" ref={this.cajaCedula} required />
                         <label>Codigo Universitario: </label>
@@ -198,8 +213,11 @@ export default class Crearusuario extends Component {
                      </div>
                 </div>
               </div>
+
+              
+
             </div>
-         
+            
         </section>
                     <Footer />
                 </div>
