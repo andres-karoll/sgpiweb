@@ -39,7 +39,10 @@ export default class AsignarPresupuesto extends Component {
                   });
                 window.history.back();
             }else{
-              alert("no se pudo asignar el presupuesto")
+                swal({
+                    title: "no se pudo asignar el presupuesto, es probable que ya cuente con un rpesupuesto este proyecto",
+                    icon:"error"
+                  });
               window.history.back();
             }
         });
