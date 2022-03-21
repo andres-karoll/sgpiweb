@@ -1,10 +1,12 @@
 import React, { Component, NavLink } from 'react'
 import axios from 'axios'
 import md5 from 'md5'
+
 export default class FormularioLogin extends Component {
   /**
    * definicion de variables
    */
+  
   cajaCorreo = React.createRef();
   cajaClave = React.createRef();
   cajaTipo = React.createRef();
@@ -16,6 +18,7 @@ export default class FormularioLogin extends Component {
     roles: [],
     rol: []
   }
+
   /**
    * login
    * @param {*} e 
@@ -47,16 +50,14 @@ export default class FormularioLogin extends Component {
           localStorage.setItem("programa", response.programa_id);
           var rol = localStorage.getItem("tipo");
           alert('bienvenido');
-
           window.location.href = "/HomeInstitucional";
-
-
         } else {
           alert('el usuario o contraseña o el tipo de usuario son incorrectos');
           window.location.href = "/";
         }
       })
   }
+  
   /**
    * metodo que carga todos los roles 
    */

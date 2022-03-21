@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ProyectoSemillero extends Component {
 
 
@@ -36,7 +37,10 @@ export default class ProyectoSemillero extends Component {
         return response.data;
       }).then(response => {
         if (response.respuesta == "este usuario ya esta asignado a un semillero") {
-          alert('Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista');
+          swal({
+            title:'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
+            icon:"success"
+          });       
           window.location.href = "/HomeInstitucional";
         }
       })

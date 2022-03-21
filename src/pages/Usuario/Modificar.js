@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import md5 from 'md5'
 
 export default class Modificar extends Component {
 
@@ -24,7 +24,7 @@ export default class Modificar extends Component {
         var usuario = {
             cedula: cedu
             , telefono: tele
-            , clave: cla
+            , clave: md5(cla)
             , correoP: cor
         };
         var url = 'http://localhost:8080/gestionusuario/modificarusuario';
@@ -54,13 +54,11 @@ export default class Modificar extends Component {
         this.Cargar();
       }
     render() {
-        if(this.state.status === true){
-            //return <Redirect to="/Materias" />
-        }
         return (
             <div>
                 <Aside/>
                 <Header/>
+                
             <div className="content-wrapper">
             <section className="content">
                 
@@ -79,7 +77,6 @@ export default class Modificar extends Component {
                     <form onSubmit={this.nuevoUsuario} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Cedula actual: {this.state.usua.cedula}</label>
                             <div className="form-group">
                             <label htmlFor="exampleInputPassword1" style={{color: "red"}}>Cedula del usuario</label>
                             <input type="text" name="cajanom" className="form-control" value = {this.props.cedula} placeholder="Catalogo" ref={this.cajaCedulaRef}/>
@@ -89,23 +86,23 @@ export default class Modificar extends Component {
             
                             <label htmlFor="exampleInputPassword1">Telefono actual: {this.state.usua.telefono}</label>
                             
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaTelefonoRef}/>
+                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.usua.telefono} ref={this.cajaTelefonoRef}/>
                         </div>
                         <div className="form-group">
 
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Clave actual: {this.state.usua.contrasena}</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaClaveRef}/>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Contraseña</label>
+                            <input type="text" name="cajadir" className="form-control" ref={this.cajaClaveRef}/>
                         </div>
 
                         <div className="form-group">
 
                             <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Correo personal actual: {this.state.usua.correo_personal}</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaCorreoRef}/>
+                            <input type="email" name="cajadir" className="form-control" placeholder={this.state.usua.correo_personal}ref={this.cajaCorreoRef}/>
                         </div>
                         </div>
                         {/* /.card-body */}
                         <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <button className="btn btn-success">Actualizar</button>
                         </div>
                     </form>
                     </div>

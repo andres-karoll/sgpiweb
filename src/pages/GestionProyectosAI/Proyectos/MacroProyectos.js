@@ -5,6 +5,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class MacroProyectos extends Component {
 
 
@@ -43,10 +44,17 @@ export default class MacroProyectos extends Component {
         axios.post(url, macros).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el macro se finalizar correctamente") {
-                alert("el macro se finalizar correctamente")
+                swal({
+                    title:"el macro se finalizar correctamente",
+                    icon:"success"
+                  });
+
                 window.history.back();
             } else {
-                alert("el macro no se puedo finalizar")
+                swal({
+                    title:"el macro no se puedo finalizar",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });

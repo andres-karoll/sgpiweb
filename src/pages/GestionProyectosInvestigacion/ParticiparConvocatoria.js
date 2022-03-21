@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from '../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
+import swal from 'sweetalert';
 export default class ParticiparConvocatoria extends Component {
     state = {
         status: false,
@@ -72,6 +73,10 @@ export default class ParticiparConvocatoria extends Component {
         var url = 'http://localhost:8080/gestionproyectosinvestigacion/participarconvocatoria/';
         axios.post(url, ParticipacionConvocatoria).then(res => {
             this.setState({ status: true });
+            swal({
+                title:"El proyecto no se pudo crear por favor verifica los datos",
+                icon:"success"
+              });
             window.history.back();
         });
     }

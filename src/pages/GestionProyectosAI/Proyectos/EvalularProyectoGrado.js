@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class EvaluacionProyectoGrado extends Component {
   /**
@@ -35,10 +34,16 @@ export default class EvaluacionProyectoGrado extends Component {
     axios.post(url, estado).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
-        alert("Se realizo la validacion exitosamente")
+        swal({
+          title:"No se puedo realizar la actualizacion de estado",
+          icon:"success"
+        });
         window.location.href = "/HomeInstitucional"
       } else {
-        alert("No se puedo realizar la actualizacion de estado")
+        swal({
+          title:"No se puedo realizar la actualizacion de estado",
+          icon:"error"
+        });
         window.location.href = "/HomeInstitucional"
       }
     });

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 import { NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
 export default class AgregarParticipante extends Component {
     state = {
         status: false
@@ -35,9 +36,16 @@ export default class AgregarParticipante extends Component {
         axios.post(url, participante).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el participante fue agregado") {
-                alert("El participante fue agregado")
+                swal({
+                    title: "El participante fue agregado",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
+                swal({
+                    title: "El participante no pudo ser agregado",
+                    icon:"error"
+                  });
                 alert("El participante no pudo ser agregado")
                 window.history.back();
             }

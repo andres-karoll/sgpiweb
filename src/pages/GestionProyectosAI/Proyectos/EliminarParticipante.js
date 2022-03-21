@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect, NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
+import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
 
@@ -54,10 +55,16 @@ export default class EliminarParticipante extends Component {
         axios.post(url, participante).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el participante termino su proceso en el proyecto") {
-                alert("El participante termino su proceso")
+                swal({
+                    title:"El participante termino su proceso",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
-                alert("Ocurrio un error")
+                swal({
+                    title:"Ocurrio un error",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });

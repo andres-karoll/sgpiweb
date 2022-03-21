@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-import EliminarArea from '../../GestionInstitucional/Areas/EliminarArea';
+import swal from 'sweetalert';
 export default class AreasConocimientoProyecto extends Component {
 
 
@@ -31,10 +31,16 @@ export default class AreasConocimientoProyecto extends Component {
     axios.post(url, paquete).then(res => {
       this.setState({ status: true });
       if (res.data.respuesta === "Se eliminado la area") {
-        alert("El proyecto fue creado correctamente")
+        swal({
+          title: "El proyecto fue creado correctamente",
+          icon:"success"
+        });
         window.location.href = "/ProyectosAulaIntegrador"
       } else {
-        alert("la area no fue eliminada")
+        swal({
+          title: "la area no fue eliminada",
+          icon:"error"
+        });
         window.location.href = "/ProyectosAulaIntegrador"
       }
     });

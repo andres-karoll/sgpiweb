@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
+import swal from 'sweetalert';
 export default class ModificarMacro extends Component {
     /**
      * definicion de variables 
@@ -26,10 +27,16 @@ export default class ModificarMacro extends Component {
         axios.post(url, macro).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el macro proyecto fue modificado") {
-                alert("el macro proyecto fue modificado")
+                swal({
+                    title:"el macro proyecto fue modificado",
+                    icon:"success"
+                  });
                 window.history.back();
             } else {
-                alert("el macro proyecto proyecto no se pudo modificar")
+                swal({
+                    title:"el macro proyecto proyecto no se pudo modificar",
+                    icon:"error"
+                  });
                 window.history.back();
             }
         });
