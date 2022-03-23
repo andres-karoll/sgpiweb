@@ -135,7 +135,7 @@ export default class TusProyectos extends Component {
                             rol === "Egresado" || rol === "Estudiante inactivo" ? (
                               <></>
                             ) : (
-                              pro.estado === "Finalizado" ? (
+                              pro.estado === "Finalizado" ||pro.estado=="Rechazar"? (
                                 <></>
                               ) : (
                                 <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

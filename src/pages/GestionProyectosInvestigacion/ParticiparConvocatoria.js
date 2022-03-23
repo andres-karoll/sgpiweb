@@ -74,7 +74,7 @@ export default class ParticiparConvocatoria extends Component {
         axios.post(url, ParticipacionConvocatoria).then(res => {
             this.setState({ status: true });
             swal({
-                title:"El proyecto no se pudo crear por favor verifica los datos",
+                title:"El proceso fue exitoso",
                 icon:"success"
               });
             window.history.back();

@@ -126,7 +126,7 @@ export default class Evaluacion extends Component {
                              <textarea name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} />
                          </div>
                          ):(
-                         <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos} value=""/>
+                         <input type="hidden" name="comentarios" rows="5" cols="100" wrap="physical" ref={this.cajaReconocimientos}/>
                          )}
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>

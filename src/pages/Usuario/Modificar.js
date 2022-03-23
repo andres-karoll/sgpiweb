@@ -3,7 +3,7 @@ import axios from 'axios';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
 import swal from 'sweetalert';
-
+import md5 from 'md5'
 export default class Modificar extends Component {
 
     cajaCedulaRef = React.createRef();
@@ -24,7 +24,7 @@ export default class Modificar extends Component {
         var usuario = {
             cedula: cedu
             , telefono: tele
-            , clave: cla
+            , clave: md5(cla)
             , correoP: cor
         };
         var url = 'http://localhost:8080/gestionusuario/modificarusuario';
@@ -100,8 +100,8 @@ export default class Modificar extends Component {
                         </div>
                         <div className="form-group">
 
-                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Clave actual: {this.state.usua.contrasena}</label>
-                            <input type="text" name="cajadir" className="form-control" placeholder={this.state.usua.contrasena} ref={this.cajaClaveRef}/>
+                            <label style={{    width: '50%'}} htmlFor="exampleInputPassword1">Clave</label>
+                            <input type="text" name="cajadir" className="form-control" ref={this.cajaClaveRef}/>
                         </div>
 
                         <div className="form-group">
