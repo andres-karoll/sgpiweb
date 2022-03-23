@@ -37,6 +37,7 @@ export default class ActualizarProyecto extends Component {
     cajaMetodologia = React.createRef();
     cajaJustificacion = React.createRef();
     cajaConclusiones=React.createRef();
+    cajaVis=React.createRef();
     /**
      * metodo para actualizar un proyecto 
      * @param {*} e 
@@ -49,12 +50,14 @@ export default class ActualizarProyecto extends Component {
         var met = this.cajaMetodologia.current.value;
         var jus = this.cajaJustificacion.current.value;
         var con= this.cajaConclusiones.current.value;
+        var vis=this.cajaVis.current.value;
         var proyeto = {
             id: id
             , titulo: tit
             , descripcion: desc
             , metodologia: met
-            , justificacion: jus
+            , justificacion: jus,
+            visibilidad:vis
             , conclusiones:con
 
         };
@@ -120,6 +123,16 @@ export default class ActualizarProyecto extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Justificacion</label>
                                                     <textarea type="text" name="cajatel" className="form-control" ref={this.cajaJustificacion} placeholder={this.state.proyecto.justificacion}/>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}></label>
+                                                    <label htmlFor="exampleInputPassword1">visibilidad del proyecto</label>
+                                                    <div></div>
+                                                    <select ref={this.cajaVis} >
+                                                        <option selected value="">Escoge la visibilidad del proyecto </option>
+                                                        <option style={{ color: "black" }} value={0} >Publico</option>
+                                                        <option style={{ color: "black" }} value={1} >Privado</option>
+                                                    </select>
                                                 </div>
                                                 {this.state.proyecto.estado==="Finalizado"?(
                                                      <div className="form-group">

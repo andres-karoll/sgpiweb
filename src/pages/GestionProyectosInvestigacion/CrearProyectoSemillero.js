@@ -213,7 +213,7 @@ export default class CrearProyectoSemillero extends Component {
                                                         <option selected > Elige el Rol que vas a tener en el proyecto </option>
 
                                                         {
-                                                            localStorage.getItem("tipo") === "Estudiante activo" ? (
+                                                            localStorage.getItem("tipo") === "Semillerista" ? (
 
                                                                 <option style={{ color: "black" }}>Participante</option>
                                                             ) : (
@@ -247,7 +247,8 @@ export default class CrearProyectoSemillero extends Component {
                                                         <div className="form-group">
                                                             <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                             <label htmlFor="exampleInputPassword1">Semillero asociado</label>
-                                                            <input type="text" name="cajatel" className="form-control" ref={this.cajaSemillero} value={this.state.usuario.semillero} readOnly />
+                                                            <input type="text" name="cajatel" className="form-control" value={this.state.usuario.semillero} readOnly />
+                                                            <input type="hidden" name="cajatel" className="form-control" ref={this.cajaSemillero} value={this.state.usuario.semillero_id}/>
                                                         </div>
                                                     )
                                                 }

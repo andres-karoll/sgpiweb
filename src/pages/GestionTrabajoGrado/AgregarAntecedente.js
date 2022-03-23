@@ -20,7 +20,7 @@ export default class AgregarAntecedente extends Component {
      * metodo para traer todos los proyectos 
      */
     mostrarSemilleros = () => {
-        var request = "/gestionproyectosaulaintegrador/todosLosproyectos";
+        var request = "/gestionproyectosinvestigacion/ProyectosFinalizas/";
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({
@@ -51,7 +51,6 @@ export default class AgregarAntecedente extends Component {
         var url = 'http://localhost:8080/gestionproyectosinvestigacion/agregarantecedente';
         axios.post(url, participante).then(res => {
             this.setState({ status: true });
-            console.log(res.data.respuesta)
             if (res.data.respuesta === "se agrego exitosamente el antecedente") {
                 swal({
                     title: "se agrego exitosamente el antecedente",
@@ -98,9 +97,8 @@ export default class AgregarAntecedente extends Component {
                                         <form style={{ width: "50%", margin: "auto" }} onSubmit={this.AgregarAntecedente}>
                                             <div className="card-body">
                                                 <div className="form-group">
-                                                    <label htmlFor="exampleInputEmail1">Proyecto</label>
-                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
-                                                    <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly />
+                                                   
+                                                    <input type="hidden" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly />
                                                 </div>
 
                                                 <div className="form-group">

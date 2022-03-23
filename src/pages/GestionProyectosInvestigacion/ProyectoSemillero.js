@@ -41,7 +41,7 @@ export default class ProyectoSemillero extends Component {
             title:'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
             icon:"success"
           });       
-          window.location.href = "/HomeInstitucional";
+        
         }
       })
   }

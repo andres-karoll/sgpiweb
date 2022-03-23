@@ -259,7 +259,7 @@ export default class CrearProyecto extends Component {
                                                         {this.state.status === true &&
                                                             (this.state.clase.map((cla) => {
                                                                 return (
-                                                                    <option style={{ color: "black" }} value={cla.numero}>{cla.nombre}</option>
+                                                                    <option style={{ color: "black" }} value={cla.numero}>{cla.numero} {cla.nombre}</option>
                                                                 );
                                                             }
                                                             )
@@ -275,7 +275,7 @@ export default class CrearProyecto extends Component {
                                                         {this.state.status === true &&
                                                             (this.state.Macro.map((mac) => {
                                                                 return (
-                                                                    <option style={{ color: "black" }} value={mac.id}>{mac.nombre}</option>
+                                                                    <option style={{ color: "black" }} value={mac.id}> {mac.nombre}</option>
                                                                 );
                                                             }
                                                             )
