@@ -32,12 +32,13 @@ export default class ActualizarFacultad extends Component {
         axios.post(url, facultad).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "la facultad fue actualizada") {
-                swal({
-                    title: "se actualizó la facultad",
-                    icon:"success"
-                  });
-               
-                window.location.href = "/Facultades";
+                
+                    swal({
+                        title: "se actualizó la facultad",
+                        icon:"success"
+                      });
+                  window.location.href = "/Facultades";
+                
             } else if (res.data.respuesta === "la falcultad no fue creada el primer usuario es un estudiante inactivo") {
                 swal({
                     title: "la falcultad no fue creada el primer usuario es un estudiante inactivo",
@@ -95,6 +96,7 @@ export default class ActualizarFacultad extends Component {
              
                 window.location.href = "/Facultades";
             }
+            
         });
     }
     //funcion para obtener la informacion actual de la facultad

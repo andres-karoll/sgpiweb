@@ -121,7 +121,6 @@ export default class ActualizarConvocatorias extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Tipo actual: {this.state.convocatoria.tipo}</label>
-                                                    <input type="text" name="cajatel" className="form-control" placeholder={this.state.convocatoria.tipo} ref={this.cajaTipoRef} />
                                                     <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaTipoRef}>
                                                         <option selected="selected">{this.state.convocatoria.tipo}</option>
                                                         <option>Externa</option>

@@ -41,19 +41,24 @@ export default class AsignarUsuario extends Component {
         }
         return (
             <div>
-                <Aside/>
-                <Header/>
-            <div className="content-wrapper">
-                <div className="card card-info">
-                <div className="card-header">
-                    <h3 className="card-title">Asignar programa al Semillero</h3>
-                </div>
-                {/* /.card-header */}
-                {/* form start */}
+                <Aside />
+                <Header />
+                <div className="content-wrapper">
+                    <section className="content">
+
+                        <div className="container-fluid">
+                            <div className="row">
+                                {/* left column */}
+                                <div className="col-md-12">
+                                    {/* general form elements */}
+                                    <div className="card card-primary" style={{ width: '50%', marginLeft:"auto", marginRight:"auto"}}>
+                                        <div className="card-header" style={{ align: "center" }}>
+                                            <h3 className="card-title"  >Asignar usuario</h3>
+                                        </div>
                 <form onSubmit={this.nuevaAsignacion} className="form-horizontal">
                     <div className="card-body">
                     <div className="form-group row">
-                        <div className="col-sm-10">
+                        <div className="col-sm-5">
                         <input type="hidden" className="form-control" id="inputEmail3" value = {this.props.id} placeholder="Semillero" ref={this.cajaSemilleroRef} readOnly/>
                         </div>
                     </div>
@@ -75,7 +80,14 @@ export default class AsignarUsuario extends Component {
                     {/* /.card-footer */}
                 </form>
                 </div>
-            </div>
+                                    {/* /.card */}
+                                </div>
+                                {/*/.col (right) */}
+                            </div>
+                            {/* /.row */}
+                        </div>{/* /.container-fluid */}
+                    </section>
+                </div>
             </div>
 
         )    

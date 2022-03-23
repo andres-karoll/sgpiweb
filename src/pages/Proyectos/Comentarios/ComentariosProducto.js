@@ -7,7 +7,7 @@ import Header from '../../../components/Global/Header';
 import swal from 'sweetalert';
 export default class ComentariosProducto extends Component {
 
-  state = {
+  state = { 
     status: false,
     comentarios: []
   }
@@ -70,7 +70,7 @@ export default class ComentariosProducto extends Component {
                 return (
                   <div className="content-wrapper">
 
-                    <div className="col-md-8" style={{ width: '100%', float: "left" }}>
+                    <div className="col-md-8" style={{ width: '100%', float: "left", top:"100%" }}>
                       {/* Widget: user widget style 1 */}
 
                       <div className="card card-widget widget-user-2">
@@ -136,8 +136,22 @@ export default class ComentariosProducto extends Component {
                           ) : (
                             <></>
                           )}
+
+                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
+                            <NavLink className="btn btn-success" to={"/AsignarNota/" + com.id} style={{ width: "48%", margin:"8px" }}>Asignar Calificación</NavLink>
+                            
+                          ) : (
+                            <></>
+                          )}  
+                          {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
+                            <NavLink className="btn btn-success" to={"/DesAsignarNota/" + com.id} style={{ width: "48%", margin:"8px" }}>DES-Asignar Calificación</NavLink>
+                            
+                          ) : (
+                            <></>
+                          )}  
                           {/* /.row */}
                         </div>
+                         {/* 
                         {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
                           <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li className="nav-item">
@@ -173,7 +187,7 @@ export default class ComentariosProducto extends Component {
                           </ul>) : (
                           <></>
                         )}
-
+*/}
                       </div>
 
                     </div>
