@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Navar from  '../../../components/Navar'
 import Footer from '../../../components/Footer';
-
+import swal from 'sweetalert';
 export default class ProductosProyectoVisible extends Component {
 
   state = {
@@ -20,6 +20,13 @@ status: false,
        productos: res.data
         , status: true
       });
+      if (this.state.productos.length === 0) {
+        swal({
+          title: "este proyecto no tiene productos",
+          icon:"error"
+        });
+        window.history.back();
+      }
       //window.location.href = "/Proyectos";
     });
     
@@ -44,7 +51,7 @@ status: false,
 
   render() {
     return (
-    <div style={{backgroundColor: "#080424"}}>
+    <div style={{background: 'rgb(245,138,48)'}}>
  <Navar/>
       
       <div>
