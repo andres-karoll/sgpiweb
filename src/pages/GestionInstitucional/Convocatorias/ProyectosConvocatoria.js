@@ -113,7 +113,7 @@ export default class ProyectosConvocatoria extends Component {
                                 {pro.convocatoria}
                               </td>
                               <td className="project-actions text-right">
-                                <NavLink to={"/DetallesProyecto/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
+                                <NavLink to={"/DetallesProyectoAI/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
                                 <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink>
                                 <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id_proyecto} >Productos</NavLink>
 

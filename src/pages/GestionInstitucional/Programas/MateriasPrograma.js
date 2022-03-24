@@ -39,7 +39,9 @@ status: false,
   }
 
   render() {
+    var rol = localStorage.getItem("tipo");
     return (
+
     <div>
       <Aside/>
       <Header/>
@@ -52,7 +54,14 @@ status: false,
                   </div>
                   </section>
       </div>
-      <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarMateriaPrograma/"+this.props.id} >Crear Materia</NavLink>
+      {
+             rol==="Admin"?(
+           <></>
+              ) :(
+                <NavLink className="btn btn-info" style={{width: "100%"}} to={"/InsertarMateriaPrograma/"+this.props.id} >Crear Materia</NavLink>
+                )
+           }
+      
       {this.state.status === true &&
         (
           this.state.materias.map((mat, i) => {
@@ -79,13 +88,13 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '30%' }}>
+                          <th style={{ width: '20%' }}>
                             catalogo
                           </th>
-                          <th style={{ width: '30%' }}>
+                          <th style={{ width: '20%' }}>
                             nombre
                           </th>               
-                          <th style={{ width: '30%' }}>
+                          <th style={{ width: '20%' }}>
                             programa
                           </th>
                         </tr>
@@ -101,9 +110,22 @@ status: false,
                           <td>
                           {mat.programa}
                           </td>
-                          <td className="project-actions text-right" style={{width: '40%'}}>
-                          <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarMateriaPrograma/" + mat.catalogo} >Modificar</NavLink>
-                          <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarMateria/" + mat.catalogo} >Eliminar</NavLink>  
+                          <td className="project-actions text-right" style={{width: '20%'}}>
+                          {
+             rol==="Admin"?(
+           <></>
+              ) :(
+                <NavLink style={{width: '50%'}} className="btn btn-success" to={"/ActulizarMateriaPrograma/" + mat.catalogo} >Modificar</NavLink>
+                )
+           }
+                      {
+             rol==="Admin"?(
+           <></>
+              ) :(
+                <NavLink style={{width: '50%'}} className="btn btn-danger"  to={"/EliminarMateria/" + mat.catalogo} >Eliminar</NavLink>  
+                )
+           }    
+                          
                           </td>
                         </tr>
                       </tbody>

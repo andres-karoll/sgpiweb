@@ -37,7 +37,7 @@ export default class Areas extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1><i class="fas fa-brain nav-icon"></i>Areas</h1>
+                <h1><i class="fas fa-brain nav-icon"></i>Areas de Conocimiento</h1>
               </div>
             </section>
           </div>
