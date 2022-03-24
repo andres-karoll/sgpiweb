@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class ProductosProyectoGrado extends Component {
 
@@ -22,8 +22,11 @@ export default class ProductosProyectoGrado extends Component {
         , status: true
       });
       if (this.state.productos.length === 0) {
-        alert("este proyecto no tiene productos")
-        window.history.back();
+        swal({
+          title: "este proyecto no tiene productos",
+          icon:"success"
+        });
+      window.history.back();
       }
     });
 //funcion para obtener la lista de grupos de investigacion guardandola en "gruposi"
