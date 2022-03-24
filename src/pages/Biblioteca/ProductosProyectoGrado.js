@@ -24,7 +24,7 @@ export default class ProductosProyectoGrado extends Component {
       if (this.state.productos.length === 0) {
         swal({
           title: "este proyecto no tiene productos",
-          icon:"success"
+          icon:"error"
         });
       window.history.back();
       }
