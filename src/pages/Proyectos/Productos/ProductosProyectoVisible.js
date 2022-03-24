@@ -51,14 +51,23 @@ status: false,
 
   render() {
     return (
-    <div style={{background: 'rgb(245,138,48)'}}>
- <Navar/>
       
+
+    <div style={{background: 'rgb(245,138,48)'}}>
+      
+ <Navar/>
+ <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 my-4" ></div>
+      </div>
+    </div>
+  </div>
       <div>
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-copy nav-icon"></i>Productos</h1>
+                  <h1><i class="fas fa-copy nav-icon "></i>Productos de este proyecto</h1>
                   </div>
                   </section>
       </div>
