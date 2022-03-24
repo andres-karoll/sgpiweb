@@ -40,7 +40,7 @@ export default class ParticipantesProyecto extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1><i class="fas fa-user-friends nav-icon"></i>Tus Proyectos</h1>
+                <h1><i class="fas fa-user-friends nav-icon"></i>Participantes</h1>
               </div>
             </section>
           </div>
