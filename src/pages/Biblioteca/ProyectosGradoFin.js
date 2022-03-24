@@ -143,50 +143,13 @@ function Proyectos() {
                           <span className="badge badge-success">{proye.estado}</span>
                         </td>
                         <td className="project-actions text-right">
-                          <NavLink style={{ width: '50%' }} to={"/DetallesProyecto/" + proye.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink style={{ width: '50%' }} to={"/DetallesProyectoAI/" + proye.id} className="btn btn-primary">Detalles</NavLink>
                           <NavLink style={{ width: '50%' }} className="btn btn-warning" to={"/ProductosProyectoGrado/" + proye.id} >Productos</NavLink>
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                  {/** 
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/AsignarPersupuesto/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
                  
-              </a>
-            </li>
-            </Link>
-            <Link to={"/SubirProductos/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-file-upload nav-icon" />
-                
-                <p>Subir Productos</p>
-                 
-              </a>
-            </li>
-            </Link>
-            
-          </ul>
-        </li>
-                    </ul>
-                    */}
                 </div>
                 {/* /.card-body */}
               </div>

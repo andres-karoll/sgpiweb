@@ -140,7 +140,7 @@ function Proyectos() {
                           <span className="badge badge-success">{proye.estado}</span>
                         </td>
                         <td className="project-actions text-right">
-                          <NavLink style={{ width: '50%' }} to={"/DetallesProyecto/" + proye.id} className="btn btn-primary">Detalles</NavLink>
+                          <NavLink style={{ width: '50%' }} to={"/DetallesProyectoAI/" + proye.id} className="btn btn-primary">Detalles</NavLink>
                           <NavLink style={{ width: '50%' }} className="btn btn-warning" to={"/ProductosProyectoGrado/" + proye.id} >Productos</NavLink>
                         </td>
                       </tr>
