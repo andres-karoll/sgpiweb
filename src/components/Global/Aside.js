@@ -143,7 +143,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-book nav-icon"> </i>
-                          <p>Proyectos de clase</p>
+                          <p>Tus Proyectos</p>
                         </a>
                       </li>
                     </Link>
@@ -435,7 +435,7 @@ export default class Aside extends Component {
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-book nav-icon"> </i>
-                          <p>Proyectos de clase</p>
+                          <p>Tus proyectos </p>
                         </a>
                       </li>
                     </Link>

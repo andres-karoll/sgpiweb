@@ -99,6 +99,9 @@ export default class TusProyectos extends Component {
                                 <th style={{ width: '15%' }}>
                                   Estado
                                 </th>
+                                <th style={{ width: '15%' }}>
+                                  Tipo proyecto
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -120,6 +123,11 @@ export default class TusProyectos extends Component {
                                 <td className="project_progress">
                                   <a>
                                     {pro.estado}
+                                  </a>
+                                </td>
+                                <td className="project_progress">
+                                  <a>
+                                    {pro.tipo_proyecto}
                                   </a>
                                 </td>
                                 <td className="project-actions text-right" style={{ width: '40%' }}>

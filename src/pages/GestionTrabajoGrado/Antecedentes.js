@@ -111,26 +111,12 @@ export default class Antecedentes extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetalleProyectoGrado/" + pro.id} >Detalles</NavLink>
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoAI/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                        <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li className="nav-item">
-              <a href="#" className="nav-link ">
-                <i className="fas fa-lightbulb nav-icon" />        
-                <p>
-                  Funciones
-                  <i className="right fas fa-angle-left" />
-                </p>
-                          
-              </a>
-            </li>
-    
-                        </ul>
-                         
                       </div>
                       {/* /.card-body */}
                     </div>

@@ -226,7 +226,6 @@ export default class CrearProyecto extends Component {
                                                     <select ref={this.cajaTipo} style={{ color: "black" }}>
                                                         <option selected > Elige el Tipo de proyecto </option>
                                                         <option style={{ color: "black" }}>Aula</option>
-                                                        <option style={{ color: "black" }}>Libre</option>
                                                         <option style={{ color: "black" }}>Grado</option>
                                                     </select>
                                                 </div>
