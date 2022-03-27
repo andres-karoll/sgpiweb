@@ -111,7 +111,7 @@ export default class Antecedentes extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/DetallesProyectoAI/" + pro.id} >Detalles</NavLink>
+                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/Detalles/" + pro.id} >Detalles</NavLink>
                               </div>                   
                               </td>
                             </tr>

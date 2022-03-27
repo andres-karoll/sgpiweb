@@ -30,7 +30,6 @@ export default class CrearMacro extends Component {
         axios.post(url, macro).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta === "el macro proyecto se creo correctamente") {
-                alert("el macro proyecto se creo correctamente")
                 swal({
                     title: "El proyecto fue creado correctamente",
                     icon:"success"

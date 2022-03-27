@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Aside from '../../../components/Global/Aside';
 import Header from '../../../components/Global/Header';
-export default class ParticipantesProyecto extends Component {
+export default class Participantes extends Component {
   state = {
     participantes: {}
     , status: false
@@ -44,20 +44,6 @@ export default class ParticipantesProyecto extends Component {
               </div>
             </section>
           </div>
-          {
-            rol === "Estudiante activo" || rol === "Docente" || rol === "Semillerista" || rol === "Investigador formacion" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
-              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/AgregarParticipante/" + this.props.id} >Agregar Participante</NavLink>
-            ) : (
-              <></>
-            )
-          }
-          {
-            rol === "Estudiante activo" || rol === "Docente" || rol === "Semillerista" || rol === "Investigador formacion" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
-              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/EliminarParticipante/" + this.props.id} >Terminar proceso de participante</NavLink>
-            ) : (
-              <></>
-            )
-          }
           {this.state.status === true &&
             (
               this.state.participantes.map((pra) => {
@@ -105,11 +91,13 @@ export default class ParticipantesProyecto extends Component {
                                 </a>
                                 <br />
                               </td>
+
                               <td className="project_progress">
                                 <a>
                                   {pra.fecha_fin}
                                 </a>
                               </td>
+                            
                               <td className="project_progress">
                                 <a>
                                   {pra.rol}

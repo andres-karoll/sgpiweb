@@ -38,10 +38,10 @@ export default class ProyectoSemillero extends Component {
       }).then(response => {
         if (response.respuesta == "este usuario ya esta asignado a un semillero") {
           swal({
-            title:'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
-            icon:"success"
-          });       
-        
+            title: 'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
+            icon: "success"
+          });
+
         }
       })
   }
@@ -169,17 +169,20 @@ export default class ProyectoSemillero extends Component {
                                   {pro.estado}
                                 </a>
                               </td>
-                              <td className="project-actions text-right" style={{ width: '40%' }}>
+                              <td className="project-actions text-right" style={{ width: '20%' }}>
                                 <div className=" mt-3 pb-3 mb-3 d-flex">
                                   {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
                                   {(rol === "Semillerista") &&
                                     <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink>
 
                                   }
-
-
-
                                   <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/DetallesProyectoSemillero/" + pro.id} >Detalles</NavLink>
+                                  {pro.estado === "Finalizado" ? (
+                                    <></>
+                                  ) : (rol === "Docente lider semillero" &&
+                                    <NavLink style={{ width: '50%' }} className="btn btn-success" to={"/Evaluacion/" + pro.id} >Evaluar</NavLink>)}
+
+
                                 </div>
                               </td>
                             </tr>

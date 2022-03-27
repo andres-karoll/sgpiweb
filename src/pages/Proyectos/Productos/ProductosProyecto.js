@@ -134,7 +134,7 @@ export default class ProductosProyecto extends Component {
             
           </ul>
           <ul className="nav nav-treeview">
-          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Estudiante activo"? (
+          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Estudiante activo"|| rol==="Semillerista"? (
               <></>
             ) : (
               <Link to={"/CrearComentario/" + pro.id}>

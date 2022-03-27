@@ -183,6 +183,8 @@ import TrabajoGradoCorrecciones from './pages/Proyectos/Proyectos/TrabajoGradoCo
 import TrabajoGradoFin from './pages/Proyectos/Proyectos/TrabajoGradoFin'
 import LoadingPrueba from './pages/Loadings/LoadingPrueba'
 import TrabajoGradoRechazado from './pages/Proyectos/Proyectos/TrabajoGradoRechazado'
+import Detalles from './pages/GestionProyectosAI/Proyectos/Detalles'
+import Participantes from './pages/GestionProyectosAI/Proyectos/Participantes'
 
 
 
@@ -680,8 +682,14 @@ export default function App() {
                         }} /> 
             
 
-
-
+            <Route exact path="/Detalles/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <Detalles id={id} />
+                    }} />
+ <Route exact path="/Participantes/:id" render={props => {
+                        var id = props.match.params.id;
+                        return <Participantes id={id} />
+                    }} />
                 <Route exact path="/Perfil/:id" render={props => {
                         var id = props.match.params.id;
                         return <Perfil id={id} />
