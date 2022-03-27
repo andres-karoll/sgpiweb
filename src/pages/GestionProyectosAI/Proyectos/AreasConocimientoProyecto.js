@@ -113,13 +113,13 @@ export default class AreasConocimientoProyecto extends Component {
                                 Proyecto
                               </th>
                               <th style={{ width: '15%' }}>
-                                Nombre del evento
+                                Nombre del area de conocimiento
                               </th>
                               <th style={{ width: '15%' }}>
-                                reconocimiento
+                                Descripcion
                               </th>
                               <th style={{ width: '15%' }}>
-                                fecha de la participacion
+                                Gran area
                               </th>
                             </tr>
                           </thead>
@@ -130,18 +130,20 @@ export default class AreasConocimientoProyecto extends Component {
                               </td>
                               <td>
                                 <a>
-                                  {are.descripcion}
+                                {are.nombre}
+                                  
                                 </a>
                                 <br />
                               </td>
                               <td className="project_progress">
                                 <a>
-                                  {are.gran_area}
+                                {are.descripcion}
+                                  
                                 </a>
                               </td>
                               <td className="project_progress">
                                 <a>
-                                  {are.nombre}
+                                {are.gran_area}
                                 </a>
                               </td>
                               <input type="hidden" value={are.id} ref={this.cajaArea} />
