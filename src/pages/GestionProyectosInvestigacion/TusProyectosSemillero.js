@@ -93,7 +93,7 @@ status: false,
                 <></>
               )
                 :(
-                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un poryecto</NavLink>
+                <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un proyecto</NavLink>
                 )
            }
                 <button className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}  onClick={this.salirSemillero} >Salir de semillero</button>

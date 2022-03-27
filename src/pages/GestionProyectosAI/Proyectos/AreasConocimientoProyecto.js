@@ -110,7 +110,7 @@ export default class AreasConocimientoProyecto extends Component {
                           <thead>
                             <tr>
                               <th style={{ width: '1%' }}>
-                                Proyecto
+                                ID
                               </th>
                               <th style={{ width: '15%' }}>
                                 Nombre del area de conocimiento
