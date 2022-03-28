@@ -109,14 +109,22 @@ export default class Crearusuario extends Component {
             this.setState({ respuestas: res.data,
                status: true });
                if (res.data.respuesta==="usuario creado") {
-                alert("El usuario fue creado correctamente")
+                swal({
+                  title: "El usuario fue creado correctamente",
+                  icon:"succes"
+                });
                 window.history.back();
             }else if(res.data.respuesta==="el tipo de usuario es incorrecto"){
-              alert("El usuario no se pudo crear por favor verifica los datos")
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"error"
+              });
               window.history.back();
             }else{
-              alert("El usuario no se pudo crear por favor verifica los datos")
-             
+              swal({
+                title: "El usuario no se pudo crear por favor verifica los datos",
+                icon:"error"
+              });
               window.history.back();
             }
         });

@@ -74,9 +74,8 @@ export default class AgregarParticipante extends Component {
                                         <form style={{ width: "50%", margin: "auto" }} onSubmit={this.AgregarParticipante}>
                                             <div className="card-body">
                                                 <div className="form-group">
-                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
-                                                    <label htmlFor="exampleInputEmail1">Id</label>
-                                                    <input type="text" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly />
+                      
+                                                    <input type="hidden" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly />
                                                 </div>
 
                                                 <div className="form-group">
@@ -95,6 +94,17 @@ export default class AgregarParticipante extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
+                                                    {rol==="Docente" || rol === "Docente lider semillero" ?(
+                                                        <select ref={this.cajaRol} required>
+
+                                                        <option style={{ color: "black" }}>Lider</option>
+                                                        <option style={{ color: "black" }}>Participante</option>
+                                                    </select>
+
+                                                
+                                                    ):(
+                                                        <></>
+                                                    )}
                                                     {
                                                         rol === "Estudiante activo" &&
                                                         <select ref={this.cajaRol} required>
@@ -104,15 +114,9 @@ export default class AgregarParticipante extends Component {
                                                         </select>
 
                                                     }
-                                                    {
-                                                        rol === "Docentes" || rol === "Docente lider semillero" &&
-                                                        <select ref={this.cajaRol} required>
-
-                                                            <option style={{ color: "black" }}>Lider</option>
-                                                            <option style={{ color: "black" }}>Participante</option>
-                                                        </select>
-
-                                                    }
+                                                
+                                                
+                                                        
                                                 </div>
                                             </div>
                                             <div className="card-footer">
