@@ -74,7 +74,6 @@ export default class AgregarParticipante extends Component {
                                         <form style={{ width: "50%", margin: "auto" }} onSubmit={this.AgregarParticipante}>
                                             <div className="card-body">
                                                 <div className="form-group">
-                      
                                                     <input type="hidden" name="cajanom" className="form-control" placeholder="Catalogo" ref={this.cajaId} value={this.props.id} readOnly />
                                                 </div>
 
