@@ -93,15 +93,9 @@ export default class InsertarEvento extends Component {
                                                     {/* form start 
                             <input type="text" name="cajatel" className="form-control" placeholder="Fecha inicio" ref={this.cajaFechaRef} />
 */}
-
                                                     <input type="date" id="start" name="trip-start"
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
-
-
                                                 </div>
-
-
-
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado</label>
@@ -113,7 +107,12 @@ export default class InsertarEvento extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Entidad</label>
-                                                    <input type="text" name="cajatel" className="form-control" placeholder="Entidad" ref={this.cajaEntidadRef} />
+                                                    <select className="form-control select2" style={{ width: '100%' }} ref={this.cajaEntidadRef} required>
+                                                        <option selected="selected">Interno</option>
+                                                        <option>Externo</option>
+                                                        <option>Interno</option>
+                                                    </select>
+                                                
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1">Sitio Web</label>

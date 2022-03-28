@@ -21,7 +21,7 @@ export default class ParticiparEvento extends Component {
      * metodo que lista eventos 
      */
     mostrarEventos = () => {
-        var request = "/gestionproyectosaulaintegrador/listareventos"
+        var request = "/gestioninstitucional/listareventosInternos"
         var url = "http://localhost:8080" + request;
         axios.get(url).then(res => {
             this.setState({

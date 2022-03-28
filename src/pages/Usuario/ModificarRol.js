@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import Aside from '../../components/Global/Aside';
 import Header from '../../components/Global/Header';
-
+import swal from 'sweetalert';
 
 export default class ModificarRol extends Component {
 
@@ -24,11 +23,17 @@ export default class ModificarRol extends Component {
         axios.post(url, roll).then(res => {
             this.setState({ status: true });
             if (res.data.respuesta==="ingresado correctamente") {
-                alert("se agrego el rol al usuario")
+                
+                swal({
+                    title:"se agrego el rol al usuario",
+                    icon:"success"
+                  });
                 window.history.back();
             }else if (res.data.respuesta==="el usuario o el tipo de usuario no existe") {
-                alert("el usuario o el tipo de usuario no existe")
-               
+                swal({
+                    title:"el usuario o el tipo de usuario no existe",
+                    icon:"error"
+                  });
             }
         });
     }

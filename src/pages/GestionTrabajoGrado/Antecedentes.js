@@ -42,7 +42,7 @@ export default class Antecedentes extends Component {
                 </section>
           </div> 
           {
-             rol==="Egresado" || rol==="Estudiante inactivo" || rol==="Admin"?(
+             rol==="Egresado" || rol==="Estudiante inactivo" || rol==="Admin"|| rol==="Personal publicaciones" || rol==="Personal biblioteca"?(
            <></>
               ) :(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarAntecedente/"+this.props.id} >Agrega un antecente</NavLink>

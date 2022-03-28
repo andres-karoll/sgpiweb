@@ -93,7 +93,7 @@ progra:[] }
                             <input type="text" name="cajadir" className="form-control" placeholder="Nombre de la materia" ref={this.cajaNombreRef} required/>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
+                       
                             <input type="hidden" name="cajadir" className="form-control" value={this.props.id} ref={this.cajaProgramaRef} required/>
                         </div>
                         </div>
