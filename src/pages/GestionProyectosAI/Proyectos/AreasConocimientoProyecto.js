@@ -147,12 +147,15 @@ export default class AreasConocimientoProyecto extends Component {
                                 </a>
                               </td>
                               <input type="hidden" value={are.id} ref={this.cajaArea} />
+                              {
+            rol === "Semillerista" || rol === "Estudiante activo" || rol === "Docente investigador" || rol === "Docente" || rol === "Docente lider semillero" || rol === "Investigador formacion" ? (
                               <td className="project-actions text-right" style={{ width: '40%' }}>
                                 <div className=" mt-3 pb-3 mb-3 d-flex">
                                   {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
                                   <button style={{ width: '50%' }} className="btn btn-success" onClick={this.EliminarArea}>Eliminar area</button>
                                 </div>
                               </td>
+            ):(<></>)}
                             </tr>
                           </tbody>
                         </table>

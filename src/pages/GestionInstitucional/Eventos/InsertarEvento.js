@@ -46,7 +46,11 @@ export default class InsertarEvento extends Component {
                   });
                 window.history.back();
             } else {
-                alert("no se pudo crear el evento")
+                 swal({
+                    title: "no se pudo crear el evento",
+                    icon:"error"
+                  });
+                
             }
         });
     }

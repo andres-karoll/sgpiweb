@@ -217,7 +217,7 @@ export default class DetallesProyectoSemillero extends Component {
                         <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
                         <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ProductosProyecto/" + this.state.proyecto.id} >Productos</NavLink>
                         {
-                          rol === "Egresado" || rol === "Estudiante inactivo" ? (
+                          rol === "Egresado" || rol === "Estudiante inactivo"|| rol==="Lider grupo investigacion" ||rol==="Coordinador investigacion facultad" || rol==="Direccion investigacion corporativo" ? (
                             <></>
                           ) : (
                             <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>

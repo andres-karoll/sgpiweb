@@ -7,7 +7,6 @@ import Header from '../../components/Global/Header';
 import swal from 'sweetalert';
 export default class ProyectoSemillero extends Component {
 
-
   state = {
     status: false,
     proyectos: [],
@@ -41,7 +40,7 @@ export default class ProyectoSemillero extends Component {
             title: 'Ya estas incrito a un semillero, por favor ingresa vuelve a iniciar sesion con el rol de semillerista',
             icon: "success"
           });
-
+          window.history.back();
         }
       })
   }
@@ -59,6 +58,7 @@ export default class ProyectoSemillero extends Component {
   }
   render() {
     var rol = localStorage.getItem("tipo")
+    var numero;
     return (
       <div>
         <Aside />
@@ -75,7 +75,7 @@ export default class ProyectoSemillero extends Component {
           {
             rol === "Egresado" ? (
               <></>
-            ) : rol === "Estudiante activo" || rol === "Estudiante inactivo" ? (
+            ) : rol === "Estudiante activo" || rol === "Estudiante inactivo" ||numero==="0" ? (
               <></>
             )
               : (
