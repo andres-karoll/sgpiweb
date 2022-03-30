@@ -166,7 +166,12 @@ export default class ProyectosConvocatoria extends Component {
            }
                            {
             pro.estado_proyecto==="Finalizado"?(
-              <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <></>
+              ) :(
+                
+
+
+                <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                           <li className="nav-item">
                             <a href="#" className="nav-link ">
                               <i className="fas fa-lightbulb nav-icon" />
@@ -192,8 +197,6 @@ export default class ProyectosConvocatoria extends Component {
 
 
                         </ul>
-              ) :(
-                <></>
                 )
            }          
 
