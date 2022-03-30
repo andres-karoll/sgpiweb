@@ -67,7 +67,7 @@ export default class Perfil extends Component {
               </ul>
 
               <NavLink to={"/Modificar/" + this.state.Perfil.cedula} style={{ width: "50%", fontSize: "large" }} className="btn btn-primary">Actualizar perfil</NavLink>
-              <NavLink className="btn btn-danger" to={"/EliminarUsuario/" + this.state.Perfil.cedula} style={{ width: "50%", fontSize: "large" }}>Eliminar cuenta</NavLink>
+              <NavLink className="btn btn-danger" to={"/EliminarUsuario/" + this.state.Perfil.cedula} style={{ width: "50%", fontSize: "large" }}>Desactivar cuenta</NavLink>
             </div>
             {/* /.card-body */}
 
