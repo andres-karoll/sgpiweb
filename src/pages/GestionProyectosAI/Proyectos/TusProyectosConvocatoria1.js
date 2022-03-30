@@ -119,9 +119,6 @@ export default class TusProyectosConvocatoria1 extends Component {
                                 <NavLink to={"/DetallesProyectoAI/" + pro.id} className="btn btn-primary">Detalles</NavLink>
                                 <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id} >Presupuesto</NavLink>
                                 <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id} >Productos</NavLink>
-
-
-
                               </td>
                             </tr>
                           </tbody>

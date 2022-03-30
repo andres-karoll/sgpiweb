@@ -101,7 +101,7 @@ function Proyectos(){
                           <th style={{width: '10%'}}>
                             Fecha Final
                           </th>              
-                          <th style={{width: '20%'}}>
+                          <th style={{width: '30%'}}>
                             Descripción
                           </th>
                           <th style={{ width: '5%' }} className="text-center">
@@ -149,65 +149,12 @@ function Proyectos(){
                           </td>
                           <td className="project-actions text-right">
                             
-                          <NavLink to={"/DetallesLindo/" + proye.id} className="btn btn-primary">Detalles</NavLink>
-                          <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + proye.id} >Presupuesto</NavLink> 
-                          <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + proye.id} >Productos</NavLink>
-                          
-                          
-                            
+                          <NavLink to={"/DetallesProyectoAI/" + proye.id} style={{width: '100%'}} className="btn btn-primary">Detalles</NavLink>
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li className="nav-item">
-          <a href="#" className="nav-link ">
-            <i className="fas fa-lightbulb nav-icon" />        
-            <p>
-              Funciones
-              <i className="right fas fa-angle-left" />
-            </p>
-                      
-          </a>
-          <ul className="nav nav-treeview">
-
-            <Link to={"/AsignarPersupuesto/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-hand-holding-usd nav-icon" />
-                
-                <p>Asignar Presupuesto</p>
-                 
-              </a>
-            </li>
-            </Link>
-            <Link to={"/SubirProductos/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-file-upload nav-icon" />
-                
-                <p>Subir Productos</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-            <Link to={"/AceptarDenegarConvocatoria/" + proye.id}>
-            <li className="nav-item">
-              <a  className="nav-link">
-                <i className="fas fa-check-double nav-icon" />
-                
-                <p>Aceptar Denegar convocatoria</p>
-                 
-              </a>
-            </li>
-            </Link>
-
-    
-            
-          </ul>
-        </li>
-                    </ul>
+                  
                   </div>
                   {/* /.card-body */}
                 </div>

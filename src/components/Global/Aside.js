@@ -96,7 +96,7 @@ export default class Aside extends Component {
                     <Link to={"/Proyectos/"}>
                       <li className="nav-item">
                         <a className="nav-link">
-                          <i className="fas fa-user-friends  nav-icon" />
+                          <i className="fas fa-dice-d20 nav-icon" />
                           <p>Todos los proyectos</p>
                         </a>
                       </li>
@@ -208,14 +208,6 @@ export default class Aside extends Component {
                         <a className="nav-link">
                           <i className="fas fa-graduation-cap nav-icon"> </i>
                           <p>Proyectos de grado </p>
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to="/Proyectos">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className=" fas fa-cubes nav-icon"> </i>
-                          <p>Todos los proyectos en SGPI</p>
                         </a>
                       </li>
                     </Link>

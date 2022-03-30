@@ -39,6 +39,7 @@ export default class ProyectosConvocatoria extends Component {
   }
 
   render() {
+    var rol = localStorage.getItem("tipo");
     return (
       <div>
         <Aside />
@@ -114,7 +115,15 @@ export default class ProyectosConvocatoria extends Component {
                               </td>
                               <td className="project-actions text-right">
                                 <NavLink to={"/DetallesProyectoAI/" + pro.id_proyecto} className="btn btn-primary">Detalles</NavLink>
-                                <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink>
+
+                                {
+            rol==="Profesional investigacion" || rol==="Admin"?(
+              <NavLink className="btn btn-success" to={"/PresupuestoProyecto/" + pro.id_proyecto} >Presupuesto</NavLink>
+              ) :(
+                <></>
+                )
+           }
+                                
                                 <NavLink className="btn btn-warning" to={"/ProductosProyecto/" + pro.id_proyecto} >Productos</NavLink>
 
 
@@ -134,15 +143,12 @@ export default class ProyectosConvocatoria extends Component {
 
                             </a>
                             <ul className="nav nav-treeview">
-
-
                               <Link to={"/AsignarPersupuesto/" + pro.id_proyecto}>
                                 <li className="nav-item">
                                   <a className="nav-link">
                                     <i className="fas fa-hand-holding-usd nav-icon" />
 
                                     <p>Asignar Presupuesto</p>
-
                                   </a>
                                 </li>
                               </Link>
