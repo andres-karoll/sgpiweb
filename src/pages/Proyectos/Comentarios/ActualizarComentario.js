@@ -68,6 +68,7 @@ export default class ActualizarComentario extends Component {
 
 
     render() {
+        var rol = localStorage.getItem("tipo");
         if(this.state.status === true){
             //return <Redirect to="/Proyectos" />
         }
@@ -108,7 +109,7 @@ export default class ActualizarComentario extends Component {
                         <div className="form-group">
                        
                             <label htmlFor="exampleInputPassword1">Nivel actual: {this.state.comentario.nivel}</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.comentario.nivel} ref={this.cajaNivelRef} />
+                            <input type="text" name="cajatel" className="form-control" value= {rol} ref={this.cajaNivelRef} readOnly/>
                         </div>
                         <div className="form-group">
                         

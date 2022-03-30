@@ -54,7 +54,7 @@ export default class AsignarComentario extends Component {
 
 
     render() {
-
+        var rol = localStorage.getItem("tipo");
         if(this.state.status === true){
             //return <Redirect to="/Proyectos" />
         }
@@ -98,7 +98,7 @@ export default class AsignarComentario extends Component {
 
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Nivel</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder="Nivel" ref={this.cajaNivelRef} required/>
+                            <input type="text" name="cajatel" className="form-control" value= {rol} ref={this.cajaNivelRef} readOnly/>
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
