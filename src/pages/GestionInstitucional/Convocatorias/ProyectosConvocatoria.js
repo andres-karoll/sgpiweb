@@ -134,6 +134,7 @@ export default class ProyectosConvocatoria extends Component {
                         </table>
                         {
             rol==="Profesional investigacion" || rol==="Admin"?(
+              pro.estado_proyecto==="Finalizado"?(<></>):(
               <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                           <li className="nav-item">
                             <a href="#" className="nav-link ">
@@ -160,46 +161,10 @@ export default class ProyectosConvocatoria extends Component {
 
 
                         </ul>
-              ) :(
+)              ) :(
                 <></>
                 )
            }
-                           {
-            pro.estado_proyecto==="Finalizado"?(
-              <></>
-              ) :(
-                
-
-
-                <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                          <li className="nav-item">
-                            <a href="#" className="nav-link ">
-                              <i className="fas fa-lightbulb nav-icon" />
-                              <p>
-                                Funciones
-                                <i className="right fas fa-angle-left" />
-                              </p>
-
-                            </a>
-                            <ul className="nav nav-treeview">
-                              <Link to={"/AsignarPersupuesto/" + pro.id_proyecto}>
-                                <li className="nav-item">
-                                  <a className="nav-link">
-                                    <i className="fas fa-hand-holding-usd nav-icon" />
-
-                                    <p>Asignar Presupuesto</p>
-                                  </a>
-                                </li>
-                              </Link>
-
-                            </ul>
-                          </li>
-
-
-                        </ul>
-                )
-           }          
-
                       </div>
 
                       {/* /.card-body */}
