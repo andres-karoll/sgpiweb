@@ -18,7 +18,8 @@ export default class EliminarUsuario extends Component {
             if (res.data.respuesta==="Se desabilito tu cuenta") {
                 swal({
                     title: "Se desabilito tu cuenta",
-                    icon:"success"
+                    icon:"success",
+                    text:"si quiere volver a activar su cuenta debe comunicarse con el administrador"
                   });
                 
                 localStorage.clear()
