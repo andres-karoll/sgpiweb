@@ -23,6 +23,7 @@ export default class Perfil extends Component {
       });
     });
   }
+  
   /**
    * metodo de inicio 
    */
