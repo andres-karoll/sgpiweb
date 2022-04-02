@@ -132,7 +132,7 @@ status: false,
             </p>
                       
           </a>
-          {rol==="Profesional investigacion" || rol==="Admin"&&
+          {rol==="Profesional investigacion"&&
           <ul className="nav nav-treeview">
           <Link to={"/ComprasPresupuesto/" + pre.id}>
           <li className="nav-item">
@@ -147,7 +147,7 @@ status: false,
         </ul>
           
           }
-           {rol==="Profesional investigacion" || rol==="Admin"&&
+           {rol==="Profesional investigacion"&&
            <ul className="nav nav-treeview">
            <Link to={"/ComprasSolicitadas/" + pre.id}>
            <li className="nav-item">
@@ -178,7 +178,7 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion" || rol==="Admin"&&
+         {rol==="Profesional investigacion"&&
             <ul className="nav nav-treeview">
             <Link to={"/ComprasRechasadas/" + pre.id}>
             <li className="nav-item">
@@ -193,7 +193,7 @@ status: false,
           </ul>
           
         }
-         {rol==="Profesional investigacion" || rol==="Admin"&&
+         {rol==="Profesional investigacion"&&
            <ul className="nav nav-treeview">
            <Link to={"/ComprasAceptadas/" + pre.id}>
            <li className="nav-item">
@@ -209,7 +209,7 @@ status: false,
           
         }
       
-         {rol==="Docente investigador" || rol==="Admin"&&
+         {rol==="Docente investigador"&&
          <ul className="nav nav-treeview">
 
          <Link to={"/CrearCompra/" + pre.id}>
