@@ -162,7 +162,57 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion" || rol==="Docente lider semillero" || rol==="Docente investigador" || rol==="Admin"&&
+         {rol==="Profesional investigacion"&&
+           
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasRealizadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-eye nav-icon" />
+               
+               <p>Ver Compras realizadas</p>
+                
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+        {rol==="Docente lider semillero"&&
+           
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasRealizadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-eye nav-icon" />
+               
+               <p>Ver Compras realizadas</p>
+                
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+
+{rol==="Docente investigador"&&
+           
+           <ul className="nav nav-treeview">
+           <Link to={"/ComprasRealizadas/" + pre.id}>
+           <li className="nav-item">
+             <a  className="nav-link">
+               <i className="fas fa-eye nav-icon" />
+               
+               <p>Ver Compras realizadas</p>
+                
+             </a>
+           </li>
+           </Link>
+         </ul>
+          
+        }
+
+{rol==="Admin"&&
            
            <ul className="nav nav-treeview">
            <Link to={"/ComprasRealizadas/" + pre.id}>
