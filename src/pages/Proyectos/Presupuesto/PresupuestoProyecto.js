@@ -161,7 +161,7 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion"||rol==="Admin"&&
+         {rol==="Profesional investigacion"||rol==="Admin"||rol==="Docente lider semillero"||rol==="Docente investigador"&&
            
            <ul className="nav nav-treeview">
            <Link to={"/ComprasRealizadas/" + pre.id}>
@@ -208,10 +208,6 @@ status: false,
           
         }
       
-          
-        
-        
-         
          {rol==="Docente investigador"||rol==="Admin"&&
          <ul className="nav nav-treeview">
 
