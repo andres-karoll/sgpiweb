@@ -142,7 +142,7 @@ export default class ProyectoSemillero extends Component {
                                 Descripcion
                               </th>
                               <th style={{ width: '15%' }}>
-                                fecha de inicio
+                               Estado
                               </th>
 
                             </tr>

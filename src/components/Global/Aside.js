@@ -321,30 +321,7 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
-                    <Link to="/ProyectoSemillero">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-folder-open nav-icon" />
-                          <p>Tus proyectos</p>
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to="/ConvocatoriasAbiertas">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-door-open nav-icon" />
-                          <p> Convocatorias Abiertas</p>
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to="/TusProyectosSemillero">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-seedling nav-icon" />
-                          <p> Tus proyectos Semillero</p>
-                        </a>
-                      </li>
-                    </Link>
+
                   </ul>
                 </li>
               }
@@ -387,14 +364,7 @@ export default class Aside extends Component {
                     </p>
                   </a>
                   <ul className="nav nav-treeview">
-                    <Link to="/ConvocatoriasAbiertas">
-                      <li className="nav-item">
-                        <a className="nav-link">
-                          <i className="fas fa-graduation-cap nav-icon"> </i>
-                          <p>Convocatorias</p>
-                        </a>
-                      </li>
-                    </Link>
+                    
                     <Link to="/ProyectoSemillero">
                       <li className="nav-item">
                         <a className="nav-link">

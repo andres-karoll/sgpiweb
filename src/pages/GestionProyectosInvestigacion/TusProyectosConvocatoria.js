@@ -14,7 +14,7 @@ export default class TusProyectosConvocatoria extends Component {
    */
   cargarProyecto = () => {
     var url = "http://localhost:8080";
-    var request = "/gestionproyectosinvestigacion/tusProyectosSemillero/" + localStorage.getItem("cedula");
+    var request = "/gestionproyectosaulaintegrador/ProyectosConvocatoriaUsuario/" + localStorage.getItem("cedula");
     axios.get(url + request).then(res => {
       this.setState({
         proyectos: res.data
@@ -101,10 +101,10 @@ export default class TusProyectosConvocatoria extends Component {
                                 {pro.descripcion}
                               </td>
                               <td>
-                                {pro.estado}
+                                {pro.id_proyecto}
                               </td>
                               <td>
-                                {pro.convocatoria}
+                                {pro.nombre_convocatoria}
                               </td>
                               <td className="project-actions text-right">
 

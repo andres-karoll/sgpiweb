@@ -276,27 +276,7 @@ export default class DetallesProyecto extends Component {
                             </li>
                           </Link>
 
-                          {
-                            rol === "Docente investigador" || rol === "Docente lider semillero" ? (
-                              <Link to={"/ParticiparConvocatoria"} >
-                                <li className="nav-item" >
-                                  <a className="nav-link">
-                                    <i className="fas fa-eye nav-icon" />
-
-                                    <p>
-                                      Participa en una Convocatoria
-                                    </p>
-
-                                  </a>
-                                </li>
-                              </Link>
-
-                            ) : (
-                              <></>
-                            )
-                          }
-
-
+                
                           <Link to={"/Antecedentes/" + this.state.proyecto.id} >
                             <li className="nav-item" >
                               <a className="nav-link">
