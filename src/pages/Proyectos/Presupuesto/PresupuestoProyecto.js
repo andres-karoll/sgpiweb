@@ -120,6 +120,7 @@ status: false,
            }
     
   </div>
+  
   <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li className="nav-item">
           <a href="#" className="nav-link ">
@@ -161,7 +162,7 @@ status: false,
          </ul>
           
         }
-         {rol==="Profesional investigacion"||rol==="Admin"||rol==="Docente lider semillero"||rol==="Docente investigador"&&
+         {rol==="Profesional investigacion"||rol==="Docente lider semillero"||rol==="Docente investigador"||rol==="Admin"&&
            
            <ul className="nav nav-treeview">
            <Link to={"/ComprasRealizadas/" + pre.id}>
