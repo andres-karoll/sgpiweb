@@ -616,6 +616,14 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
+                    <Link to={"/Proyectos/"}>
+                      <li className="nav-item">
+                        <a className="nav-link">
+                          <i className="fas fa-dice-d20 nav-icon" />
+                          <p>Todos los proyectos</p>
+                        </a>
+                      </li>
+                    </Link>
                   </ul>
                 </li>
               }
