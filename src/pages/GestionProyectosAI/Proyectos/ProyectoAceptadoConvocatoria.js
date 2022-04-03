@@ -102,7 +102,7 @@ export default class ProyectoAceptadoConvocatoria extends Component {
                                 {pro.id_proyecto}
                               </td>
                               <td className="project-actions text-right">
-                                <NavLink to={"/DetallesProyectoSemillero/" + pro.id} className="btn btn-primary">Detalles</NavLink>
+                                <NavLink to={"/DetallesProyectoAI/" + pro.id} className="btn btn-primary">Detalles</NavLink>
                                 {(pro.id_proyecto != "Terminado") &&
                                   <NavLink className="btn btn-warning" to={"/EvaluacionConvocatorias/" + pro.id} >Evaluar</NavLink>
                                 }
