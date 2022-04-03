@@ -606,7 +606,7 @@ export default function App() {
                             var id = props.match.params.id;
                             return <ComprasRealizadas id={id} />
                         }} /> 
-            <Route exact path="/ComprasRechasadas/:id" render={props => {
+            <Route exact path="/ComprasRechazadas/:id" render={props => {
                             var id = props.match.params.id;
                             return <ComprasRechasadas id={id} />
                         }} />

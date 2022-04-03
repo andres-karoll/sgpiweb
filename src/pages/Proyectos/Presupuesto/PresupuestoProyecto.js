@@ -230,12 +230,12 @@ status: false,
         }
          {rol==="Profesional investigacion"&&
             <ul className="nav nav-treeview">
-            <Link to={"/ComprasRechasadas/" + pre.id}>
+            <Link to={"/ComprasRechazadas/" + pre.id}>
             <li className="nav-item">
               <a  className="nav-link">
                 <i className="fas fa-exclamation-circle nav-icon" />
                 
-                <p>Ver Compras rechasadas</p>
+                <p>Ver Compras rechazadas</p>
                  
               </a>
             </li>
