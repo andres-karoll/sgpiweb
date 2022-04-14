@@ -38,6 +38,7 @@ export default class ProyectosClase extends Component {
   }
 
   render() {
+    var rol = localStorage.getItem("tipo");
     return (
       <div>
         <Aside />
@@ -51,9 +52,30 @@ export default class ProyectosClase extends Component {
               </div>
             </section>
           </div>
-          <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosPropuesta/" + this.props.id} >Proyectos propuesta</NavLink>
-          <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosDesarrollo/" + this.props.id} >Proyectos desarrollo</NavLink>
-          <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosFinalizados/" + this.props.id} >Proyectos Finalizados</NavLink>
+          {
+            rol === "Director programa"? (
+              <></>   
+            ) : (        
+              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosPropuesta/" + this.props.id} >Proyectos propuesta</NavLink>
+  )
+          }
+          {
+            rol === "Director programa"? (
+              <></>   
+            ) : (        
+              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosDesarrollo/" + this.props.id} >Proyectos desarrollo</NavLink>
+  )
+          }
+          {
+            rol === "Director programa"? (
+              <></>   
+            ) : (        
+              <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/ProyectosFinalizados/" + this.props.id} >Proyectos Finalizados</NavLink>
+  )
+          }
+          
+         
+          
           {this.state.status === true &&
             (
               this.state.proyectos.map((pro, i) => {

@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 
 
 
-export default class CrearProducto extends Component {
+export default class CrearProductosClase extends Component {
     
     cajaIDRef = React.createRef();
     cajaTituloRef = React.createRef();
@@ -144,7 +144,7 @@ export default class CrearProducto extends Component {
                     {/* general form elements */}
                     <div className="card card-primary">
                     <div className="card-header" style={{align:"center"}}>
-                    <h3 className="card-title"  >Crear Producto</h3>
+                    <h3 className="card-title"  >Crear Producto de Aula</h3>
                   </div>
                    
                     {/* /.card-header */}
@@ -162,17 +162,8 @@ export default class CrearProducto extends Component {
                             <label htmlFor="exampleInputPassword1">Seleccione el tipo de producto</label>
                             <select className="form-control select2" style={{width: '100%'}} ref={this.cajaTipoRef}  >
                       
-                        <option>acta de incio</option>
-                        <option>propuesta de proyecto</option>
-                        <option>evaluación de par numero 1</option>
-                        <option>evaluación de par numero 2</option>
-                        <option>acta finalización</option>
-                        <option>presupuesto detallado</option>
-                        <option>publicación(capitulo)</option>
-                        <option>publicación(libro)</option>
-                        <option>publicación(artículo científico)</option>
-                        <option>orden de compra</option>
-                        <option>producto anexo</option>
+                        <option>Entregable</option>
+                        <option>Anexo</option>
 
                         </select>
                         </div>

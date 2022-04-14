@@ -146,6 +146,29 @@ export default class TusProyectos extends Component {
                               pro.estado === "Finalizado" ||pro.estado=="Rechazar"? (
                                 <></>
                               ) : (
+                                pro.tipo_proyecto === "Aula"? (
+                                  <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                  <li className="nav-item">
+                                    <a href="#" className="nav-link ">
+                                      <i className="fas fa-lightbulb nav-icon" />
+                                      <p>
+                                        Funciones Aula
+                                        <i className="right fas fa-angle-left" />
+                                      </p>
+                                    </a>
+                                    <ul className="nav nav-treeview">
+                                      <Link to={"/SubirProductosClase/" + pro.id}>
+                                        <li className="nav-item">
+                                          <a className="nav-link">
+                                            <i className="fas fa-file-upload nav-icon" />
+                                            <p>Subir Productos Aula</p>
+                                          </a>
+                                        </li>
+                                      </Link>
+                                    </ul>
+                                  </li>
+                                </ul>
+                                ) : (
                                 <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                                   <li className="nav-item">
                                     <a href="#" className="nav-link ">
@@ -167,6 +190,7 @@ export default class TusProyectos extends Component {
                                     </ul>
                                   </li>
                                 </ul>
+                              )
                               )
                             )}
                         </div>
