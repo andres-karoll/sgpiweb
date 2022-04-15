@@ -73,9 +73,7 @@ export default class Antecedentes extends Component {
                         <table className="table table-striped projects">
                           <thead>
                             <tr>
-                              <th style={{ width: '1%' }}>
-                                # ID
-                              </th>
+                            
                               <th style={{ width: '15%' }}>
                                 Titulo
                               </th>               
@@ -90,9 +88,7 @@ export default class Antecedentes extends Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                # {pro.id}
-                              </td>
+                         
                               <td>
                                 <a>
                                 {pro.titulo}

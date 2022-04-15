@@ -109,9 +109,7 @@ export default class AreasConocimientoProyecto extends Component {
                         <table className="table table-striped projects">
                           <thead>
                             <tr>
-                              <th style={{ width: '1%' }}>
-                                ID
-                              </th>
+                             
                               <th style={{ width: '15%' }}>
                                 Nombre del area de conocimiento
                               </th>
@@ -125,9 +123,7 @@ export default class AreasConocimientoProyecto extends Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td >
-                                #{are.id}
-                              </td>
+                            
                               <td>
                                 <a>
                                 {are.nombre}

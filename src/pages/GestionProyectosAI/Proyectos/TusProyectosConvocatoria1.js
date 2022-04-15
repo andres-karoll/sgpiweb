@@ -51,7 +51,7 @@ export default class TusProyectosConvocatoria1 extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria con id: {this.props.id}</h1>
+                <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Convocatoria </h1>
               </div>
             </section>
           </div>
@@ -66,7 +66,7 @@ export default class TusProyectosConvocatoria1 extends Component {
                     <div className="card">
 
                       <div className="card-header">
-                        <h3 className="card-title">Proyecto de la convocatoria con ID: {this.props.id}</h3>
+                        <h3 className="card-title">Proyecto de convocatoria</h3>
                         <div className="card-tools">
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i className="fas fa-minus" />
@@ -81,9 +81,7 @@ export default class TusProyectosConvocatoria1 extends Component {
                         <table className="table table-striped projects">
                           <thead>
                             <tr>
-                              <th style={{ width: '5%' }}>
-                                id de proyecto
-                              </th>
+
                               <th style={{ width: '15%' }}>
                                 Titulo del proyecto
                               </th>
@@ -100,9 +98,7 @@ export default class TusProyectosConvocatoria1 extends Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                {pro.id}
-                              </td>
+
                               <td>
                                 {pro.titulo}
                               </td>
@@ -123,7 +119,64 @@ export default class TusProyectosConvocatoria1 extends Component {
                             </tr>
                           </tbody>
                         </table>
-                        {pro.id_proyecto === "Propuesta" || pro.id_proyecto === "Desarrollo" &&
+                        {rol === "Docente investigador" &&
+                          <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li className="nav-item">
+                              <a href="#" className="nav-link ">
+                                <i className="fas fa-lightbulb nav-icon" />
+                                <p>
+                                  Funciones
+                                  <i className="right fas fa-angle-left" />
+                                </p>
+
+                              </a>
+                              {pro.id_proyecto === "Propuesta" &&
+                                <ul className="nav nav-treeview">
+
+                                  <Link to={"/EvaluacionConvocatorias/" + pro.id}>
+                                    <li className="nav-item">
+                                      <a className="nav-link">
+                                        <i className="fas fa-eye nav-icon" />
+                                        <p>Evaluar Proyecto en la convocatoria</p>
+
+                                      </a>
+                                    </li>
+                                  </Link>
+
+                                </ul>
+
+                              }
+                              {pro.id_proyecto === "Desarrollo" &&
+                                <ul className="nav nav-treeview">
+
+                                  <Link to={"/EvaluacionConvocatorias/" + pro.id}>
+                                    <li className="nav-item">
+                                      <a className="nav-link">
+                                        <i className="fas fa-eye nav-icon" />
+                                        <p>Evaluar Proyecto en la convocatoria</p>
+
+                                      </a>
+                                    </li>
+                                  </Link>
+
+                                </ul>
+
+                              }
+                               <ul className="nav nav-treeview">
+                                      <Link to={"/SubirProductos/" + pro.id}>
+                                        <li className="nav-item">
+                                          <a className="nav-link">
+                                            <i className="fas fa-file-upload nav-icon" />
+                                            <p>Subir Productos</p>
+                                          </a>
+                                        </li>
+                                      </Link>
+                                    </ul>
+                            </li>
+                          </ul>
+
+                        }
+                        {/*pro.id_proyecto === "Propuesta"   &&
                           <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li className="nav-item">
                               <a href="#" className="nav-link ">
@@ -136,6 +189,34 @@ export default class TusProyectosConvocatoria1 extends Component {
                               </a>
                               <ul className="nav nav-treeview">
 
+                                <Link to={"/EvaluacionConvocatorias/" + pro.id}>
+                                  <li className="nav-item">
+                                    <a className="nav-link">
+                                      <i className="fas fa-eye nav-icon" />
+                                      <p>Evaluar Proyecto en la convocatoria</p>
+
+                                    </a>
+                                  </li>
+                                </Link>
+
+                              </ul>
+                           
+                            </li>
+
+                          </ul>
+                        }
+                        {pro.id_proyecto === "Desarrollo"  &&
+                          <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li className="nav-item">
+                              <a href="#" className="nav-link ">
+                                <i className="fas fa-lightbulb nav-icon" />
+                                <p>
+                                  Funciones
+                                  <i className="right fas fa-angle-left" />
+                                </p>
+
+                              </a>
+                              <ul className="nav nav-treeview">
 
                                 <Link to={"/EvaluacionConvocatorias/" + pro.id}>
                                   <li className="nav-item">
@@ -146,10 +227,13 @@ export default class TusProyectosConvocatoria1 extends Component {
                                     </a>
                                   </li>
                                 </Link>
+
                               </ul>
+                           
                             </li>
+
                           </ul>
-                        }
+                      */}
                       </div>
 
                       {/* /.card-body */}

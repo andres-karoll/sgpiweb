@@ -96,8 +96,8 @@ status: false,
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/CrearProyectoSemillero"} >crear un proyecto</NavLink>
                 )
            }
-                <button className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}  onClick={this.salirSemillero} >Salir de semillero</button>
-           
+               {/* <button className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}}  onClick={this.salirSemillero} >Salir de semillero</button>
+           */}
       {this.state.status === true &&
         (
           this.state.proyectos.map((pro, i) => {
@@ -124,9 +124,7 @@ status: false,
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '5%' }}>
-                            id de proyecto
-                          </th>
+                     
                           <th style={{ width: '15%' }}>
                            Titulo del proyecto
                           </th>               
@@ -143,9 +141,7 @@ status: false,
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                          {pro.id}
-                          </td>
+                 
                           <td>
                           {pro.titulo}
                           </td>
