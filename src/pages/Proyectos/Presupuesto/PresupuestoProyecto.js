@@ -101,7 +101,7 @@ status: false,
 
     </ul>
     {
-             rol==="Docente investigador"||rol==="Docente lider semillero" ?(
+             rol==="Docente investigador"||rol==="Docente lider semillero" || rol==="Semillerista" ?(
              
               <></>
              
@@ -110,7 +110,7 @@ status: false,
              )
            }
  {
-             rol==="Docente investigador"|| rol==="Docente lider semillero" ?(
+             rol==="Docente investigador"|| rol==="Docente lider semillero"  || rol==="Semillerista"?(
              
               <></>
              
