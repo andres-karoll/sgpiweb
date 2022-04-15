@@ -68,11 +68,9 @@ export default class ProductosProyecto extends Component {
     <div className="text-center">
       <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/d49h1cM/archivo.png" alt="User profile picture" />
     </div>
-    <h3 className="profile-username text-center">Producto</h3>
+    <h3 className="profile-username text-center">Producto: {pro.tipo_producto}</h3>
     <ul className="list-group list-group-unbordered mb-3">
-    <li className="list-group-item">
-        <b>ID</b> <a className="float-right">{pro.id}</a>
-      </li>
+  
       <li className="list-group-item">
       <b>Titulo del producto</b> <a className="float-right">{pro.titulo_producto}</a>
       </li>
@@ -134,7 +132,7 @@ export default class ProductosProyecto extends Component {
             
           </ul>
           <ul className="nav nav-treeview">
-          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Estudiante activo"|| rol==="Semillerista"|| rol==="Investigador formacion" ? (
+          {rol === "Egresado"  || rol === "Estudiante inactivo" || rol==="Estudiante activo"|| rol==="Semillerista"|| rol==="Investigador formacion"|| rol==="Director programa" ? (
               <></>
             ) : (
               <Link to={"/CrearComentario/" + pro.id}>

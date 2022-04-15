@@ -185,6 +185,7 @@ import LoadingPrueba from './pages/Loadings/LoadingPrueba'
 import TrabajoGradoRechazado from './pages/Proyectos/Proyectos/TrabajoGradoRechazado'
 import Detalles from './pages/GestionProyectosAI/Proyectos/Detalles'
 import Participantes from './pages/GestionProyectosAI/Proyectos/Participantes'
+import CrearProductosClase from './pages/Proyectos/Productos/CrearProductosClase'
 
 
 
@@ -639,6 +640,13 @@ export default function App() {
                             var id = props.match.params.id;
                             return <CrearProducto id={id} />
                         }} />
+
+            <Route exact path="/SubirProductosClase/:id" render={props => {
+                            var id = props.match.params.id;
+                            return <CrearProductosClase id={id} />
+                        }} />
+
+
             <Route exact path="/EliminarProducto/:id" render={props => {
                             var id = props.match.params.id;
                             return <EliminarProducto id={id} />

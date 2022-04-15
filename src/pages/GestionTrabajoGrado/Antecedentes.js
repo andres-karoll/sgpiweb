@@ -44,7 +44,7 @@ export default class Antecedentes extends Component {
           {
 
             rol==="Egresado" || rol==="Estudiante inactivo" || rol==="Admin"|| rol==="Personal publicaciones" || rol==="Personal biblioteca"  || rol==="Lider grupo investigacion" || rol==="Coordinador investigacion facultad"||
-            rol==="Direccion investigacion corporativo"?(
+            rol==="Direccion investigacion corporativo" || rol==="Director programa"?(
            <></>
               ) :(
                 <NavLink className="btn btn-info" style={{width: "31%", margin: "10px 1% 1em"}} to={"/AgregarAntecedente/"+this.props.id} >Agrega un antecente</NavLink>
@@ -109,7 +109,10 @@ export default class Antecedentes extends Component {
                               <td className="project-actions text-right" style={{width: '40%'}}>
                               <div className=" mt-3 pb-3 mb-3 d-flex">
                               {/* <NavLink to={"/DetallesGruposInvestigacion/" + proye.id} className="btn btn-primary">Detalles</NavLink> */}
-                              <NavLink style={{width: '50%'}} className="btn btn-success" to={"/Detalles/" + pro.id} >Detalles</NavLink>
+                  
+    <NavLink style={{width: '50%'}} className="btn btn-success" to={"/Detalles/" + pro.id} >Detalles</NavLink>
+ 
+                              
                               </div>                   
                               </td>
                             </tr>
