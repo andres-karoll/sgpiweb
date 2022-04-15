@@ -174,12 +174,13 @@ export default class CrearProducto extends Component {
                         <div className="form-group">
                        
                             <label htmlFor="exampleInputPassword1">Tipo de producto actual: {this.state.producto.tipo_producto}</label>
-                            <input type="text" name="cajatel" className="form-control" placeholder={this.state.producto.tipo_producto} ref={this.cajaTipoRef} />
+                            <input type="text" name="cajatel" className="form-control" value={this.state.producto.tipo_producto} ref={this.cajaTipoRef} readOnly/>
                         </div>
                         <div className="form-group">
 
 
-
+                        <label htmlFor="exampleInputPassword1">Seleccione su archivo</label>
+                            <label htmlFor="exampleInputPassword1" style={{color: "blue"}}>Tenga en cuenta que puede subir archivos con extensión: txt, doc, docx, jpg, png, xlsx, zip</label>
 
 
 
