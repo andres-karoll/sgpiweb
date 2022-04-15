@@ -95,7 +95,7 @@ export default class EliminarParticipante extends Component {
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputEmail1">Participante</label>
                                                     <div></div>
-                                                    <select ref={this.cajaCedula}>
+                                                    <select ref={this.cajaCedula}  style={{ width: '46%' }}>
                                                         {this.state.status === true &&
                                                             (this.state.participantes.map((pra) => {
                                                                 return (
@@ -110,21 +110,21 @@ export default class EliminarParticipante extends Component {
 
                                                 <div className="form-group">
 
-                                                    <label htmlFor="exampleInputPassword1">Proyecto</label>
+                            
 
-                                                    <input type="text" name="cajadir" className="form-control" ref={this.cajaId} value={this.props.id} readOnly />
+                                                    <input type="hidden" name="cajadir" className="form-control" ref={this.cajaId} value={this.props.id} readOnly />
 
                                                 </div>
 
                                                 <div className="form-group">
-                                                    <label htmlFor="exampleInputPassword1">Fecha Fin</label>
+                                                    <label htmlFor="exampleInputPassword1"  style={{ width: '30%' }}>Fecha Fin</label>
                                                     <input type="date" id="start" name="trip-start" style={{ height: "30px" }}
                                                         min="2000-01-01" max="2100-12-31" ref={this.cajaFecha} required></input>
 
                                                 </div>
                                             </div>
                                             <div className="card-footer">
-                                                <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.eliminarParticipante} to={"/ProyectosAulaIntegrador/"} >eliminar participante</NavLink>
+                                                <NavLink style={{ width: '50%'  }} className="btn btn-success" onClick={this.eliminarParticipante} to={"/ProyectosAulaIntegrador/"} >eliminar participante</NavLink>
                                             </div>
                                         </form>
                                     </div>

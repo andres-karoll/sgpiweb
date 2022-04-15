@@ -78,9 +78,7 @@ export default class Convocatorias extends Component {
                         <table className="table table-striped projects">
                           <thead>
                             <tr>
-                              <th style={{ width: '5%' }}>
-                                ID
-                              </th>
+                           
                               <th style={{ width: '15%' }}>
                                 Nombre de convocatoria
                               </th>
@@ -100,9 +98,7 @@ export default class Convocatorias extends Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                {con.id}
-                              </td>
+                        
                               <td>
                                 <a>
                                   {con.nombre_convocatoria}

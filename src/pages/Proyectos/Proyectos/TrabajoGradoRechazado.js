@@ -170,9 +170,7 @@ function TrabajoGradoRechazado(){
                     <table className="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style={{ width: '1%' }}>
-                            # ID
-                          </th>
+                       
                           <th style={{ width: '20%' }}>
                             Titulo del proyecto
                           </th> 
@@ -191,9 +189,7 @@ function TrabajoGradoRechazado(){
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                            #{proye.id}
-                          </td>
+                      
                           <td>
                             <a>
                             {proye.titulo}

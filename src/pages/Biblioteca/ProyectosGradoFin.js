@@ -90,9 +90,7 @@ function Proyectos() {
                   <table className="table table-striped projects">
                     <thead>
                       <tr>
-                        <th style={{ width: '1%' }}>
-                          # ID
-                        </th>
+                      
                         <th style={{ width: '20%' }}>
                           Nombre del proyecto
                         </th>
@@ -112,9 +110,7 @@ function Proyectos() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          #{proye.id}
-                        </td>
+                  
                         <td>
                           <a>
                             {proye.titulo}

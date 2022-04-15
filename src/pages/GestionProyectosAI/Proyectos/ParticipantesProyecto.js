@@ -45,14 +45,14 @@ export default class ParticipantesProyecto extends Component {
             </section>
           </div>
           {
-            rol === "Estudiante activo" || rol === "Docente" || rol === "Semillerista" || rol === "Investigador formacion" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
+           rol === "Docente" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
               <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/AgregarParticipante/" + this.props.id} >Agregar Participante</NavLink>
             ) : (
               <></>
             )
           }
           {
-            rol === "Estudiante activo" || rol === "Docente" || rol === "Semillerista" || rol === "Investigador formacion" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
+             rol === "Docente" || rol === "Docente lider semillero" || rol === "Docente investigador" ? (
               <NavLink className="btn btn-info" style={{ width: "31%", margin: "10px 1% 1em" }} to={"/EliminarParticipante/" + this.props.id} >Terminar proceso de participante</NavLink>
             ) : (
               <></>

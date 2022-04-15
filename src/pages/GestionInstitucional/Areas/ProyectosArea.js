@@ -79,9 +79,7 @@ export default class ProyectosArea extends Component {
                           <thead>
                             <tr style={{ fontSize: "large" }}>
 
-                              <th style={{ width: '5%' }}>
-                                ID
-                              </th>
+                             
                               <th style={{ width: '20%' }}>
                                 Titulo de proyecto
                               </th>
@@ -100,9 +98,6 @@ export default class ProyectosArea extends Component {
                           <tbody style={{ fontSize: "large" }}>
                             <tr>
 
-                              <td>
-                                {pro.id}
-                              </td>
                               <td>
                                 {pro.titulo}
                               </td>

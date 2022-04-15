@@ -67,9 +67,7 @@ export default class Areas extends Component {
                         <table className="table table-striped projects">
                           <thead>
                             <tr>
-                              <th style={{ width: '10%' }}>
-                                id
-                              </th>
+                          
                               <th style={{ width: '15%' }}>
                                 Nombre
                               </th>
@@ -83,9 +81,7 @@ export default class Areas extends Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                {are.id}
-                              </td>
+                            
                               <td>
                                 <a>
                                   {are.nombre}

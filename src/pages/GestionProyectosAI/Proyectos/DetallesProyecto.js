@@ -211,7 +211,7 @@ export default class DetallesProyecto extends Component {
                         <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ParticipantesProyecto/" + this.state.proyecto.id} >Participantes</NavLink>
                         <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ProductosProyecto/" + this.state.proyecto.id} >Productos</NavLink>
                         {
-                          rol === "Estudiante activo" || rol === "Docente" || rol === "Semillerista" || rol === "Investigador formacion" || rol === "Docente investigador" || rol === "Docente lider semillero" ? (
+                          rol === "Estudiante activo" || rol === "Docente"  || rol === "Investigador formacion" || rol === "Docente investigador" || rol === "Docente lider semillero" ? (
                             <NavLink style={{ width: '100%', margin: "20px" }} className="btn btn-primary" to={"/ActualizarProyecto/" + this.state.proyecto.id} >Modificar Proyecto</NavLink>
                           ) : (
                             <></>
