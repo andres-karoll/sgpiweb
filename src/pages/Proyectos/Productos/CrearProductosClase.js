@@ -205,11 +205,7 @@ export default class CrearProductosClase extends Component {
                             <input type="date" id="start" name="trip-start"
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
-                        <div className="form-group">
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Proyecto </label>
-                            <input type="text" name="cajatel" className="form-control" value={this.props.id} placeholder="Proyecto" ref={this.cajaProyectoRef} readOnly/>
-                        </div>
+                       
 
                         </div>
                         {/* /.card-body */}
