@@ -48,9 +48,12 @@ export default class ProyectoSemillero extends Component {
    * metodo de inicio
    */
   componentDidMount = () => {
-    this.cargarGruposI();
+
+
     if (localStorage.getItem("tipo") === "Estudiante activo") {
       this.verificarSemillero();
+    }else{
+      this.cargarGruposI();
     }
 
 
