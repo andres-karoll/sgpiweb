@@ -180,7 +180,7 @@ export default class CrearProducto extends Component {
 
 
                         <label htmlFor="exampleInputPassword1">Seleccione su archivo</label>
-                            <label htmlFor="exampleInputPassword1" style={{color: "blue"}}>Tenga en cuenta que puede subir archivos con extensión: txt, doc, docx, jpg, png, xlsx, zip</label>
+                            <label htmlFor="exampleInputPassword1" style={{color: "blue"}}>Tenga en cuenta que puede subir archivos con extensión: txt, doc, docx, pdf, jpg, png, xlsx, zip</label>
 
 
 

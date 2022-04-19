@@ -151,7 +151,7 @@ export default class CrearProductosClase extends Component {
                     {/* form start */}
                     <form onSubmit={this.nuevoProducto} style={{width: "50%", margin: "auto"}}>
                         <div className="card-body">
-                        
+                        <input type="hidden" name="cajatel" className="form-control" value={this.props.id} ref={this.cajaProyectoRef} required/>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Titulo del producto</label>
@@ -169,7 +169,7 @@ export default class CrearProductosClase extends Component {
                         </div>
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Seleccione su archivo</label>
-                            <label htmlFor="exampleInputPassword1" style={{color: "blue"}}>Tenga en cuenta que puede subir archivos con extensión: txt, doc, docx, jpg, png, xlsx, zip</label>
+                            <label htmlFor="exampleInputPassword1" style={{color: "blue"}}>Tenga en cuenta que puede subir archivos con extensión: txt, doc, docx, pdf, jpg, png, xlsx, zip</label>
                         <div className="form-group">
 
 
