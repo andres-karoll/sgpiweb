@@ -21,19 +21,20 @@ export default class EliminarComentario extends Component {
                     title: "Se elimino con exito",
                     icon:"success"
                   });
-                
+                  window.history.back();
             }else{
                 swal({
                     title: "no se pudo eliminar ",
                     icon:"error"
                   });
+                  window.history.back();
             }
         });
     }
 
     render() {
         if(this.state.status === true){
-            return <Redirect to="/Proyectos" />
+           
         }
         return (
             <div>
