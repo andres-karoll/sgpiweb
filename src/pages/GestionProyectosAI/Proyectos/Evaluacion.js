@@ -83,7 +83,7 @@ export default class Evaluacion extends Component {
                   {/* general form elements */}
                   <div className="card card-primary">
                     <div className="card-header" style={{ align: "center" }}>
-                      <h3 className="card-title"  >Aceptar o Denegar Convocatoria</h3>
+                      <h3 className="card-title"  >Aceptar o Denegar Proyecto</h3>
                     </div>
                     {/* /.card-header */}
                     {/* form start */}
@@ -96,7 +96,7 @@ export default class Evaluacion extends Component {
                           <div className="text-center">
                             <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/6smVBgh/Captura.png" alt="User profile picture" />
                           </div>
-                          <h3 className="profile-username text-center">Proyecto de Convocatoria</h3>
+                          <h3 className="profile-username text-center">Proyecto de clase</h3>
                           <ul className="list-group list-group-unbordered mb-3">
                             <li className="list-group-item">
                               <b>Proyecto</b> <a className="float-right">{this.state.proyecto.titulo}</a>
