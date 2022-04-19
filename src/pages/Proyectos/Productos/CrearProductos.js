@@ -199,6 +199,28 @@ export default class CrearProducto extends Component {
                                 <option>Producto anexo</option>
                                   </>
                                 )
+                              }else if(rol==="Estudiante activo"){
+                                return(
+                                  <>
+                                <option>Propuesta de proyecto</option>
+                                <option>Producto anexo</option>
+                                  </>
+                                )
+                              }else if(rol==="Docente"){
+                                return(
+                                  <>
+                                <option>Acta de inicio</option>
+                                  <option>Evaluación de par numero 1</option>
+                                  <option>Evaluación de par numero 2</option>
+                                  <option>Acta finalización</option>
+                                  <option>Presupuesto detallado</option>
+                                  <option>Publicación(capitulo)</option>
+                                  <option>Publicación(libro)</option>
+                                  <option>Publicación(artículo científico)</option>
+                                  <option>Orden de compra</option>
+                                  <option>Producto anexo</option>
+                                  </>
+                                )
                               }
                               }
                               )()
