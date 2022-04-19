@@ -120,6 +120,7 @@ export default class CrearProducto extends Component {
         });
       }
       render = () => {
+        var rol = localStorage.getItem("tipo");
         const {
             selectedFiles,
             currentFile,
@@ -161,19 +162,48 @@ export default class CrearProducto extends Component {
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
                             <label htmlFor="exampleInputPassword1">Seleccione el tipo de producto</label>
                             <select className="form-control select2" style={{width: '100%'}} ref={this.cajaTipoRef}  >
-                      
-                        <option>acta de incio</option>
-                        <option>propuesta de proyecto</option>
-                        <option>evaluación de par numero 1</option>
-                        <option>evaluación de par numero 2</option>
-                        <option>acta finalización</option>
-                        <option>presupuesto detallado</option>
-                        <option>publicación(capitulo)</option>
-                        <option>publicación(libro)</option>
-                        <option>publicación(artículo científico)</option>
-                        <option>orden de compra</option>
-                        <option>producto anexo</option>
-
+                              {(()=>{
+                              if(rol=="Docente lider semillero" ){
+                                return(
+                                  <>
+                                  <option>Acta de inicio</option>
+                                  <option>Propuesta de proyecto</option>
+                                  <option>Acta finalización</option>
+                                  <option>Presupuesto detallado</option>
+                                  <option>Publicación(capitulo)</option>
+                                  <option>Publicación(libro)</option>
+                                  <option>Publicación(artículo científico)</option>
+                                  <option>Orden de compra</option>
+                                  <option>Producto anexo</option>
+                                  </>
+                                )
+                              }else if(rol==="Docente investigador" ){
+                                return(
+                                  <>
+                                  <option>Acta de inicio</option>
+                                  <option>Propuesta de proyecto</option>
+                                  <option>Evaluación de par numero 1</option>
+                                  <option>Evaluación de par numero 2</option>
+                                  <option>Acta finalización</option>
+                                  <option>Presupuesto detallado</option>
+                                  <option>Publicación(capitulo)</option>
+                                  <option>Publicación(libro)</option>
+                                  <option>Publicación(artículo científico)</option>
+                                  <option>Orden de compra</option>
+                                  <option>Producto anexo</option>
+                                  </>
+                                )
+                              }else if(rol==="Semillerista"){
+                                return(
+                                  <>
+                                <option>Propuesta de proyecto</option>
+                                <option>Producto anexo</option>
+                                  </>
+                                )
+                              }
+                              }
+                              )()
+      }
                         </select>
                         </div>
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
