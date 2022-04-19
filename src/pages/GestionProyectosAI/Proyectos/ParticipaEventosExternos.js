@@ -132,8 +132,8 @@ export default class ParticipaEventosExternos extends Component {
 
                                                 </div>
                                                 <div className="form-group">
-                                                    <label htmlFor="exampleInputEmail1">Tu proyecto</label>
-                                                    <input type="text" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly />
+                                                    
+                                                    <input type="hidden" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id}  />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>

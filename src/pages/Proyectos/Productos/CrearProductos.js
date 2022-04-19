@@ -181,7 +181,6 @@ export default class CrearProducto extends Component {
                                 return(
                                   <>
                                   <option>Acta de inicio</option>
-                                  <option>Propuesta de proyecto</option>
                                   <option>Evaluación de par numero 1</option>
                                   <option>Evaluación de par numero 2</option>
                                   <option>Acta finalización</option>

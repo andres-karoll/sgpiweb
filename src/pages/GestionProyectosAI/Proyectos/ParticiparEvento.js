@@ -104,7 +104,7 @@ export default class ParticiparEvento extends Component {
                                                 </div>
                                                 <div className="form-group">
                                        
-                                                    <input type="hidden" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly />
+                                                    <input type="hidden" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id}  />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
