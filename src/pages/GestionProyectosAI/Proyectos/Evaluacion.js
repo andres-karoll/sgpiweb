@@ -96,7 +96,13 @@ export default class Evaluacion extends Component {
                           <div className="text-center">
                             <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/6smVBgh/Captura.png" alt="User profile picture" />
                           </div>
-                          <h3 className="profile-username text-center">Proyecto de clase</h3>
+                          {this.state.proyecto.tipo_proyecto==="Grado"?(
+                            <h3 className="profile-username text-center">Proyecto de grado</h3>
+                          ):(
+                            <h3 className="profile-username text-center">Proyecto de clase</h3>
+
+                          )}
+                       
                           <ul className="list-group list-group-unbordered mb-3">
                             <li className="list-group-item">
                               <b>Proyecto</b> <a className="float-right">{this.state.proyecto.titulo}</a>
@@ -154,8 +160,8 @@ export default class Evaluacion extends Component {
                         </div>
                       </div>
                       {/* /.card-body */}
-                      <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                      <div className="card-footer d-flex justify-content-center">
+                        <button className="btn btn-success">Evaluar proyecto</button>
                       </div>
                     </form>
                   </div>

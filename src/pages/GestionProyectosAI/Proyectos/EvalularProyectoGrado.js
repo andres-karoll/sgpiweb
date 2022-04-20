@@ -35,7 +35,7 @@ export default class EvaluacionProyectoGrado extends Component {
       this.setState({ status: true });
       if (res.data.respuesta === "Se realizo la validacion exitosamente") {
         swal({
-          title:"No se puedo realizar la actualizacion de estado",
+          title:"Se realizo la validacion exitosamente",
           icon:"success"
         });
         window.location.href = "/HomeInstitucional"
@@ -98,7 +98,7 @@ export default class EvaluacionProyectoGrado extends Component {
                           <div className="text-center">
                             <img className="profile-user-img img-fluid img-circle" src="https://i.ibb.co/6smVBgh/Captura.png" alt="User profile picture" />
                           </div>
-                          <h3 className="profile-username text-center">Proyecto de Convocatoria</h3>
+                          <h3 className="profile-username text-center">Proyecto de grado</h3>
                           <ul className="list-group list-group-unbordered mb-3">
                             <li className="list-group-item">
                               <b>Proyecto</b> <a className="float-right">{this.state.proyecto.titulo}</a>
@@ -152,8 +152,11 @@ export default class EvaluacionProyectoGrado extends Component {
 
                       </div>
                       {/* /.card-body */}
-                      <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                      <div class="d-flex justify-content-center " >
+                        <button className="btn btn-success" style={{ width: '50%' }}>Enviar</button>
+                      </div>
+                      <div>
+                        <p></p>
                       </div>
                     </form>
                   </div>

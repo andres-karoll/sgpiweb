@@ -93,7 +93,7 @@ export default class AgregarParticipante extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Rol que vas a tener en el rol</label>
                                                     <div></div>
-                                                    {rol==="Docente" || rol === "Docente lider semillero" ?(
+                                                    {rol==="Docente" || rol === "Docente lider semillero"|| rol === "Docente investigador" ?(
                                                         <select ref={this.cajaRol} required>
 
                                                         <option style={{ color: "black" }}>Lider</option>
@@ -118,8 +118,11 @@ export default class AgregarParticipante extends Component {
                                                         
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div  class="d-flex justify-content-center ">
                                                 <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.AgregarParticipante} to={"/ProyectosAulaIntegrador"} >Agregar Participante</NavLink>
+                                            </div>
+                                            <div>
+                                                <p></p>
                                             </div>
                                         </form>
                                     </div>

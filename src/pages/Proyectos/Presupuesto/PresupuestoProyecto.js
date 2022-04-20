@@ -81,10 +81,7 @@ status: false,
     </div>
     <h3 className="profile-username text-center">Presupuesto</h3>
     <ul className="list-group list-group-unbordered mb-3">
-    <li className="list-group-item">
-        <b>ID</b> <a className="float-right">{pre.id}</a>
-      </li>
-      
+
       <li className="list-group-item">
         <b>Descripción</b> <a className="float-right">{pre.descripcion}</a>
       </li>

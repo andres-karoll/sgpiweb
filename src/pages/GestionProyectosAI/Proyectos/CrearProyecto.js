@@ -180,7 +180,6 @@ export default class CrearProyecto extends Component {
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <label htmlFor="exampleInputPassword1">Estado del proyecto</label>
                                                     <div></div>
-                                                    <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
                                                     <select ref={this.cajaEstado}>
 
                                                         <option style={{ color: "black" }} >Propuesta</option>
@@ -283,7 +282,7 @@ export default class CrearProyecto extends Component {
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div className="card-footer d-flex justify-content-center">
                                                 <button style={{ fontSize: "large" }} className="btn btn-success">Crear proyecto</button>
                                             </div>
                                         </form>

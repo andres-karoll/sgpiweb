@@ -124,6 +124,10 @@ export default class DetallesProyectoSemillero extends Component {
 
                                 </p>
                               </div>
+                              {
+
+                                
+                              }
                               <div className="post clearfix">
                                 <div >
 
@@ -133,6 +137,7 @@ export default class DetallesProyectoSemillero extends Component {
 
                                 </div>
                                 {/* /.user-block */}
+                                
                                 <h3>
                                   {
                                     this.state.proyecto.retroalimentacion_final === null ? (

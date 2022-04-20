@@ -48,7 +48,7 @@ export default class ProyectosClase extends Component {
             <section className="content">
               <br />
               <div class="alert alert-info alert-dismissible">
-                <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Clase con id: {this.props.id}</h1>
+                <h1><i class="fas fa-eye nav-icon"></i>Proyectos de la Clase con el numero: {this.props.id}</h1>
               </div>
             </section>
           </div>
@@ -87,7 +87,7 @@ export default class ProyectosClase extends Component {
                     <div className="card">
 
                       <div className="card-header">
-                        <h3 className="card-title">Proyecto de la clase con ID: {this.props.id}</h3>
+                      
                         <div className="card-tools">
                           <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i className="fas fa-minus" />

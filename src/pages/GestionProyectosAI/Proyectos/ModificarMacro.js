@@ -76,7 +76,7 @@ export default class ModificarMacro extends Component {
                                                     <textarea rows="5" cols="100" wrap="physical" type="text" name="cajatel" className="form-control" ref={this.cajaDescripcion} />
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div className="card-footer d-flex justify-content-center">
                                                 <button style={{ fontSize: "large" }} className="btn btn-success">Modificar macro proyecto</button>
                                             </div>
                                         </form>

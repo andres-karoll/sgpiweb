@@ -118,7 +118,7 @@ export default class AgregarAntecedente extends Component {
 
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div className="card-footer d-flex justify-content-center ">
                                                 <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.AgregarAntecedente} to={"/ProyectosAulaIntegrador"} >Agregar Participante</NavLink>
                                             </div>
                                         </form>

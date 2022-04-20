@@ -69,7 +69,7 @@ export default class ActualizarProyecto extends Component {
                     icon:"success"
                   });
                 
-                window.location.href = "/ProyectosAulaIntegrador"
+                  window.history.back();
             } else {
                 swal({
                     title: "El proyecto no se pudo actualizar",
@@ -147,8 +147,8 @@ export default class ActualizarProyecto extends Component {
                                                 }
 
                                             </div>
-                                            <div className="card-footer">
-                                                <button className="btn btn-success " onClick={this.ActualizarProyecto}>Enviar</button>
+                                            <div className="card-footer d-flex justify-content-center ">
+                                                <button className="btn btn-success " onClick={this.ActualizarProyecto}>Actualizar</button>
                                             </div>
                                         </form>
                                     </div>

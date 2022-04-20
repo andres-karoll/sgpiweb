@@ -113,7 +113,7 @@ export default class ActualizarComentario extends Component {
                         </div>
                         <div className="form-group">
                         
-                            <label htmlFor="exampleInputPassword1">Fecha actual: {this.state.comentario.fecha}</label>
+                            <label htmlFor="exampleInputPassword1"  style={{ width: '50%' }}>Fecha actual: {this.state.comentario.fecha}</label>
                             <input type="date" id="start" name="trip-start"
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} ></input>
                         </div>
@@ -123,8 +123,8 @@ export default class ActualizarComentario extends Component {
 
                         </div>
                         {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <div className="card-footer d-flex justify-content-center">
+                        <button className="btn btn-success">Actualizar comentario</button>
                         </div>
                     </form>
                     </div>

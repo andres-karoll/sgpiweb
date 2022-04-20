@@ -119,7 +119,7 @@ function TrabajoGradoRechazado(){
   </div>
   </Link>
   {/* /.col */}
-  <Link to="/TrabajoGradoRechasado">
+  <Link to="/TrabajoGradoRechazado">
   <div style={{width: '20%'}} className="col-md-3 col-sm-6 col-12">
     <div className="info-box">
       <span className="info-box-icon bg-danger"><i className="fas fa-thumbs-down" /></span>

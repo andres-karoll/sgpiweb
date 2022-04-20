@@ -118,8 +118,11 @@ export default class ParticiparEvento extends Component {
                                                     <textarea rows="5" cols="100" wrap="physical" type="text" name="cajanom" className="form-control" ref={this.cajaReconocimiento} required />
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div class="d-flex justify-content-center ">
                                                 <button style={{ fontSize: "large" }} className="btn btn-success">Participar</button>
+                                            </div>
+                                            <div>
+                                                <p></p>
                                             </div>
                                         </form>
                                     </div>

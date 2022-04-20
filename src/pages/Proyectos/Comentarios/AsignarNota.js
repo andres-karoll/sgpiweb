@@ -80,8 +80,8 @@ export default class AsignarNota extends Component {
                        
                         </div>
                         {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <div className="card-footer d-flex justify-content-center">
+                        <button className="btn btn-success">Asignar nota</button>
                         </div>
                     </form>
                     </div>

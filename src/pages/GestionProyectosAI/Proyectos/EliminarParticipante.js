@@ -123,7 +123,7 @@ export default class EliminarParticipante extends Component {
 
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div className="card-footer d-flex justify-content-center ">
                                                 <NavLink style={{ width: '50%'  }} className="btn btn-success" onClick={this.eliminarParticipante} to={"/ProyectosAulaIntegrador/"} >eliminar participante</NavLink>
                                             </div>
                                         </form>

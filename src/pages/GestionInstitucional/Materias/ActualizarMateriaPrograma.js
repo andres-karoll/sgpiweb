@@ -111,8 +111,8 @@ export default class ActualizarMateriaPrograma extends Component {
                         </div>
                         </div>
                         {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <div className="card-footer d-flex justify-content-center">
+                        <button className="btn btn-success">Actualizar materia</button>
                         </div>
                     </form>
                     </div>

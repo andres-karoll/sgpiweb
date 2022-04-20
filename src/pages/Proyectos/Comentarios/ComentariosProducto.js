@@ -136,58 +136,25 @@ export default class ComentariosProducto extends Component {
                           ) : (
                             <></>
                           )}
-
+                          <div>
+                            <p></p>
+                          </div>
                           {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
-                            <NavLink className="btn btn-success" to={"/AsignarNota/" + com.id} style={{ width: "48%", margin:"8px" }}>Asignar Calificación</NavLink>
+                            <NavLink className="btn btn-success" to={"/AsignarNota/" + com.id}  style={{ width: "50%" }}>Asignar Calificación</NavLink>
                             
                           ) : (
                             <></>
-                          )}  
+                          )} 
+                        
                           {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
-                            <NavLink className="btn btn-success" to={"/DesAsignarNota/" + com.id} style={{ width: "48%", margin:"8px" }}>DES-Asignar Calificación</NavLink>
+                            <NavLink className="btn btn-success" to={"/DesAsignarNota/" + com.id}  style={{ width: "50%" }}>DES-Asignar Calificación</NavLink>
                             
                           ) : (
                             <></>
                           )}  
                           {/* /.row */}
                         </div>
-                         {/* 
-                        {rol === "Docente" || rol === "Docente investigador" || rol === "Docente lider semillero"||rol==="Admin" ? (
-                          <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <li className="nav-item">
-                              <a href="#" className="nav-link ">
-                                <i className="fas fa-lightbulb nav-icon" />
-                                <p>
-                                  Calificación
-                                  <i className="right fas fa-angle-left" />
-                                </p>
-
-                              </a>
-                              <ul className="nav nav-treeview">
-                                <Link to={"/AsignarNota/" + com.id}>
-                                  <li className="nav-item">
-                                    <a className="nav-link">
-                                      <i className="fas fa-clipboard-check nav-icon" />
-                                      <p>Asignar Calificación</p>
-                                    </a>
-                                  </li>
-                                </Link>
-                              </ul>
-                              <ul className="nav nav-treeview">
-                                <Link to={"/DesAsignarNota/" + com.id}>
-                                  <li className="nav-item">
-                                    <a className="nav-link">
-                                      <i className="fas fa-trash-alt nav-icon" />
-                                      <p>DES-Asignar Calificación</p>
-                                    </a>
-                                  </li>
-                                </Link>
-                              </ul>
-                            </li>
-                          </ul>) : (
-                          <></>
-                        )}
-*/}
+                       
                       </div>
 
                     </div>

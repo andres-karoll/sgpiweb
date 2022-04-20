@@ -35,13 +35,13 @@ export default class AreasConocimientoProyecto extends Component {
           title: "El proyecto fue creado correctamente",
           icon:"success"
         });
-        window.location.href = "/ProyectosAulaIntegrador"
+        window.location.href = "/AreasConocimientoProyecto/"+this.props.id
       } else {
         swal({
           title: "la area no fue eliminada",
           icon:"error"
         });
-        window.location.href = "/ProyectosAulaIntegrador"
+        window.location.href = "/AreasConocimientoProyecto/"+this.props.id
       }
     });
   }

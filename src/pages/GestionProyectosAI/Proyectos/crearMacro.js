@@ -62,7 +62,7 @@ export default class CrearMacro extends Component {
                                     {/* general form elements */}
                                     <div className="card card-primary">
                                         <div className="card-header" style={{ align: "center" }}>
-                                            <h3 className="card-title"  >Crear Macro</h3>
+                                            <h3 className="card-title"  >Crear Macro proyecto</h3>
                                         </div>
                                         {/* /.card-header */}
                                         {/* form start */}
@@ -88,7 +88,7 @@ export default class CrearMacro extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
-                                                    <label htmlFor="exampleInputPassword1">Estado del macro</label>
+                                                    <label htmlFor="exampleInputPassword1">Estado del macro proyecto</label>
                                                     <div></div>
                                                     <select ref={this.cajaEstado} required>
                                                         <label htmlFor="exampleInputPassword1" style={{ color: "red" }}>*</label>
@@ -97,8 +97,8 @@ export default class CrearMacro extends Component {
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
-                                                <button style={{ fontSize: "large" }} className="btn btn-success">Crear proyecto</button>
+                                            <div className="card-footer d-flex justify-content-center">
+                                                <button style={{ fontSize: "large" }} className="btn btn-success">Crear macro proyecto</button>
                                             </div>
                                         </form>
                                     </div>

@@ -102,7 +102,7 @@ export default class AsignarComentario extends Component {
                         </div>
                         <div className="form-group">
                         <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            <label htmlFor="exampleInputPassword1">Fecha</label>
+                            <label htmlFor="exampleInputPassword1" style={{ width: '50%' }}>Fecha</label>
                             <input type="date" id="start" name="trip-start"
        min="2000-01-01" max="2100-12-31" ref={this.cajaFechaRef} required></input>
                         </div>
@@ -112,8 +112,8 @@ export default class AsignarComentario extends Component {
 
                         </div>
                         {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <div className="card-footer d-flex justify-content-center ">
+                        <button className="btn btn-success">Crear comentario</button>
                         </div>
                     </form>
                     </div>

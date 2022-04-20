@@ -112,7 +112,7 @@ export default class AgregarAreasConocimiento extends Component {
                                                     <input type="hidden" name="cajanom" className="form-control" ref={this.cajaProyecto} value={this.props.id} readOnly />
                                                 </div>
                                             </div>
-                                            <div className="card-footer">
+                                            <div className="card-footer d-flex justify-content-center ">
 
                                                 <NavLink style={{ width: '50%' }} className="btn btn-success" onClick={this.AgregarAreasConocimiento} to={"/AreasConocimientoProyecto/" + this.props.id} >Agregar area</NavLink>
                                             </div>

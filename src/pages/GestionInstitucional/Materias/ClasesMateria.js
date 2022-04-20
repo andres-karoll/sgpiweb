@@ -48,7 +48,7 @@ status: false,
             <section className="content">
                 <br />
                 <div class="alert alert-info alert-dismissible">
-                  <h1><i class="fas fa-eye nav-icon"></i>Clases de la Materia con id: {this.props.id}</h1>
+                  <h1><i class="fas fa-eye nav-icon"></i>Clases del {this.props.id}</h1>
                   </div>
                   </section>
       </div>
@@ -64,7 +64,7 @@ status: false,
                 <div className="card">
                 
                   <div className="card-header">
-                    <h3 className="card-title">Clase de la materia con ID: {this.props.id}</h3>
+                    <h3 className="card-title">Clase del {this.props.id}</h3>
                     <div className="card-tools">
                       <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i className="fas fa-minus" />

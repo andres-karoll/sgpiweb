@@ -116,8 +116,6 @@ export default class CrearCompra extends Component {
          
                         <div className="form-group">
 
-                        <label htmlFor="exampleInputPassword1" style={{color: "red"}}>*</label>
-                            {/**  <label htmlFor="exampleInputPassword1">Estado de la compra</label>*/}
                             <input type="hidden" name="cajatel" className="form-control"  value={1}  ref={this.cajaEstadoRef} readOnly/>
                         </div>
                         <div className="form-group">
@@ -135,8 +133,8 @@ export default class CrearCompra extends Component {
                         </div>
                         </div>
                         {/* /.card-body */}
-                        <div className="card-footer">
-                        <button className="btn btn-success">Enviar</button>
+                        <div className="card-footer d-flex justify-content-center">
+                        <button className="btn btn-success">Solicitar compra </button>
                         </div>
                     </form>
                     </div>
