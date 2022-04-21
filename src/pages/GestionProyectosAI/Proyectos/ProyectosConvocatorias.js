@@ -22,7 +22,7 @@ export default class ProyectosConvocatorias extends Component {
       });
       if (this.state.proye.length === 0) {
         swal({
-          title:"Esta clase no tiene proyectos",
+          title:"No tiene proyectos para evaluar",
           icon:"error"
         });
         window.history.back();

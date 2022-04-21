@@ -221,6 +221,14 @@ export default class CrearProducto extends Component {
                                   <option>Producto anexo</option>
                                   </>
                                 )
+                              }else if(rol==="Investigador formacion"){
+                                return(
+                                  <>
+                                  <option>Propuesta de proyecto</option>
+                                  
+                                  <option>Producto anexo</option>
+                                  </>
+                                )
                               }
                               }
                               )()

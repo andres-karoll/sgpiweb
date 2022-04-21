@@ -56,7 +56,7 @@ export default class Aside extends Component {
               {(rol === "Direccion investigacion corporativo") &&
                 <li className="nav-item menu-open">
                   <ul className="nav nav-treeview">
-                    <Link to={"/ProyectosConvocatorias/"+"Validacion 2"}>
+                    <Link to={"/ProyectosConvocatorias/"+"Validacion 3"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
@@ -101,7 +101,7 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
-                    <Link to={"/ProyectosConvocatorias/"+"Validacion 1"}>
+                    <Link to={"/ProyectosConvocatorias/"+"Validacion 2"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
@@ -109,7 +109,7 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
-                    <Link to={"/ProyectoDesarrolloConvocatoria/"+"Validacion 3"}>
+                    <Link to={"/ProyectoDesarrolloConvocatoria/"+"Validacion 4"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
@@ -241,7 +241,7 @@ export default class Aside extends Component {
                         </a>
                       </li>
                     </Link>
-                    <Link to={"/ProyectosConvocatorias/"+"Propuesta"}>
+                    <Link to={"/ProyectosConvocatorias/"+"Validacion 1"}>
                       <li className="nav-item">
                         <a className="nav-link">
                           <i className="fas fa-user-friends  nav-icon" />
