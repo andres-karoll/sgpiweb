@@ -121,12 +121,8 @@ function Proyectos(){
                           <th style={{ width: '5%' }} className="text-center">
                             Estado
                           </th>
-                          <th style={{ width: '5%' }} className="text-center">
-                            Visibilidad
-                          </th>
-                          <th style={{width: '10%'}}>
-                            Area de conocimiento
-                          </th>
+                   
+                          
                         </tr>
                       </thead>
                       <tbody>
@@ -157,13 +153,8 @@ function Proyectos(){
                           <td className="project-state">
                             <span className="badge badge-success">{proye.estado}</span>
                           </td>
-                          
-                          <td className="project-state">
-                            <span className="badge badge-success">{proye.visibilidad}</span>
-                          </td>
-                          <td className="project_progress">         
-                          <span className="badge badge-success">{proye.nombre}</span>  
-                          </td>
+                      
+                  
 
                           <td className="project-actions text-right">                       
                           <NavLink className="btn btn-warning" to={"/ProductosProyectoVisible/" + proye.id} >Productos</NavLink>
